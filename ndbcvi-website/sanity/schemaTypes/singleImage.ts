@@ -1,6 +1,8 @@
-const infoSection = {
-    name: 'infoSection',
-    title: 'Info Sections',
+import { title } from "process";
+
+const singleImage = {
+    name: 'singleImage',
+    title: 'Single Image',
     type: 'document',
     fields: [
         {
@@ -13,10 +15,6 @@ const infoSection = {
             title: 'Slug',
             type: 'slug',
             options: { source: 'title' }
-        },
-        {
-            name: 'displayOrder',
-            type: 'number',
         },
         {
             name: 'image',
@@ -32,18 +30,11 @@ const infoSection = {
             ]
         },
         {
-            name: 'content',
-            title: 'Content',
-            type: 'array',
-            of: [{ type: 'block' }]
-        },
-        {
-            name: 'subInfoSections',
-            title: 'Sub Info Sections',
-            type: 'array',
-            of: [{ type: 'infoSection' }]
+            name: 'caption',
+            title: 'Caption',
+            type: 'string'
         }
     ]
-};
+}
 
-export default infoSection;
+export default singleImage;

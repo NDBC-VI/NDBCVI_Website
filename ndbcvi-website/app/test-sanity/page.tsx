@@ -1,18 +1,22 @@
-import { sanityFetch } from "@/sanity/lib/fetch";
-import { infoSectionsQuery } from "@/sanity/lib/queries";
-import { SanityDocument } from "next-sanity";
-import InfoSections from "../components/InfoSections";
+import { sanityFetch } from '@/sanity/lib/fetch';
+import { infoSectionsQuery, ministriesPopupImagesQuery } from '@/sanity/lib/queries';
+import { SanityDocument } from 'sanity';
 
+import { MinistryModal } from "../views/MinistryModal";
+import singleImage from '@/sanity/schemaTypes/singleImage';
+
+export const revalidate = 60;
 
 export default async function Home() {
 
-  const infoSections = await sanityFetch<SanityDocument[]>({ query: infoSectionsQuery })
+  const ministries = await sanityFetch<SanityDocument[]>({ query: infoSectionsQuery });
+  const ministriesImages = await sanityFetch<SanityDocument[]>({ query: ministriesPopupImagesQuery });
+
   return (
-    <div>
-      <h1 className="text-5xl text-center font-semibold" >Hello Wooooorld!!!!!</h1>
-      <main>
-        <InfoSections infoSections={infoSections} />
-      </main>
+    <div className="h-full w-full pt-10 pb-20 flex flex-col items-center bg-black">
+
+      <MinistryModal images={ministriesImages} infoSections={ministries} />
+      {/* <iframe src="https://calendar.google.com/calendar/embed?src=ndbcvidev%40gmail.com&ctz=Africa%2FLagos" style={{border:"0", width:"80vw", height:"60vh"}}></iframe> */}
     
     </div>
 

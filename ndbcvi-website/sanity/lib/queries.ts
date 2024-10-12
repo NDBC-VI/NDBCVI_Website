@@ -1,7 +1,9 @@
 import { groq } from "next-sanity";
 
 // Get all Info Sections
-export const infoSectionsQuery = groq`*[_type == "infoSection"]`;
+export const infoSectionsQuery = groq`*[_type == "infoSection"] | order(displayOrder asc)`;
+
+export const ministriesPopupImagesQuery = groq`*[_type == "singleImage" && slug.current match "ministries-popup"]`
 
 // // Get a single post by its slug
 // export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{ 
