@@ -15,10 +15,6 @@ const infoSection = {
             options: { source: 'title' }
         },
         {
-            name: 'displayOrder',
-            type: 'number',
-        },
-        {
             name: 'image',
             title: 'Image',
             type: 'image',
