@@ -21,11 +21,12 @@ export const InfoModal = (props: InfoPopupProps) => {
     // Wait for the DOM to be ready before teleporting modal to the top of the DOM
     const [domReady, setDomReady] = useState(false)
     useEffect(() => {
-        setDomReady(true)
+        setDomReady(true);
+        
     }, []);
 
     // Element where the modal will be teleported to
-    const modalTeleport = document.getElementById('portal') as HTMLElement;
+    const modalTeleport = (typeof document !== 'undefined' && document.getElementById('portal')) as HTMLElement;
 
 
     // Helper function for scrolling to sections of the modal without changing the URL
@@ -43,7 +44,6 @@ export const InfoModal = (props: InfoPopupProps) => {
     };
 
     return (
-
         <>
             <button type='button' className='h-10 px-4 font-medium text-sm rounded-md text-white bg-gray-900' onClick={() => setOpen(true)}>
                 Open Modal
@@ -52,8 +52,8 @@ export const InfoModal = (props: InfoPopupProps) => {
             {
                 domReady &&
                 createPortal(
-                    <div id='backdrop' onClick={() => setOpen(false)} className={` flex flex-col items-center overflow-scroll transition-colors overflow-scroll ${open ? "fixed inset-0 bg-black/50" : ""}`}>
-                        <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`absolute top-0 left-1/12 w-11/12 pb-2 rounded-3xl bg-white ${open ? "" : 'hidden'}`}>
+                    <div id='backdrop' onClick={() => setOpen(false)} className={`flex flex-col items-center overflow-scroll overscroll-contain transition-colors overflow-scroll ${open ? "fixed inset-0 bg-black/70" : ""}`}>
+                        <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`absolute my-5 left-1/12 w-11/12 h-11/12 pb-2 rounded-3xl bg-white ${open ? "" : 'hidden'}`}>
                             <div className="h-[60vh] px-9 py-10 rounded-t-3xl">
                                 <div className="h-[15%] w-full flex flex-row justify-between items-center">
                                     <h1 className="text-4xl font-bold">{title}</h1>

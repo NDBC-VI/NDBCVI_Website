@@ -4,7 +4,6 @@ import { allInfoPopupsQuery } from '@/sanity/lib/queries';
 import { InfoModal } from "../views/InfoModal";
 import { InfoPopupProps } from '../types';
 import { SanityDocument } from 'next-sanity';
-import infoPopup from '@/sanity/schemaTypes/infoPopup';
 
 export const revalidate = 60;
 
