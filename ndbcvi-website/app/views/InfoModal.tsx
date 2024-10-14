@@ -7,7 +7,6 @@ import Image from 'next/image';
 import { InfoSection } from '../components/InfoSection';
 import { urlFor } from '@/sanity/lib/image';
 import { InfoSectionType, InfoPopupProps } from '../types';
-import { create } from 'domain';
 
 
 
@@ -16,15 +15,20 @@ export const InfoModal = (props: InfoPopupProps) => {
 
     const {introduction, title, slug, headerImages, infoSections } = props;
 
+    // State controlling if the modal is open or not
     const [open, setOpen] = useState(false);
 
     // Wait for the DOM to be ready before teleporting modal to the top of the DOM
     const [domReady, setDomReady] = useState(false)
     useEffect(() => {
         setDomReady(true)
-    }, [])
+    }, []);
+
+    // Element where the modal will be teleported to
+    const modalTeleport = document.getElementById('portal') as HTMLElement;
 
 
+    // Helper function for scrolling to sections of the modal without changing the URL
     const scrollIntoTheView = (e: React.MouseEvent, id: string) => {
         e.preventDefault();
         const element = document.getElementById(id) as HTMLElement;
@@ -105,7 +109,7 @@ export const InfoModal = (props: InfoPopupProps) => {
                             </div> 
                         </div>
                     </div>,
-                    document.getElementById('portal')
+                    modalTeleport
                 )
             }
         </>
