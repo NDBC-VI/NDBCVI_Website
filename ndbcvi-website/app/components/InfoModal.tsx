@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import Image from 'next/image'; 
-import { InfoSection } from '../components/InfoSection';
+import { getImageProps } from 'next/image';
+import { InfoSection } from './InfoSection';
 import { urlFor } from '@/sanity/lib/image';
 import { InfoSectionType, InfoPopupProps } from '../types';
 
@@ -13,7 +14,7 @@ import { InfoSectionType, InfoPopupProps } from '../types';
 
 export const InfoModal = (props: InfoPopupProps) => {
 
-    const {introduction, title, slug, headerImages, infoSections } = props;
+    const {introduction, title, slug, thumbnailImage, thumbnailCaption, headerImages, infoSections } = props;
 
     // State controlling if the modal is open or not
     const [open, setOpen] = useState(false);
@@ -28,6 +29,16 @@ export const InfoModal = (props: InfoPopupProps) => {
     // Element where the modal will be teleported to
     const modalTeleport = (typeof document !== 'undefined' && document.getElementById('portal')) as HTMLElement;
 
+    const getBackgroundImage = (srcSet = '') => {
+        const imageSet = srcSet
+            .split(', ')
+            .map((str) => {
+                const [url, dpi] = str.split(' ')
+                return `url("${url}") ${dpi}`
+            })
+            .join(', ');
+        return `image-set(${imageSet})`
+    }
 
     // Helper function for scrolling to sections of the modal without changing the URL
     const scrollIntoTheView = (e: React.MouseEvent, id: string) => {
@@ -45,15 +56,27 @@ export const InfoModal = (props: InfoPopupProps) => {
 
     return (
         <>
-            <button type='button' className='h-10 px-4 font-medium text-sm rounded-md text-white bg-gray-900' onClick={() => setOpen(true)}>
-                Open Modal
-            </button>
-
+            <div className='group relative h-full ap-2 cursor-pointer px-6 pt-12 flex flex-col' onClick={() => setOpen(true)}>
+                <Image 
+                    src={urlFor(thumbnailImage.asset._ref).url()}
+                    alt="placeholder image"
+                    width={450}
+                    height={50}
+                    className='absolute inset-0 h-full w-full object-cover object-center brightness-50'
+                />
+                <div className='z-10'>
+                    <p className='text-white text-3xl font-semibold my-5 mx-3'>{title}</p>
+                    <p className='text-white my-5 mx-3'>{thumbnailCaption}</p>
+                </div>
+                <button className='p-2 mx-3 my-6 w-2/5 bg-white text-black rounded-full transition-all opacity-0 group-hover:opacity-100 duration:750 z-10'>
+                    Learn more
+                </button>
+            </div>
             {
                 domReady &&
                 createPortal(
-                    <div id='backdrop' onClick={() => setOpen(false)} className={`flex flex-col items-center overflow-scroll overscroll-contain transition-colors overflow-scroll ${open ? "fixed inset-0 bg-black/70" : ""}`}>
-                        <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`absolute my-5 left-1/12 w-11/12 h-11/12 pb-2 rounded-3xl bg-white ${open ? "" : 'hidden'}`}>
+                    <div id='backdrop' onClick={() => setOpen(false)} className={`flex flex-col items-center z-20 overflow-scroll overscroll-contain transition-colors overflow-scroll ${open ? "fixed inset-0 bg-black/70" : ""}`}>
+                        <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`absolute my-5 left-1/12 w-11/12 h-11/12 pb-2 rounded-3xl bg-white transition-all ${open ? "scale-100 opacity-100" : 'scale-125 opacity-0'}`}>
                             <div className="h-[60vh] px-9 py-10 rounded-t-3xl">
                                 <div className="h-[15%] w-full flex flex-row justify-between items-center">
                                     <h1 className="text-4xl font-bold">{title}</h1>
@@ -81,7 +104,7 @@ export const InfoModal = (props: InfoPopupProps) => {
                             </div>
                             <div className="relative grid grid-cols-3 grid-rows-1">
                                 <div className="sticky top-0 h-96 p-4 grid">
-                                    <h3 className="font-medium text-lg">On this page</h3>
+                                    <h3 className="font-medium font-semibold text-lg">On this page</h3>
                                     {
                                         introduction?.slug?.current !== undefined &&
                                         <Link key={0} className="text-thin text-sm" onClick={(e) => scrollIntoTheView(e, introduction.slug.current)} href={""}>{introduction.title}</Link>

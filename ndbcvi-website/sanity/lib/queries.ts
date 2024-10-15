@@ -3,10 +3,12 @@ import { groq } from "next-sanity";
 // Get all Info Sections
 export const allInfoSectionsQuery = groq`*[_type == "infoSection"]`;
 
-export const allInfoPopupsQuery = groq`*[_type == "infoPopup"]{
+export const allInfoPopupsQuery = groq`*[_type == "infoPopup"] | order(displayOrder) {
         title,
         slug,
         introduction,
+        thumbnailImage,
+        thumbnailCaption,
         headerImages,
         infoSections[]->
     }`;

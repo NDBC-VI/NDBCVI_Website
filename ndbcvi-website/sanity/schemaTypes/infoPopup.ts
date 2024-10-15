@@ -15,6 +15,26 @@ const infoPopup = {
             options: { source: 'title' }
         },
         {
+            name: 'displayOrder',
+            type: 'number'
+        },
+        {
+            name: 'thumbnailImage',
+            type: 'image',
+            options: { hotspot: true },
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Alt',
+                    type: 'string'
+                }
+            ]
+        },
+        {
+            name: 'thumbnailCaption',
+            type: 'string'
+        },
+        {
             name: 'headerImages',
             title: 'Header Images',
             type: 'array',

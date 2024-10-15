@@ -22,6 +22,8 @@ type InfoPopupProps = {
     slug: { 
         current: string,
     },
+    thumbnailImage: SanityImageObject,
+    thumbnailCaption: string,
     headerImages: SanityImageObject[],
     infoSections: InfoSectionType[],
 }
