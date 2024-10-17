@@ -1,44 +1,24 @@
 'use client';
 
-import { useState, useEffect } from 'react'
 import Link from 'next/link';
 import Image from 'next/image'; 
-import { InfoSection } from './InfoSection';
+import { InfoSection } from '../../components/InfoSection';
 import { urlFor } from '@/sanity/lib/image';
-import { InfoSectionType, InfoModalProps } from '../types';
-import { useModalContext } from '../context/modalContext';
+import { InfoSectionType, InfoModalProps } from '../../types';
+import { useModalContext } from '../../context/modalContext';
 
 
 
 
 export const InfoModal = (props: InfoModalProps) => {
-    const { handleClose } = useModalContext();
     const {introduction, title, headerImages, infoSections } = props;
-
-    // Helper function for scrolling to sections of the modal without changing the URL
-    const scrollIntoTheView = (e: React.MouseEvent, id: string) => {
-        e.preventDefault();
-        const element = document.getElementById(id) as HTMLElement;
-        if (!element) {
-            return;
-        }
-        element.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "nearest",
-        });
-    };
+    const { scrollIntoTheView } = useModalContext();
 
     return (
         <>
             <div className="h-[60vh] px-9 py-10 rounded-t-3xl">
                 <div className="h-[15%] w-full flex flex-row justify-between items-center">
                     <h1 className="text-4xl font-bold">{title}</h1>
-                    <button onClick={handleClose} className='w-8 h-8 rounded-full bg-slate-100'>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="grey" className="size-6 mx-auto">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                        </svg>
-                    </button>
                 </div>
                 <div className="h-[80%] my-5 w-full flex flex-row justify-around items-end">
                     <Image 

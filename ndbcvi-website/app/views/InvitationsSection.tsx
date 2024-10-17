@@ -4,7 +4,7 @@ import { SanityDocument } from 'next-sanity';
 import React from 'react'
 import { InfoModalProps } from '../types';
 import ModalComponent from '@/app/components/ModalComponent';
-import { InfoModal } from '../components/InfoModal';
+import { InfoModal } from './modals/InfoModal';
 import { GroupsThumbnails } from '../components/GroupsThumbnails';
 
 interface InvitationsSectionProps{

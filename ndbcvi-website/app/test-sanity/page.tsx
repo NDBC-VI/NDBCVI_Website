@@ -3,7 +3,7 @@ import { allInfoPopupsQuery, bannerQuery } from '@/sanity/lib/queries';
 
 import { SanityDocument } from 'next-sanity';
 import { InvitationsSection } from '../views/InvitationsSection';
-import { Banner } from '../views/Banner';
+import { Banner } from '../components/Banner';
 
 export const revalidate = 60;
 
