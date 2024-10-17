@@ -16,7 +16,7 @@ type InfoSectionRef = {
     _key: string
 }
 
-type InfoPopupProps = {
+type InfoModalProps = {
     introduction: InfoSectionType,
     title: string,
     slug: { 
@@ -28,4 +28,12 @@ type InfoPopupProps = {
     infoSections: InfoSectionType[],
 }
 
-export type { InfoSectionType, InfoPopupProps, InfoSectionRef }
+type ModalContextType = {
+    isOpen: boolean,
+    handleOpen: () => void,
+    handleClose: () => void,
+    modalContent: JSX.Element
+}
+
+
+export type { InfoSectionType, InfoModalProps, InfoSectionRef, ModalContextType }
