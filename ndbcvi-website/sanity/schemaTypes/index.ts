@@ -1,8 +1,8 @@
 import { type SchemaTypeDefinition } from 'sanity'
 import infoSection from './infoSection'
-import singleImage from './singleImage'
 import infoPopup from './infoPopup'
+import banner from './banner'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [infoSection, singleImage, infoPopup],
+  types: [infoSection, infoPopup, banner],
 }

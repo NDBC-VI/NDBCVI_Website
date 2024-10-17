@@ -21,7 +21,7 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element, chi
 }
 
 
-const Modal = ({children}: {children: JSX.Element | JSX.Element[]}) => {
+const Base = ({children}: {children: JSX.Element | JSX.Element[]}) => {
     // State for managing if the modal is visible or not
     const { isOpen, handleClose, modalContent } = useModalContext();
 
@@ -67,6 +67,6 @@ const ModalActivator = ({children}: {children: JSX.Element | JSX.Element[]}) => 
 
 export default {
     ModalProvider,
-    Modal,
+    Base,
     Activator: ModalActivator,
 };

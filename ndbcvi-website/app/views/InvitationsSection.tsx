@@ -34,11 +34,11 @@ export const InvitationsSection: React.FC<InvitationsSectionProps> = (props: Inv
                         return (
                         <div key={infoPopup.slug.current} className='grow h-[50vh]'>
                             <ModalComponent.ModalProvider modalContent={<InfoModal {...infoModalProps}/>}>
-                                <ModalComponent.Modal>
+                                <ModalComponent.Base>
                                     <ModalComponent.Activator>
                                         <GroupsThumbnails {...infoModalProps} />
                                     </ModalComponent.Activator>
-                                </ModalComponent.Modal>
+                                </ModalComponent.Base>
                             </ModalComponent.ModalProvider>
                         </div>
                         );
