@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PortableText } from '@portabletext/react';
-import { TabbedComponent } from './TabbedComponent';
+import { TabbedSection } from './TabbedSection';
 import { InfoSectionType } from '../types';
 
 export const InfoSection = ({infoSection}: {infoSection: InfoSectionType}) => {
@@ -16,7 +16,7 @@ export const InfoSection = ({infoSection}: {infoSection: InfoSectionType}) => {
             }
 
             { infoSection?.subInfoSections?.length > 1 &&
-                <TabbedComponent subSections={infoSection.subInfoSections} />
+                <TabbedSection subSections={infoSection.subInfoSections} />
             }
 
         </main>

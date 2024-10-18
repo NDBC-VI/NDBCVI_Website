@@ -2,7 +2,9 @@ import { type SchemaTypeDefinition } from 'sanity'
 import infoSection from './infoSection'
 import infoPopup from './infoPopup'
 import banner from './banner'
+import expandablePanel from './expandablePanel'
+import faqSection from './faqSection'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [infoSection, infoPopup, banner],
+  types: [infoSection, infoPopup, banner, expandablePanel, faqSection],
 }

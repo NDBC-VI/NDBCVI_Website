@@ -11,6 +11,7 @@ export default async function Home() {
   
   const allInfoPopups: SanityDocument[] = await sanityFetch<SanityDocument[]>({ query: allInfoPopupsQuery });
   const banner: SanityDocument = await sanityFetch<SanityDocument>({ query: bannerQuery });
+  console.log(allInfoPopups);
   
   return (
     <div className="w-full h-[300vh] pt-10 pb-20 flex flex-col items-center">

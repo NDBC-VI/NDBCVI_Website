@@ -16,7 +16,7 @@ type InfoSectionRef = {
     _key: string
 }
 
-type InfoModalProps = {
+type BasicModalProps = {
     introduction: InfoSectionType,
     title: string,
     slug: { 
@@ -37,4 +37,4 @@ type ModalContextType = {
 }
 
 
-export type { InfoSectionType, InfoModalProps, InfoSectionRef, ModalContextType }
+export type { InfoSectionType, BasicModalProps, InfoSectionRef, ModalContextType }

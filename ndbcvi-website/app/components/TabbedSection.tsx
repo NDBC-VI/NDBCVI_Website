@@ -4,7 +4,7 @@ import { PortableText } from 'next-sanity'
 import { useState } from 'react';
 import { InfoSectionType } from '../types';
 
-export const TabbedComponent = ({subSections}: {subSections: InfoSectionType[]}) => {
+export const TabbedSection = ({subSections}: {subSections: InfoSectionType[]}) => {
 
     const [selectedTab, setSelectedTab] = useState(0);
 
