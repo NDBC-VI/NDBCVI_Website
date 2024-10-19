@@ -10,13 +10,32 @@ type InfoSectionType = {
     subInfoSections: InfoSectionType[]
 }
 
-type InfoSectionRef = {
-    _ref: string,
-    _type: string,
-    _key: string
+type FaqSectionType = {
+    slug: {
+        current: string,
+    },
+    title: string,
+    faqs: FaqType[],
 }
 
-type BasicModalProps = {
+type FaqModalPropsType = {
+    title: string,
+    slug: { 
+        current: string,
+    },
+    faqSections: FaqSectionType[],
+    faqInfoSections: InfoSectionType[]
+}
+
+type FaqType = {
+    title: string,
+    slug: { 
+        current: string,
+    },
+    content: PortableTextBlock[]
+}
+
+type BasicModalPropsType = {
     introduction: InfoSectionType,
     title: string,
     slug: { 
@@ -37,4 +56,4 @@ type ModalContextType = {
 }
 
 
-export type { InfoSectionType, BasicModalProps, InfoSectionRef, ModalContextType }
+export type { InfoSectionType, FaqSectionType, BasicModalPropsType, FaqModalPropsType, FaqType, ModalContextType }

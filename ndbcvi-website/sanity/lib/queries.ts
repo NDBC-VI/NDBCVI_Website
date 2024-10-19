@@ -1,8 +1,5 @@
 import { groq } from "next-sanity";
 
-// Get all Info Sections
-export const allInfoSectionsQuery = groq`*[_type == "infoSection"]`;
-
 export const allInfoPopupsQuery = groq`*[_type == "infoPopup"] | order(displayOrder) {
         title,
         slug,
@@ -14,7 +11,18 @@ export const allInfoPopupsQuery = groq`*[_type == "infoPopup"] | order(displayOr
     }`;
 
 
-export const bannerQuery = groq`*[_type == "banner"]`;
+export const bannerQuery = groq`*[_type == "banner"][0]`;
+
+export const faqPopupQuery = groq`*[_type == "faqPopup"][0] {
+    title,
+    slug,
+    faqSection[]->{
+        title,
+        slug,
+        faqs[]->
+    },
+    faqInfoSections[]->
+}`
 
 
 

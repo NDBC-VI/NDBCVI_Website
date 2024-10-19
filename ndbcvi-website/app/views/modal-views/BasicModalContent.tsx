@@ -4,14 +4,15 @@ import Link from 'next/link';
 import Image from 'next/image'; 
 import { InfoSection } from '../../components/InfoSection';
 import { urlFor } from '@/sanity/lib/image';
-import { InfoSectionType, BasicModalProps } from '../../types';
+import { InfoSectionType, BasicModalPropsType } from '../../types';
 import { useModalContext } from '../../context/modalContext';
 
 
 
 
-export const BasicModal = (props: BasicModalProps) => {
+export const BasicModalContent = (props: BasicModalPropsType) => {
     const {introduction, title, headerImages, infoSections } = props;
+    
     const { scrollIntoTheView } = useModalContext();
 
     return (

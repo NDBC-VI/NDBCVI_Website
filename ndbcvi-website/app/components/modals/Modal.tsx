@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { ModalContext, useModalContext } from "../context/modalContext";
+import { ModalContext, useModalContext } from "@/app/context/modalContext";
 import { createPortal } from "react-dom";
 
 
@@ -26,6 +26,21 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element, chi
             inline: "nearest",
         });
     };
+
+    // Prevent scrolling on the main page when the modal is open
+    useEffect(() => {
+        if (open) {
+        document.body.style.overflow = 'hidden';
+        } else {
+        document.body.style.overflow = '';
+        }
+
+        // Cleanup on component unmount
+        return () => {
+        document.body.style.overflow = '';
+        };
+    }, [open]);
+
 
     return (
         <ModalContext.Provider value={{isOpen: open, handleOpen, handleClose, modalContent, scrollIntoTheView }}>
@@ -58,7 +73,7 @@ const Base = ({children}: {children: JSX.Element | JSX.Element[]}) => {
                 createPortal(
                     <div id='backdrop' onClick={handleClose} className={`flex flex-col items-center z-20 overscroll-contain transition-colors overflow-scroll ${isOpen ? "fixed inset-0 bg-black/70" : ""}`}>
                         <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`absolute my-5 left-1/12 w-11/12 min-h-[60vh] pb-2 rounded-3xl bg-white transition-all ${isOpen ? "scale-100 opacity-100" : 'scale-125 opacity-0'}`}>
-                            <button onClick={handleClose} className='absolute top-5 right-6 w-8 h-8 rounded-full bg-slate-100'>
+                            <button onClick={handleClose} className='absolute top-5 right-6 w-8 h-8 rounded-full bg-slate-100 z-30'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="grey" className="size-6 mx-auto">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                                 </svg>
@@ -77,7 +92,7 @@ const ModalActivator = ({children}: {children: JSX.Element | JSX.Element[]}) => 
     const {handleOpen} = useModalContext();
 
     return(
-        <div className='group relative size-full cursor-pointer flex flex-col' onClick={handleOpen}>
+        <div className='group relative cursor-pointer flex flex-col' onClick={handleOpen}>
             {children}
         </div>
     );

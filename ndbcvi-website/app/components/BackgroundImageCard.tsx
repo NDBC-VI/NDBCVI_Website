@@ -2,9 +2,9 @@ import React from 'react'
 
 import Image from 'next/image'
 import { urlFor } from '@/sanity/lib/image'
-import { BasicModalProps } from '../types'
+import { BasicModalPropsType } from '../types'
 
-export const BackgroundImageCard = (props: BasicModalProps) => {
+export const BackgroundImageCard = (props: BasicModalPropsType) => {
     const { thumbnailImage, thumbnailCaption, title } = props;
     
     return (
