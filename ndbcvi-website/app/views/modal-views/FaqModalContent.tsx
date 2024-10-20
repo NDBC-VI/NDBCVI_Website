@@ -1,3 +1,5 @@
+'use client';
+
 import { InfoSection } from '@/app/components/InfoSection';
 import { TabbedFaqSection } from '@/app/components/TabbedFaqSection';
 import { useModalContext } from '@/app/context/modalContext';
@@ -8,7 +10,7 @@ import React from 'react'
 export const FaqModalContent = (props: FaqModalPropsType) => {
   const { faqSections, faqInfoSections } = props;
 
-  const { scrollIntoTheView, handleClose } = useModalContext();
+  const { scrollIntoTheView } = useModalContext();
 
   return (
       <>
@@ -29,7 +31,7 @@ export const FaqModalContent = (props: FaqModalPropsType) => {
                 </div>
                 {
                   faqInfoSections?.map((section: InfoSectionType) => (
-                      <div key={section.slug.current} onClick={handleClose}>
+                      <div key={section.slug.current}>
                         <InfoSection infoSection={section} />
                       </div>
                   ))

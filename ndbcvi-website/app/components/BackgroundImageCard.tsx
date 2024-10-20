@@ -8,7 +8,7 @@ export const BackgroundImageCard = (props: BasicModalPropsType) => {
     const { thumbnailImage, thumbnailCaption, title } = props;
     
     return (
-        <>
+        <div className='group h-full relative cursor-pointer flex flex-col overflow-hidden'>
             <Image 
                 src={urlFor(thumbnailImage.asset._ref).url()}
                 alt="placeholder image"
@@ -23,6 +23,6 @@ export const BackgroundImageCard = (props: BasicModalPropsType) => {
                     Learn more
                 </button>
             </div>
-        </>
+        </div>
     )
 }
