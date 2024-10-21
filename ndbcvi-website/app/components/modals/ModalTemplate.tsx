@@ -69,10 +69,10 @@ const Base = ({children}: {children: JSX.Element | JSX.Element[]}) => {
             {/* Activator */}
             {children}
             {
-                domReady && 
+                domReady && isOpen && 
                 createPortal(
-                    <div id='backdrop' onClick={handleClose} className={`flex flex-col items-center z-20 overscroll-contain transition-colors overflow-scroll ${isOpen ? "fixed inset-0 bg-black/70" : ""}`}>
-                        <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`absolute my-5 left-1/12 w-11/12 min-h-[60vh] pb-2 rounded-3xl bg-white transition-all ${isOpen ? "scale-100 opacity-100" : 'scale-125 opacity-0'}`}>
+                    <div id='backdrop' onClick={handleClose} className={`flex flex-col items-center z-20 transition-colors overflow-y-scroll m-0 ${isOpen ? "fixed inset-0 bg-black/70" : ""}`}>
+                        <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`my-5 w-11/12 pb-2 rounded-3xl bg-white transition-all ${isOpen ? "scale-100 opacity-100" : 'scale-125 opacity-0'}`}>
                             <button onClick={handleClose} className='absolute top-5 right-6 w-8 h-8 rounded-full bg-slate-100 z-30'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="grey" className="size-6 mx-auto">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />

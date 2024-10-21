@@ -6,38 +6,21 @@ import { BasicModalPropsType } from '../types';
 import { BackgroundImageCard } from '../components/BackgroundImageCard';
 import { Modal } from '../components/modals/Modal';
 import { BasicModalContent } from './modal-views/BasicModalContent';
+import { EventsModalContent } from './modal-views/EventsModalContent';
 
 
 interface InvitationsSectionProps{
     popups: SanityDocument[],
-    // test: FaqModalPropsType
 }
 
 export const InvitationsSection: React.FC<InvitationsSectionProps> = (props: InvitationsSectionProps) => {
     const { popups } = props;
 
-    // To delete
-    // const faqModalTest: FaqModalPropsType = {
-    //     title: test.title,
-    //     slug: { 
-    //         current: test.slug.current,
-    //     },
-    //     faqSections: test.faqSections,
-    //     faqInfoSections: test.faqInfoSections
-    //   }
-    //   ^ To delete ^
-
     return (
         <div className="flex flex-col justify-center items-center py-10">
-            <h3 className='text-4xl font-bold m-2'>Be a Blessing</h3>
+            <h3 className='text-4xl font-bold my-2'>Be a Blessing</h3>
             <p className='text-sm mt-2 mb-8'>Join us and experience the love of God at NDBC</p>
-
-{/* To delete 
-      <Modal modalContentProps={<FaqModalContent {...faqModalTest}/>}>
-        <div className='bg-black w-[50px] h-[30px]'>Click me!</div>
-      </Modal>
-      */}
-            <div className='h-[68vh] bg-pink-200 flex flex-row items-center'>
+            <div className='h-[68vh] flex flex-row items-center'>
                 {
                     popups.map((infoPopup: SanityDocument) => {
                         const basicModalProps: BasicModalPropsType = {
@@ -58,7 +41,11 @@ export const InvitationsSection: React.FC<InvitationsSectionProps> = (props: Inv
                         );
                     })
                 }
-                
+                {/* <div className='max-w-[30vw] bg-red-500'>
+                    <Modal key="test" modalContentProps={<EventsModalContent />}>
+                        <div>Click me!</div>
+                    </Modal>
+                </div> */}
             </div>
         </div>
 
