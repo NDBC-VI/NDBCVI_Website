@@ -5,7 +5,7 @@ const LeadingWithLove = () => {
     <section className="pl-[60px] pr-[83px] py-[120px]  ">
       <div className="max-w-[1512px] mx-auto flex gap-[236px]">
         <div className="w-1/2">
-          <h1 className="text-[60px] font-[600] leading-[72.61px]">
+          <h1 className="text-[55px] font-[600] leading-[72.61px]">
             Leading with love
           </h1>
           <p className="text-[20px] mt-6">

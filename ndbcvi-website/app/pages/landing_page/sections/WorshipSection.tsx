@@ -2,7 +2,7 @@ import Image from "next/image";
 import mapImg from "../../../assets/pngs/map-img.png";
 const WorshipSection = () => {
   return (
-    <section className="px-[60px] pt-[180px]">
+    <section className="px-[60px] pt-[120px]">
       <div className="max-w-[1392px] mx-auto flex gap-3">
         <div className="w-1/2 relative">
           <div className="bg-[rgba(0,0,0,0.4)] absolute top-0 left-0 w-full h-full rounded-[10px]"></div>

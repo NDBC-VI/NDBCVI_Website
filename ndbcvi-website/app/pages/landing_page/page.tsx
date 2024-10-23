@@ -4,6 +4,7 @@ import CommunityLife from "./sections/CommunityLife";
 import WorshipSection from "./sections/WorshipSection";
 import BeABlessing from "./sections/BeABlessing";
 import Testimonies from "./sections/Testimonies";
+import MoreAboutNewDawn from "./sections/MoreAboutNewDawn";
 
 const LandingPage = () => {
   return (
@@ -14,6 +15,7 @@ const LandingPage = () => {
       <WorshipSection />
       <BeABlessing />
       <Testimonies />
+      <MoreAboutNewDawn />
     </>
   );
 };
