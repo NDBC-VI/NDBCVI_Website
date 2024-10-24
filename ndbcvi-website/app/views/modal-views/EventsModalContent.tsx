@@ -1,13 +1,11 @@
 import { Calendar } from '@/app/components/Calendar';
 import { Carousel } from '@/app/components/Carousel';
-import { useModalContext } from '@/app/context/modalContext';
 import { SanityDocument } from 'next-sanity';
-import Link from 'next/link';
 import React from 'react'
+import { ScrollLinks } from './ScrollLinks';
 
 
 export const EventsModalContent = ({events}: {events: SanityDocument[]}) => {
-  const { scrollIntoTheView } = useModalContext();
 
   return (
     <div>
@@ -21,11 +19,7 @@ export const EventsModalContent = ({events}: {events: SanityDocument[]}) => {
                 </div>
             </div>
             <div className="relative grid grid-cols-3 grid-rows-1">
-                <div className="sticky top-0 h-96 p-4 grid">
-                    <h3 className="font-medium font-semibold text-lg">On this page</h3>
-                      <Link key={0} className="text-thin text-sm" onClick={(e) => scrollIntoTheView(e, "events")} href={""}>Upcoming Events</Link>
-                      <Link key={3} className="text-thin text-sm" onClick={(e) => scrollIntoTheView(e, "calendar")} href={""}>Calendar</Link>
-                </div>
+                <ScrollLinks sections={[{title: "Upcoming Events", slug: "events"}, {title: "Calendar", slug: "calendar"}]}/>
                 <div id="events" className="col-span-2 h-auto p-6 relative self-end">
                     <Carousel items={events} />
                 </div> 
