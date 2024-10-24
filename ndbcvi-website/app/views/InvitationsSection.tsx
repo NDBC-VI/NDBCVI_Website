@@ -36,17 +36,14 @@ export const InvitationsSection: React.FC<InvitationsSectionProps> = (props: Inv
                             infoSections: infoPopup?.infoSections
                         }
                         return (
-                        <Modal key={infoPopup.slug.current} modalContentProps={<BasicModalContent {...basicModalProps}/>}>
-                            <BackgroundImageCard {...basicModalProps} />
-                        </Modal>
+                        <Modal 
+                            key={infoPopup.slug.current} 
+                            modalActivator={<BackgroundImageCard {...basicModalProps} />} 
+                            modalContent={<BasicModalContent {...basicModalProps}/>} 
+                        />
                         );
                     })
                 }
-                <div className='max-w-[30vw] bg-red-500'>
-                    <Modal key="test" modalContentProps={<EventsModalContent events={events} />}>
-                        <div>Click me!</div>
-                    </Modal>
-                </div>
             </div>
         </div>
 

@@ -3,12 +3,12 @@ import ModalComponent from './ModalTemplate';
 
 
 
-export const Modal = ({modalContentProps, children}: {modalContentProps: JSX.Element, children: JSX.Element | JSX.Element[]}) => {
+export const Modal = ({modalActivator, modalContent}: {modalActivator: JSX.Element | JSX.Element[], modalContent: JSX.Element}) => {
   return (
-    <ModalComponent.ModalProvider modalContent={modalContentProps}>
+    <ModalComponent.ModalProvider modalContent={modalContent}>
         <ModalComponent.Base>
             <ModalComponent.Activator>
-                {children}
+                {modalActivator}
             </ModalComponent.Activator>
         </ModalComponent.Base>
     </ModalComponent.ModalProvider>
