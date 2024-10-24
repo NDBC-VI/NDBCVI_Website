@@ -2,7 +2,6 @@ import { urlFor } from '@/sanity/lib/image'
 import { PortableText, SanityDocument } from 'next-sanity'
 import Image from 'next/image'
 import React from 'react'
-import { Carousel } from './Carousel'
 import { CountdownComponent } from './CountdownComponent'
 
 type EventPropsType = {
