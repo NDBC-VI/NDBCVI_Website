@@ -1,5 +1,6 @@
 import Image from "next/image";
 import mapImg from "../../../assets/pngs/map-img.png";
+import Link from "next/link";
 const WorshipSection = () => {
   return (
     <section className="px-[60px] pt-[120px]">
@@ -45,9 +46,16 @@ const WorshipSection = () => {
               <h2 className="text-[36px] font-[600] leading-[43.57px] mb-6">
                 Locate our centre in VI, Lagos
               </h2>
-              <p className="text-[#2C2563] font-[500] underline">
-                Open in Google Maps
-              </p>
+
+              <Link
+                href="https://www.google.com/maps/place/New+Dawn+Baptist+Church/@6.4281179,3.4498356,14z/data=!4m6!3m5!1s0x103bf513ff9bd641:0x596799a9108ac311!8m2!3d6.4245334!4d3.4463048!16s%2Fg%2F11cm10mf2g?entry=ttu&g_ep=EgoyMDI0MTAyMC4xIKXMDSoASAFQAw%3D%3D"
+                children={
+                  <p className="text-[#2C2563] font-[500] underline">
+                    Open in Google Maps
+                  </p>
+                }
+                target="_blank"
+              />
             </div>
           </div>
         </div>
