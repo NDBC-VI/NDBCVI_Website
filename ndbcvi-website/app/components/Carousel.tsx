@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Event } from './Event';
 
 export const Carousel = ({items}: {items: SanityDocument[]}) => {
-
+    console.log(items);
     const [displayed, setDisplayed] = useState(0);
 
     const prev = () => {

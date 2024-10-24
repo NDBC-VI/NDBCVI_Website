@@ -11,7 +11,7 @@ export const ExpandableComponent = ({title, content}: {title: string, content: P
                 </h3>
                 <div className='flex w-10 items-center justify-center'>
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" className='rotate-45 group-open:rotate-90 transition-transform'>
-                        <path d="M1.13672 16.8639L9.00066 9.00001M9.00066 9.00001L16.8646 1.13605M9.00066 9.00001L1.13672 1.13605M9.00066 9.00001L16.8646 16.8639" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1.13672 16.8639L9.00066 9.00001M9.00066 9.00001L16.8646 1.13605M9.00066 9.00001L1.13672 1.13605M9.00066 9.00001L16.8646 16.8639" stroke="#121212" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
 
                     {/* <div className='border-8 border-transparent border-l-gray-600 ml-2 group-open:rotate-90 transition-transform origin-left'></div> */}

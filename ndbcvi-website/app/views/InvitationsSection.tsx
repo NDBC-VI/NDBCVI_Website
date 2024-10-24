@@ -4,9 +4,8 @@ import { SanityDocument } from 'next-sanity';
 import React from 'react'
 import { BasicModalPropsType } from '../types';
 import { BackgroundImageCard } from '../components/BackgroundImageCard';
-import { Modal } from '../components/modals/Modal';
 import { BasicModalContent } from './modal-views/BasicModalContent';
-import { EventsModalContent } from './modal-views/EventsModalContent';
+import { ModalTemplate } from '../shared/modals/ModalTemplate';
 
 
 interface InvitationsSectionProps{
@@ -15,7 +14,7 @@ interface InvitationsSectionProps{
 }
 
 export const InvitationsSection: React.FC<InvitationsSectionProps> = (props: InvitationsSectionProps) => {
-    const { popups, events } = props;
+    const { popups } = props;
 
     return (
         <div className="flex flex-col justify-center items-center py-10">
@@ -36,7 +35,7 @@ export const InvitationsSection: React.FC<InvitationsSectionProps> = (props: Inv
                             infoSections: infoPopup?.infoSections
                         }
                         return (
-                        <Modal 
+                        <ModalTemplate 
                             key={infoPopup.slug.current} 
                             modalActivator={<BackgroundImageCard {...basicModalProps} />} 
                             modalContent={<BasicModalContent {...basicModalProps}/>} 

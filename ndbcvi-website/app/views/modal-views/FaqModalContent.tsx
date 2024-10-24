@@ -3,12 +3,13 @@
 import { InfoSection } from '@/app/components/InfoSection';
 import { TabbedFaqSection } from '@/app/components/TabbedFaqSection';
 import { useModalContext } from '@/app/context/modalContext';
-import { FaqModalPropsType, InfoSectionType } from '@/app/types'
+import { InfoSectionType } from '@/app/types'
+import { SanityDocument } from 'next-sanity';
 import Link from 'next/link';
 import React from 'react'
 
-export const FaqModalContent = (props: FaqModalPropsType) => {
-  const { faqSections, faqInfoSections } = props;
+export const FaqModalContent = ({faqs}: {faqs: SanityDocument}) => {
+  const { faqSection, faqInfoSections } = faqs;
 
   const { scrollIntoTheView } = useModalContext();
 
@@ -27,7 +28,7 @@ export const FaqModalContent = (props: FaqModalPropsType) => {
               <div className="col-span-2 h-auto p-6 relative self-end">
                 {/* FAQ Tabbed Section Component */}
                 <div id="faqSection">
-                  <TabbedFaqSection sections={faqSections} />
+                  <TabbedFaqSection sections={faqSection} />
                 </div>
                 {
                   faqInfoSections?.map((section: InfoSectionType) => (

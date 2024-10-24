@@ -6,6 +6,17 @@ import { ModalContext, useModalContext } from "@/app/context/modalContext";
 import { createPortal } from "react-dom";
 
 
+export const ModalTemplate = ({modalActivator, modalContent}: {modalActivator: JSX.Element | JSX.Element[], modalContent: JSX.Element}) => {
+    return (
+        <ModalProvider modalContent={modalContent}>
+            <Base>
+                <ModalActivator>
+                    {modalActivator}
+                </ModalActivator>
+            </Base>
+        </ModalProvider>
+    )
+}
 
 const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JSX.Element, children: JSX.Element | JSX.Element[]}) => {
     const [open, setOpen] = useState(false);
@@ -96,11 +107,4 @@ const ModalActivator = ({children}: {children: JSX.Element | JSX.Element[]}) => 
             {children}
         </div>
     );
-};
-
-
-export default {
-    ModalProvider,
-    Base,
-    Activator: ModalActivator,
 };
