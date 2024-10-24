@@ -24,6 +24,15 @@ export const faqPopupQuery = groq`*[_type == "faqPopup"][0] {
     faqInfoSections[]->
 }`
 
+export const eventsQuery = groq`*[_type == "events"] | order(dateTime) {
+    title,
+    slug,
+    image,
+    content,
+    dateTime,
+    googleMapsLink
+}`
+
 
 
 // // Get a single post by its slug

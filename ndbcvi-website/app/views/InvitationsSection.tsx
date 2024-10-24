@@ -11,10 +11,11 @@ import { EventsModalContent } from './modal-views/EventsModalContent';
 
 interface InvitationsSectionProps{
     popups: SanityDocument[],
+    events: SanityDocument[]
 }
 
 export const InvitationsSection: React.FC<InvitationsSectionProps> = (props: InvitationsSectionProps) => {
-    const { popups } = props;
+    const { popups, events } = props;
 
     return (
         <div className="flex flex-col justify-center items-center py-10">
@@ -41,11 +42,11 @@ export const InvitationsSection: React.FC<InvitationsSectionProps> = (props: Inv
                         );
                     })
                 }
-                {/* <div className='max-w-[30vw] bg-red-500'>
-                    <Modal key="test" modalContentProps={<EventsModalContent />}>
+                <div className='max-w-[30vw] bg-red-500'>
+                    <Modal key="test" modalContentProps={<EventsModalContent events={events} />}>
                         <div>Click me!</div>
                     </Modal>
-                </div> */}
+                </div>
             </div>
         </div>
 
