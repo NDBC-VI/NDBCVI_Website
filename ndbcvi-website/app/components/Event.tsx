@@ -2,6 +2,8 @@ import { urlFor } from '@/sanity/lib/image'
 import { PortableText, SanityDocument } from 'next-sanity'
 import Image from 'next/image'
 import React from 'react'
+import { Carousel } from './Carousel'
+import { CountdownComponent } from './CountdownComponent'
 
 type EventPropsType = {
   event: SanityDocument
@@ -21,6 +23,7 @@ export const Event = (props: EventPropsType) => {
           className='rounded-2xl m-2 object-cover object-fit'
         />
         <div className='h-[350px] w-1/3 flex-grow flex flex-col m-2 p-5 bg-blue-400 '>
+          <CountdownComponent dateTime={event.dateTime} />
           <p>{event.dateTime}</p>
           <a href={event.googleMapsLink} target='_blank'>
             <p className='text-sm'>
