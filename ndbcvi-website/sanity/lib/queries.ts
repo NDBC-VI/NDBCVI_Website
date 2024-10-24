@@ -24,23 +24,12 @@ export const faqPopupQuery = groq`*[_type == "faqPopup"][0] {
     faqInfoSections[]->
 }`
 
-export const eventsQuery = groq`*[_type == "events"] | order(dateTime) {
+export const eventsQuery = groq`*[_type == "events" && startDate > now() && dateTime(startDate) < dateTime(now()) + 30 * 24 * 60 * 60] | order(startDate) {
     title,
     slug,
     image,
     content,
-    dateTime,
+    startDate,
+    location,
     googleMapsLink
 }`
-
-
-
-// // Get a single post by its slug
-// export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{ 
-//     title, description, mainImage, body
-// }`;
-
-// // Get all post slugs
-// export const postPathsQuery = groq`*[_type == "post" && defined(slug.current)][]{
-//     "params": { "slug": slug.current }
-// }`;

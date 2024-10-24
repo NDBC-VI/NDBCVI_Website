@@ -19,7 +19,7 @@ export const Carousel = ({items}: {items: SanityDocument[]}) => {
     }
 
     return (
-        <div className='w-[58vw] bg-pink-300 overflow-hidden'>
+        <div className='w-[58vw] overflow-hidden'>
             <div id="carousel-scrollers" className='w-48'>
                 <button onClick={prev} className={`m-4 bg-purple-200 py-4 px-6 rounded-lg ${displayed === 0 ? 'opacity-60' : ''}`}>{'<'}</button>
                 <button onClick={next} className={`m-4 bg-purple-200 py-4 px-6 rounded-lg ${displayed === items.length - 1 ? 'opacity-60' : ''}`}>{'>'}</button>

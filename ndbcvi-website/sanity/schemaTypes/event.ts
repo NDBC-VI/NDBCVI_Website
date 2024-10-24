@@ -34,9 +34,14 @@ const event = {
             of: [{ type: 'block' }]
         },
         {
-            name: 'dateTime',
+            name: 'startDate',
             title: 'Date',
             type: 'datetime'
+        },
+        {
+            name: 'location',
+            title: 'Location',
+            type: 'string'
         },
         {
             name: 'googleMapsLink',

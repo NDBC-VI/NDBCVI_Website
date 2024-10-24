@@ -8,6 +8,7 @@ import React from 'react'
 
 export const EventsModalContent = ({events}: {events: SanityDocument[]}) => {
   const { scrollIntoTheView } = useModalContext();
+  console.log(events);
 
   return (
     <div>
