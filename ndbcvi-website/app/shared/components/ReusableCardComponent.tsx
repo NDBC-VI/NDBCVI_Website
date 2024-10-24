@@ -20,7 +20,7 @@ const ReusableCardComponent = ({
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
       }}
-      className="h-[500px] relative  w-full pl-[32px] group overflow-hidden"
+      className="h-[500px] relative w-full pl-[32px] group overflow-hidden"
     >
       <div className="bg-[rgba(0,0,0,0.35)] absolute top-0 left-0 w-full h-full "></div>
       <div className="text-white absolute bottom-[-8.5%] group-hover:bottom-[8%] transition-all duration-500 flex flex-col gap-5">

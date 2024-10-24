@@ -3,7 +3,7 @@ import { allInfoPopupsQuery, bannerQuery, eventsQuery } from '@/sanity/lib/queri
 
 import { SanityDocument } from 'next-sanity';
 import { InvitationsSection } from '../views/InvitationsSection';
-import { Banner } from '../shared/components/Banner';
+import { Banner } from '../components/Banner';
 
 export const revalidate = 60;
 

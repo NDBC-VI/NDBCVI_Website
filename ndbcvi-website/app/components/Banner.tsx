@@ -11,7 +11,7 @@ export const Banner = ({bannerProps}: {bannerProps: SanityDocument}) => {
     const [isVisible, setIsVisible] = useState(true);
 
     return (
-        <div className={`w-full h-[7vh] flex flex-row justify-center items-center bg-[#1D1841] z-20 transition ease-in duration-1500 ${isVisible ? "" : "-translate-y-[7vh] hidden"}`}>
+        <div className={`w-full h-[7vh] flex flex-row justify-center items-center bg-[#1D1841] z-20 transition ease-in duration-1500 ${isVisible ? "" : "-translate-y-[7vh]"}`}>
             <p className='text-white text-center mx-5'>{content}</p>
             <Link target="_blank" href={link} className='mx-3 text-white font-semibold text-sm underline'> 
                 {linkText} 
