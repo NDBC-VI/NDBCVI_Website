@@ -1,22 +1,27 @@
 'use client';
 import { SanityDocument } from 'next-sanity';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Event } from './Event';
 
-export const Carousel = ({items}: {items: SanityDocument[]}) => {
-    console.log(items);
-    const [displayed, setDisplayed] = useState(0);
+export const Carousel = ({items, autoSlide = false, autoSlideInterval = 3000}: {items: SanityDocument[], autoSlide: boolean, autoSlideInterval: number}) => {
 
+    const [displayed, setDisplayed] = useState(0);
+    
     const prev = () => {
-        if(displayed > 0){
-            setDisplayed(displayed - 1);
-        }
+        setDisplayed((curr) => (curr === 0 ? items.length - 1 : curr - 1))
     }
     const next = () => {
-        if(displayed < items.length - 1){
-            setDisplayed(displayed + 1);
-        } 
+        setDisplayed((curr) => (curr === items.length - 1 ? 0 : curr + 1));
     }
+
+    useEffect(() => {
+        if(!autoSlide) {
+            return;
+        }
+        const slideInterval = setInterval(next, autoSlideInterval);
+        
+        return() => clearInterval(slideInterval);
+    }, [autoSlide, autoSlideInterval])
 
     return (
         <div className='w-[58vw] overflow-hidden'>

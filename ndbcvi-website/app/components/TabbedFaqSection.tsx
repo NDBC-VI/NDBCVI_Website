@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { FaqSectionType, FaqType } from '../types';
 import { ExpandableComponent } from './ExpandableComponent';
+import TabBtn from '../shared/components/TabBtn';
 
 export const TabbedFaqSection = ({sections}: {sections: FaqSectionType[]}) => {
 
@@ -10,18 +11,19 @@ export const TabbedFaqSection = ({sections}: {sections: FaqSectionType[]}) => {
 
     return (
         <div className='justify-center items-center py-5'>
-            <div className="flex flex-col gap-y-2 w-full">
+            <div className="flex flex-col gap-y-2">
                 {/* Tab buttons */}
-                <div className="bg-grey-100 p-1 rounded-xl flex justify-between items">
+                <div className="w-3/5 self-center p-1 rounded-xl flex justify-between items">
                     {sections.map((section: FaqSectionType, index: number) => (
-                        <button 
-                            key={section.slug.current}
-                            className={`outline-none w-full p-1 m-2 hover:bg-slate-300 rounded-xl text-center focus:text-black
-                                ${selectedTab === index ? "bg-slate-300 font-semibold" : "bg-slate-100"}`}
-                            onClick={() => setSelectedTab(index)}
-                        >
-                            {section.title}
-                        </button>
+                        <TabBtn key={section.slug.current} title={section.title} active={selectedTab === index} clickFn={() => setSelectedTab(index)}/>
+                        // <button 
+                        //     key={section.slug.current}
+                        //     className={`outline-none w-full p-1 m-2 hover:bg-slate-300 rounded-xl text-center focus:text-black
+                        //         ${selectedTab === index ? "bg-slate-300 font-semibold" : "bg-slate-100"}`}
+                        //     onClick={() => setSelectedTab(index)}
+                        // >
+                        //     {section.title}
+                        // </button>
                     ))}
                 </div>
                 <div>
@@ -30,7 +32,7 @@ export const TabbedFaqSection = ({sections}: {sections: FaqSectionType[]}) => {
                     sections.map((section: FaqSectionType, index: number) => {
                         return section.faqs.map((faq: FaqType) => {
                             return (
-                                <div key={faq.slug.current} className={`${selectedTab === index ? "" : 'hidden'}`}>
+                                <div key={faq.slug.current} className={`w-full ${selectedTab === index ? "" : 'hidden'}`}>
                                     <ExpandableComponent title={faq.title} content={faq.content} />
                                 </div>
                             )

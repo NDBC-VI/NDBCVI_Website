@@ -21,7 +21,7 @@ export const EventsModalContent = ({events}: {events: SanityDocument[]}) => {
             <div className="relative grid grid-cols-3 grid-rows-1">
                 <ScrollLinks sections={[{title: "Upcoming Events", slug: "events"}, {title: "Calendar", slug: "calendar"}]}/>
                 <div id="events" className="col-span-2 h-auto p-6 relative self-end">
-                    <Carousel items={events} />
+                    <Carousel items={events} autoSlide={true} autoSlideInterval={3000} />
                 </div> 
                 <div id="calendar" className='col-span-3 p-6 flex flex-col'>
                   <div className='w-4/5 self-end'>
