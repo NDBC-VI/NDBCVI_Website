@@ -2,10 +2,7 @@
 
 import { SanityDocument } from 'next-sanity';
 import React from 'react'
-import { BasicModalPropsType } from '../types';
-import { BackgroundImageCard } from '../components/BackgroundImageCard';
-import { BasicModalContent } from './modal-views/BasicModalContent';
-import { ModalTemplate } from '../shared/modals/ModalTemplate';
+import { BasicModalPropsType } from '../../types';
 
 
 interface InvitationsSectionProps{
@@ -35,11 +32,7 @@ export const InvitationsSection: React.FC<InvitationsSectionProps> = (props: Inv
                             infoSections: infoPopup?.infoSections
                         }
                         return (
-                        <ModalTemplate 
-                            key={infoPopup.slug.current} 
-                            modalActivator={<BackgroundImageCard {...basicModalProps} />} 
-                            modalContent={<BasicModalContent {...basicModalProps}/>} 
-                        />
+                            <div>I said hey, what's up, helloooo</div>
                         );
                     })
                 }

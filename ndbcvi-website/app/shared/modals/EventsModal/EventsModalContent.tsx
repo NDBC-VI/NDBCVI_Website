@@ -1,8 +1,8 @@
-import { Calendar } from '@/app/components/Calendar';
-import { Carousel } from '@/app/components/Carousel';
+import { Calendar } from '@/app/shared/modals/EventsModal/components/Calendar';
+import { Carousel } from '../../components/Carousel';
 import { SanityDocument } from 'next-sanity';
 import React from 'react'
-import { ScrollLinks } from './ScrollLinks';
+import { ScrollLinks } from '../components/ScrollLinks';
 
 
 export const EventsModalContent = ({events}: {events: SanityDocument[]}) => {

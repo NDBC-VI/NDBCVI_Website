@@ -1,7 +1,7 @@
 'use client';
 import { SanityDocument } from 'next-sanity';
 import React, { useEffect, useState } from 'react'
-import { Event } from './Event';
+import { Event } from '../modals/EventsModal/components/Event';
 
 export const Carousel = ({items, autoSlide = false, autoSlideInterval = 3000}: {items: SanityDocument[], autoSlide: boolean, autoSlideInterval: number}) => {
 

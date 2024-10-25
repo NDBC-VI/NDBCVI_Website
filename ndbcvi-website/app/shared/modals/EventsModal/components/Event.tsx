@@ -2,7 +2,7 @@ import { urlFor } from '@/sanity/lib/image'
 import { PortableText, SanityDocument } from 'next-sanity'
 import Image from 'next/image'
 import React from 'react'
-import { CountdownComponent } from './CountdownComponent'
+import { CountdownComponent } from '../../../components/CountdownComponent'
 
 type EventPropsType = {
   event: SanityDocument

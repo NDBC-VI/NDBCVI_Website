@@ -2,8 +2,8 @@
 
 import { PortableText } from 'next-sanity'
 import { useState } from 'react';
-import { InfoSectionType } from '../types';
-import TabBtn from '../shared/components/TabBtn';
+import { InfoSectionType } from '@/app/types';
+import TabBtn from '../../components/TabBtn';
 
 export const TabbedSection = ({subSections}: {subSections: InfoSectionType[]}) => {
 

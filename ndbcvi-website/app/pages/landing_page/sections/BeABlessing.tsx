@@ -1,7 +1,7 @@
 import ReusableCardComponent from "@/app/shared/components/ReusableCardComponent";
 import { ModalTemplate } from "@/app/shared/modals/ModalTemplate";
 import { BasicModalPropsType } from "@/app/types";
-import { BasicModalContent } from "@/app/views/modal-views/BasicModalContent";
+import { BasicModalContent } from "@/app/shared/modals/BasicModal/BasicModalContent";
 import { urlFor } from "@/sanity/lib/image";
 import { SanityDocument } from "next-sanity";
 

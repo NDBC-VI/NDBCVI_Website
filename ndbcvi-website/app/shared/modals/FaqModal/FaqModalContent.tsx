@@ -1,11 +1,11 @@
 'use client';
 
-import { InfoSection } from '@/app/components/InfoSection';
-import { TabbedFaqSection } from '@/app/components/TabbedFaqSection';
+import { InfoSection } from '../components/InfoSection';
+import { TabbedFaqSection } from './components/TabbedFaqSection';
 import { InfoSectionType } from '@/app/types'
 import { SanityDocument } from 'next-sanity';
 import React from 'react'
-import { ScrollLinks } from './ScrollLinks';
+import { ScrollLinks } from '../components/ScrollLinks';
 
 export const FaqModalContent = ({faqs}: {faqs: SanityDocument}) => {
   const { faqSection, faqInfoSections } = faqs;

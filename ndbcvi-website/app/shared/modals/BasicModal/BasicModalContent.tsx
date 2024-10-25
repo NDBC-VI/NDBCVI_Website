@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image'; 
-import { InfoSection } from '../../components/InfoSection';
 import { urlFor } from '@/sanity/lib/image';
-import { InfoSectionType, BasicModalPropsType } from '../../types';
-import { ScrollLinks } from './ScrollLinks';
+import { InfoSection } from '../components/InfoSection';
+import { InfoSectionType, BasicModalPropsType } from '@/app/types';
+import { ScrollLinks } from '../components/ScrollLinks';
 
 
 

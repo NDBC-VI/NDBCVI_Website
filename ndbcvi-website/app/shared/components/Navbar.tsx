@@ -7,9 +7,9 @@ import CustomBtn from "./CustomBtn";
 import MenuModal from "../modals/MenuModal";
 import { useState } from "react";
 import { ModalTemplate } from "@/app/shared/modals/ModalTemplate";
-import { EventsModalContent } from "@/app/views/modal-views/EventsModalContent";
+import { EventsModalContent } from "../modals/EventsModal/EventsModalContent";
+import { FaqModalContent } from "../modals/FaqModal/FaqModalContent";
 import { SanityDocument } from "next-sanity";
-import { FaqModalContent } from "@/app/views/modal-views/FaqModalContent";
 
 const Navbar = ({banner, events, faqPopup}: {banner: SanityDocument, events: SanityDocument[], faqPopup: SanityDocument}) => {
   const [isOpen, setIsOpen] = useState(false);

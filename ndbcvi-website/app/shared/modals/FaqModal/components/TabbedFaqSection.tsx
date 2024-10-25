@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from 'react';
-import { FaqSectionType, FaqType } from '../types';
-import { ExpandableComponent } from './ExpandableComponent';
-import TabBtn from '../shared/components/TabBtn';
+import { FaqSectionType, FaqType } from '@/app/types';
+import { ExpandableComponent } from '@/app/shared/components/ExpandableComponent';
+import TabBtn from '@/app/shared/components/TabBtn';
 
 export const TabbedFaqSection = ({sections}: {sections: FaqSectionType[]}) => {
 
