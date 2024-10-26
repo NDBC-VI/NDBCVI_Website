@@ -1,6 +1,6 @@
 const infoPopup = {
     name: 'infoPopup',
-    title: 'Info Popup',
+    title: 'Info Popups',
     type: 'document',
     fields: [
         {

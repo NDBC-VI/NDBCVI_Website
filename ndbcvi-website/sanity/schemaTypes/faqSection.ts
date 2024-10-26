@@ -1,6 +1,6 @@
 const faqSection = {
     name: 'faqSection',
-    title: 'FAQ Section',
+    title: 'FAQ Sections',
     type: 'document',
     fields: [
         {

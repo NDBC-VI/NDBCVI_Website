@@ -4,7 +4,8 @@ import { BasicModalPropsType } from "@/app/types";
 import { BasicModalContent } from "@/app/shared/modals/BasicModal/BasicModalContent";
 import { urlFor } from "@/sanity/lib/image";
 import { SanityDocument } from "next-sanity";
-
+import CustomBtn from "@/app/shared/components/CustomBtn";
+import rightArrow from "@/app/assets/svgs/reusable-right-arrow.svg";
 // const prompts = [
 //   {
 //     imgUrl:
@@ -58,7 +59,15 @@ const BeABlessing = ({infoPopups}: {infoPopups: SanityDocument[]}) => {
             return (
               <div className="w-full" key={infoPopup.slug.current} >
                 <ModalTemplate 
-                    modalActivator={<ReusableCardComponent key={infoPopup.slug.current} imgUrl={urlFor(infoPopup.thumbnailImage.asset._ref).url()} title={infoPopup.title} body={infoPopup.thumbnailCaption} />} 
+                    modalActivator={
+                                      <ReusableCardComponent 
+                                        key={infoPopup.slug.current} 
+                                        imgUrl={urlFor(infoPopup.thumbnailImage.asset._ref).url()} 
+                                        title={infoPopup.title} 
+                                        body={infoPopup.thumbnailCaption}
+                                        button={<CustomBtn title={"Learn more"} hasIcon icon={rightArrow} />}
+                                      />
+                                    } 
                     modalContent={<BasicModalContent {...basicModalProps}/>} 
                 />
               </div>
