@@ -1,25 +1,17 @@
 import React from 'react'
-import Countdown from 'react-countdown'
+import Countdown, { zeroPad } from 'react-countdown'
 
 
 export const CountdownComponent = ({startDate}: {startDate: Date}) => {
 
-    const padToTwoDigits = (number: number) => {
-        if(number < 10) {
-            return `0${number}`;
-        }
-        else {
-            return number;
-        }
-    }
 
     const renderer = ({ days, hours, minutes, seconds, completed }: { days: number, hours: number, minutes: number, seconds: number, completed: boolean }) => {
         return (
             <div className='w-full mb-5'>
-                <h3 className='text-4xl font-semibold text-slate-300 my-2'><span className='text-black'>{padToTwoDigits(days)}</span> days</h3>
-                <h3 className='text-4xl font-semibold text-slate-300 my-2'><span className='text-black'>{padToTwoDigits(hours)}</span> hours</h3>
-                <h3 className='text-4xl font-semibold text-slate-300 my-2'><span className='text-black'>{padToTwoDigits(minutes)}</span> minutes</h3>
-                <h3 className='text-4xl font-semibold text-slate-300 my-2'><span className='text-black'>{padToTwoDigits(seconds)}</span> seconds</h3>
+                <h3 className='text-4xl font-semibold text-slate-300 my-2'><span className='text-black'>{zeroPad(days, 2)}</span> days</h3>
+                <h3 className='text-4xl font-semibold text-slate-300 my-2'><span className='text-black'>{zeroPad(hours, 2)}</span> hours</h3>
+                <h3 className='text-4xl font-semibold text-slate-300 my-2'><span className='text-black'>{zeroPad(minutes, 2)}</span> minutes</h3>
+                <h3 className='text-4xl font-semibold text-slate-300 my-2'><span className='text-black'>{zeroPad(seconds, 2)}</span> seconds</h3>
             </div>
         )
     }

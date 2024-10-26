@@ -16,7 +16,7 @@ const Navbar = ({banner, events, faqPopup}: {banner: SanityDocument, events: San
   
   const [bannerVisible, setBannerVisible] = useState(true);
   return (
-    <div className={`fixed top-0 w-full flex flex-col transition ease-in duration-1500 ${bannerVisible ? "" : "-translate-y-[7vh]"}`}>
+    <div className={`fixed top-0 w-full flex flex-col transition ease-in duration-1500 ${bannerVisible && !isOpen ? "" : "-translate-y-[7vh]"}`}>
       
       <div id="banner" className={`w-full h-[7vh] flex flex-row justify-center items-center bg-[#1D1841] z-20`}>
         <p className='text-white text-center mx-5'>{banner.content}</p>
@@ -59,7 +59,7 @@ const Navbar = ({banner, events, faqPopup}: {banner: SanityDocument, events: San
           hasIcon
           btnFn={() => setIsOpen(true)}
         />
-        <MenuModal onClose={() => setIsOpen(false)} isOpen={isOpen} />
+        <MenuModal events={events} faqPopup={faqPopup} onClose={() => setIsOpen(false)} isOpen={isOpen} />
       </nav>
     </div>
   );

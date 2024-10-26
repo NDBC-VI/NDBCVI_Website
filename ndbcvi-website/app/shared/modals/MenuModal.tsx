@@ -11,16 +11,25 @@ import TabBtn from "../components/TabBtn";
 import { useState, useMemo, MouseEventHandler } from "react";
 import DiscoverView from "../views/DiscoverView";
 import TakeActionView from "../views/TakeActionView";
+import { PortableText, SanityDocument } from "next-sanity";
+import { calcTimeDelta } from "react-countdown";
+import event from "@/sanity/schemaTypes/event";
+import { urlFor } from "@/sanity/lib/image";
 
 const modalTabs: string[] = ["Discover", "Take action"];
 
 interface MenuModalProps {
   onClose: MouseEventHandler<HTMLButtonElement>;
   isOpen: boolean;
+  events: SanityDocument[];
+  faqPopup: SanityDocument;
 }
 
-const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
+const MenuModal = ({ events, faqPopup, onClose, isOpen }: MenuModalProps) => {
   const [isActive, setIsActive] = useState(modalTabs[0]);
+
+  const {days, hours, minutes} = calcTimeDelta(events[0].startDate);
+  console.log(urlFor(events[0].image.asset._ref).url());
 
   const view = useMemo(() => {
     switch (isActive) {
@@ -40,28 +49,28 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
         <Image src={churchLogo} alt="church logo" width={43} />
         <div className="flex flex-col gap-[36px] mt-[45px]">
           <div>
-            <h2 className="text-[42px] font-[600] mb-[18px]">Upcoming event</h2>
+            <h2 className="text-[42px] font-[600] mb-[18px]">Upcoming Event</h2>
             <div className="flex gap-[16px]">
               <p className="text-[20px] font-[600]">
-                07 <span className="text-[#C4C4C4]">days</span>
+                {days} <span className="text-[#C4C4C4]">days</span>
               </p>
               <p className="text-[20px] font-[600]">
-                38 <span className="text-[#C4C4C4]">hours</span>
+                {hours} <span className="text-[#C4C4C4]">hours</span>
               </p>
               <p className="text-[20px] font-[600]">
-                18 <span className="text-[#C4C4C4]">minutes</span>
+                {minutes} <span className="text-[#C4C4C4]">minutes</span>
               </p>
             </div>
           </div>
-          <div className="flex gap-[6px] items-center">
+          <a className="flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline" href={events[0].googleMapsLink} target="_blank">
             <Image src={mapPin} alt="map pin" width={24} />
             <p className="text-[18px] font-[500] cursor-pointer underline">
               Open location in Maps
             </p>
-          </div>
+          </a>
           <div
             style={{
-              backgroundImage: `url(https://s3-alpha-sig.figma.com/img/42eb/9575/a261892c28d9275d03f514abcc4d276c?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VwB119Oh0~oRZpwvb8E2puOidN2MdgTB6MSmH~yz~YHTWCf9XI-9FX8PSoWQ~r~fWXzo2ydPz9fH4JGd9Wyzrbff1hDI1DFuYEpWJOb7te9-akBWQv0r63SxsOMHsjXM7NAD2T6evo46sX0SlbUL8chIxMUX2lXuRpIf26mycuhfZi-Ah9-Bq-6xpyG9pQVvFzvVYL1j7FyESdqFOtDfo-qU8Zfv27cDb568WSAfGUMAT5yvCCVZnatRRVwZj4UQiO9lJ6kS5BtmIObH9iTAG04KoxlB7jFFW1dIuDE9rbgwfhytBtkkfXUx03dG9FG0xNaGXrmO6Jge9nvG7MZGlQ__)`,
+              backgroundImage: `url(${urlFor(events[0].image.asset._ref)})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
@@ -71,12 +80,11 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
             <div className="bg-[rgba(0,0,0,0.35)] absolute top-0 left-0 w-full h-full rounded-[24px]"></div>
             <div className="absolute bottom-0 p-[16px]">
               <h3 className="text-[28px] font-[600] leading-[35px] mb-[13px]">
-                Back to School Outreach
+                {events[0].title}
               </h3>
-              <p className="mb-[13px]">
-                In publishing and graphic design, lorem ipsum is a placeholder
-                text used to demonstrate the visual form of a document.
-              </p>
+              <div className="mb-[13px]">
+                <PortableText value={events[0].content}/>
+              </div>
               <CustomBtn title="Add to calendar" />
             </div>
           </div>

@@ -35,7 +35,7 @@ export const Event = (props: EventPropsType) => {
           <p className='my-1.5'>{formatDate(new Date(event.startDate))}</p>
           <p className='text-sm my-1.5'>{event.location}</p>
           <a className='my-2 font-semibold' href={event.googleMapsLink} target='_blank'>
-            <p className='text-sm underline text-blue-900' style={{textUnderlineOffset: 1}}>
+            <p className='text-sm underline text-blue-900 underline'>
               Open location in Maps
             </p>
           </a>
