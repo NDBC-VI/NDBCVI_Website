@@ -25,7 +25,7 @@ interface MenuModalProps {
 }
 
 const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
-  const {events, faqPopup} = useNavBarContext();
+  const {events} = useNavBarContext();
 
   const [isActive, setIsActive] = useState(modalTabs[0]);
 

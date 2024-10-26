@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ModalTemplate } from "../modals/ModalTemplate";
 import { FaqModalContent } from "../modals/FaqModal/FaqModalContent";
 import { EventsModalContent } from "../modals/EventsModal/EventsModalContent";
@@ -47,7 +46,7 @@ const DiscoverView = () => {
           )
         }
         return (
-          <div key={i}>
+          <div>
             <button type="button" className="text-[30px] font-[600]">
               {link}
             </button>

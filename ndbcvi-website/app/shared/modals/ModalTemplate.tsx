@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { ModalContext, useModalContext } from "@/app/context/modalContext";
+import { ModalContext, useModalContext } from "../../context/modalContext";
 import { createPortal } from "react-dom";
 
 
