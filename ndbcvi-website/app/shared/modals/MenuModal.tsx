@@ -15,17 +15,18 @@ import { PortableText, SanityDocument } from "next-sanity";
 import { calcTimeDelta } from "react-countdown";
 import event from "@/sanity/schemaTypes/event";
 import { urlFor } from "@/sanity/lib/image";
+import { useNavBarContext } from "@/app/context/navBarContext";
 
 const modalTabs: string[] = ["Discover", "Take action"];
 
 interface MenuModalProps {
   onClose: MouseEventHandler<HTMLButtonElement>;
   isOpen: boolean;
-  events: SanityDocument[];
-  faqPopup: SanityDocument;
 }
 
-const MenuModal = ({ events, faqPopup, onClose, isOpen }: MenuModalProps) => {
+const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
+  const {events, faqPopup} = useNavBarContext();
+
   const [isActive, setIsActive] = useState(modalTabs[0]);
 
   const {days, hours, minutes} = calcTimeDelta(events[0].startDate);

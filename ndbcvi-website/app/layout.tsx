@@ -19,7 +19,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="relative">
-        <Navbar banner={banner} events={events} faqPopup={faqPopup} />
+        <Navbar events={events} faqPopup={faqPopup} banner={banner} />
         {children}
         <div id="portal" />
         <Footer />
