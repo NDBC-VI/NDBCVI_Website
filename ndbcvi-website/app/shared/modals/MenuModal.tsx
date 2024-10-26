@@ -30,7 +30,6 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
   const [isActive, setIsActive] = useState(modalTabs[0]);
 
   const {days, hours, minutes} = calcTimeDelta(events[0].startDate);
-  console.log(urlFor(events[0].image.asset._ref).url());
 
   const view = useMemo(() => {
     switch (isActive) {

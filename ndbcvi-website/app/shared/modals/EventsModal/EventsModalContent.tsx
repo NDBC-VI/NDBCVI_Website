@@ -8,7 +8,6 @@ import { ScrollLinks } from '../components/ScrollLinks';
 export const EventsModalContent = ({events}: {events: SanityDocument[]}) => {
 
   return (
-    <div>
       <>
             <div className="h-[60vh] px-9 py-10 rounded-t-3xl">
                 <div className="h-[15%] w-full flex flex-row justify-between items-center">
@@ -31,6 +30,5 @@ export const EventsModalContent = ({events}: {events: SanityDocument[]}) => {
                 </div>
             </div> 
       </>
-    </div>
   )
 }

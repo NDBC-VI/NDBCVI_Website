@@ -31,7 +31,7 @@ export const Event = (props: EventPropsType) => {
           className='rounded-2xl m-2 object-cover object-fit'
         />
         <div className='h-[350px] w-1/3 flex-grow flex flex-col m-4 p-5 relative top-[7vh]'>
-          <CountdownComponent startDate={event.startDate} />
+          <EventsModalCountdownComponent startDate={event.startDate} />
           <p className='my-1.5'>{formatDate(new Date(event.startDate))}</p>
           <p className='text-sm my-1.5'>{event.location}</p>
           <a className='my-2 font-semibold' href={event.googleMapsLink} target='_blank'>
