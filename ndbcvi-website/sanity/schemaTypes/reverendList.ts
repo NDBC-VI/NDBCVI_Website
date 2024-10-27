@@ -1,5 +1,5 @@
-const reverend = {
-    name: 'reverend',
+const reverendList = {
+    name: 'reverendList',
     title: 'Reverends',
     type: 'document',
     fields: [
@@ -30,4 +30,4 @@ const reverend = {
     ]
 }
 
-export default reverend;
+export default reverendList;

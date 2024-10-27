@@ -7,10 +7,10 @@ import faqSection from './faqSection'
 import faqPopup from './faqPopup'
 import event from './event'
 import churchLeader from './churchLeader'
-import reverend from './reverend'
+import reverendList from './reverendList'
 import deacon from './deacon'
 import ministryLead from './ministryLead'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [infoSection, infoPopup, banner, expandablePanel, faqSection, faqPopup, event, churchLeader, reverend, deacon, ministryLead],
+  types: [infoSection, infoPopup, banner, expandablePanel, faqSection, faqPopup, event, churchLeader, reverendList, deacon, ministryLead],
 }
