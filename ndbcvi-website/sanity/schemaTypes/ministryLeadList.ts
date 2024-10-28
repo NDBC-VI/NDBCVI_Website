@@ -1,6 +1,6 @@
-const deacon = {
-    name: 'deacon',
-    title: 'Deacons',
+const ministryLeadList = {
+    name: 'ministryLeadList',
+    title: 'Ministry Lead List',
     type: 'document',
     fields: [
         {
@@ -14,20 +14,27 @@ const deacon = {
             of: [{ type: 'block' }]
         },
         {
-            name: 'deaconList',
-            title: 'Deacons of New Dawn Baptist Church V.I.',
+            name: 'ministryLeadList',
+            title: 'Ministry Leads',
             type: 'array',
             of: [
                 {
                     name: 'churchLeaderRef',
-                    title: 'Deacon',
+                    title: 'Church Leader',
                     type: 'reference',
                     weak: false,
                     to: [{type: 'churchLeader'}]
+                },
+                {
+                    name: 'reverendRef',
+                    title: 'Reverend',
+                    type: 'reference',
+                    weak: false,
+                    to: [{type: 'reverend'}]
                 }
             ]
         }
     ]
 }
 
-export default deacon;
+export default ministryLeadList;

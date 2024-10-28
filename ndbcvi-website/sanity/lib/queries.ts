@@ -34,7 +34,7 @@ export const eventsQuery = groq`*[_type == "events" && startDate > now() && date
     googleMapsLink
 }`
 
-export const aboutPageQuery = groq`*[_type == "reverend" || _type == "deacon" || _type == "ministryLead"] {
+export const aboutPageQuery = groq`*[_type == "reverendList" || _type == "deaconList" || _type == "ministryLeadList"] {
     title,
     description,
     reverendList[]->,

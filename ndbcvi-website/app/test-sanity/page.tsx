@@ -14,9 +14,9 @@ export default async function Home() {
   const people: SanityDocument = await sanityFetch<SanityDocument>({ query: aboutPageQuery });
   // console.log(people);
 
-  const reverends = people.find((list: SanityDocument) => list.title === "Reverends");
+  const reverends = people.find((list: SanityDocument) => list.title === "Reverends of NDBC");
   const deacons = people.find((list: SanityDocument) => list.title === "Deacons 2024");
-  const ministryLeads = people.find((list: SanityDocument) => list.title === "Ministry Leads 2024");
+  const ministryLeads = people.find((list: SanityDocument) => list.title === "Ministry Leads");
 
   return (
     <main className="w-full py-20 flex flex-col items-center mt-[100px]">
