@@ -1,6 +1,6 @@
 const reverendList = {
     name: 'reverendList',
-    title: 'Reverends',
+    title: 'Reverends List',
     type: 'document',
     fields: [
         {
@@ -19,11 +19,11 @@ const reverendList = {
             type: 'array',
             of: [
                 {
-                    name: 'churchLeaderRef',
+                    name: 'reverendRef',
                     title: 'Reverend',
                     type: 'reference',
                     weak: false,
-                    to: [{type: 'churchLeader'}]
+                    to: [{type: 'reverend'}]
                 }
             ]
         }

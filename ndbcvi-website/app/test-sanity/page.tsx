@@ -1,7 +1,7 @@
 import { sanityFetch } from '@/sanity/lib/fetch';
 import { aboutPageQuery } from '@/sanity/lib/queries';
 
-import { SanityDocument } from 'next-sanity';
+import { PortableText, SanityDocument } from 'next-sanity';
 import { PeopleList } from './PeopleList';
 import { ReverendsList } from './ReverendsList';
 
@@ -35,7 +35,9 @@ export default async function Home() {
       <div className='w-full flex flex-col items-center z-0'>
         <div className='w-full flex flex-row justify-between px-[5vw] mb-[5vh] text-right'>
           <h2 className='text-4xl font-semibold'>Reverends</h2>
-          <p className='w-1/3 self-end'>We believe in dynamic Christian worship as the foundation for daily life, and to teach sound Biblical principles with love.</p>
+          <div className='w-1/3 self-end'>
+            <PortableText value={reverends.description} />
+          </div>
         </div>
         <div className='w-full flex flex-row justify-center my-5'>
           <ReverendsList list={reverends.reverendList}  />
@@ -43,13 +45,17 @@ export default async function Home() {
 
         <div className='w-full flex flex-row justify-between px-[5vw] text-right mt-[15vh] mb-[5vh]'>
           <h2 className='text-4xl font-semibold'>Deacons</h2>
-          <p className='w-1/3 self-end'>We believe in dynamic Christian worship as the foundation for daily life, and to teach sound Biblical principles with love.</p>
+          <div className='w-1/3 self-end'>
+            <PortableText value={deacons.description} />
+          </div>        
         </div>
         <PeopleList list={deacons.deaconList} />
 
         <div className='w-full flex flex-row justify-between px-[5vw] text-right mt-[15vh] mb-[5vh]'>
           <h2 className='text-4xl font-semibold'>Ministry Leads</h2>
-          <p className='w-1/3 self-end'>We believe in dynamic Christian worship as the foundation for daily life, and to teach sound Biblical principles with love.</p>
+          <div className='w-1/3 self-end'>
+            <PortableText value={ministryLeads.description} />
+          </div>
         </div>
         <PeopleList list={ministryLeads.ministryLeadList} />
       </div>

@@ -1,5 +1,5 @@
 const ministryLead = {
-    name: 'ministryLead',
+    name: 'ministryLeadsList',
     title: 'Ministry Leads',
     type: 'document',
     fields: [
@@ -20,10 +20,17 @@ const ministryLead = {
             of: [
                 {
                     name: 'churchLeaderRef',
-                    title: 'Ministry Lead',
+                    title: 'Church Leader',
                     type: 'reference',
                     weak: false,
                     to: [{type: 'churchLeader'}]
+                },
+                {
+                    name: 'reverendRef',
+                    title: 'Reverend',
+                    type: 'reference',
+                    weak: false,
+                    to: [{type: 'reverend'}]
                 }
             ]
         }
