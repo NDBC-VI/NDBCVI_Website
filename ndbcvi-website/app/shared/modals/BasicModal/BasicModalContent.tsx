@@ -41,12 +41,12 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                 <div className="w-2/3 px-6 relative self-end">
                     {
                         introduction?.slug?.current !== undefined &&
-                        <div key={introduction.slug.current} >
+                        <div id={introduction.slug.current} key={introduction.slug.current} >
                             <InfoSection infoSection={introduction} />
                         </div>
                     }
                     { infoSections?.map(section => (
-                                <div key={section.slug.current} >
+                                <div id={section.slug.current} key={section.slug.current} >
                                     <InfoSection infoSection={section} />
                                 </div>
                             ))

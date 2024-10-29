@@ -6,7 +6,6 @@ import { urlFor } from '@/sanity/lib/image'
 import { PortableText, SanityDocument } from 'next-sanity'
 import { ScrollLinks } from '../components/ScrollLinks'
 import Link from 'next/link';
-import TabBtn from '../../components/TabBtn';
 
 export const BioModalContent = ({person}: {person: SanityDocument}) => {
     return (

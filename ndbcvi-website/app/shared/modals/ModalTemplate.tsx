@@ -20,10 +20,16 @@ export const ModalTemplate = ({modalActivator, modalContent}: {modalActivator: J
 
 const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JSX.Element, children: JSX.Element | JSX.Element[]}) => {
     const [open, setOpen] = useState(false);
-
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    
+
+    const [modalScrollPosition, setModalScrollPosition] = useState(0);
+
+    const handleScroll = () => {
+        const target = document.getElementById('backdrop') as HTMLElement;
+        setModalScrollPosition(target.scrollTop);
+    }
+
     // Helper function for scrolling to sections of the modal without changing the URL
     const scrollIntoTheView = (e: React.MouseEvent, id: string) => {
         e.preventDefault();
@@ -33,7 +39,7 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
         }
         element.scrollIntoView({
             behavior: "smooth",
-            block: "start",
+            block: "center",
             inline: "nearest",
         });
     };
@@ -54,7 +60,7 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
 
 
     return (
-        <ModalContext.Provider value={{isOpen: open, handleOpen, handleClose, modalContent, scrollIntoTheView }}>
+        <ModalContext.Provider value={{isOpen: open, handleOpen, handleClose, modalContent, scrollIntoTheView, handleScroll, modalScrollPosition }}>
             {children}
         </ModalContext.Provider>
     );
@@ -63,7 +69,7 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
 
 const Base = ({children}: {children: JSX.Element | JSX.Element[]}) => {
     // State for managing if the modal is visible or not
-    const { isOpen, handleClose, modalContent } = useModalContext();
+    const { isOpen, handleClose, handleScroll, modalContent } = useModalContext();
 
     // Wait for the DOM to be ready before teleporting modal to the top of the DOM
     const [domReady, setDomReady] = useState(false);
@@ -82,7 +88,7 @@ const Base = ({children}: {children: JSX.Element | JSX.Element[]}) => {
             {
                 domReady && isOpen && 
                 createPortal(
-                    <div id='backdrop' onClick={handleClose} className={`flex flex-col items-center z-20 transition-colors overflow-y-scroll m-0 ${isOpen ? "fixed inset-0 bg-black/70" : ""}`}>
+                    <div id='backdrop' onClick={handleClose} onScroll={handleScroll} className={`flex flex-col items-center z-20 transition-colors overflow-y-scroll m-0 ${isOpen ? "fixed inset-0 bg-black/70" : ""}`}>
                         <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`my-5 w-11/12 pb-2 rounded-3xl bg-white transition-all ${isOpen ? "scale-100 opacity-100" : 'scale-125 opacity-0'}`}>
                             <button onClick={handleClose} className='absolute top-5 right-6 w-8 h-8 rounded-full bg-slate-100 z-30'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="grey" className="size-6 mx-auto">

@@ -52,7 +52,9 @@ type ModalContextType = {
     handleOpen: () => void,
     handleClose: () => void,
     modalContent: JSX.Element,
-    scrollIntoTheView: (e: React.MouseEvent, id: string) => void
+    scrollIntoTheView: (e: React.MouseEvent, id: string) => void,
+    handleScroll: () => void,
+    modalScrollPosition: number
 }
 
 
