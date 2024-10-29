@@ -14,14 +14,14 @@ export const FaqModalContent = ({faqs}: {faqs: SanityDocument}) => {
       <>
           <div className="relative grid grid-cols-3 grid-rows-1 px-9 py-10">
             <ScrollLinks sections={[{title: "FAQs", slug: "faqs"}, ...faqInfoSections.map((section: InfoSectionType) => ({title: section.title, slug: section.slug.current}))]}/>
-            <div className="col-span-2 h-auto p-6 relative self-end">
+            <div id="faqs" className="col-span-2 h-auto p-6 relative self-end">
               {/* FAQ Tabbed Section Component */}
               <div id="faqSection">
                 <TabbedFaqSection sections={faqSection} />
               </div>
               {
                 faqInfoSections?.map((section: InfoSectionType) => (
-                    <div key={section.slug.current}>
+                    <div id={section.slug.current} key={section.slug.current}>
                       <InfoSection infoSection={section} />
                     </div>
                 ))

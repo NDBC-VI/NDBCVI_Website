@@ -12,7 +12,7 @@ export const BioModalContent = ({person}: {person: SanityDocument}) => {
         <>
                 <div className="flex flex-row justify-between space-x-10 p-10">
                     <ScrollLinks sections={[{title: person.name, slug: person.slug.current}]}/>
-                    <div className="w-2/3 px-6 relative self-end">
+                    <div id={person.slug.current} className="w-2/3 px-6 relative self-end">
                         <Image 
                             src={urlFor(person.photo.asset._ref).url()}
                             alt={`Photo of ${person.name}`}
