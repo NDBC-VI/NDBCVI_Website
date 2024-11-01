@@ -18,6 +18,14 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="./assets/pngs/church-logo.png"
+        />
+        <title>NDBCVI</title>
+      </head>
       <body className="relative">
         <Navbar events={events} faqPopup={faqPopup} banner={banner} />
         {children}

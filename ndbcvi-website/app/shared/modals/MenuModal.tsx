@@ -33,7 +33,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
   const view = useMemo(() => {
     switch (isActive) {
       case "Discover":
-        return <DiscoverView />;
+        return <DiscoverView clickFn={onClose} />;
       case "Take action":
         return <TakeActionView />;
     }
@@ -91,31 +91,32 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
       </div>
       <div className="w-1/2 p-10 text-black flex flex-col ">
         <div className="flex justify-between">
+          <div className="flex gap-4">
+            {modalTabs.map((tab, i) => (
+              <TabBtn
+                title={tab}
+                key={i}
+                active={isActive === tab}
+                clickFn={() => setIsActive(tab)}
+              />
+            ))}
+          </div>
+          <button type="button" onClick={onClose}>
+            <Image src={close} alt="close icon" width={20} />
+          </button>
+        </div>
+
+        <div className="mt-[45px]">{view}</div>
+        <div className="flex items-end h-full justify-between">
+          <p className="text-[#757575] text-[18px] font-[500] align-bottom">
+            © 2024 New Dawn Baptist Church
+          </p>
           <div className="flex gap-[18px]">
             <Image src={youtube} alt="youtube" />
             <Image src={spotify} alt="spotify" />
             <Image src={facebook} alt="facebook" />
             <Image src={x} alt="x" />
           </div>
-          <button type="button" onClick={onClose}>
-            <Image src={close} alt="close icon" width={20} />
-          </button>
-        </div>
-        <div className="flex mt-[75px] gap-4">
-          {modalTabs.map((tab, i) => (
-            <TabBtn
-              title={tab}
-              key={i}
-              active={isActive === tab}
-              clickFn={() => setIsActive(tab)}
-            />
-          ))}
-        </div>
-        <div className="mt-[45px]">{view}</div>
-        <div className="flex items-end h-full">
-          <p className="text-[#757575] text-[18px] font-[500] align-bottom">
-            © 2024 New Dawn Baptist Church
-          </p>
         </div>
       </div>
     </section>

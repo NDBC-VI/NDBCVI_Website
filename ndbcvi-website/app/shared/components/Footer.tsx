@@ -10,7 +10,7 @@ import FooterServiceCard from "./FooterServiceCard";
 const Footer = () => {
   return (
     <footer className="flex items-center text-white">
-      <div className="w-1/2 px-[60px] pt-[60px] pb-[38px] bg-[#1D1841]">
+      <div className="w-1/2 px-[60px] pt-[59.5px] pb-[38px] bg-[#1D1841]">
         <div className="flex justify-between">
           <Image src={churchLogo} alt="Church logo" width={43} />
           <div className="flex gap-[24px]">
@@ -58,14 +58,15 @@ const Footer = () => {
         <div
           className="flex justify-center items-center"
           style={{
-            height: "98.4vh",
+            // height: "98.4vh",
+            height: "100%",
             backgroundImage: `url(${heroImg.src})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="text-center">
+          <div className="text-center py-[47.3%] 2xl:py-[35.5%]">
             <div className="flex text-[18px] font-[500] gap-[26px] pl-[30px]">
               <p>Sundays 8am - 11am</p>
               <p>Wednesdays 6pm - 8pm</p>

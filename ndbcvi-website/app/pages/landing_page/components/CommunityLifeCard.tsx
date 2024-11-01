@@ -6,7 +6,7 @@ interface CommunityLifeCardProps {
 const CommunityLifeCard = ({ name, img }: CommunityLifeCardProps) => {
   return (
     <div className="">
-      <div className="bg-[#E3E3E3] py-2 px-6 rounded-[100px]">
+      <div className="bg-[#E3E3E3] py-2 px-6 rounded-[100px] inline-block">
         <p className="text-[18px] font-[500]">{name}</p>
       </div>
       <div className="mt-6 w-full h-full">
