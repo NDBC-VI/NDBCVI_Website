@@ -3,7 +3,7 @@
 import React from 'react';
 import { PortableText } from '@portabletext/react';
 import { TabbedSection } from './TabbedSection';
-import { InfoSectionType } from '../types';
+import { InfoSectionType } from '@/app/types';
 
 export const InfoSection = ({infoSection}: {infoSection: InfoSectionType}) => {
     return (

@@ -69,8 +69,8 @@ const AboutNdbc = async () => {
         </div>
         <PeopleList list={ministryLeads.ministryLeadList} />
       </div>
-      <Deacons />
-      <MinistryLeads />
+      {/* <Deacons />
+      <MinistryLeads /> */}
       <MoreAboutNewDawn />
     </>
   );

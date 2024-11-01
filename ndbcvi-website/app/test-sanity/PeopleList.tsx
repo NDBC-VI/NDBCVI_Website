@@ -8,7 +8,7 @@ export const PeopleList = ({list}: {list: SanityDocument[]}) => {
     return (
         <div id="container" className='w-[90vw] bg-white flex flex-row justify-center'>
             {list.map(person => (
-                <div key={person.slug.current} className='m-1 cursor-pointer flex-[0.5] hover:flex-[1.5] transition-all ease-out duration-500 rounded-lg'>
+                <div key={person.slug.current} className='m-1 cursor-pointer flex-[0.75] hover:flex-[2] transition-all ease-out duration-500 rounded-lg'>
                     <ReusableCardComponent 
                         key={person.slug.current} 
                         imgUrl={urlFor(person.photo.asset._ref).url()} 

@@ -10,7 +10,7 @@ export const TabbedSection = ({subSections}: {subSections: InfoSectionType[]}) =
     const [selectedTab, setSelectedTab] = useState(0);
 
     return (
-        <div className='justify-center items-center py-5'>
+        <div className='justify-center items-center pb-5'>
             <div className="flex flex-col gap-y-2 w-full">
                 <div className="rounded-xl flex flex-row flex-wrap max-w-fit self-center justify-start">
                     {subSections.map((section: InfoSectionType, index: number) => (

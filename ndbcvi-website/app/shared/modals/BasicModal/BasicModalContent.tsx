@@ -40,7 +40,7 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                         <div className='relative w-fit h-fit cursor-pointer' onClick={toggleGalleryMode}>
                             <div className='absolute z-10 w-full h-full bg-gradient-to-b from-30% from-transparent to-black'></div>
                             <Image
-                                src={urlFor(headerImages[5].asset._ref).url()}
+                                src={urlFor(headerImages[1].asset._ref).url()}
                                 alt="placeholder image"
                                 width={300}
                                 height={400}
@@ -87,8 +87,9 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                     }
                 </div>
                 <div className='py-14 flex flex-row items-center justify-center flex-wrap'>
-                    { headerImages.map(image => (
+                    { headerImages.map((image, i) => (
                         <Image 
+                            key={i}
                             src={urlFor(image.asset._ref).url()}
                             alt="placeholder image"
                             width={425}
