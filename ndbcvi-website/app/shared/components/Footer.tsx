@@ -10,7 +10,7 @@ import FooterServiceCard from "./FooterServiceCard";
 const Footer = () => {
   return (
     <footer className="flex items-center text-white">
-      <div className="w-1/2 px-[60px] pt-[59.5px] pb-[38px] bg-[#1D1841]">
+      <div className="w-1/2 px-[60px] pt-[109.5px] pb-[64px] bg-[#1D1841]">
         <div className="flex justify-between">
           <Image src={churchLogo} alt="Church logo" width={43} />
           <div className="flex gap-[24px]">

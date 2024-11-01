@@ -20,11 +20,11 @@ const faqSection = {
             type: 'array',
             of: [
                 {
-                    name: 'expandablePanelRef',
-                    title: 'Expandable Panel Reference',
+                    name: 'faqRef',
+                    title: 'FAQ Reference',
                     type: 'reference',
                     weak: false,
-                    to: [{type: 'expandablePanel'}]
+                    to: [{type: 'faq'}]
                 }
             ]
         }

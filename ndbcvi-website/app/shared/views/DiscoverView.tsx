@@ -27,6 +27,7 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
         if(link.title === "Information Centre") {
           return (
             <ModalTemplate 
+              key={link.id}
               modalActivator={
                 <div>
                   <button type="button" className="text-[30px] font-[600]">
@@ -41,6 +42,7 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
         else if(link.title === "Events") {
           return (
             <ModalTemplate 
+              key={link.id}
               modalActivator={
                 <div>
                   <button type="button" className="text-[30px] font-[600]">

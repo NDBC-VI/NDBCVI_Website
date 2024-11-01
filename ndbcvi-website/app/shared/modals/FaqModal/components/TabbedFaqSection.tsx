@@ -16,14 +16,6 @@ export const TabbedFaqSection = ({sections}: {sections: FaqSectionType[]}) => {
                 <div className="w-3/5 self-center p-1 rounded-xl flex justify-between items">
                     {sections.map((section: FaqSectionType, index: number) => (
                         <TabBtn key={section.slug.current} title={section.title} active={selectedTab === index} clickFn={() => setSelectedTab(index)}/>
-                        // <button 
-                        //     key={section.slug.current}
-                        //     className={`outline-none w-full p-1 m-2 hover:bg-slate-300 rounded-xl text-center focus:text-black
-                        //         ${selectedTab === index ? "bg-slate-300 font-semibold" : "bg-slate-100"}`}
-                        //     onClick={() => setSelectedTab(index)}
-                        // >
-                        //     {section.title}
-                        // </button>
                     ))}
                 </div>
                 <div>

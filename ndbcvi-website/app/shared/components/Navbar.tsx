@@ -18,7 +18,10 @@ const Navbar = ({banner, events, faqPopup}: {banner: SanityDocument, events: San
   const [bannerVisible, setBannerVisible] = useState(true);
   return (
     <NavBarContext.Provider value={{events, faqPopup, banner}}>
-      <div className={`fixed top-0 w-full flex flex-col transition ease-in duration-1500 ${bannerVisible && !isOpen ? "" : "-translate-y-[7vh]"}`}>
+      <div 
+        className={`fixed top-0 w-full flex flex-col transition ease-in duration-1500 ${bannerVisible && !isOpen ? "" : "-translate-y-[7vh]"}`}
+        style={{zIndex:1}}
+      >
         
         <div id="banner" className={`w-full h-[7vh] flex flex-row justify-center items-center bg-[#1D1841] z-20`}>
           <p className='text-white text-center mx-5'>{banner.content}</p>
@@ -32,17 +35,14 @@ const Navbar = ({banner, events, faqPopup}: {banner: SanityDocument, events: San
           
         <nav className=" px-[60px] py-[20px] flex items-center justify-between text-white z-10 bg-black bg-opacity-40 backdrop-blur-lg">
           <div className="flex gap-[48px] items-center text-[20px] font-[500]">
-            <Link
-              href="/"
-              children={
+            <Link href="/">
                 <Image
                   src={churchLogo}
                   alt="Church logo"
                   width={43.5}
                   height={48}
                 />
-              }
-            />
+            </Link>
             <Link href="/pages/about_ndbc" children={<p>About NDBC</p>} />
             <ModalTemplate 
               modalActivator={<Link href=""><p>Events</p></Link>} 

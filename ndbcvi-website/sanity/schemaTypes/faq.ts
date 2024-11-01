@@ -1,11 +1,11 @@
-const expandablePanel = {
-    name: 'expandablePanel',
-    title: 'Expandable Panel',
+const faq = {
+    name: 'faq',
+    title: 'FAQs',
     type: 'document',
     fields: [
         {
             name: 'title',
-            title: 'Title',
+            title: 'Question',
             type: 'string'
         },
         {
@@ -16,11 +16,11 @@ const expandablePanel = {
         },
         {
             name: 'content',
-            title: 'Content',
+            title: 'Answer',
             type: 'array',
             of: [{ type: 'block' }]
         },
     ]
 }
 
-export default expandablePanel;
+export default faq;
