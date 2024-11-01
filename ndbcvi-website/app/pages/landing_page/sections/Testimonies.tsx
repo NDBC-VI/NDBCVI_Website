@@ -26,13 +26,6 @@ const Testimonies = () => {
           </div>
         </div>
         <div className="w-1/2">
-          <div className="w-full bg-[#1D1841] p-[35px] flex justify-between items center">
-            <h3 className="text-[40px] font-[600]">Insert tag here</h3>
-            <div className="flex gap-[6px] items center">
-              <Image src={navLeftArrow} alt="nac left" />
-              <Image src={navRightArrow} alt="nac right" />
-            </div>
-          </div>
           <div className="w-full px-[35px] py-[65px] bg-[#2C2563]">
             <p className="text-[26px]">
               “In publishing and graphic design, Lorem ipsum is a placeholder
@@ -42,6 +35,13 @@ const Testimonies = () => {
               ipsum may be used as a placeholder before the final copy is
               available.”
             </p>
+          </div>
+          <div className="w-full bg-[#1D1841] p-[35px] flex justify-between items center">
+            <h3 className="text-[40px] font-[600]">Insert tag here</h3>
+            <div className="flex gap-[6px] items center">
+              <Image src={navLeftArrow} alt="nav left" />
+              <Image src={navRightArrow} alt="nav right" />
+            </div>
           </div>
         </div>
       </div>

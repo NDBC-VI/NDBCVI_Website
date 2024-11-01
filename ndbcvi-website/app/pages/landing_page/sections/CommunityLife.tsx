@@ -2,7 +2,7 @@ import CommunityLifeCard from "../components/CommunityLifeCard";
 
 const CommunityLife = () => {
   return (
-    <section className="bg-[#F6F6F6] flex justify-center px-[60px] pt-[96px]">
+    <section className="bg-[#F6F6F6] flex justify-center px-[60px] pt-[96px] pb-[400px] relative overflow-hidden">
       <div className="flex flex-col text-center gap-[96px]">
         <div>
           <h2 className="text-[48px] font-[600] mb-[18px]">Community life</h2>
@@ -12,7 +12,7 @@ const CommunityLife = () => {
             love as our guiding <br /> principle.
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-4 ">
+        <div className="grid grid-cols-4 gap-4 max-w-[1392px] mx-auto absolute left-0 2xl:left-[10%] bottom-[-25%] group-hover:top-0 px-[60px] transition duration-500 group">
           <CommunityLifeCard
             name="Activity name"
             img={`https://s3-alpha-sig.figma.com/img/7497/5458/3ece825df1b8343b31b953d041d1d7b8?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Bh64GqwURz2G5yHjT6VVjHgJ-oC1pJxmLn5C6GLK26t99-hdYjcv2gkIICwZo47vc3TEVGaWbMKNbgPCV1e2~n8SMF~Rr9RIQh2Ett8-r4CK2tNGAK6LOfW9m8Y5rC6e0qe-5876RHOz8qoMwZPsH8tKoFF2Qk7guiXT-Iaoem6771F3O--wZQkoYxbZwvB4TNqFMGu5HPSTgILzVrG0uQLJys-79FfVG2i4nvPg4HW8jnLqSAFS-HoWY4Al43UzN4nbxT-gjeEQXzJQYqHS~ZRBgHNs2tihtRIEVOImSKSr62U3xVnyVoMOkzI2psINcRiSKa~UivbgfALrCQ-djA__`}

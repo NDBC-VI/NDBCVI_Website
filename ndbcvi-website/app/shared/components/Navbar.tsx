@@ -10,7 +10,7 @@ import { useState } from "react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className=" px-[60px] py-[20px] flex items-center justify-between fixed top-0 text-white w-full z-10 bg-black bg-opacity-40 backdrop-blur-lg">
+    <nav className="px-[60px] py-[20px] flex items-center justify-between fixed top-0 text-white w-full z-10 bg-black bg-opacity-40 backdrop-blur-lg">
       <div className="flex gap-[48px] items-center text-[20px] font-[500]">
         <Link
           href="/"
@@ -25,7 +25,10 @@ const Navbar = () => {
         />
         <Link href="/pages/about_ndbc" children={<p>About NDBC</p>} />
         <Link href="" children={<p>Events</p>} />
-        <Link href="" children={<p>Information Center</p>} />
+        <Link
+          href="/pages/information_center"
+          children={<p>Information Center</p>}
+        />
       </div>
       <CustomBtn
         title="Menu"

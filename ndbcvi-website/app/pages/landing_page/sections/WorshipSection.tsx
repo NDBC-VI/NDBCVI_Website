@@ -8,7 +8,7 @@ const WorshipSection = () => {
         <div className="w-1/2 relative">
           <div className="bg-[rgba(0,0,0,0.4)] absolute top-0 left-0 w-full h-full rounded-[10px]"></div>
           <img
-            src="https://s3-alpha-sig.figma.com/img/2584/b045/999f1536b1d1e7c1831f8c3e12f69f5f?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UcSNheu8kMjoOi0BsMREqNpK6Bo8fjXABpr1v0aVKRLGdyyXz52w6NmZqpYWlgwHkmGu7iXgQFm2AsoekKweEpRoLEspGbS6-yDcAu~NhM~vOHCqogMnwci2D3~-qoU-nq~Aelx4~7lQlTRHnqkWi3um-J7qYCBcec4q~6EBoD6JCDa30O8-Cb8MJT2AmHt6qhCyAyHx1ausIu-iSILBwrZO3l5jTLYqoeP82OW21xM3BpXkOn-vgpVr3n2zGRQwuf8j1NU5uamC8HKbfjmn7IFzHXWDeAbNIhbBSMF2tSDtpWjS68HfM~SliSktHy85hmTcp9UaWXWk7WhSdHtBOg__"
+            src="https://s3-alpha-sig.figma.com/img/2584/b045/999f1536b1d1e7c1831f8c3e12f69f5f?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UR3yK7u94yw8E7WFrdU8P8pkeAtb9vnO52TTjbYp7jT9RJp~m3OQPaKl7E24I6Du9Wp8SA6DaNQEhWN-08p9wdoRZwZmCilRxrC68FOMoxGxRB-6k74N7Ln2O7Mh41CMuq1ad1LF2HANCfeufeteqrLoZz4WObUTGbGT0iNMUElSXdIGBp2aJljwoAJGWetU8ApBvgD4NeAoexhHOVV5NR8zgRdXzrotphe9dp180bGIDdDkK5bNHNW8m2HvisLqwqrzrlmEFBSldR33PTFj--DdwN2-LVXDNNRHZ7iC3EjZwJ8m7JeFa66acIkeeim6RJBuXmFqxsvP-vEd9wT-0g__"
             alt="info card img"
             className="object-cover rounded-[10px]  h-full"
           />
@@ -26,7 +26,7 @@ const WorshipSection = () => {
             <div className="bg-[rgba(0,0,0,0.4)] absolute top-0 left-0 w-full h-full rounded-[10px]"></div>
             <div>
               <img
-                src="https://s3-alpha-sig.figma.com/img/2584/b045/999f1536b1d1e7c1831f8c3e12f69f5f?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UcSNheu8kMjoOi0BsMREqNpK6Bo8fjXABpr1v0aVKRLGdyyXz52w6NmZqpYWlgwHkmGu7iXgQFm2AsoekKweEpRoLEspGbS6-yDcAu~NhM~vOHCqogMnwci2D3~-qoU-nq~Aelx4~7lQlTRHnqkWi3um-J7qYCBcec4q~6EBoD6JCDa30O8-Cb8MJT2AmHt6qhCyAyHx1ausIu-iSILBwrZO3l5jTLYqoeP82OW21xM3BpXkOn-vgpVr3n2zGRQwuf8j1NU5uamC8HKbfjmn7IFzHXWDeAbNIhbBSMF2tSDtpWjS68HfM~SliSktHy85hmTcp9UaWXWk7WhSdHtBOg__"
+                src="https://s3-alpha-sig.figma.com/img/2584/b045/999f1536b1d1e7c1831f8c3e12f69f5f?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UR3yK7u94yw8E7WFrdU8P8pkeAtb9vnO52TTjbYp7jT9RJp~m3OQPaKl7E24I6Du9Wp8SA6DaNQEhWN-08p9wdoRZwZmCilRxrC68FOMoxGxRB-6k74N7Ln2O7Mh41CMuq1ad1LF2HANCfeufeteqrLoZz4WObUTGbGT0iNMUElSXdIGBp2aJljwoAJGWetU8ApBvgD4NeAoexhHOVV5NR8zgRdXzrotphe9dp180bGIDdDkK5bNHNW8m2HvisLqwqrzrlmEFBSldR33PTFj--DdwN2-LVXDNNRHZ7iC3EjZwJ8m7JeFa66acIkeeim6RJBuXmFqxsvP-vEd9wT-0g__"
                 alt="info card img"
                 className="object-cover rounded-[10px] h-1/2"
               />

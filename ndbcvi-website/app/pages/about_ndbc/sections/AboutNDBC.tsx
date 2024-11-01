@@ -3,7 +3,7 @@ import heroImg from "../../../assets/pngs/hero-img.png";
 
 const AboutNDBC = () => {
   return (
-    <section className="pt-[120px] px-[18px]">
+    <section className="py-[120px] px-[18px]">
       <div className="max-w-[1512px] mx-auto flex gap-[18px]">
         <div className="w-1/2 bg-[#F6F6F6] rounded-[24px] px-[24px] py-[45px] text-[20px]">
           <h2 className="text-[38px] font-[600] mb-[16px]">About NDBC</h2>
@@ -35,7 +35,7 @@ const AboutNDBC = () => {
           <Image
             src={heroImg}
             alt="church logo"
-            className="rounded-[24px] h-[108vh] object-cover"
+            className="rounded-[24px] h-[108vh] 2xl:h-[78vh] object-fill"
           />
         </div>
       </div>
