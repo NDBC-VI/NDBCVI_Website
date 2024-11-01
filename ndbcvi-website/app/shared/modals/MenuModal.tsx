@@ -8,7 +8,7 @@ import facebook from "../../assets/svgs/facebook-menu.svg";
 import x from "../../assets/svgs/x-menu.svg";
 import close from "../../assets/svgs/close-menu.svg";
 import TabBtn from "../components/TabBtn";
-import { useState, useMemo, MouseEventHandler } from "react";
+import { useState, useMemo, MouseEventHandler, useEffect } from "react";
 import DiscoverView from "../views/DiscoverView";
 import TakeActionView from "../views/TakeActionView";
 import { PortableText, SanityDocument } from "next-sanity";
@@ -25,6 +25,20 @@ interface MenuModalProps {
 
 const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
   const {events} = useNavBarContext();
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } 
+    else {
+      document.body.style.overflow = '';
+    }
+
+    // Cleanup on component unmount
+    return () => {
+    document.body.style.overflow = '';
+    };
+}, [isOpen]);
 
   const [isActive, setIsActive] = useState(modalTabs[0]);
 
