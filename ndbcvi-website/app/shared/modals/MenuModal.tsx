@@ -13,7 +13,6 @@ import DiscoverView from "../views/DiscoverView";
 import TakeActionView from "../views/TakeActionView";
 import { PortableText, SanityDocument } from "next-sanity";
 import { calcTimeDelta } from "react-countdown";
-import event from "@/sanity/schemaTypes/event";
 import { urlFor } from "@/sanity/lib/image";
 import { useNavBarContext } from "@/app/context/navBarContext";
 

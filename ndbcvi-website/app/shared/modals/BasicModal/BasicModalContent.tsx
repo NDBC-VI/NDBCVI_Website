@@ -1,11 +1,12 @@
 'use client';
 
-import Image from 'next/image'; 
+import { BasicModalPropsType, InfoSectionType } from '@/app/types';
 import { urlFor } from '@/sanity/lib/image';
-import { InfoSection } from '../components/InfoSection';
-import { InfoSectionType, BasicModalPropsType } from '@/app/types';
-import { ScrollLinks } from '../components/ScrollLinks';
+import Image from 'next/image';
 import { useState } from 'react';
+import { InfoSection } from '../components/InfoSection';
+import { ScrollLinks } from '../components/ScrollLinks';
+import mapPin from "@/app/assets/svgs/map-pin.svg";
 
 
 
@@ -28,22 +29,28 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                     <div className="h-[15%] w-1/2 flex flex-row justify-between items-center">
                         <h1 className="text-4xl font-bold">{title}</h1>
                     </div>
-                    <div className="h-fit my-5 py-5 w-full flex flex-row justify-around items-end">
+                    <div className="min-h-[60vh] my-5 py-5 w-full flex flex-row justify-around items-end">
                         <Image 
                             src={urlFor(headerImages[0].asset._ref).url()}
                             alt="placeholder image"
-                            width={300}
+                            width={500}
                             height={200}
                         />
 
-                        <Image 
-                            src={urlFor(headerImages[1].asset._ref).url()}
-                            alt="placeholder image"
-                            width={350}
-                            height={500}
-                            className='cursor-pointer'
-                            onClick={toggleGalleryMode}
-                        />
+                        <div className='relative w-fit h-fit cursor-pointer' onClick={toggleGalleryMode}>
+                            <div className='absolute z-10 w-full h-full bg-gradient-to-b from-30% from-transparent to-black'></div>
+                            <Image
+                                src={urlFor(headerImages[5].asset._ref).url()}
+                                alt="placeholder image"
+                                width={300}
+                                height={400}
+                                style={{objectFit: 'contain'}}
+                            />
+                            <div className='absolute bottom-5 z-20 w-full text-white flex flex-col items-center'>
+                                <Image src={mapPin} alt="map pin" width={24} />
+                                <p>See more images</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="flex flex-row justify-between my-5 space-x-10">
