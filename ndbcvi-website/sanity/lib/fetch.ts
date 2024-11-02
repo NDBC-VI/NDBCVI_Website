@@ -24,7 +24,6 @@ export async function sanityFetch<QueryResponse>({
       "The `SANITY_API_READ_TOKEN` environment variable is required."
     );
   }
-  const isDevelopment = process.env.NODE_ENV === "development";
 
   return client
     .withConfig({ useCdn: true })
@@ -35,7 +34,7 @@ export async function sanityFetch<QueryResponse>({
         perspective: "previewDrafts",
       }),
       next: {
-        ...(isDraftMode && { revalidate: 30 }),
+        revalidate: 180,
         tags,
       },
     });
