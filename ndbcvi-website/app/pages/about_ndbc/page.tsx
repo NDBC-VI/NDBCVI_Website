@@ -2,15 +2,12 @@ import AboutNDBC from "./sections/AboutNDBC";
 import MoreAboutNewDawn from "./sections/MoreAboutNewDawn";
 import CommunityLife from "./sections/CommunityLife";
 import MissionAndVision from "./sections/MissionAndVision";
-import Deacons from "./sections/Deacons";
-import MinistryLeads from "./sections/MinistryLeads";
 import { SanityDocument } from "sanity";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { aboutPageQuery } from "@/sanity/lib/queries";
 import { PortableText, PortableTextBlock } from "next-sanity";
-import { ReverendsList } from "@/app/test-sanity/ReverendsList";
-import { PeopleList } from "@/app/test-sanity/PeopleList";
-
+import { ReverendsList } from "./components/ReverendsList";
+import { PeopleList } from "./components/PeopleList";
 
 
   interface ReverendList {

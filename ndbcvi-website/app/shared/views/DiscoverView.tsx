@@ -23,7 +23,7 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
   
   return (
     <div className="flex flex-col gap-[16px] justify-start">
-      {discoverLinks.map((link, i) => {
+      {discoverLinks.map((link) => {
         if(link.title === "Information Centre") {
           return (
             <ModalTemplate 
@@ -57,16 +57,15 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
           <Link
             key={link.id}
             href={link.path}
-            children={
-              <button
-                type="button"
-                className="text-[30px] font-[600]"
-                onClick={clickFn}
-              >
-                {link.title}
-              </button>
-            }
-          />
+          >
+            <button
+              type="button"
+              className="text-[30px] font-[600]"
+              onClick={clickFn}
+            >
+              {link.title}
+            </button>
+          </Link>
         );  
       })}    
     </div>

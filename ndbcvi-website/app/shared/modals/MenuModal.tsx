@@ -11,7 +11,7 @@ import TabBtn from "../components/TabBtn";
 import { useState, useMemo, MouseEventHandler, useEffect } from "react";
 import DiscoverView from "../views/DiscoverView";
 import TakeActionView from "../views/TakeActionView";
-import { PortableText, SanityDocument } from "next-sanity";
+import { PortableText } from "next-sanity";
 import { calcTimeDelta } from "react-countdown";
 import { urlFor } from "@/sanity/lib/image";
 import { useNavBarContext } from "@/app/context/navBarContext";

@@ -43,7 +43,7 @@ const Navbar = ({banner, events, faqPopup}: {banner: SanityDocument, events: San
                   height={48}
                 />
             </Link>
-            <Link href="/pages/about_ndbc" children={<p>About NDBC</p>} />
+            <Link href="/pages/about_ndbc"><p>About NDBC</p></Link>
             <ModalTemplate 
               modalActivator={<Link href=""><p>Events</p></Link>} 
               modalContent={<EventsModalContent events={events} />}
