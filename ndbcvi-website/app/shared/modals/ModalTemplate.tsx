@@ -47,7 +47,7 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
     // Prevent scrolling on the main page when the modal is open
     useEffect(() => {
         if (open) {
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = "hidden";
         } else {
         document.body.style.overflow = '';
         }
