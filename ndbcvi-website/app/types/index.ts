@@ -32,7 +32,7 @@ type FaqType = {
     slug: { 
         current: string,
     },
-    content: PortableTextBlock[]
+    content: PortableTextBlock
 }
 
 type BasicModalPropsType = {

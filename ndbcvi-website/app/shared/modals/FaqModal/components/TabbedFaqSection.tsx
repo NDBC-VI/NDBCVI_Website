@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { FaqSectionType, FaqType } from '@/app/types';
 import { ExpandableComponent } from '@/app/shared/components/ExpandableComponent';
 import TabBtn from '@/app/shared/components/TabBtn';
+import { PortableTextBlock } from 'next-sanity';
 
 export const TabbedFaqSection = ({sections}: {sections: FaqSectionType[]}) => {
 
@@ -23,9 +24,10 @@ export const TabbedFaqSection = ({sections}: {sections: FaqSectionType[]}) => {
                 {
                     sections.map((section: FaqSectionType, index: number) => {
                         return section.faqs.map((faq: FaqType) => {
+                            const answer = faq.content as PortableTextBlock;
                             return (
                                 <div key={faq.slug.current} className={`w-full ${selectedTab === index ? "" : 'hidden'}`}>
-                                    <ExpandableComponent title={faq.title} content={faq.content} />
+                                    <ExpandableComponent title={faq.title} content={answer} />
                                 </div>
                             )
                         });

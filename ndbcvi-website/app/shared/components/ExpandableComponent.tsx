@@ -1,7 +1,7 @@
 import { PortableText, PortableTextBlock } from 'next-sanity'
 import React from 'react'
 
-export const ExpandableComponent = ({title, content}: {title: string, content: PortableTextBlock[]}) => {
+export const ExpandableComponent = ({title, content}: {title: string, content: PortableTextBlock}) => {
     return (
         <div>
             <details className='bg-white shadow rounded group mb-4'>
