@@ -57,5 +57,15 @@ type ModalContextType = {
     modalScrollPosition: number
 }
 
+type PersonType = {
+    name: string,
+    slug: {
+        current: string
+    },
+    photo: SanityImageObject,
+    bio: PortableTextBlock,
+    link: string,
+    linkText: string
+}
 
-export type { InfoSectionType, FaqSectionType, BasicModalPropsType, FaqModalPropsType, FaqType, ModalContextType }
+export type { InfoSectionType, FaqSectionType, BasicModalPropsType, FaqModalPropsType, FaqType, ModalContextType, PersonType }

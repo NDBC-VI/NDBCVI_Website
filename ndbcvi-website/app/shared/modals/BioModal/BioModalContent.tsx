@@ -2,12 +2,13 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { urlFor } from '../../../../sanity/lib/image'
-import { PortableText, SanityDocument } from 'next-sanity'
+import { urlFor } from '@/sanity/lib/image'
+import { PortableText } from 'next-sanity'
 import { ScrollLinks } from '../components/ScrollLinks'
 import Link from 'next/link';
+import { PersonType } from '@/app/types';
 
-export const BioModalContent = ({person}: {person: SanityDocument}) => {
+export const BioModalContent = ({person}: {person: PersonType}) => {
     return (
         <>
                 <div className="flex flex-row justify-between space-x-10 p-10">

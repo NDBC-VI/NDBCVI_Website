@@ -8,12 +8,13 @@ import { aboutPageQuery } from "@/sanity/lib/queries";
 import { PortableText, PortableTextBlock } from "next-sanity";
 import { ReverendsList } from "./components/ReverendsList";
 import { PeopleList } from "./components/PeopleList";
+import { PersonType } from "@/app/types";
 
 
   interface ReverendList {
     title: string,
     description: PortableTextBlock,
-    reverendList: SanityDocument[]
+    reverendList: PersonType[]
   }
   
   interface DeaconList {
