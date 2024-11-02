@@ -5,7 +5,7 @@ import Countdown, { zeroPad } from 'react-countdown'
 export const EventsModalCountdownComponent = ({startDate}: {startDate: Date}) => {
 
 
-    const renderer = ({ days, hours, minutes, seconds, completed }: { days: number, hours: number, minutes: number, seconds: number, completed: boolean }) => {
+    const renderer = ({ days, hours, minutes, seconds }: { days: number, hours: number, minutes: number, seconds: number }) => {
         return (
             <div className='w-full mb-5'>
                 <h3 className='text-4xl font-semibold text-slate-300 my-2'><span className='text-black'>{zeroPad(days, 2)}</span> days</h3>
