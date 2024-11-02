@@ -1,9 +1,9 @@
 import React from 'react'
 import { SanityDocument } from 'sanity'
-import ReusableCardComponent from '../shared/components/ReusableCardComponent'
+import ReusableCardComponent from '@/app/shared/components/ReusableCardComponent'
 import { urlFor } from '@/sanity/lib/image'
-import { ModalTemplate } from '../shared/modals/ModalTemplate'
-import { BioModalContent } from '../shared/modals/BioModal/BioModalContent'
+import { ModalTemplate } from '@/app/shared/modals/ModalTemplate'
+import { BioModalContent } from '@/app/shared/modals/BioModal/BioModalContent'
 
 export const ReverendsList = ({list}: {list: SanityDocument[]}) => {
     return (

@@ -1,6 +1,6 @@
 import { SanityDocument } from 'next-sanity'
 import React from 'react'
-import ReusableCardComponent from '../shared/components/ReusableCardComponent'
+import ReusableCardComponent from '@/app/shared/components/ReusableCardComponent'
 import { urlFor } from '@/sanity/lib/image'
 
 
