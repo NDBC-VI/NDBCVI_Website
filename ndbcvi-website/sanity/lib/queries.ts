@@ -1,0 +1,43 @@
+import { groq } from "next-sanity";
+
+export const allInfoPopupsQuery = groq`*[_type == "infoPopup"] | order(displayOrder) {
+        title,
+        slug,
+        introduction,
+        thumbnailImage,
+        thumbnailCaption,
+        headerImages,
+        infoSections[]->
+    }`;
+
+
+export const bannerQuery = groq`*[_type == "banner"][0]`;
+
+export const faqPopupQuery = groq`*[_type == "faqPopup"][0] {
+    title,
+    slug,
+    faqSection[]->{
+        title,
+        slug,
+        faqs[]->
+    },
+    faqInfoSections[]->
+}`
+
+export const eventsQuery = groq`*[_type == "events" && startDate > now() && dateTime(startDate) < dateTime(now()) + 30 * 24 * 60 * 60] | order(startDate) {
+    title,
+    slug,
+    image,
+    content,
+    startDate,
+    location,
+    googleMapsLink
+}`
+
+export const aboutPageQuery = groq`*[_type == "reverendList" || _type == "deaconList" || _type == "ministryLeadList"] {
+    title,
+    description,
+    reverendList[]->,
+    deaconList[]->,
+    ministryLeadList[]->
+}`
