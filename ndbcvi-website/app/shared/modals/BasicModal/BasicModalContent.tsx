@@ -1,7 +1,7 @@
 'use client';
 
 import { BasicModalPropsType, InfoSectionType } from '@/app/types';
-import { urlFor } from '@/sanity/lib/image';
+import { urlFor } from '../../../../sanity/lib/image';
 import Image from 'next/image';
 import { useState } from 'react';
 import { InfoSection } from '../components/InfoSection';
