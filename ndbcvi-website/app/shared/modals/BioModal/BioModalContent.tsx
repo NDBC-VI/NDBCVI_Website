@@ -11,7 +11,7 @@ import { PersonType } from '@/app/types';
 export const BioModalContent = ({person}: {person: PersonType}) => {
     return (
         <>
-                <div className="flex flex-row justify-between space-x-10 p-10">
+                <div className='flex flex-row justify-between space-x-10 p-10'>
                     <ScrollLinks sections={[{title: person.name, slug: person.slug.current}]}/>
                     <div id={person.slug.current} className="w-2/3 px-6 relative self-end">
                         <Image 
