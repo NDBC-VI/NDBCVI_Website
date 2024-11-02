@@ -7,7 +7,7 @@ import { PersonType } from '@/app/types'
 
 export const ReverendsList = ({list}: {list: PersonType[]}) => {
     return (
-        <div id="container" className='w-[90vw] bg-white flex flex-row justify-center'>
+        <div id='container' className='w-[90vw] bg-white flex flex-row justify-center'>
             {list.map((person) => {
                 return (
                     <div key={person.slug.current} className='m-1 cursor-pointer flex-[0.5] hover:flex-[1.5] transition-all ease-out duration-500 rounded-lg'>
