@@ -38,9 +38,9 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
             return;
         }
         element.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-            inline: "nearest",
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'nearest',
         });
     };
 
