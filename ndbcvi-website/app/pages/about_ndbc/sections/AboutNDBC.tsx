@@ -4,8 +4,8 @@ import heroImg from "../../../assets/pngs/hero-img.png";
 const AboutNDBC = () => {
   return (
     <section className="py-[120px] px-[18px]">
-      <div className="max-w-[1512px] mx-auto flex gap-[18px]">
-        <div className="w-1/2 bg-[#F6F6F6] rounded-[24px] px-[24px] py-[45px] text-[20px]">
+      <div className="max-w-[1512px] mx-auto flex flex-col lg:flex-row gap-[18px]">
+        <div className="lg:w-1/2 md:bg-[#F6F6F6] rounded-[24px] px-[24px] py-[45px] text-[20px]">
           <h2 className="text-[38px] font-[600] mb-[16px]">About NDBC</h2>
           <p>
             New Dawn Baptist Church (NDBC) was established on November 21st,
@@ -31,11 +31,16 @@ const AboutNDBC = () => {
             signifying a significant milestone in its growth and development.
           </p>
         </div>
-        <div className="w-1/2">
+        <div className="w-full flex gap-[3vw] lg:w-1/2 lg:block">
           <Image
             src={heroImg}
             alt="church logo"
-            className="rounded-[24px] h-[108vh] 2xl:h-[78vh] object-fill"
+            className="rounded-[24px] h-[470px] w-[330px] lg:h-[108vh] lg:w-full 2xl:h-[78vh] object-fill"
+          />
+          <Image
+            src={heroImg}
+            alt="church logo"
+            className="lg:hidden rounded-[24px] h-[470px] w-[330px] lg:h-[108vh] lg:w-full 2xl:h-[78vh] object-fill"
           />
         </div>
       </div>
