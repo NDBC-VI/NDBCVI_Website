@@ -9,7 +9,7 @@ export const EventsModalContent = ({events}: {events: SanityDocument[]}) => {
 
   return (
       <>
-            <div className="h-[60vh] px-9 py-10 rounded-t-3xl">
+            <div className="max-h-[60vh] px-9 py-10 rounded-t-3xl">
                 <div className="h-[15%] w-full flex flex-row justify-between items-center">
                     <h1 className="text-4xl font-bold">Title</h1>
                 </div>

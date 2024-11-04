@@ -29,7 +29,7 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                     <div className="h-[15%] w-1/2 flex flex-row justify-between items-center">
                         <h1 className="text-4xl font-bold">{title}</h1>
                     </div>
-                    <div className="min-h-[60vh] my-5 py-5 w-full flex flex-row justify-around items-end">
+                    <div className="max-h-[60vh] my-5 py-5 w-full flex flex-row justify-around items-end">
                         <Image 
                             src={urlFor(headerImages[0].asset._ref).url()}
                             alt="placeholder image"

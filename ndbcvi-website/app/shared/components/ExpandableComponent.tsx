@@ -5,7 +5,7 @@ export const ExpandableComponent = ({title, content}: {title: string, content: P
     return (
         <div>
             <details className='bg-white shadow rounded group mb-4'>
-                <summary className='list-none flex flex-wrap items-center cursor-pointer focus-visible:outline-none rounded group-open:rounded-b-none group-open:z-[1]'>
+                <summary className='list-none flex flex-wrap px-4 items-center cursor-pointer focus-visible:outline-none rounded group-open:rounded-b-none group-open:z-[1]'>
                     <h3 className='flex flex-1 p-4 font-semibold'>
                         {title}
                     </h3>

@@ -1,9 +1,9 @@
 import { sanityFetch } from '@/sanity/lib/fetch';
 import { aboutPageQuery } from '@/sanity/lib/queries';
 
-import { PortableText, SanityDocument } from 'next-sanity';
-import { PeopleList } from './PeopleList';
-import { ReverendsList } from './ReverendsList';
+// import { PortableText, SanityDocument } from 'next-sanity';
+// import { PeopleList } from './PeopleList';
+// import { ReverendsList } from './ReverendsList';
 
 export const revalidate = 60;
 
@@ -32,7 +32,7 @@ export default async function Home() {
       </div> */}
 
 
-      <div className='w-full flex flex-col items-center z-0'>
+      {/* <div className='w-full flex flex-col items-center z-0'>
         <div className='w-full flex flex-row justify-between px-[5vw] mb-[5vh] text-right'>
           <h2 className='text-4xl font-semibold'>Reverends</h2>
           <div className='w-1/3 self-end'>
@@ -58,7 +58,7 @@ export default async function Home() {
           </div>
         </div>
         <PeopleList list={ministryLeads.ministryLeadList} />
-      </div>
+      </div> */}
 
       {/* <InvitationsSection popups={allInfoPopups} events={events} /> */}
     

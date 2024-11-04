@@ -30,7 +30,7 @@ import { PersonType } from "@/app/types";
   }
 
 const AboutNdbc = async () => {
-  const people: SanityDocument[] = await sanityFetch<SanityDocument[]>({ query: aboutPageQuery, tags: ['reverendList', 'deaconList'] });
+  const people: SanityDocument[] = await sanityFetch<SanityDocument[]>({ query: aboutPageQuery, tags: ['reverendList', 'deaconList', 'ministryLeadList'] });
   const reverends: ReverendList = people.find(list => list.title === "Reverends of NDBC") as unknown as ReverendList;
   const deacons: DeaconList = people.find(list => list.title === "Deacons 2024") as unknown as DeaconList;
   const ministryLeads: MinistryLeadList = people.find(list => list.title === "Ministry Leads") as unknown as MinistryLeadList;
