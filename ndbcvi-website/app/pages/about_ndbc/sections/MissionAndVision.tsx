@@ -4,9 +4,9 @@ import navArrowRight from "../../../assets/svgs/nav-arrow-right-white.svg";
 import blackNavArrowRight from "../../../assets/svgs/nav-arrow-right-black.svg";
 const MissionAndVision = () => {
   return (
-    <section className="py-[120px] px-[40px]">
+    <section className="py-[120px] pl-[40px] lg:px-[40px]">
       <div className="w-full max-w-[1392px] mx-auto flex flex-col lg:flex-row gap-[24px]">
-        <div className="bg-black text-white w-full h-[111px] rounded-[18px] flex justify-between items-end pb-[24px] pr-[24px] pl-[36px]
+        <div className="bg-black text-white w-11/12 h-[111px] rounded-[18px] flex justify-between items-end pb-[24px] pr-[24px] pl-[36px]
               lg:h-[460px] lg:w-1/4 lg:rounded-[24px] lg:flex-col lg:justify-end lg:items-start">
           <div className="flex flex-col">
             <p className="text-[18px] font-[500] lg:text-[24px] lg:font-[600] text-[#757575]">
@@ -47,7 +47,7 @@ const MissionAndVision = () => {
                 </p>
               </div>
             </div>
-            <div className="h-[270px] w-[80%] shrink-0 px-4 py-2 rounded-[18px] bg-[#F6F6F6] flex items-end
+            <div className="h-[270px] w-[80%] shrink-0 mr-5 px-4 py-2 rounded-[18px] bg-[#F6F6F6] flex items-end
                   lg:h-full lg:w-[33%] lg:mr-0 lg:rounded-r-[24px] lg:rounded-l-none lg:flex lg:px-[20px] lg:pb-[36px]">
               <div>
                 <h2 className="text-[24px] lg:text-[36px] font-[600] mb-[30px]">Restore</h2>
