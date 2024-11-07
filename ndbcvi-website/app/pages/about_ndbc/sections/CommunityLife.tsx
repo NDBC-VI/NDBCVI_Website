@@ -1,11 +1,11 @@
 import Image from "next/image";
 import communityLife from "../assets/pngs/coomunity-life.png";
-import navArrowRight from "../../../assets/svgs/nav-arrow-right.svg";
+import navArrowRight from "../../../assets/svgs/nav-arrow-right-white.svg";
 import navArrowLeft from "../../../assets/svgs/nav-arrow-left.svg";
 
 const CommunityLife = () => {
   return (
-    <section className="bg-black text-white py-[90px]">
+    <section className="bg-black text-white py-[90px] w-full overflow-x-scroll">
       <div className="px-2 text-center">
         <h2 className="text-[24px] lg:text-[48px] font-[600] mb-[18px]">Community life</h2>
         <p className="text-[18px] lg:leading-[25.2px] lg:text-[24px] lg:leading-[33.6px]">

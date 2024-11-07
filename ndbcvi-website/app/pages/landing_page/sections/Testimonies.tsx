@@ -1,6 +1,6 @@
 import Image from "next/image";
 import whiteRightArrow from "../../../assets/svgs/white-right-arrow.svg";
-import navRightArrow from "../../../assets/svgs/nav-arrow-right.svg";
+import navRightArrow from "../../../assets/svgs/nav-arrow-right-white.svg";
 import navLeftArrow from "../../../assets/svgs/nav-arrow-left.svg";
 
 const Testimonies = () => {
