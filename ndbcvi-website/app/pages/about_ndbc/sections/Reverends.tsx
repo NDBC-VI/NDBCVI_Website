@@ -5,7 +5,7 @@ import { ReverendList } from '@/app/types'
 
 export const Reverends = ({reverends}: {reverends: ReverendList}) => {
     return (
-        <section className='w-full pl-[40px] pt-[90px] flex flex-col items-center z-0 lg:px-[40px]'>
+        <section className='w-full pl-[40px] flex flex-col items-center z-0 lg:px-[40px]'>
             <div className='w-full flex flex-col items-start
                     lg:flex-row lg:justify-between lg:mb-[5vh] lg:text-right'>
                 <h2 className='text-[24px] mb-[16px] font-[600] lg:text-[48px]'>Reverends</h2>

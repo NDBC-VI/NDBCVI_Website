@@ -28,7 +28,7 @@ const Footer = () => {
             <p className="text-[18px] font-[500] text-[#C4C4C4] mb-[12px]">
               Explore more
             </p>
-            <div className="flex flex-wrap gap-[16px] w-4/5 lg:w-full">
+            <div className="flex flex-wrap gap-[16px] w-[90%] lg:w-full">
               <FooterServiceCard title="Service name" />
               <FooterServiceCard title="Service name" />
               <FooterServiceCard title="Service name" />
