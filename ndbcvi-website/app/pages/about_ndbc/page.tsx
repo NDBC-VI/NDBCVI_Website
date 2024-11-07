@@ -5,29 +5,10 @@ import MissionAndVision from "./sections/MissionAndVision";
 import { SanityDocument } from "sanity";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { aboutPageQuery } from "@/sanity/lib/queries";
-import { PortableText, PortableTextBlock } from "next-sanity";
-import { ReverendsList } from "./components/ReverendsList";
-import { PeopleList } from "./components/PeopleList";
-import { PersonType } from "@/app/types";
-
-
-  interface ReverendList {
-    title: string,
-    description: PortableTextBlock,
-    reverendList: PersonType[]
-  }
-  
-  interface DeaconList {
-    title: string,
-    description: PortableTextBlock,
-    deaconList: SanityDocument[]
-  }
-
-  interface MinistryLeadList {
-    title: string,
-    description: PortableTextBlock,
-    ministryLeadList: SanityDocument[]
-  }
+import { DeaconList, MinistryLeadList, ReverendList } from "@/app/types";
+import { Reverends } from "./sections/Reverends";
+import Deacons from "./sections/Deacons";
+import MinistryLeads from "./sections/MinistryLeads";
 
 const AboutNdbc = async () => {
   const people: SanityDocument[] = await sanityFetch<SanityDocument[]>({ query: aboutPageQuery });
@@ -40,35 +21,9 @@ const AboutNdbc = async () => {
       <AboutNDBC />
       <CommunityLife />
       <MissionAndVision />
-      <div className='w-full flex flex-col items-center z-0'>
-        <div className='w-full flex flex-row justify-between px-[5vw] mb-[5vh] text-right'>
-          <h2 className='text-4xl font-semibold'>Reverends</h2>
-          <div className='w-1/3 self-end'>
-            <PortableText value={reverends.description} />
-          </div>
-        </div>
-        <div className='w-full flex flex-row justify-center my-5'>
-          <ReverendsList list={reverends.reverendList}  />
-        </div>
-
-        <div className='w-full flex flex-row justify-between px-[5vw] text-right mt-[15vh] mb-[5vh]'>
-          <h2 className='text-4xl font-semibold'>Deacons</h2>
-          <div className='w-1/3 self-end'>
-            <PortableText value={deacons.description} />
-          </div>        
-        </div>
-        <PeopleList list={deacons.deaconList} />
-
-        <div className='w-full flex flex-row justify-between px-[5vw] text-right mt-[15vh] mb-[5vh]'>
-          <h2 className='text-4xl font-semibold'>Ministry Leads</h2>
-          <div className='w-1/3 self-end'>
-            <PortableText value={ministryLeads.description} />
-          </div>
-        </div>
-        <PeopleList list={ministryLeads.ministryLeadList} />
-      </div>
-      {/* <Deacons />
-      <MinistryLeads /> */}
+      <Reverends reverends={reverends} />
+      <Deacons deacons={deacons} />
+      <MinistryLeads ministryLeads={ministryLeads} />
       <MoreAboutNewDawn />
     </>
   );

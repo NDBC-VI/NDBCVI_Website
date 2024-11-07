@@ -1,5 +1,5 @@
 import { SanityImageObject } from "@sanity/image-url/lib/types/types"
-import { PortableTextBlock } from "sanity"
+import { PortableTextBlock, SanityDocument } from "sanity"
 
 type InfoSectionType = {
     slug: {
@@ -68,4 +68,22 @@ type PersonType = {
     linkText: string
 }
 
-export type { InfoSectionType, FaqSectionType, BasicModalPropsType, FaqModalPropsType, FaqType, ModalContextType, PersonType }
+interface ReverendList {
+    title: string,
+    description: PortableTextBlock,
+    reverendList: PersonType[]
+}
+
+interface DeaconList {
+    title: string,
+    description: PortableTextBlock,
+    deaconList: SanityDocument[]
+}
+
+interface MinistryLeadList {
+    title: string,
+    description: PortableTextBlock,
+    ministryLeadList: SanityDocument[]
+}
+
+export type { InfoSectionType, FaqSectionType, BasicModalPropsType, FaqModalPropsType, FaqType, ModalContextType, PersonType, ReverendList, DeaconList, MinistryLeadList }
