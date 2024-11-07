@@ -25,7 +25,7 @@ export const ScrollLinks = ({sections}: {sections: ScrollLinkType[]}) => {
     }, [sections, modalScrollPosition]);
 
     return (
-        <div className="sticky top-0 h-fit p-4 flex flex-col justify-around">
+        <div className="hidden md:block md:sticky md:top-0 md:h-fit md:p-4 md:flex md:flex-col md:justify-around">
             <h3 className="font-medium font-semibold text-lg">On this page</h3>
             {
                 sections?.map((section: ScrollLinkType, index: number) => (
