@@ -60,10 +60,12 @@ export const ScrollLinks = ({sections}: {sections: ScrollLinkType[]}) => {
                                     <Image src={upArrow} alt="up arrow" />
                                 </div>
                             </summary>
-                            <div className='w-full overflow-x-scroll snap-x bg-[#1D1841] rounded-b-3xl text-white text-[16px] px-[20px] pb-[24px]'>
+                            <div className='w-full flex overflow-x-scroll snap-x bg-[#1D1841] rounded-b-3xl text-white text-[16px] px-[20px] pb-[24px]'>
                                 {
                                     sections?.map((section: ScrollLinkType, index: number) => (
-                                        <Link key={index+1} className= {`text-[400] text-nowrap w-fit text-[16px] mr-4 ${visibleSection === section.slug ? "" : "md:opacity-40"}`} onClick={(e) => scrollIntoTheView(e, section.slug)} href={""}>{section.title}</Link>
+                                        <div className="snap-center w-fit">
+                                            <Link key={index+1} className= {`text-[400] text-nowrap text-[16px] mr-4 ${visibleSection === section.slug ? "" : "md:opacity-40"}`} onClick={(e) => scrollIntoTheView(e, section.slug)} href={""}>{section.title}</Link>
+                                        </div>
                                     ))
                                 }
                             </div>
