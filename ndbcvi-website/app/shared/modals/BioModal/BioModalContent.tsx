@@ -24,14 +24,16 @@ export const BioModalContent = ({person}: {person: PersonType}) => {
                     />
                     <PortableText value={person.bio} />
                     
-                    <Link href={person.link} target='_blank' className='w-fit'>
-                        <button
-                            type="button"
-                            className="py-2 px-5 my-10 border border-black rounded-[100px] flex items-center gap-[6px] font-[500] cursor-pointer"
-                            >
-                            <p>{person.linkText}</p>
-                        </button>
-                    </Link>
+                    <div className='w-fit'>
+                        <Link href={person.link} target='_blank' className='w-fit'>
+                            <button
+                                type="button"
+                                className="py-2 px-5 my-10 border border-black rounded-[100px] flex items-center gap-[6px] font-[500] cursor-pointer"
+                                >
+                                <p>{person.linkText}</p>
+                            </button>
+                        </Link>
+                    </div>
                 </div> 
             </div> 
         </>
