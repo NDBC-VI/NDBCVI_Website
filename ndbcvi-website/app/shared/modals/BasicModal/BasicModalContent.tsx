@@ -53,7 +53,7 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-row justify-between my-5 space-x-10">
+                <div className="flex flex-row justify-between space-x-10">
                     <ScrollLinks sections={sections}/>
                     <div className="w-2/3 px-6 relative self-end">
                         {

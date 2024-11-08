@@ -55,7 +55,6 @@ type ModalContextType = {
     scrollIntoTheView: (e: React.MouseEvent, id: string) => void,
     handleScroll: () => void,
     modalScrollPosition: number,
-    isFullScreen: boolean
 }
 
 type PersonType = {

@@ -4,6 +4,8 @@
 import { useEffect, useState } from "react";
 import { ModalContext, useModalContext } from "../../context/modalContext";
 import { createPortal } from "react-dom";
+import Image from "next/image";
+import closeBtn from "@/app/assets/svgs/close-modal.svg";
 
 
 export const ModalTemplate = ({modalActivator, modalContent}: {modalActivator: JSX.Element | JSX.Element[], modalContent: JSX.Element}) => {
@@ -25,20 +27,10 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
 
     const [modalScrollPosition, setModalScrollPosition] = useState(0);
 
-    const [isFullScreen, setIsFullScreen] = useState(false);
-
     const handleScroll = () => {
         // Set modal scroll position for setting colors of scroll links
         const target = document.getElementById('backdrop') as HTMLElement;
         setModalScrollPosition(target.scrollTop);
-
-        // Set isFullScreen for enabling modal animation/scrolling on scroll
-        if(modalScrollPosition > 50 && !isFullScreen) {
-            setIsFullScreen(true);
-        }
-        else if(modalScrollPosition <= 50 && isFullScreen) {
-            setIsFullScreen(false);
-        }
     }
 
     // Helper function for scrolling to sections of the modal without changing the URL
@@ -71,7 +63,7 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
 
 
     return (
-        <ModalContext.Provider value={{isOpen: open, handleOpen, handleClose, modalContent, scrollIntoTheView, handleScroll, modalScrollPosition, isFullScreen }}>
+        <ModalContext.Provider value={{isOpen: open, handleOpen, handleClose, modalContent, scrollIntoTheView, handleScroll, modalScrollPosition }}>
             {children}
         </ModalContext.Provider>
     );
@@ -80,7 +72,7 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
 
 const Base = ({children}: {children: JSX.Element | JSX.Element[]}) => {
     // State for managing if the modal is visible or not
-    const { isOpen, handleClose, handleScroll, modalContent, isFullScreen } = useModalContext();
+    const { isOpen, handleClose, handleScroll, modalContent } = useModalContext();
 
     // Wait for the DOM to be ready before teleporting modal to the top of the DOM
     const [domReady, setDomReady] = useState(false);
@@ -100,11 +92,9 @@ const Base = ({children}: {children: JSX.Element | JSX.Element[]}) => {
                 domReady && isOpen && 
                 createPortal(
                     <div id='backdrop' onClick={handleClose} onScroll={handleScroll} className={`flex flex-col items-center z-20 transition-colors overflow-y-scroll m-0 ${isOpen ? "fixed inset-0 bg-black/70" : ""}`}>
-                        <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`mt-[80px] mb-[22px] mx-[12px] md:my-5 md:w-11/12 pb-2 rounded-3xl bg-white transition-all duration-500 ${isOpen ? "scale-100 opacity-100" : 'scale-125 opacity-0'}`}>
-                            <button onClick={handleClose} className='absolute top-5 right-[90%] md:right-6 w-8 h-8 rounded-full bg-slate-100 z-30'>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="grey" className="size-6 mx-auto">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                                </svg>
+                        <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`mt-[80px] mb-[120px] mx-[12px] pt-[108px] pb-[36px] md:mt-[172px] md:mb-[63px] md:w-11/12 md:pt-[72px] md:pb-[10px] rounded-3xl bg-white transition-all duration-500 ${isOpen ? "scale-100 opacity-100" : 'scale-125 opacity-0'}`}>
+                            <button onClick={handleClose} className='sticky top-[36px] left-[20px] md:top-[72px] md:left-[90%] w-8 h-8 rounded-full bg-slate-100 z-30'>
+                                <Image src={closeBtn} alt="close modal button"/>
                             </button>
                             {modalContent}
                         </div>
