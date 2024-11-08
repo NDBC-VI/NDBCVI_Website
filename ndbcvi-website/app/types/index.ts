@@ -49,6 +49,7 @@ type BasicModalPropsType = {
 
 type ModalContextType = {
     isOpen: boolean,
+    domReady: boolean,
     handleOpen: () => void,
     handleClose: () => void,
     modalContent: JSX.Element,

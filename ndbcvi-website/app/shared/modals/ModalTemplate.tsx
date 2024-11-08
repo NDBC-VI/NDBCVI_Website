@@ -27,6 +27,13 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
 
     const [modalScrollPosition, setModalScrollPosition] = useState(0);
 
+    // Wait for the DOM to be ready before teleporting modal to the top of the DOM
+    const [domReady, setDomReady] = useState(false);
+    useEffect(() => {
+        setDomReady(true);
+        
+    }, []);
+
     const handleScroll = () => {
         // Set modal scroll position for setting colors of scroll links
         const target = document.getElementById('backdrop') as HTMLElement;
@@ -63,7 +70,7 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
 
 
     return (
-        <ModalContext.Provider value={{isOpen: open, handleOpen, handleClose, modalContent, scrollIntoTheView, handleScroll, modalScrollPosition }}>
+        <ModalContext.Provider value={{isOpen: open, handleOpen, handleClose, modalContent, scrollIntoTheView, handleScroll, modalScrollPosition, domReady }}>
             {children}
         </ModalContext.Provider>
     );
@@ -72,14 +79,7 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
 
 const Base = ({children}: {children: JSX.Element | JSX.Element[]}) => {
     // State for managing if the modal is visible or not
-    const { isOpen, handleClose, handleScroll, modalContent } = useModalContext();
-
-    // Wait for the DOM to be ready before teleporting modal to the top of the DOM
-    const [domReady, setDomReady] = useState(false);
-    useEffect(() => {
-        setDomReady(true);
-        
-    }, []);
+    const { isOpen, handleClose, handleScroll, modalContent, domReady } = useModalContext();
 
     // Element where the modal will be teleported to
     const modalTeleport = (typeof document !== 'undefined' && document.getElementById('portal')) as HTMLElement;
@@ -92,12 +92,13 @@ const Base = ({children}: {children: JSX.Element | JSX.Element[]}) => {
                 domReady && isOpen && 
                 createPortal(
                     <div id='backdrop' onClick={handleClose} onScroll={handleScroll} className={`flex flex-col items-center z-20 transition-colors overflow-y-scroll m-0 ${isOpen ? "fixed inset-0 bg-black/70" : ""}`}>
-                        <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`mt-[80px] mb-[120px] mx-[12px] pt-[108px] pb-[36px] md:mt-[172px] md:mb-[63px] md:w-11/12 md:pt-[72px] md:pb-[10px] rounded-3xl bg-white transition-all duration-500 ${isOpen ? "scale-100 opacity-100" : 'scale-125 opacity-0'}`}>
-                            <button onClick={handleClose} className='sticky top-[36px] left-[20px] md:top-[72px] md:left-[90%] w-8 h-8 rounded-full bg-slate-100 z-30'>
+                        <div id="infoPopup" onClick={(e) => e.stopPropagation()} className={`h-full overflow-scroll mt-[80px] mb-[60px] mx-[12px] pt-[24px] pb-[36px] md:overflow-visible md:h-fit md:mt-[172px] md:mb-[63px] md:w-11/12 md:pt-[72px] md:pb-[10px] rounded-3xl bg-white transition-all duration-500 ${isOpen ? "scale-100 opacity-100" : 'scale-125 opacity-0'}`}>
+                            <button onClick={handleClose} className='sticky top-0 left-[20px] md:top-[72px] md:left-[90%] w-8 h-8 rounded-full bg-slate-100 z-30'>
                                 <Image src={closeBtn} alt="close modal button"/>
                             </button>
                             {modalContent}
                         </div>
+                        <div id="small-screen-scrollLinks" />
                     </div>, 
                     modalTeleport)
             }
