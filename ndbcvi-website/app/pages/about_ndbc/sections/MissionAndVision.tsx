@@ -1,6 +1,6 @@
 import Image from "next/image";
-import navArrowLeft from "../../../assets/svgs/nav-arrow-left.svg";
-import navArrowRight from "../../../assets/svgs/nav-arrow-right.svg";
+import navArrowGrey from "../../../assets/svgs/nav-arrow-grey.svg";
+import navArrowWhite from "../../../assets/svgs/nav-arrow-white.svg";
 const MissionAndVision = () => {
   return (
     <section className="py-[120px] px-[40px]">
@@ -14,8 +14,8 @@ const MissionAndVision = () => {
               Our <br /> Mission
             </h2>
             <div className="flex gap-[6px]">
-              <Image src={navArrowLeft} alt="nav left icon" />
-              <Image src={navArrowRight} alt="nav right icon" />
+              <Image src={navArrowGrey} alt="nav left icon" className="rotate-180"/>
+              <Image src={navArrowWhite} alt="nav right icon" />
             </div>
           </div>
         </div>

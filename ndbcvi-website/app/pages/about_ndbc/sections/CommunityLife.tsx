@@ -1,7 +1,7 @@
 import Image from "next/image";
 import communityLife from "../assets/pngs/coomunity-life.png";
-import navArrowRight from "../../../assets/svgs/nav-arrow-right.svg";
-import navArrowLeft from "../../../assets/svgs/nav-arrow-left.svg";
+import navArrowWhite from "../../../assets/svgs/nav-arrow-white.svg";
+import navArrowGrey from "../../../assets/svgs/nav-arrow-grey.svg";
 
 const CommunityLife = () => {
   return (
@@ -25,8 +25,8 @@ const CommunityLife = () => {
           <Image src={communityLife} alt="community life image" width={336} />
         </div>
         <div className="flex gap-[6px] mt-6">
-          <Image src={navArrowLeft} alt="nav arrow left" />
-          <Image src={navArrowRight} alt="nav arrow right" />
+          <Image src={navArrowGrey} alt="nav arrow left" className="rotate-180"/>
+          <Image src={navArrowWhite} alt="nav arrow right" />
         </div>
         <div className="absolute top-[22%] 2xl:left-[18%] left-[7%]">
           <h2 className="text-[48px] font-[600]">Activity name</h2>

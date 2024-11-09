@@ -6,9 +6,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { InfoSection } from '../components/InfoSection';
 import { ScrollLinks } from '../components/ScrollLinks';
-import mapPin from "@/app/assets/svgs/map-pin.svg";
-
-
+import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
+import blackNavArrow from "../../../assets/svgs/nav-arrow-black.svg";
 
 
 export const BasicModalContent = (props: BasicModalPropsType) => {
@@ -24,38 +23,33 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
     return (
         <>
             { !galleryMode && 
-            <div>
-                <div className="h-fit my-5 py-5 px-9 py-10">
-                    <div className="h-[15%] w-1/2 flex flex-row justify-between items-center">
-                        <h1 className="text-4xl font-bold">{title}</h1>
+            <div className='w-11/12'>
+                <div className="h-fit mt-[24px] mb-[66px] px-[20px]">
+                    <h1 className="text-[24px] font-[600] md:text-[36px]">{title}</h1>
+                    <div className="relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end overflow-x-scroll">
+                        {
+                            headerImages.map((image, i) => {
+                                console.log(urlFor(image.asset._ref).url());
+                                return(
+                                    <div key={i} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px]' >
+                                        <Image 
+                                            src={urlFor(image.asset._ref).url()}
+                                            alt="placeholder image"
+                                            fill={true}
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
-                    <div className="min-h-[60vh] my-5 py-5 w-full flex flex-row justify-around items-end">
-                        <Image 
-                            src={urlFor(headerImages[0].asset._ref).url()}
-                            alt="placeholder image"
-                            width={500}
-                            height={200}
-                        />
-
-                        <div className='relative w-fit h-fit cursor-pointer' onClick={toggleGalleryMode}>
-                            <div className='absolute z-10 w-full h-full bg-gradient-to-b from-30% from-transparent to-black'></div>
-                            <Image
-                                src={urlFor(headerImages[1].asset._ref).url()}
-                                alt="placeholder image"
-                                width={300}
-                                height={400}
-                                style={{objectFit: 'contain'}}
-                            />
-                            <div className='absolute bottom-5 z-20 w-full text-white flex flex-col items-center'>
-                                <Image src={mapPin} alt="map pin" width={24} />
-                                <p>See more images</p>
-                            </div>
-                        </div>
+                    <div className="flex gap-[6px] mt-[18px] md:hidden">
+                        <Image src={greyNavArrow} alt="nav left icon" className='rotate-180'/>
+                        <Image src={blackNavArrow} alt="nav right icon" />
                     </div>
                 </div>
-                <div className="flex flex-row justify-between space-x-10">
+                <div className="ml-[20px] pb-6 md:flex md:flex-row md:justify-between md:space-x-10">
                     <ScrollLinks sections={sections}/>
-                    <div className="w-2/3 px-6 relative self-end">
+                    <div className="md:w-2/3 md:px-6 md:relative md:self-end">
                         {
                             introduction?.slug?.current !== undefined &&
                             <div id={introduction.slug.current} key={introduction.slug.current} >

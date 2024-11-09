@@ -1,7 +1,7 @@
 import Image from "next/image";
 import whiteRightArrow from "../../../assets/svgs/white-right-arrow.svg";
-import navRightArrow from "../../../assets/svgs/nav-arrow-right.svg";
-import navLeftArrow from "../../../assets/svgs/nav-arrow-left.svg";
+import whiteNavArrow from "../../../assets/svgs/nav-arrow-white.svg";
+import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
 
 const Testimonies = () => {
   return (
@@ -39,8 +39,8 @@ const Testimonies = () => {
           <div className="w-full bg-[#1D1841] p-[35px] flex justify-between items center">
             <h3 className="text-[40px] font-[600]">Insert tag here</h3>
             <div className="flex gap-[6px] items center">
-              <Image src={navLeftArrow} alt="nav left" />
-              <Image src={navRightArrow} alt="nav right" />
+              <Image src={greyNavArrow} alt="nav left" className="rotate-180"/>
+              <Image src={whiteNavArrow} alt="nav right" />
             </div>
           </div>
         </div>

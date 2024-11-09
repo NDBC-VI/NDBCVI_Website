@@ -13,7 +13,7 @@ export const BioModalContent = ({person}: {person: PersonType}) => {
         <>
             <div className='flex flex-row justify-between space-x-10 pb-[24px]'>
                 <ScrollLinks sections={[{title: person.name, slug: person.slug.current}]}/>
-                <div id={person.slug.current} className="w-full md:w-2/3 relative self-end">
+                <div id={person.slug.current} className="w-full md:w-2/3 pt-[24px] relative self-end">
                     <h1 className='text-[24px] md:text-[36px] font-[600]'>{person.name}</h1>
                     <Image 
                         src={urlFor(person.photo.asset._ref).url()}
