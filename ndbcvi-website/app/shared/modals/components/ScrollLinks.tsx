@@ -49,9 +49,9 @@ export const ScrollLinks = ({sections}: {sections: ScrollLinkType[]}) => {
             </div>
 
         {   domReady && isOpen && createPortal(     
-                <div className='absolute top-[638px] left-0 px-[12px] w-full'>
+                <div className='absolute bottom-0 left-0 px-[12px] pb-[36px] w-full'>
                     <div className='w-full flex md:hidden'>
-                        <details className='w-full mx-auto my-0 group'>
+                        <details className='w-full mx-[8px] my-0 group'>
                             <summary className='py-[24px] px-[20px] list-none flex justify-start items-end cursor-pointer bg-[#1D1841] rounded-b-3xl focus-visible:outline-none group-open:rounded-b-none group-open:z-[1]'>
                                 <h3 className='flex text-[20px] flex-1 text-white font-semibold group-open:opacity-60'>
                                     On this page

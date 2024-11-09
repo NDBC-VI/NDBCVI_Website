@@ -8,6 +8,7 @@ import { InfoSection } from '../components/InfoSection';
 import { ScrollLinks } from '../components/ScrollLinks';
 import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
 import blackNavArrow from "../../../assets/svgs/nav-arrow-black.svg";
+import { ActionPromptBtn } from './components/ActionPromptBtn';
 
 
 export const BasicModalContent = (props: BasicModalPropsType) => {
@@ -24,12 +25,14 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
         <>
             { !galleryMode && 
             <div className='w-11/12'>
+                <div className='absolute right-[5%] top-[24px] md:hidden'>
+                    <ActionPromptBtn title="Join a ministry" url=""/>
+                </div>
                 <div className="h-fit mt-[24px] mb-[66px] px-[20px]">
                     <h1 className="text-[24px] font-[600] md:text-[36px]">{title}</h1>
                     <div className="relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end overflow-x-scroll">
                         {
                             headerImages.map((image, i) => {
-                                console.log(urlFor(image.asset._ref).url());
                                 return(
                                     <div key={i} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px]' >
                                         <Image 
