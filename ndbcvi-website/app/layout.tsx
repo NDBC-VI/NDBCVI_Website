@@ -26,7 +26,7 @@ export default async function RootLayout({
         />
         <title>NDBCVI</title>
       </head>
-      <body className="relative">
+      <body>
         <Navbar events={events} faqPopup={faqPopup} banner={banner} />
         {children}
         <div id="portal" />

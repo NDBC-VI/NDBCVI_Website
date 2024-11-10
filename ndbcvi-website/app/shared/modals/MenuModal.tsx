@@ -1,3 +1,5 @@
+'use client';
+
 import churchLogo from "../../assets/pngs/church-logo.png";
 import mapPin from "../../assets/svgs/map-pin.svg";
 import Image from "next/image";

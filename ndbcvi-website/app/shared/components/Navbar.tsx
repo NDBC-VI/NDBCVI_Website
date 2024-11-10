@@ -88,8 +88,6 @@ const Navbar = ({
               }
               modalContent={<FaqModalContent faqs={faqPopup} />}
             />
-            {/* <Link href="" children={<p>Events</p>} /> */}
-            {/* <Link href="" children={<p>Information Center</p>} /> */}
           </div>
           <div className="hidden md:block">
             <CustomBtn

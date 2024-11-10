@@ -26,6 +26,9 @@ export const ScrollLinks = ({sections}: {sections: ScrollLinkType[]}) => {
         
     }, []);
 
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
     useEffect(() => {
         for(const section of sections) {
             const infoSection = document.getElementById(section.slug) as HTMLElement;
@@ -49,27 +52,26 @@ export const ScrollLinks = ({sections}: {sections: ScrollLinkType[]}) => {
             </div>
 
         {   domReady && isOpen && createPortal(     
-                <div className='absolute bottom-0 left-0 px-[12px] pb-[36px] w-full'>
-                    <div className='w-full flex md:hidden'>
-                        <details className='w-full mx-[8px] my-0 group'>
-                            <summary className='py-[24px] px-[20px] list-none flex justify-start items-end cursor-pointer bg-[#1D1841] rounded-b-3xl focus-visible:outline-none group-open:rounded-b-none group-open:z-[1]'>
-                                <h3 className='flex text-[20px] flex-1 text-white font-semibold group-open:opacity-60'>
-                                    On this page
-                                </h3>
-                                <div className='group-open:rotate-180 group-open:opacity-60 flex w-10 items-center justify-center'>
+                <div className='absolute bottom-0 left-0 w-full flex justify-center'>
+                    <div className='w-11/12 flex flex-col md:hidden'>
+                        <div className={`w-full scale-x-[1.005] z-10 bg-[#1D1841] rounded-b-3xl text-white ${isDropdownOpen ? "rounded-b-none" : ""}`} onClick={toggleDropdown}>
+                            <div className='flex justify-between mx-[20px] mt-[24px] mb-[12px]'>
+                                <h3 className={`text-[20px] font-[600] ${isDropdownOpen ? "opacity-60" : ""}`}>On this page</h3>
+                                <div className={`flex w-10 items-center justify-center transition-all linear duration-300 ${isDropdownOpen ? "opacity-60 rotate-180" : ""}`}>
                                     <Image src={upArrow} alt="up arrow" />
                                 </div>
-                            </summary>
-                            <div className='w-full flex overflow-x-scroll snap-x bg-[#1D1841] rounded-b-3xl text-white text-[16px] px-[20px] pb-[24px]'>
-                                {
-                                    sections?.map((section: ScrollLinkType, index: number) => (
-                                        <div key={index+1} className="snap-center w-fit">
-                                            <Link className= {`text-[400] text-nowrap text-[16px] mr-4 ${visibleSection === section.slug ? "" : "md:opacity-40"}`} onClick={(e) => scrollIntoTheView(e, section.slug)} href={""}>{section.title}</Link>
-                                        </div>
-                                    ))
-                                }
                             </div>
-                        </details>
+                        </div>
+                        <div className={`w-full bg-[#1D1841] text-white z-[9] pl-[20px] pt-0 pb-[18px] rounded-b-3xl flex overflow-x-scroll relative bottom-[50px] opacity-0 transition-all linear duration-300 ${isDropdownOpen ? "translate-y-[50px] opacity-100 z-12" : ""}`}>
+                            {
+                                sections?.map((section: ScrollLinkType, index: number) => (
+                                    <div key={index+1} className="snap-center w-fit">
+                                        <Link className= {`text-[400] text-nowrap text-[16px] mr-4 ${visibleSection === section.slug ? "" : "md:opacity-40"}`} onClick={(e) => scrollIntoTheView(e, section.slug)} href={""}>{section.title}</Link>
+                                    </div>
+                                ))
+                            }
+                        </div>
+
                     </div>
                 </div>,
             teleportLocation)

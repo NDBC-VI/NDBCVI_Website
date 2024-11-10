@@ -21,9 +21,6 @@ const CustomInput = ({ type, placeholder }: CustomInputProps) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-    // if (isFocused) {
-    //   validateInput(e.target.value);
-    // }
   };
 
   return (
