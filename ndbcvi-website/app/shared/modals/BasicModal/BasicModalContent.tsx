@@ -19,6 +19,16 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
         setGalleryMode(!galleryMode);
     }
 
+    const [displayed, setDisplayed] = useState(0);
+    
+    const prev = () => {
+        setDisplayed(displayed - 1);
+    }
+    const next = () => {
+        setDisplayed(displayed + 1);
+    }
+
+
     const sections = [{title: introduction.title, slug: introduction.slug.current}, ...infoSections.map((section: InfoSectionType) => ({title: section.title, slug: section.slug.current}))];
     
     return (
@@ -28,9 +38,9 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                 <div className='absolute right-[5%] top-[24px] md:hidden'>
                     <ActionPromptBtn title="Join a ministry" url=""/>
                 </div>
-                <div className="h-fit mt-[24px] mb-[66px] px-[20px]">
+                <div className="h-fit mt-[24px] mb-[66px] px-[20px] overflow-hidden">
                     <h1 className="text-[24px] font-[600] md:text-[36px]">{title}</h1>
-                    <div className="relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end overflow-x-scroll">
+                    <div className='relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end transition-transform ease-out duration-500' style={{transform: `translateX(-${displayed * 85}%`}}>
                         {
                             headerImages.map((image, i) => {
                                 return(
@@ -45,9 +55,13 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                             })
                         }
                     </div>
-                    <div className="flex gap-[6px] mt-[18px] md:hidden">
-                        <Image src={greyNavArrow} alt="nav left icon" className='rotate-180'/>
-                        <Image src={blackNavArrow} alt="nav right icon" />
+                    <div id="modal-carouselScrollers" className="flex gap-[6px] mt-[18px] md:hidden">
+                        <button onClick={prev} disabled={displayed === 0}>
+                            <Image src={displayed === 0 ? greyNavArrow : blackNavArrow} alt="nav left icon" className='rotate-180'/>
+                        </button>
+                        <button onClick={next} disabled={displayed === headerImages.length - 1}>
+                            <Image src={displayed === headerImages.length-1 ? greyNavArrow : blackNavArrow} alt="nav right icon" />
+                        </button>
                     </div>
                 </div>
                 <div className="ml-[20px] pb-6 md:flex md:flex-row md:justify-between md:space-x-10">
