@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import upArrow from '@/app/assets/svgs/arrow-up-white.svg';
 import downArrow from '@/app/assets/svgs/arrow-down.svg';
 import { createPortal } from 'react-dom';
+import { ActionPromptBtn } from '../BasicModal/components/ActionPromptBtn';
 
 type ScrollLinkType = {
     title: string,
@@ -49,12 +50,19 @@ export const ScrollLinks = ({sections}: {sections: ScrollLinkType[]}) => {
                         <Link key={index+1} className= {`text-thin text-sm my-3 ${visibleSection === section.slug ? "" : "opacity-40"}`} onClick={(e) => scrollIntoTheView(e, section.slug)} href={""}>{section.title}</Link>
                     ))
                 }
+                <div className="flex flex-col items-start mt-[60px] ">
+                    <h1 className='text-[24px] font-[600] text-[#1D1841] leading-[29.05px] mb-[10px]
+                        md:text-[36px] md:leading-[43.57px] md:mb-[36px]'>
+                            We're excited to <br /> have you join us
+                    </h1>
+                    <ActionPromptBtn title='Join a ministry' url=''/>
+                </div>
             </div>
 
         {   domReady && isOpen && createPortal(     
                 <div className='absolute bottom-0 left-0 w-full flex justify-center'>
-                    <div className='w-11/12 flex flex-col md:hidden'>
-                        <div className={`w-full scale-x-[1.005] z-10 bg-[#1D1841] rounded-b-3xl text-white ${isDropdownOpen ? "rounded-b-none" : ""}`} onClick={toggleDropdown}>
+                    <div className='w-11/12 scale-x-[1.005] flex flex-col md:hidden'>
+                        <div className={`w-full z-10 bg-[#1D1841] rounded-b-3xl text-white ${isDropdownOpen ? "rounded-b-none" : ""}`} onClick={toggleDropdown}>
                             <div className='flex justify-between mx-[20px] mt-[24px] mb-[12px]'>
                                 <h3 className={`text-[20px] font-[600] ${isDropdownOpen ? "opacity-60" : ""}`}>On this page</h3>
                                 <div className={`flex w-10 items-center justify-center transition-all linear duration-300 ${isDropdownOpen ? "opacity-60 rotate-180" : ""}`}>

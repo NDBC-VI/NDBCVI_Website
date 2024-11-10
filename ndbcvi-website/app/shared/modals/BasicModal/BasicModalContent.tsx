@@ -38,17 +38,19 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                 <div className='absolute right-[5%] top-[24px] md:hidden'>
                     <ActionPromptBtn title="Join a ministry" url=""/>
                 </div>
-                <div className="h-fit mt-[24px] mb-[66px] px-[20px] overflow-hidden">
+                <div className="h-fit mt-[24px] px-[20px] overflow-hidden">
                     <h1 className="text-[24px] font-[600] md:text-[36px]">{title}</h1>
                     <div className='relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end transition-transform ease-out duration-500' style={{transform: `translateX(-${displayed * 85}%`}}>
                         {
                             headerImages.map((image, i) => {
                                 return(
-                                    <div key={i} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px]' >
+                                    <div key={i} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px] cursor-pointer
+                                                    lg:w-1/4 lg:mr-0 lg:mx-[4px]'>
                                         <Image 
                                             src={urlFor(image.asset._ref).url()}
                                             alt="placeholder image"
                                             fill={true}
+                                            onClick={toggleGalleryMode}
                                         />
                                     </div>
                                 )
@@ -64,7 +66,7 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                         </button>
                     </div>
                 </div>
-                <div className="ml-[20px] pb-6 md:flex md:flex-row md:justify-between md:space-x-10">
+                <div className="ml-[20px] md:flex md:flex-row md:justify-between md:space-x-10">
                     <ScrollLinks sections={sections}/>
                     <div className="md:w-2/3 md:px-6 md:relative md:self-end">
                         {
@@ -79,6 +81,15 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                                     </div>
                                 ))
                         }
+                        <div className='bg-[#F6F6F6] w-full mx-[20px] px-[52px] py-[60px] mb-10 rounded-[24px]'>
+                            <div className="flex flex-col items-center gap-[10px]">
+                                <h1 className='text-[24px] font-[600] text-[#1D1841] text-center leading-[29.05px] mb-[10px]
+                                    md:text-[36px] md:leading-[43.57px] md:mb-[36px]'>
+                                        We're excited to <br className='md:hidden' /> have <br className='hidden md:block' /> you join us
+                                </h1>
+                                <ActionPromptBtn title='Join a ministry' url=''/>
+                            </div>
+                        </div>
                     </div> 
                 </div> 
             </div>
