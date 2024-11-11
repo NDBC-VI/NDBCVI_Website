@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import upArrow from '@/app/assets/svgs/arrow-up-white.svg';
-import downArrow from '@/app/assets/svgs/arrow-down.svg';
 import { createPortal } from 'react-dom';
 import { ActionPromptBtn } from '../BasicModal/components/ActionPromptBtn';
 

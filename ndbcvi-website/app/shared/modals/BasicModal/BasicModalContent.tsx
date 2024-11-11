@@ -40,7 +40,7 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                 </div>
                 <div className="h-fit mt-[24px] px-[20px] overflow-hidden">
                     <h1 className="text-[24px] font-[600] md:text-[36px]">{title}</h1>
-                    <div className='relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end transition-transform ease-out duration-500' style={{transform: `translateX(-${displayed * 85}%`}}>
+                    <div className={`${headerImages.length === 0 ? "hidden" : "" } relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end transition-transform ease-out duration-500`} style={{transform: `translateX(-${displayed * 85}%`}}>
                         {
                             headerImages.map((image, i) => {
                                 return(

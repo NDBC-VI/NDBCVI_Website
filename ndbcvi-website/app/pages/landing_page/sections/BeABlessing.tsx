@@ -48,14 +48,6 @@ const BeABlessing = ({infoPopups}: {infoPopups: SanityDocument[]}) => {
             );
         })
         }
-        {/* {prompts.map((prompt, i) => (
-          <ReusableCardComponent
-            key={i}
-            imgUrl={prompt.imgUrl}
-            title={prompt.title}
-            body={prompt.body}
-          />
-        ))} */}
       </div>
     </section>
   );

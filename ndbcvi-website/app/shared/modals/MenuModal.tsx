@@ -1,7 +1,7 @@
 'use client';
 
 import churchLogo from "../../assets/pngs/church-logo.png";
-import mapPin from "../../assets/svgs/map-pin.svg";
+import whiteMapPin from "../../assets/svgs/map-pin-white.svg";
 import Image from "next/image";
 import CustomBtn from "../components/CustomBtn";
 import youtube from "../../assets/svgs/youtube-menu.svg";
@@ -78,7 +78,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
             </div>
           </div>
           <a className="flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline" href={events[0].googleMapsLink} target="_blank">
-            <Image src={mapPin} alt="map pin" width={24} />
+            <Image src={whiteMapPin} alt="map pin" width={24} />
             <p className="text-[18px] font-[500] cursor-pointer underline">
               Open location in Maps
             </p>
