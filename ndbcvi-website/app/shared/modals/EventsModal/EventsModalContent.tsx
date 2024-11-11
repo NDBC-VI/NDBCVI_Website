@@ -5,6 +5,7 @@ import { Carousel } from '../../components/Carousel';
 import { SanityDocument } from 'next-sanity';
 import React, { useState } from 'react'
 import { EventScrollLinks } from './components/EventScrollLinks';
+import { ActionPromptBtn } from '../BasicModal/components/ActionPromptBtn';
 
 
 export const EventsModalContent = ({events}: {events: SanityDocument[]}) => {
@@ -23,6 +24,9 @@ export const EventsModalContent = ({events}: {events: SanityDocument[]}) => {
     
   return (
       <div className='w-full mb-[40px]'>
+        <div className='absolute right-[5%] top-[24px] md:hidden'>
+            <ActionPromptBtn title="Add to calendar" url=""/>
+        </div>
             <div className="rounded-t-3xl">
                 <div className="w-full flex flex-row justify-between items-center">
                     <h1 className="text-[48px] mx-[24px] font-[600] hidden md:block">Events</h1>
