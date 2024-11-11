@@ -4,7 +4,6 @@ import { Calendar } from '@/app/shared/modals/EventsModal/components/Calendar';
 import { Carousel } from '../../components/Carousel';
 import { SanityDocument } from 'next-sanity';
 import React, { useState } from 'react'
-import { ScrollLinks } from '../components/ScrollLinks';
 import { EventScrollLinks } from './components/EventScrollLinks';
 
 
@@ -34,7 +33,6 @@ export const EventsModalContent = ({events}: {events: SanityDocument[]}) => {
             </div>
             <div className="w-full md:flex md:flex-row md:justify-between md:space-x-10">
                 <EventScrollLinks sections={eventScrollLinks} displayedEvent={displayed} scrollFn={scrollToEvent} />
-                {/* <ScrollLinks sections={[{title: "Upcoming Events", slug: "events"}, {title: "Calendar", slug: "calendar"}]}/> */}
                 <div id="events" className="w-full md:w-2/3 md:px-6 md:relative md:self-end">
                   <Carousel items={events} next={scrollToNext} prev={scrollToPrev} displayed={displayed} autoSlide={true} autoSlideInterval={3000} />
                   <div id="calendar" className='w-full flex flex-col'>

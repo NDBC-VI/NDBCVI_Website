@@ -44,13 +44,6 @@ export const EventScrollLinks = ({sections, displayedEvent, scrollFn}: {sections
                             <p key={index+1} className= {`text-thin text-sm my-3 cursor-pointer ${displayedEvent === section.index ? "" : "opacity-40"}`} onClick={() => scrollFn(section.index)}>{section.title}</p>
                         ))
                     }
-                    <div className="flex flex-col items-start mt-[60px] ">
-                        <h1 className='text-[24px] font-[600] text-[#1D1841] leading-[29.05px] mb-[10px]
-                            md:text-[36px] md:leading-[43.57px] md:mb-[36px]'>
-                                We're excited to <br /> have you join us
-                        </h1>
-                        <ActionPromptBtn title='Join a ministry' url=''/>
-                    </div>
                 </div>
 
             {   domReady && isOpen && createPortal(     
