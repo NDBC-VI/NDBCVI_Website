@@ -3,8 +3,6 @@
 import { useModalContext } from '@/app/context/modalContext';
 import React, { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom';
-import { ActionPromptBtn } from '../../BasicModal/components/ActionPromptBtn';
-import Link from 'next/link';
 import Image from 'next/image';
 import upArrow from '@/app/assets/svgs/arrow-up-white.svg';
 
@@ -47,7 +45,7 @@ export const EventScrollLinks = ({sections, displayedEvent, scrollFn}: {sections
                 </div>
 
             {   domReady && isOpen && createPortal(     
-                    <div className='absolute bottom-0 left-0 w-full flex justify-center'>
+                    <div className='absolute bottom-0 left-0 w-full flex justify-center cursor-pointer'>
                         <div className='w-11/12 scale-x-[1.005] flex flex-col md:hidden'>
                             <div className={`w-full z-10 bg-[#1D1841] rounded-b-3xl text-white ${isDropdownOpen ? "rounded-b-none" : ""}`} onClick={toggleDropdown}>
                                 <div className='flex justify-between mx-[20px] mt-[24px] mb-[12px]'>

@@ -23,7 +23,6 @@ export const ScrollLinks = ({sections}: {sections: ScrollLinkType[]}) => {
     const [domReady, setDomReady] = useState(false);
     useEffect(() => {
         setDomReady(true);
-        
     }, []);
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -59,7 +58,7 @@ export const ScrollLinks = ({sections}: {sections: ScrollLinkType[]}) => {
             </div>
 
         {   domReady && isOpen && createPortal(     
-                <div className='absolute bottom-0 left-0 w-full flex justify-center'>
+                <div className='absolute bottom-0 left-0 w-full flex justify-center cursor-pointer'>
                     <div className='w-11/12 scale-x-[1.005] flex flex-col md:hidden'>
                         <div className={`w-full z-10 bg-[#1D1841] rounded-b-3xl text-white ${isDropdownOpen ? "rounded-b-none" : ""}`} onClick={toggleDropdown}>
                             <div className='flex justify-between mx-[20px] mt-[24px] mb-[12px]'>
@@ -73,7 +72,7 @@ export const ScrollLinks = ({sections}: {sections: ScrollLinkType[]}) => {
                             {
                                 sections?.map((section: ScrollLinkType, index: number) => (
                                     <div key={index+1} className="snap-center w-fit">
-                                        <Link className= {`text-[400] text-nowrap text-[16px] mr-4 ${visibleSection === section.slug ? "" : "md:opacity-40"}`} onClick={(e) => scrollIntoTheView(e, section.slug)} href={""}>{section.title}</Link>
+                                        <Link className= {`text-[400] text-nowrap text-[16px] mr-4 ${visibleSection === section.slug ? "" : "opacity-40"}`} onClick={(e) => scrollIntoTheView(e, section.slug)} href={""}>{section.title}</Link>
                                     </div>
                                 ))
                             }

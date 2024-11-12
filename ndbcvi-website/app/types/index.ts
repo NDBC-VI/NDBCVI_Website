@@ -1,4 +1,5 @@
 import { SanityImageObject } from "@sanity/image-url/lib/types/types"
+import { RefObject } from "react"
 import { PortableTextBlock, SanityDocument } from "sanity"
 
 type InfoSectionType = {
@@ -56,6 +57,8 @@ type ModalContextType = {
     scrollIntoTheView: (e: React.MouseEvent, id: string) => void,
     handleScroll: () => void,
     modalScrollPosition: number,
+    scrollSmallScreen: RefObject<HTMLDivElement>
+    scrollLargeScreen: RefObject<HTMLDivElement>
 }
 
 type PersonType = {
