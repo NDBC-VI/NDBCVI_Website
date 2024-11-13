@@ -7,11 +7,9 @@ import React, { useEffect, useState } from 'react';
 import upArrow from '@/app/assets/svgs/arrow-up-white.svg';
 import { createPortal } from 'react-dom';
 import { ActionPromptBtn } from '../BasicModal/components/ActionPromptBtn';
+import { ScrollLinkType } from '@/app/types';
 
-type ScrollLinkType = {
-    title: string,
-    slug: string
-}
+
 export const ScrollLinks = ({sections}: {sections: ScrollLinkType[]}) => {
     const { scrollIntoTheView, modalScrollPosition, isOpen } = useModalContext();
 

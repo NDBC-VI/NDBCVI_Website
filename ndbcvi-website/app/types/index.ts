@@ -48,6 +48,11 @@ type BasicModalPropsType = {
     infoSections: InfoSectionType[],
 }
 
+type ScrollLinkType = {
+    title: string,
+    slug: string
+}
+
 type ModalContextType = {
     isOpen: boolean,
     domReady: boolean,
@@ -90,4 +95,4 @@ interface MinistryLeadList {
     ministryLeadList: SanityDocument[]
 }
 
-export type { InfoSectionType, FaqSectionType, BasicModalPropsType, FaqModalPropsType, FaqType, ModalContextType, PersonType, ReverendList, DeaconList, MinistryLeadList }
+export type { InfoSectionType, FaqSectionType, BasicModalPropsType, FaqModalPropsType, FaqType, ScrollLinkType, ModalContextType, PersonType, ReverendList, DeaconList, MinistryLeadList }
