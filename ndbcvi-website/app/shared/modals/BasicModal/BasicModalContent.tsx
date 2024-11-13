@@ -9,6 +9,7 @@ import { ScrollLinks } from '../components/ScrollLinks';
 import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
 import blackNavArrow from "../../../assets/svgs/nav-arrow-black.svg";
 import { ActionPromptBtn } from './components/ActionPromptBtn';
+import { GalleryModalContent } from '../GalleryModal/GalleryModalContent';
 
 
 export const BasicModalContent = (props: BasicModalPropsType) => {
@@ -38,7 +39,7 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                 <div className='absolute right-[5%] top-[24px] md:hidden'>
                     <ActionPromptBtn title="Join a ministry" url=""/>
                 </div>
-                <div className="h-fit mt-[24px] px-[20px] overflow-hidden">
+                <div className="h-fit px-[20px] overflow-hidden">
                     <h1 className="text-[24px] font-[600] md:text-[36px]">{title}</h1>
                     <div className={`${headerImages.length === 0 ? "hidden" : "" } relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end transition-transform ease-out duration-500`} style={{transform: `translateX(-${displayed * 85}%`}}>
                         {
@@ -95,32 +96,33 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
             </div>
             }
             { galleryMode &&
-            <div className='flex flex-col items-center'>
-                <div className="h-[15%] w-full px-9 grid grid-cols-3">
-                    <h1 className="text-4xl font-bold self-center">{title}</h1>
-                    { galleryMode &&
-                        <button
-                            type="button"
-                            className="justify-self-center py-2 px-5 my-10 border border-black rounded-[100px] flex items-center gap-[6px] font-[500] cursor-pointer"
-                            onClick={toggleGalleryMode}
-                            >
-                            <p>Go back to reading</p>
-                        </button>
-                    }
-                </div>
-                <div className='py-14 flex flex-row items-center justify-center flex-wrap'>
-                    { headerImages.map((image, i) => (
-                        <Image 
-                            key={i}
-                            src={urlFor(image.asset._ref).url()}
-                            alt="placeholder image"
-                            width={425}
-                            height={200}
-                            className='m-2'
-                        />
-                    ))}
-                </div>
-            </div>
+                <GalleryModalContent images={headerImages} parentModal={title} returnToModal={toggleGalleryMode} />
+            // <div className='flex flex-col items-center'>
+            //     <div className="h-[15%] w-full px-9 grid grid-cols-3">
+            //         <h1 className="text-4xl font-bold self-center">{title}</h1>
+            //         { galleryMode &&
+            //             <button
+            //                 type="button"
+            //                 className="justify-self-center py-2 px-5 my-10 border border-black rounded-[100px] flex items-center gap-[6px] font-[500] cursor-pointer"
+            //                 onClick={toggleGalleryMode}
+            //                 >
+            //                 <p>Go back to reading</p>
+            //             </button>
+            //         }
+            //     </div>
+            //     <div className='py-14 flex flex-row items-center justify-center flex-wrap'>
+            //         { headerImages.map((image, i) => (
+            //             <Image 
+            //                 key={i}
+            //                 src={urlFor(image.asset._ref).url()}
+            //                 alt="placeholder image"
+            //                 width={425}
+            //                 height={200}
+            //                 className='m-2'
+            //             />
+            //         ))}
+            //     </div>
+            // </div>
             }
         </>
     )
