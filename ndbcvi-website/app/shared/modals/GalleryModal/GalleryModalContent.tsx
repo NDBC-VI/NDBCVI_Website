@@ -29,11 +29,12 @@ export const GalleryModalContent = ({images, parentModal, returnToModal}: {image
             </button>
             <div className="lg:hidden">
                 <ImageCarousel 
-                    images={images} 
-                    next={scrollToNext} 
-                    prev={scrollToPrev} 
-                    displayed={displayed} 
-                    buttonsPosition='start'
+                    images={images}
+                    next={scrollToNext}
+                    prev={scrollToPrev}
+                    displayed={displayed}
+                    buttonsPosition='start' toolbarBottom={true} autoSlide={true} autoSlideInterval={5000} 
+                    clickFn={() => null}
                 />
             </div>
             <div id="masonryDisplay" className='hidden lg:block lg:py-14 lg:flex lg:flex-row lg:items-center lg:justify-center lg:flex-wrap'>

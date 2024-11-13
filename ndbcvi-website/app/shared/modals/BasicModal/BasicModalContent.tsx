@@ -10,6 +10,7 @@ import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
 import blackNavArrow from "../../../assets/svgs/nav-arrow-black.svg";
 import { ActionPromptBtn } from './components/ActionPromptBtn';
 import { GalleryModalContent } from '../GalleryModal/GalleryModalContent';
+import { ImageCarousel } from '../../components/ImageCarousel';
 
 
 export const BasicModalContent = (props: BasicModalPropsType) => {
@@ -39,33 +40,19 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                 <div className='absolute right-[5%] top-[24px] md:hidden'>
                     <ActionPromptBtn title="Join a ministry" url=""/>
                 </div>
-                <div className="h-fit px-[20px] overflow-hidden">
+                <div className="h-fit px-[20px] mb-[24px] overflow-hidden">
                     <h1 className="text-[24px] font-[600] md:text-[36px]">{title}</h1>
-                    <div className={`${headerImages.length === 0 ? "hidden" : "" } relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end transition-transform ease-out duration-500`} style={{transform: `translateX(-${displayed * 85}%`}}>
-                        {
-                            headerImages.map((image, i) => {
-                                return(
-                                    <div key={i} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px] cursor-pointer
-                                                    lg:w-1/4 lg:mr-0 lg:mx-[4px]'>
-                                        <Image 
-                                            src={urlFor(image.asset._ref).url()}
-                                            alt="placeholder image"
-                                            fill={true}
-                                            onClick={toggleGalleryMode}
-                                        />
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                    <div id="modal-carouselScrollers" className="flex gap-[6px] mt-[18px] md:hidden">
-                        <button onClick={prev} disabled={displayed === 0}>
-                            <Image src={displayed === 0 ? greyNavArrow : blackNavArrow} alt="nav left icon" className='rotate-180'/>
-                        </button>
-                        <button onClick={next} disabled={displayed === headerImages.length - 1}>
-                            <Image src={displayed === headerImages.length-1 ? greyNavArrow : blackNavArrow} alt="nav right icon" />
-                        </button>
-                    </div>
+                    <ImageCarousel 
+                        images={headerImages}
+                        next={next}
+                        prev={prev}
+                        displayed={displayed}
+                        buttonsPosition='start'
+                        toolbarBottom={true}
+                        autoSlide={false}
+                        autoSlideInterval={0}
+                        clickFn={toggleGalleryMode}                    
+                    />
                 </div>
                 <div className="ml-[20px] md:flex md:flex-row md:justify-between md:space-x-10">
                     <ScrollLinks sections={sections}/>
@@ -97,32 +84,6 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
             }
             { galleryMode &&
                 <GalleryModalContent images={headerImages} parentModal={title} returnToModal={toggleGalleryMode} />
-            // <div className='flex flex-col items-center'>
-            //     <div className="h-[15%] w-full px-9 grid grid-cols-3">
-            //         <h1 className="text-4xl font-bold self-center">{title}</h1>
-            //         { galleryMode &&
-            //             <button
-            //                 type="button"
-            //                 className="justify-self-center py-2 px-5 my-10 border border-black rounded-[100px] flex items-center gap-[6px] font-[500] cursor-pointer"
-            //                 onClick={toggleGalleryMode}
-            //                 >
-            //                 <p>Go back to reading</p>
-            //             </button>
-            //         }
-            //     </div>
-            //     <div className='py-14 flex flex-row items-center justify-center flex-wrap'>
-            //         { headerImages.map((image, i) => (
-            //             <Image 
-            //                 key={i}
-            //                 src={urlFor(image.asset._ref).url()}
-            //                 alt="placeholder image"
-            //                 width={425}
-            //                 height={200}
-            //                 className='m-2'
-            //             />
-            //         ))}
-            //     </div>
-            // </div>
             }
         </>
     )
