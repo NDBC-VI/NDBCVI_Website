@@ -25,7 +25,7 @@ export const ImageCarousel = ({images}: {images: SanityImageObject[]}) => {
     },)
     
     return (
-        <div className='w-full h-full overflow-x-hidden relative'>
+        <div className='w-full h-[85vh] self-stretch overflow-x-hidden relative'>
             <div className={`w-full h-full flex flex-row justify-between transition-all ease-in-out duration-500`} style={{transform: `translateX(-${displayed * 100}%`}}>
                 {
                     images.map((image, i) => (

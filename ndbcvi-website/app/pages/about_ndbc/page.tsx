@@ -18,7 +18,7 @@ const AboutNdbc = async () => {
   const communityActivities = aboutPage.communityActivities as SanityDocument[];
   const { reverendsSection, deaconsSection, ministryLeadsSection } = aboutPage;
   // console.log(aboutPage);
-
+  
   return (
     <>
       <AboutNDBC images={images}/>

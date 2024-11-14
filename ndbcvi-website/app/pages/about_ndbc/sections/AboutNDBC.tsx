@@ -34,8 +34,8 @@ const AboutNDBC = ({images}: {images: SanityImageObject[]}) => {
             signifying a significant milestone in its growth and development.
           </p>
         </div>
-        <div className="hidden lg:block lg:w-1/2 h-full">
-          <div className="w-full h-[108vh] 2xl:h-[78vh]">
+        <div className="hidden lg:block lg:w-1/2 lg:h-full flex bg-red-200">
+          <div className="w-full pb-[16px] l:h-full 2xl:h-[78vh] items-stretch">
             <ImageCarousel images={images} />
           </div>
         </div>

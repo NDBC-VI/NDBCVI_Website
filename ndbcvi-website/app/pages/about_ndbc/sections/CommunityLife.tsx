@@ -29,14 +29,11 @@ const next = () => {
         </p>
       </div>
       <div className="mt-[96px] w-full flex flex-col items-center relative">
-        <div className="text-center mb-[24px] lg:absolute lg:top-[22%] 2xl:left-[18%] lg:text-left lg:left-[7%] lg:max-w-[425px]">
+        <div className="text-center mb-[24px] lg:absolute lg:top-[22%] lg:left-[7%] lg:text-left lg:max-w-[425px]">
           <h2 className="text-[20px] lg:text-[48px] font-[600] mb-[12px]">{activities[displayed].activityName}</h2>
           <div className="text-[16px] font-[600] lg:text-[20px] leading-[26px]">
             <PortableText value={activities[displayed].description} />
           </div>
-          {/* <p className="text-[16px] font-[600] lg:text-[20px] leading-[26px]">
-            Add mage description, age <br /> group, activity, fellowship etc.
-          </p> */}
         </div>
         <div className="w-full flex justify-center mb-[24px] hidden lg:flex">
           <button
