@@ -6,10 +6,11 @@ const CommunityLife = () => {
       <div className="flex flex-col text-center gap-[96px]">
         <div>
           <h2 className="text-[48px] font-[600] mb-[18px]">Community life</h2>
-          <p className="text-[24px] leading-[33.6px]">
+          <p className="text-[24px]  leading-[33.6px]">
             We believe in dynamic Christian worship as the foundation for daily
-            life, and <br /> we strive to teach sound Biblical principles with
-            love as our guiding <br /> principle.
+            life, and <br className="hidden md:block" /> we strive to teach
+            sound Biblical principles with love as our guiding{" "}
+            <br className="hidden md:block" /> principle.
           </p>
         </div>
         <div className="grid grid-cols-4 gap-4 max-w-[1392px] mx-auto absolute left-0 2xl:left-[10%] bottom-[-25%] group-hover:top-0 px-[60px] transition duration-500 group">

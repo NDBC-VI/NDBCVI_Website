@@ -9,8 +9,8 @@ import FooterServiceCard from "./FooterServiceCard";
 
 const Footer = () => {
   return (
-    <footer className="flex items-center text-white">
-      <div className="w-1/2 px-[60px] pt-[109.5px] pb-[64px] bg-[#1D1841]">
+    <footer className="flex flex-col md:flex-row items-center text-white">
+      <div className="md:w-1/2 w-full px-[20px] md:px-[60px] pt-[60px] pb-[64px] bg-[#1D1841]">
         <div className="flex justify-between">
           <Image src={churchLogo} alt="Church logo" width={43} />
           <div className="flex gap-[24px]">
@@ -54,12 +54,10 @@ const Footer = () => {
           © 2024 New Dawn Baptist Church
         </p>
       </div>
-      <div className="w-1/2">
+      <div className="md:w-1/2 w-full">
         <div
-          className="flex justify-center items-center"
+          className="flex justify-center items-center h-[101.8vh]"
           style={{
-            // height: "98.4vh",
-            height: "100%",
             backgroundImage: `url(${heroImg.src})`,
             backgroundSize: "cover",
             backgroundPosition: "center",

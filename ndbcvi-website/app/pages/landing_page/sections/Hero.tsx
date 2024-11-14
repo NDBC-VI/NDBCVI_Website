@@ -15,7 +15,7 @@ const Hero = () => {
       className="flex justify-center items-center pt-[170px]"
     >
       <div className="text-center">
-        <h1 className="text-[60px] font-[600] leading-[72.61px]">
+        <h1 className="md:text-[60px] text-[36px] font-[600] md:leading-[72.61px]">
           A Place To Call Home. <br /> A Place To Find Purpose.
         </h1>
         <h3 className="mt-[36px] text-[24px] font-[500] mb-[48px] leading-[28.8px]">

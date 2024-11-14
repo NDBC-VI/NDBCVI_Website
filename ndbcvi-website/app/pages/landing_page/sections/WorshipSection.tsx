@@ -3,12 +3,12 @@ import mapImg from "../../../assets/pngs/map-img.png";
 import Link from "next/link";
 const WorshipSection = () => {
   return (
-    <section className="px-[60px] pt-[120px]">
-      <div className="max-w-[1392px] mx-auto flex gap-3">
-        <div className="w-1/2 relative">
+    <section className="md:px-[60px] px-[20px] pt-[120px]">
+      <div className="max-w-[1392px] mx-auto flex md:flex-row flex-col gap-3">
+        <div className="md:w-1/2 w-full relative">
           <div className="bg-[rgba(0,0,0,0.4)] absolute top-0 left-0 w-full h-full rounded-[10px]"></div>
           <img
-            src="https://s3-alpha-sig.figma.com/img/2584/b045/999f1536b1d1e7c1831f8c3e12f69f5f?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UR3yK7u94yw8E7WFrdU8P8pkeAtb9vnO52TTjbYp7jT9RJp~m3OQPaKl7E24I6Du9Wp8SA6DaNQEhWN-08p9wdoRZwZmCilRxrC68FOMoxGxRB-6k74N7Ln2O7Mh41CMuq1ad1LF2HANCfeufeteqrLoZz4WObUTGbGT0iNMUElSXdIGBp2aJljwoAJGWetU8ApBvgD4NeAoexhHOVV5NR8zgRdXzrotphe9dp180bGIDdDkK5bNHNW8m2HvisLqwqrzrlmEFBSldR33PTFj--DdwN2-LVXDNNRHZ7iC3EjZwJ8m7JeFa66acIkeeim6RJBuXmFqxsvP-vEd9wT-0g__"
+            src="https://images.unsplash.com/photo-1596449316135-1f35a59e6eb3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="info card img"
             className="object-cover rounded-[10px]  h-full"
           />
@@ -21,12 +21,12 @@ const WorshipSection = () => {
             </h2>
           </div>
         </div>
-        <div className="flex flex-col gap-2 w-1/2">
+        <div className="flex flex-col gap-2 md:w-1/2 w-full">
           <div className="relative">
             <div className="bg-[rgba(0,0,0,0.4)] absolute top-0 left-0 w-full h-full rounded-[10px]"></div>
             <div>
               <img
-                src="https://s3-alpha-sig.figma.com/img/2584/b045/999f1536b1d1e7c1831f8c3e12f69f5f?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UR3yK7u94yw8E7WFrdU8P8pkeAtb9vnO52TTjbYp7jT9RJp~m3OQPaKl7E24I6Du9Wp8SA6DaNQEhWN-08p9wdoRZwZmCilRxrC68FOMoxGxRB-6k74N7Ln2O7Mh41CMuq1ad1LF2HANCfeufeteqrLoZz4WObUTGbGT0iNMUElSXdIGBp2aJljwoAJGWetU8ApBvgD4NeAoexhHOVV5NR8zgRdXzrotphe9dp180bGIDdDkK5bNHNW8m2HvisLqwqrzrlmEFBSldR33PTFj--DdwN2-LVXDNNRHZ7iC3EjZwJ8m7JeFa66acIkeeim6RJBuXmFqxsvP-vEd9wT-0g__"
+                src="https://images.unsplash.com/photo-1596449316135-1f35a59e6eb3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="info card img"
                 className="object-cover rounded-[10px] h-1/2"
               />
@@ -40,8 +40,8 @@ const WorshipSection = () => {
               </h2>
             </div>
           </div>
-          <div className="bg-[#F6F6F6] pl-[36px] pr-[78px] py-[87px] rounded-[10px] flex gap-[48px] w-full items-center">
-            <Image src={mapImg} alt="map image" width={200} />
+          <div className="bg-[#F6F6F6] pl-[36px] pr-[78px] py-[87px] rounded-[10px] flex md:flex-row flex-col gap-[48px] w-full items-center">
+            <Image src={mapImg} alt="map image" width={295} />
             <div>
               <h2 className="text-[36px] font-[600] leading-[43.57px] mb-6">
                 Locate our centre in VI, Lagos
@@ -52,8 +52,8 @@ const WorshipSection = () => {
                 target="_blank"
               >
                 <p className="text-[#2C2563] font-[500] underline">
-                    Open in Google Maps
-                  </p>
+                  Open in Google Maps
+                </p>
               </Link>
             </div>
           </div>

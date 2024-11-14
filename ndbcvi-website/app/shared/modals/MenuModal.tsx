@@ -23,26 +23,25 @@ interface MenuModalProps {
   isOpen: boolean;
 }
 
-const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
-  const {events} = useNavBarContext();
+const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
+  const { events } = useNavBarContext();
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } 
-    else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
     }
 
     // Cleanup on component unmount
     return () => {
-    document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
-}, [isOpen]);
+  }, [isOpen]);
 
   const [isActive, setIsActive] = useState(modalTabs[0]);
 
-  const {days, hours, minutes} = calcTimeDelta(events[0].startDate);
+  const { days, hours, minutes } = calcTimeDelta(events[0].startDate);
 
   const view = useMemo(() => {
     switch (isActive) {
@@ -56,9 +55,9 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
     <section
       className={`absolute z-20 top-0 ${
         isOpen ? "right-0" : "right-[-100%]"
-      } bg-white w-full h-screen  flex transition-all duration-500`}
+      } bg-white w-full md:h-screen flex flex-col-reverse md:flex-row transition-all duration-500  max-h-screen overflow-y-auto`}
     >
-      <div className="w-1/2 bg-[#1D1841] p-10">
+      <div className="md:w-1/2 bg-[#1D1841] p-10">
         <Image src={churchLogo} alt="church logo" width={43} />
         <div className="flex flex-col gap-[36px] mt-[45px]">
           <div>
@@ -75,7 +74,11 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
               </p>
             </div>
           </div>
-          <a className="flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline" href={events[0].googleMapsLink} target="_blank">
+          <a
+            className="flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline"
+            href={events[0].googleMapsLink}
+            target="_blank"
+          >
             <Image src={mapPin} alt="map pin" width={24} />
             <p className="text-[18px] font-[500] cursor-pointer underline">
               Open location in Maps
@@ -96,14 +99,14 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
                 {events[0].title}
               </h3>
               <div className="mb-[13px]">
-                <PortableText value={events[0].content}/>
+                <PortableText value={events[0].content} />
               </div>
               <CustomBtn title="Add to calendar" />
             </div>
           </div>
         </div>
       </div>
-      <div className="w-1/2 p-10 text-black flex flex-col ">
+      <div className="md:w-1/2 p-10 text-black flex flex-col ">
         <div className="flex justify-between">
           <div className="flex gap-4">
             {modalTabs.map((tab, i) => (
@@ -121,7 +124,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
         </div>
 
         <div className="mt-[45px]">{view}</div>
-        <div className="flex items-end h-full justify-between">
+        <div className="flex md:flex-row flex-col-reverse gap-[24px] md:gap-0 md:items-end h-full justify-between mt-[48px] md:mt-0">
           <p className="text-[#757575] text-[18px] font-[500] align-bottom">
             © 2024 New Dawn Baptist Church
           </p>
