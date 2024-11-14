@@ -24,6 +24,24 @@ export const faqPopupQuery = groq`*[_type == "faqPopup"][0] {
     faqInfoSections[]->
 }`
 
+export const eventsPopupQuery = groq`*[_type == "eventsPopup"][0] {
+  "data": *[_type == "eventsPopup"][0] {
+    title,
+    slug,
+    images,
+    "eventIds": events[]._ref
+    },
+    "upcomingEvents": *[_type == "events" && _id in *[_type == "eventsPopup"][0].events[]._ref && startDate > now() && dateTime(startDate) < dateTime(now()) + 30 * 24 * 60 * 60] | order(startDate) {
+        title,
+        slug,
+        image,
+        content,
+        startDate,
+        location,
+        googleMapsLink
+    }
+}`
+
 export const eventsQuery = groq`*[_type == "events" && startDate > now() && dateTime(startDate) < dateTime(now()) + 30 * 24 * 60 * 60] | order(startDate) {
     title,
     slug,
@@ -33,6 +51,7 @@ export const eventsQuery = groq`*[_type == "events" && startDate > now() && date
     location,
     googleMapsLink
 }`
+
 
 export const aboutPageQuery = groq`*[_type == "reverendList" || _type == "deaconList" || _type == "ministryLeadList"] {
     title,

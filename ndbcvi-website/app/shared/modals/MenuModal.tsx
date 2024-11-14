@@ -26,7 +26,8 @@ interface MenuModalProps {
 }
 
 const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
-  const {events} = useNavBarContext();
+  const {eventsPopup} = useNavBarContext();
+  const upcomingEvent = eventsPopup.upcomingEvents[0];
 
   useEffect(() => {
     if (isOpen) {
@@ -44,7 +45,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
 
   const [isActive, setIsActive] = useState(modalTabs[0]);
 
-  const {days, hours, minutes} = calcTimeDelta(events[0].startDate);
+  const {days, hours, minutes} = calcTimeDelta(upcomingEvent.startDate);
 
   const view = useMemo(() => {
     switch (isActive) {
@@ -77,7 +78,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
               </p>
             </div>
           </div>
-          <a className="flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline" href={events[0].googleMapsLink} target="_blank">
+          <a className="flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline" href={upcomingEvent.googleMapsLink} target="_blank">
             <Image src={whiteMapPin} alt="map pin" width={24} />
             <p className="text-[18px] font-[500] cursor-pointer underline">
               Open location in Maps
@@ -85,7 +86,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
           </a>
           <div
             style={{
-              backgroundImage: `url(${urlFor(events[0].image.asset._ref)})`,
+              backgroundImage: `url(${urlFor(upcomingEvent.image.asset._ref)})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
@@ -95,10 +96,10 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
             <div className="bg-[rgba(0,0,0,0.35)] absolute top-0 left-0 w-full h-full rounded-[24px]"></div>
             <div className="absolute bottom-0 p-[16px]">
               <h3 className="text-[28px] font-[600] leading-[35px] mb-[13px]">
-                {events[0].title}
+                {upcomingEvent.title}
               </h3>
               <div className="mb-[13px]">
-                <PortableText value={events[0].content}/>
+                <PortableText value={upcomingEvent.content}/>
               </div>
               <CustomBtn title="Add to calendar" />
             </div>

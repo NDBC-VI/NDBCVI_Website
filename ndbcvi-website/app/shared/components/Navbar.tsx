@@ -14,18 +14,18 @@ import { NavBarContext } from "@/app/context/navBarContext";
 
 const Navbar = ({
   banner,
-  events,
+  eventsPopup,
   faqPopup,
 }: {
   banner: SanityDocument;
-  events: SanityDocument[];
+  eventsPopup: SanityDocument;
   faqPopup: SanityDocument;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [bannerVisible, setBannerVisible] = useState(true);
   return (
-    <NavBarContext.Provider value={{ events, faqPopup, banner }}>
+    <NavBarContext.Provider value={{ eventsPopup, faqPopup, banner }}>
       <div
         className={`fixed top-0 w-full flex flex-col transition ease-in duration-1500 ${bannerVisible && !isOpen ? "" : "-translate-y-[7vh]"}`}
         style={{ zIndex: 1 }}
@@ -78,7 +78,7 @@ const Navbar = ({
                   <p className="hidden md:block">Events</p>
                 </Link>
               }
-              modalContent={<EventsModalContent events={events} />}
+              modalContent={<EventsModalContent />}
             />
             <ModalTemplate
               modalActivator={

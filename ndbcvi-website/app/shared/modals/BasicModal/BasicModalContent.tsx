@@ -42,17 +42,36 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                 </div>
                 <div className="h-fit px-[20px] mb-[24px] overflow-hidden">
                     <h1 className="text-[24px] font-[600] md:text-[36px]">{title}</h1>
-                    <ImageCarousel 
-                        images={headerImages}
-                        next={next}
-                        prev={prev}
-                        displayed={displayed}
-                        buttonsPosition='start'
-                        toolbarBottom={true}
-                        autoSlide={false}
-                        autoSlideInterval={0}
-                        clickFn={toggleGalleryMode}                    
-                    />
+                    <div id='basicHeaderImagesLgScreen' className={`${headerImages.length === 0 ? "hidden" : "" } relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end hidden lg:flex`}>
+                        {
+                            headerImages.map((image, i) => {
+                                return(
+                                    <div key={i} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px] cursor-pointer
+                                                    lg:w-1/4 lg:mr-0 lg:mx-[4px]'>
+                                        <Image 
+                                            src={urlFor(image.asset._ref).url()}
+                                            alt="placeholder image"
+                                            fill={true}
+                                            onClick={toggleGalleryMode}
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    <div id='basicHeaderImagesSmallScreen' className="lg:hidden">
+                        <ImageCarousel
+                            images={headerImages}
+                            next={next}
+                            prev={prev}
+                            displayed={displayed}
+                            buttonsPosition='start'
+                            toolbarBottom={true}
+                            autoSlide={false}
+                            autoSlideInterval={0}
+                            clickFn={toggleGalleryMode}
+                        />
+                    </div>
                 </div>
                 <div className="ml-[20px] md:flex md:flex-row md:justify-between md:space-x-10">
                     <ScrollLinks sections={sections}/>

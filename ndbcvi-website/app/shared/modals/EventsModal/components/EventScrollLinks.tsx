@@ -77,10 +77,13 @@ export const EventScrollLinks = ({events, displayedEvent, scrollFn}: {events: Ev
                                 {
                                     events?.map((section: EventScrollLinkType, index: number) => (
                                         <div key={index+1} className="snap-center w-fit">
-                                            <p className= {`text-[400] text-nowrap text-[16px] mr-4 cursor-pointer ${displayedEvent === section.index ? "" : "opacity-40"}`} onClick={(e) => scrollFn(e, section.index)}>{section.title}</p>
+                                            <p className= {`text-[400] text-nowrap text-[16px] mr-4 cursor-pointer ${displayedEvent === section.index && visibleSection === "events" ? "" : "opacity-40"}`} onClick={(e) => scrollFn(e, section.index)}>{section.title}</p>
                                         </div>
                                     ))
                                 }
+                                <div className="snap-center w-fit">
+                                    <p className= {`text-[400] text-nowrap text-[16px] mr-4 cursor-pointer ${visibleSection === "calendar" ? "" : "opacity-40"}`} onClick={(e) => scrollIntoTheView(e, 'calendar')}>Calendar</p>
+                                </div>
                             </div>
 
                         </div>

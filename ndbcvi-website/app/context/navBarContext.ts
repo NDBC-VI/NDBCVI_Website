@@ -4,7 +4,7 @@ import { SanityDocument } from 'next-sanity';
 import { createContext, useContext } from 'react';
 
 type NavBarContextType = {
-    events: SanityDocument[],
+    eventsPopup: SanityDocument,
     faqPopup: SanityDocument,
     banner: SanityDocument
 }
