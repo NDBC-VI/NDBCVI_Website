@@ -1,5 +1,8 @@
+"use server";
+
 import Image from "next/image";
 import heroImg from "../../../assets/pngs/hero-img.png";
+import { ImageCarousel } from "@/app/shared/components/ImageCarousel";
 
 const AboutNDBC = () => {
   return (
@@ -31,6 +34,13 @@ const AboutNDBC = () => {
             signifying a significant milestone in its growth and development.
           </p>
         </div>
+        {/* <ImageCarousel 
+          images={['/app/assets/pngs/hero-img.png', '/app/assets/pngs/hero-img.png', '/app/assets/pngs/hero-img.png']} 
+          toolbarBottom={false} 
+          buttonsPosition={""} 
+          autoSlide={false} 
+          autoSlideInterval={0} 
+        /> */}
         <div className="w-full overflow-x-scroll flex gap-[3vw] lg:w-1/2 lg:block">
           <Image
             src={heroImg}

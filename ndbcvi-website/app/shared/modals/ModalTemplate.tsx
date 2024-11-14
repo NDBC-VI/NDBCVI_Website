@@ -37,7 +37,6 @@ const ModalProvider = ({modalContent, children}: {modalContent: JSX.Element | JS
     const scrollLargeScreen = useRef<HTMLDivElement>(null);
     const scrollSmallScreen = useRef<HTMLDivElement>(null);
     const handleScroll = () => {
-        console.log(modalScrollPosition);
         // Set modal scroll position for setting colors of scroll links
         if(window.innerWidth <= 768) {
             setModalScrollPosition(scrollSmallScreen.current?.scrollTop as number);
