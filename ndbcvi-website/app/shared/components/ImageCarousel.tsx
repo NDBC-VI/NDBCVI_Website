@@ -1,13 +1,21 @@
 'use client';
-import React, { useEffect } from 'react'
-import { Event } from '../modals/EventsModal/components/Event';
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import greyNavArrow from "../../assets/svgs/nav-arrow-grey.svg";
 import blackNavArrow from "../../assets/svgs/nav-arrow-black.svg";
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import { urlFor } from '@/sanity/lib/image';
 
-export const ImageCarousel = ({images, next, prev, displayed, toolbarBottom = true, buttonsPosition = 'end', autoSlide = true, autoSlideInterval = 3000, clickFn}: {images: SanityImageObject[], next: ()=>void, prev: ()=>void, displayed: number, toolbarBottom: boolean, buttonsPosition: string, autoSlide: boolean, autoSlideInterval: number, clickFn: () => void}) => {
+export const ImageCarousel = ({images, toolbarBottom = true, buttonsPosition = 'end', autoSlide = true, autoSlideInterval = 3000, clickFn}: {images: SanityImageObject[], toolbarBottom: boolean, buttonsPosition: string, autoSlide: boolean, autoSlideInterval: number, clickFn: ()=> void}) => {
+
+    const [displayed, setDisplayed] = useState(0);
+
+    const prev = () => {
+        setDisplayed((curr) => (curr === 0 ? images.length - 1 : curr - 1));
+    }
+    const next = () => {
+        setDisplayed((curr) => (curr === images.length - 1 ? 0 : curr + 1));
+    }
 
     useEffect(() => {
         if(!autoSlide) {

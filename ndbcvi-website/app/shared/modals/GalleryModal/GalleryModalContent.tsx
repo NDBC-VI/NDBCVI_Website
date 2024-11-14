@@ -30,10 +30,9 @@ export const GalleryModalContent = ({images, parentModal, returnToModal}: {image
             <div className="lg:hidden">
                 <ImageCarousel 
                     images={images}
-                    next={scrollToNext}
-                    prev={scrollToPrev}
-                    displayed={displayed}
-                    buttonsPosition='start' toolbarBottom={true} autoSlide={true} autoSlideInterval={5000} 
+                    buttonsPosition='start' toolbarBottom={true} 
+                    autoSlide={true} 
+                    autoSlideInterval={5000} 
                     clickFn={() => null}
                 />
             </div>

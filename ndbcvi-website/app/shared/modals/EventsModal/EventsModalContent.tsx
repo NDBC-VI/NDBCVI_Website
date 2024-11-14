@@ -29,10 +29,10 @@ export const EventsModalContent = () => {
     scrollIntoTheView(e, 'events');
     setDisplayed(index);
   }
-  const scrollToPrev = () => {
+  const scrollToPrevEvent = () => {
     setDisplayed((curr) => (curr === 0 ? upcomingEvents.length - 1 : curr - 1));
   }
-  const scrollToNext = () => {
+  const scrollToNextEvent = () => {
     setDisplayed((curr) => (curr === upcomingEvents.length - 1 ? 0 : curr + 1));
   }
 
@@ -71,13 +71,10 @@ export const EventsModalContent = () => {
               <div id='eventsHeaderImagesSmallScreen' className='md:hidden'>
                 <ImageCarousel
                     images={images}
-                    next={scrollToNext}
-                    prev={scrollToPrev}
-                    displayed={displayed}
                     buttonsPosition='start'
                     toolbarBottom={true}
-                    autoSlide={false}
-                    autoSlideInterval={0}
+                    autoSlide={true}
+                    autoSlideInterval={500}
                     clickFn={toggleGalleryMode}
                 />
               </div>
@@ -87,7 +84,7 @@ export const EventsModalContent = () => {
             <EventScrollLinks events={eventScrollLinks} displayedEvent={displayed} scrollFn={scrollToEvent} />
             <div className="w-full md:w-2/3 md:px-6 md:relative md:self-end">
               <div id="events" className="w-full">
-                <Carousel items={upcomingEvents} next={scrollToNext} prev={scrollToPrev} displayed={displayed} autoSlide={true} autoSlideInterval={3000} />
+                <Carousel items={upcomingEvents} next={scrollToNextEvent} prev={scrollToPrevEvent} displayed={displayed} autoSlide={true} autoSlideInterval={3000} />
               </div>
               <div id="calendar" className='w-full flex flex-col'>
                 <div className='w-full self-end'>

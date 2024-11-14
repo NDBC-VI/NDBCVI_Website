@@ -42,10 +42,14 @@ export const EventScrollLinks = ({events, displayedEvent, scrollFn}: {events: Ev
         const eventsSection = document.getElementById("events") as HTMLElement;
         const calendarSection = document.getElementById("calendar") as HTMLElement;
 
-        if(eventsSection.offsetTop + eventsSection.offsetHeight >= modalScrollPosition) {
+        // Check to see if the section is visible on the screen, and highlight the link of the visible section.
+        // Change the visibility point based on if it's on desktop or mobile
+        let eventsVisibilityPoint = window.innerWidth <= 768 ? eventsSection.offsetTop : eventsSection.offsetTop + eventsSection.offsetHeight;
+        let calendarVisibilityPoint = window.innerWidth <= 768 ? calendarSection.offsetTop : calendarSection.offsetTop + calendarSection.offsetHeight;
+        if(eventsVisibilityPoint >= modalScrollPosition) {
             setVisibleSection('events');
         }
-        else if(calendarSection.offsetTop + calendarSection.offsetHeight >= modalScrollPosition) {
+        else if(calendarVisibilityPoint >= modalScrollPosition) {
             setVisibleSection('calendar');
         }
     }, [modalScrollPosition]);

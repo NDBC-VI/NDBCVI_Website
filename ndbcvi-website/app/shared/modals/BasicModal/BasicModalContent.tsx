@@ -62,9 +62,6 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                     <div id='basicHeaderImagesSmallScreen' className="lg:hidden">
                         <ImageCarousel
                             images={headerImages}
-                            next={next}
-                            prev={prev}
-                            displayed={displayed}
                             buttonsPosition='start'
                             toolbarBottom={true}
                             autoSlide={false}
