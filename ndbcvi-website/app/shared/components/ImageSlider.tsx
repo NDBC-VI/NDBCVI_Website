@@ -27,8 +27,8 @@ export const ImageSlider = ({images, toolbarBottom = true, buttonsPosition = 'en
     },)
 
     return (
-        <div className={`ml-[20px] w-11/12 flex ${toolbarBottom ? 'flex-col' : 'flex-col-reverse'} gap-[18px] justify-between overflow-hidden`}>
-            <div className={`${images.length === 0 ? "hidden" : "" } relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end transition-transform ease-out duration-500`} style={{transform: `translateX(-${displayed * 85}%`}}>
+        <div className={`ml-[20px] w-full flex ${toolbarBottom ? 'flex-col' : 'flex-col-reverse'} gap-[18px] overflow-hidden`}>
+            <div className={`${images.length === 0 ? "hidden" : "" } relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end transition-transform ease-out duration-500`} style={{transform: `translateX(-${displayed * 85}%)`}}>
                 {
                     images.map((image: SanityImageObject, i: number) => {
                         return(

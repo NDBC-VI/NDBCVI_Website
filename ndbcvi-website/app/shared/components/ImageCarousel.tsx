@@ -13,7 +13,6 @@ export const ImageCarousel = ({images}: {images: SanityImageObject[]}) => {
 
     const next = () => {
         setDisplayed((curr) => (curr === images.length - 1 ? 0 : curr + 1));
-        console.log(displayed)
     }
 
     useEffect(() => {
