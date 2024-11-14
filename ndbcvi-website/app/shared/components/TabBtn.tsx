@@ -12,7 +12,7 @@ const TabBtn = ({ title, active, clickFn }: TabBtnProps) => {
       type="button"
       className={`${
         active ? "text-black" : "text-[#757575]"
-      } bg-[#F6F6F6] font-[500] py-2 px-6 rounded-[100px]`}
+      } bg-[#F6F6F6] font-[500] py-2 px-6 rounded-[100px] text-nowrap`}
       onClick={clickFn}
     >
       {title}

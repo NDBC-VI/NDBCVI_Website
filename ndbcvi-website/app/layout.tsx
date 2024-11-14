@@ -4,7 +4,7 @@ import Navbar from "./shared/components/Navbar";
 import Footer from "./shared/components/Footer";
 import { SanityDocument } from "sanity";
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { bannerQuery, eventsQuery, faqPopupQuery } from "@/sanity/lib/queries";
+import { bannerQuery, eventsPopupQuery, faqPopupQuery } from "@/sanity/lib/queries";
 
 export default async function RootLayout({
   children,
@@ -13,8 +13,8 @@ export default async function RootLayout({
 }>) {
 
   const faqPopup: SanityDocument = await sanityFetch<SanityDocument>({ query: faqPopupQuery });
+  const eventsPopup: SanityDocument = await sanityFetch<SanityDocument>({query: eventsPopupQuery});
   const banner: SanityDocument = await sanityFetch<SanityDocument>({ query: bannerQuery });
-  const events: SanityDocument[] = await sanityFetch<SanityDocument[]>({query: eventsQuery});
 
   return (
     <html lang="en">
@@ -26,8 +26,8 @@ export default async function RootLayout({
         />
         <title>NDBCVI</title>
       </head>
-      <body className="relative">
-        <Navbar events={events} faqPopup={faqPopup} banner={banner} />
+      <body>
+        <Navbar eventsPopup={eventsPopup} faqPopup={faqPopup} banner={banner} />
         {children}
         <div id="portal" />
         <Footer />

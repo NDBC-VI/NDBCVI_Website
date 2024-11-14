@@ -1,8 +1,13 @@
+'use client';
+
 import { urlFor } from '@/sanity/lib/image'
 import { PortableText, SanityDocument } from 'next-sanity'
 import Image from 'next/image'
 import React from 'react'
 import { EventsModalCountdownComponent } from './EventsModalCountdownComponent'
+import blackMapPin from "@/app/assets/svgs/map-pin-black.svg";
+import calendar from "@/app/assets/svgs/calendar.svg";
+import ReusableCardComponent from '@/app/shared/components/ReusableCardComponent'
 
 type EventPropsType = {
   event: SanityDocument
@@ -20,30 +25,26 @@ export const Event = (props: EventPropsType) => {
   }
 
   return (
-    <div className='w-[58vw] p-4'>
-      <h1 className='mx-2 my-3 font-semibold text-3xl'>{event.title}</h1>
-      <div className='flex flex-row flex-wrap'>
-        <Image 
-          src={urlFor(event.image.asset._ref).width(200).height(250).url()}
-          alt="placeholder image"
-          width={400}
-          height={80}
-          className='rounded-2xl m-2 object-cover object-fit'
-        />
-        <div className='h-[350px] w-1/3 flex-grow flex flex-col m-4 p-5 relative top-[7vh]'>
-          <EventsModalCountdownComponent startDate={event.startDate} />
-          <p className='my-1.5'>{formatDate(new Date(event.startDate))}</p>
-          <p className='text-sm my-1.5'>{event.location}</p>
-          <a className='my-2 font-semibold' href={event.googleMapsLink} target='_blank'>
-            <p className='text-sm underline text-blue-900 underline'>
-              Open location in Maps
-            </p>
-          </a>
-        </div>
-        <div className='mt-8'>
-          <PortableText value={event.content} />
+      <div className='w-full px-[20px] flex flex-col justify-center'>
+        <div className="flex w-full flex-col-reverse md:flex-row">
+            <div className="w-full md:w-1/2">
+              <ReusableCardComponent imgUrl={urlFor(event.image.asset._ref).url()} title={event.title} body='' rounded='[24px]' />
+            </div>
+            <div className='flex flex-col gap-[20px] mb-[24px] md:self-center md:ml-[24px]'>
+              <EventsModalCountdownComponent startDate={event.startDate} />
+              <div className="flex gap-[6px] items-center">
+                <Image src={calendar} alt="calendar icon" width={24} />
+                <p className='text-[16px] font-[400]'>{formatDate(new Date(event.startDate))}</p>
+              </div>
+              <div className="flex gap-[6px] items-center">
+                <Image src={blackMapPin} alt="map pin" width={24} />
+                <p className='text-[16px] font-[400]'>{event.location}</p>
+              </div>
+              <a className="text-[16px] font-[400] underline" href={event.googleMapsLink} target="_blank">
+                Open location in Maps
+              </a>
+            </div>
         </div>
       </div>
-    </div>
   )
 }
