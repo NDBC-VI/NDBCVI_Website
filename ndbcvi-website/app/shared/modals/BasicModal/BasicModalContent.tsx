@@ -6,11 +6,9 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { InfoSection } from '../components/InfoSection';
 import { ScrollLinks } from '../components/ScrollLinks';
-import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
-import blackNavArrow from "../../../assets/svgs/nav-arrow-black.svg";
 import { ActionPromptBtn } from './components/ActionPromptBtn';
 import { GalleryModalContent } from '../GalleryModal/GalleryModalContent';
-import { ImageCarousel } from '../../components/ImageCarousel';
+import { ImageSlider } from '../../components/ImageSlider';
 
 
 export const BasicModalContent = (props: BasicModalPropsType) => {
@@ -20,16 +18,6 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
     const toggleGalleryMode = () => {
         setGalleryMode(!galleryMode);
     }
-
-    const [displayed, setDisplayed] = useState(0);
-    
-    const prev = () => {
-        setDisplayed(displayed - 1);
-    }
-    const next = () => {
-        setDisplayed(displayed + 1);
-    }
-
 
     const sections = [{title: introduction.title, slug: introduction.slug.current}, ...infoSections.map((section: InfoSectionType) => ({title: section.title, slug: section.slug.current}))];
     
@@ -60,12 +48,10 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                         }
                     </div>
                     <div id='basicHeaderImagesSmallScreen' className="lg:hidden">
-                        <ImageCarousel
+                        <ImageSlider
                             images={headerImages}
                             buttonsPosition='start'
                             toolbarBottom={true}
-                            autoSlide={false}
-                            autoSlideInterval={0}
                             clickFn={toggleGalleryMode}
                         />
                     </div>
@@ -89,7 +75,7 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                             <div className="flex flex-col items-center gap-[10px]">
                                 <h1 className='text-[24px] font-[600] text-[#1D1841] text-center leading-[29.05px] mb-[10px]
                                     md:text-[36px] md:leading-[43.57px] md:mb-[36px]'>
-                                        We're excited to <br className='md:hidden' /> have <br className='hidden md:block' /> you join us
+                                        We&apos;re excited to <br className='md:hidden' /> have <br className='hidden md:block' /> you join us
                                 </h1>
                                 <ActionPromptBtn title='Join a ministry' url=''/>
                             </div>

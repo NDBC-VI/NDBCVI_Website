@@ -1,20 +1,19 @@
 'use client';
-import React, { useEffect, useState } from 'react'
-import Image from 'next/image';
-import greyNavArrow from "../../assets/svgs/nav-arrow-grey.svg";
-import blackNavArrow from "../../assets/svgs/nav-arrow-black.svg";
-import { SanityImageObject } from '@sanity/image-url/lib/types/types';
-import { urlFor } from '@/sanity/lib/image';
 
-export const ImageCarousel = ({images, toolbarBottom = true, buttonsPosition = 'end', autoSlide = true, autoSlideInterval = 3000, clickFn}: {images: SanityImageObject[], toolbarBottom: boolean, buttonsPosition: string, autoSlide: boolean, autoSlideInterval: number, clickFn: ()=> void}) => {
+import { urlFor } from '@/sanity/lib/image'
+import { SanityImageObject } from '@sanity/image-url/lib/types/types'
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
+
+export const ImageCarousel = ({images}: {images: SanityImageObject[]}) => {
 
     const [displayed, setDisplayed] = useState(0);
+    const autoSlide = true;
+    const autoSlideInterval = 3000;
 
-    const prev = () => {
-        setDisplayed((curr) => (curr === 0 ? images.length - 1 : curr - 1));
-    }
     const next = () => {
         setDisplayed((curr) => (curr === images.length - 1 ? 0 : curr + 1));
+        console.log(displayed)
     }
 
     useEffect(() => {
@@ -24,36 +23,33 @@ export const ImageCarousel = ({images, toolbarBottom = true, buttonsPosition = '
         const slideInterval = setInterval(next, autoSlideInterval);
         
         return() => clearInterval(slideInterval);
-    }, [autoSlide, autoSlideInterval])
-
+    },)
+    
     return (
-        <div className={`ml-[20px] w-11/12 flex ${toolbarBottom ? 'flex-col' : 'flex-col-reverse'} gap-[18px] justify-between overflow-hidden`}>
-            <div className={`${images.length === 0 ? "hidden" : "" } relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end transition-transform ease-out duration-500`} style={{transform: `translateX(-${displayed * 85}%`}}>
+        <div className='w-full h-full overflow-x-hidden relative'>
+            <div className={`w-full h-full flex flex-row justify-between transition-all ease-in-out duration-500`} style={{transform: `translateX(-${displayed * 100}%`}}>
                 {
-                    images.map((image, i) => {
-                        return(
-                            <div key={i} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px] cursor-pointer
-                                            lg:w-1/4 lg:mr-0 lg:mx-[4px]'>
-                                <Image 
-                                    src={urlFor(image.asset._ref).url()}
-                                    alt="placeholder image"
-                                    fill={true}
-                                    onClick={clickFn}
-                                />
-                            </div>
-                        )
-                    })
+                    images.map((image, i) => (
+                        <div key={i} className='w-full h-full relative shrink-0 grow-0'>
+                            <Image
+                                src={urlFor(image.asset._ref).url()}
+                                alt={'about NDBC'}
+                                fill={true}
+                                className='rounded-[24px]'
+                            />
+                        </div>
+                    ))
                 }
             </div>
-            <div id="modal-carouselScrollers" className={`flex gap-[8px] self-${buttonsPosition} md:mt-[18px]
-                                                md:gap-[6px]`}>
-                <button onClick={prev} disabled={displayed === 0}>
-                    <Image src={displayed === 0 ? greyNavArrow : blackNavArrow} alt="nav left icon" className='rotate-180'/>
-                </button>
-                <button onClick={next} disabled={displayed === images.length - 1}>
-                    <Image src={displayed === images.length-1 ? greyNavArrow : blackNavArrow} alt="nav right icon" />
-                </button>
+            <div id="carousel-dot-buttons" className='absolute bottom-[1.5rem] left-[50%] translate-x-[-50%] flex'>
+                {
+                    images.map((_, i) => (
+                        <button key={i} onClick={() => setDisplayed(i)} className={`w-[16px] h-[16px] flex justify-center items-center hover:scale-150 focus:scale-150 outline-none aria-label ${i === displayed ? 'scale-150' : ''}`}>
+                            <div className={`w-[0.5rem] h-[0.5rem] rounded-full border-[2px] border-white transition-all ${i === displayed ? 'bg-white' : 'bg-inherit'}`} />
+                        </button>
+                    ))
+                }
             </div>
         </div>
-        )
+    )
 }

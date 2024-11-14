@@ -8,7 +8,7 @@ import { Carousel } from '../../components/Carousel';
 import { ActionPromptBtn } from '../BasicModal/components/ActionPromptBtn';
 import { EventScrollLinks } from './components/EventScrollLinks';
 import { useNavBarContext } from '@/app/context/navBarContext';
-import { ImageCarousel } from '../../components/ImageCarousel';
+import { ImageSlider } from '../../components/ImageSlider';
 import { GalleryModalContent } from '../GalleryModal/GalleryModalContent';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
@@ -69,12 +69,10 @@ export const EventsModalContent = () => {
                 }
               </div>
               <div id='eventsHeaderImagesSmallScreen' className='md:hidden'>
-                <ImageCarousel
+                <ImageSlider
                     images={images}
                     buttonsPosition='start'
                     toolbarBottom={true}
-                    autoSlide={true}
-                    autoSlideInterval={500}
                     clickFn={toggleGalleryMode}
                 />
               </div>

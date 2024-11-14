@@ -1,12 +1,12 @@
 "use server";
 
-import Image from "next/image";
-import heroImg from "../../../assets/pngs/hero-img.png";
 import { ImageCarousel } from "@/app/shared/components/ImageCarousel";
+import { ImageSlider } from "@/app/shared/components/ImageSlider";
+import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 
-const AboutNDBC = () => {
+const AboutNDBC = ({images}: {images: SanityImageObject[]}) => {
   return (
-    <section className="py-[120px] px-[18px] w-full">
+    <section className="py-[150px] px-[18px] w-full">
       <div className="max-w-[1512px] mx-auto flex flex-col lg:flex-row gap-[18px]">
         <div className="lg:w-1/2 md:bg-[#F6F6F6] rounded-[24px] px-[24px] py-[45px] text-[20px]">
           <h2 className="text-[38px] font-[600] mb-[16px]">About NDBC</h2>
@@ -34,23 +34,16 @@ const AboutNDBC = () => {
             signifying a significant milestone in its growth and development.
           </p>
         </div>
-        {/* <ImageCarousel 
-          images={['/app/assets/pngs/hero-img.png', '/app/assets/pngs/hero-img.png', '/app/assets/pngs/hero-img.png']} 
-          toolbarBottom={false} 
-          buttonsPosition={""} 
-          autoSlide={false} 
-          autoSlideInterval={0} 
-        /> */}
-        <div className="w-full overflow-x-scroll flex gap-[3vw] lg:w-1/2 lg:block">
-          <Image
-            src={heroImg}
-            alt="church logo"
-            className="rounded-[24px] h-[470px] w-[330px] lg:h-[108vh] lg:w-full 2xl:h-[78vh] object-fill"
-          />
-          <Image
-            src={heroImg}
-            alt="church logo"
-            className="lg:hidden rounded-[24px] h-[470px] w-[330px] lg:h-[108vh] lg:w-full 2xl:h-[78vh] object-fill"
+        <div className="hidden lg:block lg:w-1/2 h-full">
+          <div className="w-full h-[108vh] 2xl:h-[78vh]">
+            <ImageCarousel images={images} />
+          </div>
+        </div>
+        <div className="w-full lg:hidden">
+          <ImageSlider
+            images={images}
+            toolbarBottom={true}
+            buttonsPosition={""} 
           />
         </div>
       </div>

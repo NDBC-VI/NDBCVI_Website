@@ -1,9 +1,13 @@
 import Image from "next/image";
-import communityLife from "../assets/pngs/coomunity-life.png";
 import whiteNavArrow from "../../../assets/svgs/nav-arrow-white.svg";
 import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
+import { SanityDocument } from "next-sanity";
+import { ImageSlider } from "@/app/shared/components/ImageSlider";
 
-const CommunityLife = () => {
+const CommunityLife = ({activities}: {activities: SanityDocument[]}) => {
+
+  const images = activities.map(activity => activity.image);
+
   return (
     <section className="bg-black text-white py-[90px] px-[20px] w-full overflow-x-scroll">
       <div className="px-2 text-center">
@@ -29,9 +33,16 @@ const CommunityLife = () => {
             Tag
           </button>
         </div>
-        <div className="relative">
+        {/* <div className="relative">
           <Image src={communityLife} alt="community life image" width={336} />
-        </div>
+        </div> */}
+          <ImageSlider
+            images={images}
+            toolbarBottom={false}
+            buttonsPosition={""}
+            autoSlide={false}
+            autoSlideInterval={0}
+          />
         <div className="w-[336px] flex justify-between lg:justify-center mt-[18px]">
           <button
             type="button"

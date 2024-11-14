@@ -9,21 +9,24 @@ import { DeaconList, MinistryLeadList, ReverendList } from "@/app/types";
 import { Reverends } from "./sections/Reverends";
 import Deacons from "./sections/Deacons";
 import MinistryLeads from "./sections/MinistryLeads";
+import { SanityImageObject } from "@sanity/image-url/lib/types/types";
+
 
 const AboutNdbc = async () => {
-  const people: SanityDocument[] = await sanityFetch<SanityDocument[]>({ query: aboutPageQuery });
-  const reverends: ReverendList = people.find(list => list.title === "Reverends of NDBC") as unknown as ReverendList;
-  const deacons: DeaconList = people.find(list => list.title === "Deacons 2024") as unknown as DeaconList;
-  const ministryLeads: MinistryLeadList = people.find(list => list.title === "Ministry Leads") as unknown as MinistryLeadList;
+  const aboutPage: SanityDocument = await sanityFetch<SanityDocument>({ query: aboutPageQuery });
+  const images = aboutPage.aboutNdbcImages as SanityImageObject[];
+  const communityActivities = aboutPage.communityActivities as SanityDocument[];
+  const { reverendsSection, deaconsSection, ministryLeadsSection } = aboutPage;
+  // console.log(aboutPage);
 
   return (
     <>
-      <AboutNDBC />
-      <CommunityLife />
+      <AboutNDBC images={images}/>
+      <CommunityLife activities={communityActivities} />
       <MissionAndVision />
-      <Reverends reverends={reverends} />
-      <Deacons deacons={deacons} />
-      <MinistryLeads ministryLeads={ministryLeads} />
+      <Reverends reverends={reverendsSection as ReverendList} />
+      <Deacons deacons={deaconsSection as DeaconList} />
+      <MinistryLeads ministryLeads={ministryLeadsSection as MinistryLeadList} />
       <MoreAboutNewDawn />
     </>
   );

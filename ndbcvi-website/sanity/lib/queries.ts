@@ -53,10 +53,24 @@ export const eventsQuery = groq`*[_type == "events" && startDate > now() && date
 }`
 
 
-export const aboutPageQuery = groq`*[_type == "reverendList" || _type == "deaconList" || _type == "ministryLeadList"] {
-    title,
-    description,
-    reverendList[]->,
-    deaconList[]->,
-    ministryLeadList[]->
+export const aboutPageQuery = groq`*[_type == "aboutPage"][0] {
+    aboutNdbcImages[],
+    communityActivities[] -> {
+        activityName,
+        slug,
+        image,
+        description
+    },
+    reverendsSection -> {
+        description,
+        reverendList[]->
+    },
+    deaconsSection -> {
+        description,
+        deaconList[]->
+    },
+    ministryLeadsSection -> {
+        description,
+        ministryLeadList[]->
+    }
 }`

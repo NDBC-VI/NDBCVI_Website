@@ -1,22 +1,12 @@
 'use client';
-import React, { useState } from 'react'
+import React from 'react'
 import { SanityImageObject } from '@sanity/image-url/lib/types/types'
 import Image from 'next/image'
 import { urlFor } from '@/sanity/lib/image'
-import { ImageCarousel } from '../../components/ImageCarousel'
+import { ImageSlider } from '../../components/ImageSlider'
 
 export const GalleryModalContent = ({images, parentModal, returnToModal}: {images: SanityImageObject[], parentModal: string, returnToModal:()=>void}) => {
-    
-    const [displayed, setDisplayed] = useState(0);
 
-    const scrollToPrev = () => {
-        setDisplayed((curr) => (curr === 0 ? images.length - 1 : curr - 1));
-    }
-    const scrollToNext = () => {
-    setDisplayed((curr) => (curr === images.length - 1 ? 0 : curr + 1));
-    }
-    
-    
     return (
         <div className='flex flex-col'>
             <h1 className="title_font">Gallery</h1>
@@ -28,12 +18,12 @@ export const GalleryModalContent = ({images, parentModal, returnToModal}: {image
                 <p>Return to {parentModal}</p>
             </button>
             <div className="lg:hidden">
-                <ImageCarousel 
+                <ImageSlider 
                     images={images}
                     buttonsPosition='start' toolbarBottom={true} 
                     autoSlide={true} 
                     autoSlideInterval={5000} 
-                    clickFn={() => null}
+                    clickFn={returnToModal}
                 />
             </div>
             <div id="masonryDisplay" className='hidden lg:block lg:py-14 lg:flex lg:flex-row lg:items-center lg:justify-center lg:flex-wrap'>
