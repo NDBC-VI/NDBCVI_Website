@@ -29,8 +29,11 @@ export const ScrollLinks = ({sections}: {sections: ScrollLinkType[]}) => {
     useEffect(() => {
         for(const section of sections) {
             const infoSection = document.getElementById(section.slug) as HTMLElement;
-
-            if(infoSection.offsetTop + infoSection.offsetHeight >= modalScrollPosition) {
+            
+            // Check to see if the section is visible on the screen, and highlight the link of the visible section.
+            // Change the visibility point based on if it's on desktop or mobile
+            let visibilityPoint = window.innerWidth <= 768 ? infoSection.offsetTop : infoSection.offsetTop + infoSection.offsetHeight;
+            if(visibilityPoint >= modalScrollPosition) {
                 setVisibleSection(section.slug);
                 break;
             }
