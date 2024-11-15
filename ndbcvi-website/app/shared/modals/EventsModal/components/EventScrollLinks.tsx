@@ -63,7 +63,7 @@ export const EventScrollLinks = ({events, displayedEvent, scrollFn}: {events: Ev
             {   domReady && isOpen && createPortal(     
                     <div className='absolute bottom-0 left-0 w-full flex justify-center' onClick={handleClose}>
                         <div className='w-11/12 scale-x-[1.005] flex flex-col md:hidden'>
-                            <div  className={`w-full z-10 bg-[#1D1841] rounded-b-3xl text-white cursor-pointer`} onClick={(e) => toggleDropdown(e)}>
+                            <div  className={`w-full z-10 bg-[#1D1841] text-white cursor-pointer`} onClick={(e) => toggleDropdown(e)}>
                                 <div className='flex justify-between mx-[20px] mt-[24px] mb-[12px]'>
                                     <h3 className={`text-[20px] font-[600] ${isDropdownOpen ? "opacity-60" : ""}`}>On this page</h3>
                                     <div className={`flex w-10 items-center justify-center transition-all linear duration-300 ${isDropdownOpen ? "opacity-60 rotate-180" : ""}`}>
@@ -71,7 +71,7 @@ export const EventScrollLinks = ({events, displayedEvent, scrollFn}: {events: Ev
                                     </div>
                                 </div>
                             </div>
-                            <div className={`w-full h-[60px] bg-[#1D1841] text-white z-[9] pl-[20px] pt-0 pb-[18px] rounded-b-3xl flex items-end overflow-x-scroll relative bottom-[50px] opacity-0 transition-all linear duration-300 ${isDropdownOpen ? "translate-y-[30px] opacity-100 z-12" : ""}`} onClick={(e: React.MouseEvent) => e.stopPropagation()}>
+                            <div className={`w-full scale-x-[1.0005] h-[71px] bg-[#1D1841] text-white z-[9] pl-[20px] pt-0 pb-[18px] rounded-b-3xl flex items-end overflow-x-scroll relative bottom-[50px] transition-all linear duration-300 ${isDropdownOpen ? "translate-y-[30px] opacity-100 z-12" : ""}`} onClick={(e: React.MouseEvent) => e.stopPropagation()}>
                                 {
                                     events?.map((section: EventScrollLinkType, index: number) => (
                                         <div key={index+1} className="snap-center w-fit">

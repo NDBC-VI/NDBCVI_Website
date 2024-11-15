@@ -8,7 +8,7 @@ const Messages = () => {
     <section className="text-white flex py-[120px] px-[18px]">
       <div className="w-full flex flex-col items-center gap-[18px] md:flex-row">
         <div
-          className="w-full h-[80vh] py-[26%] rounded-[24px] relative md:h-full md:w-1/2"
+          className="w-full h-[75vh] py-[26%] rounded-[24px] relative md:h-full md:w-1/2"
           style={{
             backgroundImage: `url(${heroImg.src})`,
             backgroundSize: "cover",
@@ -16,7 +16,7 @@ const Messages = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="absolute bottom-0 left-0 px-[36px] pb-[45px]">
+          <div className="absolute bottom-0 left-0 px-[20px] md:px-[36px] pb-[45px]">
             <h2 className="text-[24px] md:text-[30px] font-[600]">
               Turn the Table - Reverend <br /> Samson Aderinto Adedokun
             </h2>
@@ -43,11 +43,11 @@ const Messages = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="absolute bottom-0 left-0 px-[36px] pb-[45px]">
-            <h2 className="text-[30px] font-[600]">
+          <div className="absolute bottom-0 left-0 px-[20px] md:px-[36px] pb-[45px]">
+            <h2 className="text-[24px] md:text-[30px] font-[600]">
               The Quiet Champion - Reverend Samson Aderinto Adedokun
             </h2>
-            <p className="text-[20px] mt-[20px] mb-[30px]">
+            <p className="text-[14px] md:text-[20px] mt-[20px] mb-[30px]">
               Volunteers works tirelessly to build a welcoming and inclusive
               community for all who seek to know God and experience the love and
               grace of Jesus Christ.

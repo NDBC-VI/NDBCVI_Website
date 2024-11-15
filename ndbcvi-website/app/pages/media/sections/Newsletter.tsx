@@ -13,10 +13,10 @@ const Newsletter = () => {
         </p>
       </div>
       <div className="flex justify-center">
-        <div className="flex flex-col items-center gap-6 md:flex-row">
+        <div className="w-full flex flex-col items-center gap-6 md:flex-row">
           <input
             type="text"
-            className="border rounded-[100px] py-3 px-6 w-[396px]"
+            className="border rounded-[100px] py-3 px-6 w-4/5 md:w-[396px]"
             placeholder="Enter email address"
           />
           <button

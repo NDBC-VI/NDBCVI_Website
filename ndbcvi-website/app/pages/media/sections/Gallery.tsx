@@ -14,8 +14,8 @@ const Gallery = () => {
           </p>
         </div>
       </div>
-      {/* <div className="md:bg-[#F6F6F6] rounded-[24px] flex max-w-[1512px] mx-auto my-[24px] md:my-[60px] md:rounded-none overflow-x-auto"> */}
-      <div className="md:bg-[#F6F6F6] rounded-[24px] flex w-full mx-auto my-[24px] md:my-[60px] md:rounded-none overflow-x-auto">
+      {/* <div className="md:bg-[#F6F6F6] rounded-[24px] flex max-w-[1512px] mx-auto my-[24px] md:my-[60px] md:rounded-none overflow-x-hidden"> */}
+      <div className="md:bg-[#F6F6F6] rounded-[24px] flex w-full mx-auto my-[24px] md:my-[60px] md:rounded-none overflow-x-hidden">
         <div className="w-full py-[80px] shrink-0 bg-[#F6F6F6] md:w-[33%]">
           <div className="text-center mb-[40px]">
             <h2 className="text-[36px] font-[600]">Event name</h2>
