@@ -17,7 +17,7 @@ export const ReverendsList = ({list}: {list: PersonType[]}) => {
                                                 key={person.slug.current} 
                                                 imgUrl={urlFor(person.photo.asset._ref).url()} 
                                                 title={person.name} 
-                                                rounded="2xl"
+                                                rounded="[24px]"
                                                 body=""
                                                 button={<p className='text-white underline'>Read Bio</p>}
                                                 imgFit="contain"
