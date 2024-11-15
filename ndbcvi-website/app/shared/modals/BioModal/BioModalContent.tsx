@@ -11,28 +11,33 @@ import { PersonType } from '@/app/types';
 export const BioModalContent = ({person}: {person: PersonType}) => {
     return (
         <>
-            <div className='flex flex-row justify-between space-x-10 pb-[24px]'>
-                <ScrollLinks sections={[{title: person.name, slug: person.slug.current}]}/>
-                <div id={person.slug.current} className="w-full md:w-2/3 pt-[24px] relative self-end">
+            <div className='flex flex-row justify-between pb-[56px]'>
+                <div className='hidden md:block'>
+                    <ScrollLinks sections={[{title: person.name, slug: person.slug.current}]}/>
+                </div>
+                <div id={person.slug.current} className="w-full md:w-2/3 pt-[24px] px-[20px] flex flex-col relative self-end">
                     <h1 className='text-[24px] md:text-[36px] font-[600]'>{person.name}</h1>
-                    <Image 
-                        src={urlFor(person.photo.asset._ref).url()}
-                        alt={`Photo of ${person.name}`}
-                        width={175}
-                        height={100}
-                        className='rounded-2xl my-8'
-                    />
-                    <PortableText value={person.bio} />
+                    <div className='relative w-[311px] h-[500px] self-center md:self-start md:w-[330px] md:h-[534px] mt-[24px]'>
+                        <Image
+                            src={urlFor(person.photo.asset._ref).url()}
+                            alt={`Photo of ${person.name}`}
+                            style={{objectFit: 'cover', width: '100%', borderRadius: '24px'}}
+                            fill
+                        />
+                    </div>
+                    <div className="relative top-[25px]">
+                        <PortableText value={person.bio} />
                     
-                    <div className='w-fit'>
-                        <Link href={person.link} target='_blank' className='w-fit'>
-                            <button
-                                type="button"
-                                className="py-2 px-5 my-10 border border-black rounded-[100px] flex items-center gap-[6px] font-[500] cursor-pointer"
-                                >
-                                <p>{person.linkText}</p>
-                            </button>
-                        </Link>
+                        <div className='w-fit'>
+                            <Link href={person.link} target='_blank' className='w-fit'>
+                                <button
+                                    type="button"
+                                    className="py-2 px-5 my-10 border border-black rounded-[100px] flex items-center gap-[6px] font-[500] cursor-pointer"
+                                    >
+                                    <p>{person.linkText}</p>
+                                </button>
+                            </Link>
+                        </div>
                     </div>
                 </div> 
             </div> 
