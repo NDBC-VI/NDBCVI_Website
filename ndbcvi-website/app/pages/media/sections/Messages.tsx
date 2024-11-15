@@ -6,9 +6,9 @@ import CustomBtn from "@/app/shared/components/CustomBtn";
 const Messages = () => {
   return (
     <section className="text-white flex py-[120px] px-[18px]">
-      <div className="w-full h-full flex flex-col items-center gap-[18px] md:flex-row]">
+      <div className="w-full flex flex-col items-center gap-[18px] md:flex-row">
         <div
-          className="w-full h-[80vh] py-[26%] rounded-[24px] relative md:h-full"
+          className="w-full h-[80vh] py-[26%] rounded-[24px] relative md:h-full md:w-1/2"
           style={{
             backgroundImage: `url(${heroImg.src})`,
             backgroundSize: "cover",
