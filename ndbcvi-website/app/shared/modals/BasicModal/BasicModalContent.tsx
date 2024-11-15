@@ -57,7 +57,16 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                     </div>
                 </div>
                 <div className="ml-[20px] md:flex md:flex-row md:justify-between md:space-x-10">
-                    <ScrollLinks sections={sections}/>
+                    <div className='h-fit hidden md:block md:sticky md:top-0 '>
+                        <ScrollLinks sections={sections}/>
+                        <div className="flex flex-col items-start mt-[60px] ">
+                            <h1 className='text-[24px] font-[600] text-[#1D1841] leading-[29.05px] mb-[10px]
+                                md:text-[36px] md:leading-[43.57px] md:mb-[36px]'>
+                                    We&apos;re excited to <br /> have you join us
+                            </h1>
+                            <ActionPromptBtn title='Join a ministry' url=''/>
+                        </div>
+                    </div>
                     <div className="md:w-2/3 md:px-6 md:relative md:self-end">
                         {
                             introduction?.slug?.current !== undefined &&

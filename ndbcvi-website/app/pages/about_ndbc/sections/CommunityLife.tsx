@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import whiteNavArrow from "../../../assets/svgs/nav-arrow-white.svg";
-import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
 import { PortableText, SanityDocument } from "next-sanity";
 import { urlFor } from "@/sanity/lib/image";
 import { useState } from "react";
@@ -62,11 +61,11 @@ const next = () => {
             Tag
           </button>
           <div className="h-full flex gap-[6px]">
-            <button onClick={prev}>
-              <Image src={greyNavArrow} alt="nav arrow left" className="rotate-180"/>
+            <button onClick={prev} disabled={displayed === 0}>
+              <Image src={whiteNavArrow} alt="nav arrow left" className={`rotate-180 ${displayed === 0 ? "opacity-40" : ""}`}/>
             </button>
-            <button onClick={next}>
-              <Image src={whiteNavArrow} alt="nav arrow right" />
+            <button onClick={next} disabled={displayed === images.length - 1}>
+              <Image src={whiteNavArrow} alt="nav arrow right" className={`${displayed === images.length - 1 ? "opacity-40" : ""}`}/>
             </button>
           </div>
         </div>

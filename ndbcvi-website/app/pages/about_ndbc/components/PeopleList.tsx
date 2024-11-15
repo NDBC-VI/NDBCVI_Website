@@ -14,7 +14,7 @@ export const PeopleList = ({list}: {list: SanityDocument[]}) => {
                         imgUrl={urlFor(person.photo.asset._ref).url()} 
                         title={person.name} 
                         body={person.bio[0].children[0].text} 
-                        rounded="2xl"
+                        rounded="[24px]"
                     />
                 </div>
             ))}
