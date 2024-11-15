@@ -5,7 +5,7 @@ import menuIcon from "./../../assets/svgs/menu.svg";
 import Image from "next/image";
 import CustomBtn from "./CustomBtn";
 import MenuModal from "../modals/MenuModal";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { ModalTemplate } from "@/app/shared/modals/ModalTemplate";
 import { EventsModalContent } from "../modals/EventsModal/EventsModalContent";
 import { FaqModalContent } from "../modals/FaqModal/FaqModalContent";
@@ -28,7 +28,7 @@ const Navbar = ({
   return (
     <NavBarContext.Provider value={{ eventsPopup, faqPopup, banner }}>
       <div
-        className={`fixed top-0 w-full flex flex-col transition ease-in duration-1500 ${bannerVisible && !isOpen ? "" : `-translate-y-[102px] lg:-translate-y-[62px]`}`}
+        className={`fixed top-0 w-full flex flex-col transition ease-in duration-1500 ${bannerVisible && !isOpen ? "" : `-translate-y-[126px] lg:-translate-y-[62px]`}`}
         style={{ zIndex: 1 }}
       >
         <div
