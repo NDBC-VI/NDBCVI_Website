@@ -35,7 +35,12 @@ const event = {
         },
         {
             name: 'startDate',
-            title: 'Date',
+            title: 'Start',
+            type: 'datetime'
+        },
+        {
+            name: 'endDate',
+            title: 'End',
             type: 'datetime'
         },
         {

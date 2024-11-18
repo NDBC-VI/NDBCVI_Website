@@ -13,7 +13,7 @@ export const ActionPromptBtn = ({ title, url }: ActionPromptBtnProps) => {
             type="button"
             className="bg-[#1D1841] text-white text-[14px] px-[24px] py-[8x] font-[500] py-2 px-6 rounded-[100px] text-nowrap">
             {title}
-            </button>
+        </button>
     </a>
   )
 }
