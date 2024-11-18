@@ -13,11 +13,10 @@ import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 
 
 const AboutNdbc = async () => {
-  const aboutPage: SanityDocument = await sanityFetch<SanityDocument>({ query: aboutPageQuery });
+  const aboutPage: SanityDocument = await sanityFetch<SanityDocument>({ query: aboutPageQuery, tags: ['aboutPage', 'communityActivity', 'reverendList','deaconList', 'ministryLeadList'] });
   const images = aboutPage.aboutNdbcImages as SanityImageObject[];
   const communityActivities = aboutPage.communityActivities as SanityDocument[];
   const { reverendsSection, deaconsSection, ministryLeadsSection } = aboutPage;
-  // console.log(aboutPage);
   
   return (
     <>

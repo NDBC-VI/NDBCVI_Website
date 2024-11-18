@@ -54,6 +54,7 @@ export const eventsQuery = groq`*[_type == "events" && startDate > now() && date
 
 
 export const aboutPageQuery = groq`*[_type == "aboutPage"][0] {
+    _type,
     aboutNdbcImages[],
     communityActivities[] -> {
         activityName,

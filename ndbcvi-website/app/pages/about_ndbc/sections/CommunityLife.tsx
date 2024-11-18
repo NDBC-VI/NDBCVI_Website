@@ -28,12 +28,6 @@ const next = () => {
         </p>
       </div>
       <div className="mt-[96px] w-full flex flex-col items-center relative">
-        <div className="text-center mb-[24px] lg:absolute lg:top-[22%] lg:left-[7%] lg:text-left lg:max-w-[425px]">
-          <h2 className="text-[20px] lg:text-[48px] font-[600] mb-[12px]">{activities[displayed].activityName}</h2>
-          <div className="text-[16px] font-[600] lg:text-[20px] leading-[26px]">
-            <PortableText value={activities[displayed].description} />
-          </div>
-        </div>
         <div className="w-full flex justify-center mb-[24px] hidden lg:flex">
           <button
             type="button"
@@ -42,16 +36,25 @@ const next = () => {
             Tag
           </button>
         </div>
-        <div className="w-[350px] overflow-x-hidden">
-          <div className="w-full flex">
-            {
-              images.map((image, index) => (
-                <div key={index} className={`relative w-[350px] h-[530px] shrink-0 transition-transform ease-in-out duration-500`} style={{transform: `translateX(-${displayed*100}%)`}}>
-                  <Image src={urlFor(image.asset._ref).url()} fill={true} alt="community life image" className="rounded-[24px]"  />
-                </div>
-              ))
-            }
+        <div className="w-full lg:grid lg:grid-cols-[minmax(0,_1fr)_350px_minmax(0,_1fr)] lg:gap-[5%] lg:px-[2%]">
+          <div className="w-full text-center mb-[24px] lg:flex lg:flex-col lg:justify-center lg:text-left lg:mb-0">
+            <h2 className="text-[20px] lg:text-[48px] font-[600] mb-[12px]">{activities[displayed].activityName}</h2>
+            <div className="text-[16px] font-[600] lg:text-[20px] leading-[26px]">
+              <PortableText value={activities[displayed].description} />
+            </div>
           </div>
+          <div className="justify-self-center w-[350px] overflow-x-hidden">
+            <div className="w-full flex">
+              {
+                images.map((image, index) => (
+                  <div key={index} className={`relative w-[350px] h-[530px] shrink-0 transition-transform ease-in-out duration-500`} style={{transform: `translateX(-${displayed*100}%)`}}>
+                    <Image src={urlFor(image.asset._ref).url()} fill={true} alt="community life image" className="rounded-[24px]"  />
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          <div id="space-filler"/>
         </div>
         <div className="w-[336px] flex justify-between lg:justify-center mt-[18px]">
           <button
