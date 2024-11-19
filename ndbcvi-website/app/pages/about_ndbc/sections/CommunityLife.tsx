@@ -1,38 +1,73 @@
-import Image from "next/image";
-import communityLife from "../assets/pngs/coomunity-life.png";
-import navArrowRight from "../../../assets/svgs/nav-arrow-right.svg";
-import navArrowLeft from "../../../assets/svgs/nav-arrow-left.svg";
+"use client";
 
-const CommunityLife = () => {
+import Image from "next/image";
+import whiteNavArrow from "../../../assets/svgs/nav-arrow-white.svg";
+import { PortableText, SanityDocument } from "next-sanity";
+import { urlFor } from "@/sanity/lib/image";
+import { useState } from "react";
+
+const CommunityLife = ({activities}: {activities: SanityDocument[]}) => {
+
+  const images = activities.map(activity => activity.image);
+  const [displayed, setDisplayed] = useState(0);
+  const prev = () => {
+    setDisplayed((curr) => (curr === 0 ? images.length - 1 : curr - 1));
+}
+const next = () => {
+    setDisplayed((curr) => (curr === images.length - 1 ? 0 : curr + 1));
+}
+
   return (
-    <section className="bg-black text-white py-[90px]">
-      <div className="text-center">
-        <h2 className="text-[48px] font-[600] mb-[18px]">Community life</h2>
-        <p className="text-[24px] leading-[33.6px]">
+    <section className="bg-black text-white py-[90px] px-[20px] w-full overflow-x-scroll">
+      <div className="px-2 text-center">
+        <h2 className="text-[24px] lg:text-[48px] font-[600] mb-[18px]">Community life</h2>
+        <p className="text-[18px] lg:leading-[25.2px] lg:text-[24px] lg:leading-[33.6px]">
           We believe in dynamic Christian worship as the foundation for daily
-          life, and <br /> we strive to teach sound Biblical principles with
-          love as our guiding <br /> principle.
+          life, and <br className="hidden md:block" /> we strive to teach sound Biblical principles with
+          love as our guiding <br className="hidden md:block" /> principle.
         </p>
       </div>
-      <div className="mt-[96px] flex flex-col items-center relative">
-        <button
-          type="button"
-          className="bg-[#202020] rounded-[100px] py-2 px-6 mb-6 text-[18px]"
-        >
-          Tag
-        </button>
-        <div className="relative">
-          <Image src={communityLife} alt="community life image" width={336} />
+      <div className="mt-[96px] w-full flex flex-col items-center relative">
+        <div className="text-center mb-[24px] lg:absolute lg:top-[22%] lg:left-[7%] lg:text-left lg:max-w-[425px]">
+          <h2 className="text-[20px] lg:text-[48px] font-[600] mb-[12px]">{activities[displayed].activityName}</h2>
+          <div className="text-[16px] font-[600] lg:text-[20px] leading-[26px]">
+            <PortableText value={activities[displayed].description} />
+          </div>
         </div>
-        <div className="flex gap-[6px] mt-6">
-          <Image src={navArrowLeft} alt="nav arrow left" />
-          <Image src={navArrowRight} alt="nav arrow right" />
+        <div className="w-full flex justify-center mb-[24px] hidden lg:flex">
+          <button
+            type="button"
+            className="bg-[#202020] rounded-[100px] py-2 px-6 text-[18px]"
+          >
+            Tag
+          </button>
         </div>
-        <div className="absolute top-[22%] 2xl:left-[18%] left-[7%]">
-          <h2 className="text-[48px] font-[600]">Activity name</h2>
-          <p className="text-[20px] leading-[26px]">
-            Add mage description, age <br /> group, activity, fellowship etc.
-          </p>
+        <div className="w-[350px] overflow-x-hidden">
+          <div className="w-full flex">
+            {
+              images.map((image, index) => (
+                <div key={index} className={`relative w-[350px] h-[530px] shrink-0 transition-transform ease-in-out duration-500`} style={{transform: `translateX(-${displayed*100}%)`}}>
+                  <Image src={urlFor(image.asset._ref).url()} fill={true} alt="community life image" className="rounded-[24px]"  />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div className="w-[336px] flex justify-between lg:justify-center mt-[18px]">
+          <button
+            type="button"
+            className="bg-[#202020] rounded-[100px] h-[37px] py-auto px-6 text-[18px] lg:hidden"
+          >
+            Tag
+          </button>
+          <div className="h-full flex gap-[6px]">
+            <button onClick={prev} disabled={displayed === 0}>
+              <Image src={whiteNavArrow} alt="nav arrow left" className={`rotate-180 ${displayed === 0 ? "opacity-40" : ""}`}/>
+            </button>
+            <button onClick={next} disabled={displayed === images.length - 1}>
+              <Image src={whiteNavArrow} alt="nav arrow right" className={`${displayed === images.length - 1 ? "opacity-40" : ""}`}/>
+            </button>
+          </div>
         </div>
       </div>
     </section>

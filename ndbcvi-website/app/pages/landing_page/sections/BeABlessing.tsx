@@ -16,50 +16,38 @@ const BeABlessing = ({ infoPopups }: { infoPopups: SanityDocument[] }) => {
           Join us and experience the love of God at NDBC
         </p>
       </div>
-      <div className="max-w-[1512px] mx-auto pt-[60px] flex flex-col md:flex-row">
-        {infoPopups.map((infoPopup: SanityDocument) => {
-          const basicModalProps: BasicModalPropsType = {
-            introduction: infoPopup?.introduction,
-            title: infoPopup?.title,
-            slug: {
-              current: infoPopup?.slug.current,
-            },
-            thumbnailImage: infoPopup?.thumbnailImage,
-            thumbnailCaption: infoPopup?.thumbnailCaption,
-            headerImages: infoPopup?.headerImages,
-            infoSections: infoPopup?.infoSections,
-          };
-          return (
-            <div className="w-full" key={infoPopup.slug.current}>
-              <ModalTemplate
-                modalActivator={
-                  <ReusableCardComponent
-                    key={infoPopup.slug.current}
-                    imgUrl={urlFor(infoPopup.thumbnailImage.asset._ref).url()}
-                    title={infoPopup.title}
-                    body={infoPopup.thumbnailCaption}
-                    button={
-                      <CustomBtn
-                        title={"Learn more"}
-                        hasIcon
-                        icon={rightArrow}
-                      />
-                    }
-                  />
-                }
-                modalContent={<BasicModalContent {...basicModalProps} />}
-              />
-            </div>
-          );
-        })}
-        {/* {prompts.map((prompt, i) => (
-          <ReusableCardComponent
-            key={i}
-            imgUrl={prompt.imgUrl}
-            title={prompt.title}
-            body={prompt.body}
-          />
-        ))} */}
+      <div className="max-w-[1512px] mx-auto pt-[60px] flex">
+        {
+          infoPopups.map((infoPopup: SanityDocument) => {
+            const basicModalProps: BasicModalPropsType = {
+                introduction: infoPopup?.introduction,
+                title: infoPopup?.title,
+                slug: { 
+                    current: infoPopup?.slug.current,
+                },
+                thumbnailImage: infoPopup?.thumbnailImage,
+                thumbnailCaption: infoPopup?.thumbnailCaption,
+                headerImages: infoPopup?.headerImages,
+                infoSections: infoPopup?.infoSections
+            }
+            return (
+              <div className="w-full" key={infoPopup.slug.current} >
+                <ModalTemplate 
+                    modalActivator={
+                                      <ReusableCardComponent 
+                                        key={infoPopup.slug.current} 
+                                        imgUrl={urlFor(infoPopup.thumbnailImage.asset._ref).url()} 
+                                        title={infoPopup.title} 
+                                        body={infoPopup.thumbnailCaption}
+                                        button={<CustomBtn title={"Learn more"} hasIcon icon={rightArrow} />}
+                                      />
+                                    } 
+                    modalContent={<BasicModalContent {...basicModalProps}/>} 
+                />
+              </div>
+            );
+        })
+        }
       </div>
     </section>
   );

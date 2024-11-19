@@ -1,11 +1,14 @@
-import Image from "next/image";
-import heroImg from "../../../assets/pngs/hero-img.png";
+"use server";
 
-const AboutNDBC = () => {
+import { ImageCarousel } from "@/app/shared/components/ImageCarousel";
+import { ImageSlider } from "@/app/shared/components/ImageSlider";
+import { SanityImageObject } from "@sanity/image-url/lib/types/types";
+
+const AboutNDBC = ({images}: {images: SanityImageObject[]}) => {
   return (
-    <section className="py-[120px] px-[18px]">
-      <div className="max-w-[1512px] mx-auto flex gap-[18px]">
-        <div className="w-1/2 bg-[#F6F6F6] rounded-[24px] px-[24px] py-[45px] text-[20px]">
+    <section className="py-[150px] px-[18px] w-full">
+      <div className="max-w-[1512px] mx-auto flex flex-col lg:flex-row gap-[18px]">
+        <div className="lg:w-1/2 md:bg-[#F6F6F6] rounded-[24px] px-[24px] py-[45px] text-[20px]">
           <h2 className="text-[38px] font-[600] mb-[16px]">About NDBC</h2>
           <p>
             New Dawn Baptist Church (NDBC) was established on November 21st,
@@ -31,11 +34,16 @@ const AboutNDBC = () => {
             signifying a significant milestone in its growth and development.
           </p>
         </div>
-        <div className="w-1/2">
-          <Image
-            src={heroImg}
-            alt="church logo"
-            className="rounded-[24px] h-[108vh] 2xl:h-[78vh] object-fill"
+        <div className="hidden lg:block lg:w-1/2 lg:h-full flex">
+          <div className="w-full pb-[16px] l:h-full 2xl:h-[78vh] items-stretch">
+            <ImageCarousel images={images} />
+          </div>
+        </div>
+        <div className="w-full lg:hidden">
+          <ImageSlider
+            images={images}
+            toolbarBottom={true}
+            buttonsPosition={""} 
           />
         </div>
       </div>

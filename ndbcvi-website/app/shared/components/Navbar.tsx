@@ -14,34 +14,39 @@ import { NavBarContext } from "@/app/context/navBarContext";
 
 const Navbar = ({
   banner,
-  events,
+  eventsPopup,
   faqPopup,
 }: {
   banner: SanityDocument;
-  events: SanityDocument[];
+  eventsPopup: SanityDocument;
   faqPopup: SanityDocument;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  
   const [bannerVisible, setBannerVisible] = useState(true);
+
   return (
-    <NavBarContext.Provider value={{ events, faqPopup, banner }}>
+    <NavBarContext.Provider value={{ eventsPopup, faqPopup, banner }}>
       <div
-        className={`fixed top-0 w-full z-50 flex flex-col transition ease-in duration-1500 ${bannerVisible && !isOpen ? "" : "-translate-y-[7vh]"}`}
+        className={`fixed top-0 w-full flex flex-col transition ease-in duration-1500 ${bannerVisible && !isOpen ? "" : `-translate-y-[126px] lg:-translate-y-[62px]`}`}
         style={{ zIndex: 1 }}
       >
         <div
           id="banner"
-          className={`w-full h-[7vh] flex flex-row justify-center items-center bg-[#1D1841] z-20`}
+          className={`w-full flex py-[18px] px-[20px] bg-[#1D1841] lg:justify-center lg:items-center z-20`}
         >
-          <p className="text-white text-center mx-5">{banner.content}</p>
-          <Link
-            target="_blank"
-            href={banner.link}
-            className="mx-3 text-white font-semibold text-sm underline"
-          >
-            {banner.linkText}
-          </Link>
+          <div className="w-[80%] flex flex-col gap-[18px] text-[16px] font-[500] text-left lg:flex-row justify-center">
+            <div id="bannerText" className="max-h-[46px] lg:max-h-[26px] lg:max-w-[400px] overflow-hidden">
+              <p className="text-white">{banner.content}</p>
+            </div>
+            <Link
+              target="_blank"
+              href={banner.link}
+              className="text-white text-[16px] font-[500] underline"
+            >
+              {banner.linkText}
+            </Link>
+          </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -78,7 +83,7 @@ const Navbar = ({
                   <p className="hidden md:block">Events</p>
                 </Link>
               }
-              modalContent={<EventsModalContent events={events} />}
+              modalContent={<EventsModalContent />}
             />
             <ModalTemplate
               modalActivator={
@@ -88,8 +93,6 @@ const Navbar = ({
               }
               modalContent={<FaqModalContent faqs={faqPopup} />}
             />
-            {/* <Link href="" children={<p>Events</p>} /> */}
-            {/* <Link href="" children={<p>Information Center</p>} /> */}
           </div>
           <div className="hidden md:block">
             <CustomBtn
