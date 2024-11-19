@@ -31,17 +31,16 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } 
-    else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
     }
 
     // Cleanup on component unmount
     return () => {
-    document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
-}, [isOpen]);
+  }, [isOpen]);
 
   const [isActive, setIsActive] = useState(modalTabs[0]);
 
@@ -55,13 +54,14 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
         return <TakeActionView />;
     }
   }, [isActive]);
+
   return (
     <section
       className={`absolute z-20 top-0 ${
         isOpen ? "right-0" : "right-[-100%]"
-      } bg-white w-full h-screen  flex transition-all duration-500`}
+      } bg-white w-full md:h-screen flex flex-col-reverse md:flex-row transition-all duration-500  max-h-screen overflow-y-auto`}
     >
-      <div className="w-1/2 bg-[#1D1841] p-10">
+      <div className="md:w-1/2 bg-[#1D1841] p-10">
         <Image src={churchLogo} alt="church logo" width={43} />
         <div className="flex flex-col gap-[36px] mt-[45px]">
           <div>
@@ -106,7 +106,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
           </div>
         </div>
       </div>
-      <div className="w-1/2 p-10 text-black flex flex-col ">
+      <div className="md:w-1/2 p-10 text-black flex flex-col ">
         <div className="flex justify-between">
           <div className="flex gap-4">
             {modalTabs.map((tab, i) => (
@@ -124,15 +124,15 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
         </div>
 
         <div className="mt-[45px]">{view}</div>
-        <div className="flex items-end h-full justify-between">
+        <div className="flex md:flex-row flex-col-reverse gap-[24px] md:gap-0 md:items-end h-full justify-between mt-[48px] md:mt-0">
           <p className="text-[#757575] text-[18px] font-[500] align-bottom">
             © 2024 New Dawn Baptist Church
           </p>
           <div className="flex gap-[18px]">
-            <Image src={youtube} alt="youtube" />
-            <Image src={spotify} alt="spotify" />
-            <Image src={facebook} alt="facebook" />
-            <Image src={x} alt="x" />
+            <Image src={youtube} alt="youtube" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={spotify} alt="spotify" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={facebook} alt="facebook" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={x} alt="x" className="opacity-40 cursor-pointer hover:opacity-100"/>
           </div>
         </div>
       </div>

@@ -37,7 +37,7 @@ const Navbar = ({
       case "/pages/media":
         return "Media";
       default:
-        return "";
+        return "New Dawn Baptist Church V.I.";
     }
   }
 
@@ -80,7 +80,7 @@ const Navbar = ({
           </svg>
         </div>
 
-        <nav className="px-[60px] py-[20px] flex items-center justify-between text-white z-10 bg-black bg-opacity-40 backdrop-blur-lg">
+        <nav className="px-[20px] md:px-[60px] py-[20px] flex items-center justify-between text-white z-10 bg-black bg-opacity-40 backdrop-blur-lg">
           <div className="flex gap-[48px] items-center text-[20px] font-[500]">
             <Link href="/">
               <Image
@@ -125,7 +125,11 @@ const Navbar = ({
               btnFn={() => setIsOpen(true)}
             />
           </div>
-          <button type="button" className="md:hidden">
+          <button
+            type="button"
+            className="md:hidden"
+            onClick={() => setIsOpen(true)}
+          >
             <Image src={menuIcon} width={24} alt="menu icon" />
           </button>
           <MenuModal onClose={() => setIsOpen(false)} isOpen={isOpen} />
