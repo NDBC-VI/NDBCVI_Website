@@ -45,11 +45,11 @@ const Navbar = ({
     <NavBarContext.Provider value={{ eventsPopup, faqPopup, banner }}>
       <div
         className={`fixed top-0 w-full flex flex-col transition ease-in duration-1500 ${bannerVisible && !isOpen ? "" : `-translate-y-[126px] lg:-translate-y-[62px]`}`}
-        style={{ zIndex: 1 }}
+        style={{ zIndex: 11 }}
       >
         <div
           id="banner"
-          className={`w-full flex py-[18px] px-[20px] bg-[#1D1841] lg:justify-center lg:items-center z-20`}
+          className={`w-full flex py-[18px] px-[20px] bg-[#1D1841] lg:justify-center lg:items-center`}
         >
           <div className="w-[80%] flex flex-col gap-[18px] text-[16px] font-[500] text-left lg:flex-row justify-center">
             <div id="bannerText" className="max-h-[46px] lg:max-h-[26px] lg:max-w-[400px] overflow-hidden">
@@ -80,7 +80,7 @@ const Navbar = ({
           </svg>
         </div>
 
-        <nav className="px-[20px] md:px-[60px] py-[20px] flex items-center justify-between text-white z-10 bg-black bg-opacity-40 backdrop-blur-lg">
+        <nav className="px-[20px] md:px-[60px] py-[20px] flex items-center justify-between text-white bg-black bg-opacity-40 backdrop-blur-lg">
           <div className="flex gap-[48px] items-center text-[20px] font-[500]">
             <Link href="/">
               <Image

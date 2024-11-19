@@ -33,8 +33,8 @@ const LeadingWithLove = () => {
         </div>
         <div className="md:w-1/2 relative">
           <Image src={heroImg} alt="hero img" className="object-fill h-full" />
-          <div className="absolute bottom-0  px-[30px] md:px-0 md:pl-[48px]  text-white md:block flex items-center w-full h-full">
-            <div className="flex flex-col md:block items-center justify-center w-full">
+          <div className="absolute bottom-0 px-[30px] md:px-0 md:pl-[48px] text-white flex items-end w-full h-full">
+            <div className="flex flex-col items-start justify-center lg:mb-[120px] w-full">
               <h3 className="md:text-[36px] text-[18px] font-[600]">
                 Join us and experience <br /> the love of God at NDBC
               </h3>
