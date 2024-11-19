@@ -27,7 +27,7 @@ export const AddToCalendarBtn = ({event}: {event: SanityDocument}) => {
     const googleUrl = google(addToCalendar);
     const office365Url = office365(addToCalendar);
     const outlookUrl = outlook(addToCalendar);
-    const yahooUrl = ics(addToCalendar);
+    const yahooUrl = yahoo(addToCalendar);
 
     const handleOnClick = (event: MouseEvent) => {
         if (addToCalendarRef.current && !event.composedPath().includes(addToCalendarRef.current)) {
