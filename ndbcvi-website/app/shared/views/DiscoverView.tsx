@@ -19,7 +19,7 @@ const discoverLinks = [
   { title: "Hausa Church", path: "", id: 7 },
 ];
 const DiscoverView = ({ clickFn }: ViewProps) => {
-  const {events, faqPopup} = useNavBarContext();
+  const {eventsPopup, faqPopup} = useNavBarContext();
   
   return (
     <div className='flex flex-col gap-[16px] justify-start'>
@@ -49,7 +49,7 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
                     {link.title}
                   </button>
                 </div>} 
-              modalContent={<EventsModalContent events={events} />}
+              modalContent={<EventsModalContent />}
             />
           )
         }
