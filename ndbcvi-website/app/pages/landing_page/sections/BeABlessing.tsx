@@ -16,7 +16,7 @@ const BeABlessing = ({ infoPopups }: { infoPopups: SanityDocument[] }) => {
           Join us and experience the love of God at NDBC
         </p>
       </div>
-      <div className="max-w-[1512px] mx-auto pt-[60px] flex">
+      <div className="max-w-[1512px] mx-auto pt-[60px] flex flex-col md:flex-row">
         {
           infoPopups.map((infoPopup: SanityDocument) => {
             const basicModalProps: BasicModalPropsType = {

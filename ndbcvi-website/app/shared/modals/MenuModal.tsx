@@ -54,6 +54,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
         return <TakeActionView />;
     }
   }, [isActive]);
+
   return (
     <section
       className={`absolute z-20 top-0 ${
@@ -128,10 +129,10 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
             © 2024 New Dawn Baptist Church
           </p>
           <div className="flex gap-[18px]">
-            <Image src={youtube} alt="youtube" />
-            <Image src={spotify} alt="spotify" />
-            <Image src={facebook} alt="facebook" />
-            <Image src={x} alt="x" />
+            <Image src={youtube} alt="youtube" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={spotify} alt="spotify" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={facebook} alt="facebook" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={x} alt="x" className="opacity-40 cursor-pointer hover:opacity-100"/>
           </div>
         </div>
       </div>
