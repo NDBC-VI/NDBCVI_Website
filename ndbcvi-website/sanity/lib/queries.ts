@@ -37,6 +37,7 @@ export const eventsPopupQuery = groq`*[_type == "eventsPopup"][0] {
         image,
         content,
         startDate,
+        endDate,
         location,
         googleMapsLink
     }
