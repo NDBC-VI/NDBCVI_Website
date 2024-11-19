@@ -12,7 +12,7 @@ import { GalleryModalContent } from '../GalleryModal/GalleryModalContent';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
-import { AddToCalendarBtn } from './AddToCalendarBtn';
+import { AddToCalendarBtn } from '../../components/AddToCalendarBtn';
 
 export const EventsModalContent = () => {
   

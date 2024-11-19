@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { SanityDocument } from 'next-sanity';
 import { google, outlook, office365, yahoo, ics } from "calendar-link"
 import appleIcon from "@/app/assets/mail-svgs/apple-logo.svg";
@@ -11,6 +11,8 @@ import calendarIcon from "@/app/assets/svgs/calendar.svg";
 import Image from 'next/image';
 
 export const AddToCalendarBtn = ({event}: {event: SanityDocument}) => {
+
+    const addToCalendarRef = useRef(null);
 
     const [isOpen, setIsOpen] = useState(false);
     const toggleIsOpen = () => setIsOpen(!isOpen);
@@ -26,9 +28,32 @@ export const AddToCalendarBtn = ({event}: {event: SanityDocument}) => {
     const office365Url = office365(addToCalendar);
     const outlookUrl = outlook(addToCalendar);
     const yahooUrl = ics(addToCalendar);
+
+    const handleOnClick = (event: MouseEvent) => {
+        if (addToCalendarRef.current && !event.composedPath().includes(addToCalendarRef.current)) {
+            setIsOpen(false);
+        }
+    }
+    const handleOnEscPress = (event: KeyboardEvent) => {
+        console.log(event);
+        if(event.code === "Escape") {
+            setIsOpen(false);
+        }
+    }
+
+    useEffect(() => {
+        const modal = document.getElementById('backdrop');
+        modal?.addEventListener('click', handleOnClick);
+        document.body.addEventListener('keydown', handleOnEscPress);
+        return () => {
+            modal?.removeEventListener('click', handleOnClick);
+            document.body.removeEventListener('keydown', handleOnEscPress);
+
+        }
+    }, [])
     
     return (
-        <div className='' onClick={toggleIsOpen}>
+        <div ref={addToCalendarRef} onClick={toggleIsOpen}>
             <button
                 type="button"
                 className={`bg-[#1D1841] text-white text-[14px] px-[24px] py-[8x] font-[500] py-2 px-6 rounded-[100px] text-nowrap ${isOpen ? 'opacity-70' : 'opacity-100'}`}>
