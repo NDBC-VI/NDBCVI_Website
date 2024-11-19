@@ -1,7 +1,7 @@
 'use client';
 
 import { urlFor } from '@/sanity/lib/image'
-import { PortableText, SanityDocument } from 'next-sanity'
+import { SanityDocument } from 'next-sanity'
 import Image from 'next/image'
 import React from 'react'
 import { EventsModalCountdownComponent } from './EventsModalCountdownComponent'
