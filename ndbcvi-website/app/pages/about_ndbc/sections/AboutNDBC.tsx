@@ -7,7 +7,7 @@ import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 const AboutNDBC = ({images}: {images: SanityImageObject[]}) => {
   return (
     <section className="py-[150px] px-[18px] w-full">
-      <div className="max-w-[1512px] mx-auto flex flex-col lg:flex-row gap-[18px]">
+      <div className="max-w-[1512px] mx-auto flex flex-col lg:h-[94vh] lg:flex-row gap-[18px]">
         <div className="lg:w-1/2 md:bg-[#F6F6F6] rounded-[24px] px-[24px] py-[45px] text-[20px]">
           <h2 className="text-[38px] font-[600] mb-[16px]">About NDBC</h2>
           <p>
@@ -35,7 +35,7 @@ const AboutNDBC = ({images}: {images: SanityImageObject[]}) => {
           </p>
         </div>
         <div className="hidden lg:block lg:w-1/2 lg:h-full flex">
-          <div className="w-full pb-[16px] l:h-full 2xl:h-[78vh] items-stretch">
+          <div className="w-full pb-[16px] lg:h-full 2xl:h-[78vh] items-stretch">
             <ImageCarousel images={images} />
           </div>
         </div>
