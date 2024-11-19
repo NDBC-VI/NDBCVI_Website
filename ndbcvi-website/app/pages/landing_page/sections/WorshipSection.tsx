@@ -12,11 +12,11 @@ const WorshipSection = () => {
             alt="info card img"
             className="object-cover rounded-[10px]  h-full"
           />
-          <div className="absolute text-white bottom-0 pl-[36px] pb-[48px]">
-            <p className="text-[18px]">
+          <div className="absolute text-white bottom-0 px-[20px] pb-[30px] lg:mx-0 lg:pl-[36px] lg:pb-[48px]">
+            <p className="text-[18px] mb-[16px]">
               We believe in Christian worship as the foundation for daily life
             </p>
-            <h2 className="text-[40px] font-[600]">
+            <h2 className="text-[24px] lg:text-[40px] font-[600]">
               Worship with us by <br /> 8am - 11am on Sundays
             </h2>
           </div>
@@ -31,17 +31,19 @@ const WorshipSection = () => {
                 className="object-cover rounded-[10px] h-1/2"
               />
             </div>
-            <div className="absolute text-white bottom-0 pl-[36px] pb-[48px]">
-              <p className="text-[18px]">
+            <div className="absolute text-white bottom-0 px-[20px] pb-[30px] lg:mx-0 lg:pl-[36px] lg:pb-[48px]">
+              <p className="text-[18px] mb-[16px]">
                 We believe in Christian worship as the foundation for daily life
               </p>
-              <h2 className="text-[40px] font-[600]">
-                Worship with us by <br /> 8am - 11am on Wednesdays
+              <h2 className="text-[24px] lg:text-[40px] font-[600]">
+                Worship with us by <br /> 6pm - 8pm on Wednesdays
               </h2>
             </div>
           </div>
-          <div className="bg-[#F6F6F6] pl-[36px] pr-[78px] py-[87px] rounded-[10px] flex md:flex-row flex-col gap-[48px] w-full items-center">
-            <Image src={mapImg} alt="map image" width={295} />
+          <div className="bg-[#F6F6F6] pl-[36px] pr-[78px] py-[87px] rounded-[10px] flex lg:flex-row flex-col gap-[48px] w-full items-center">
+            <div className="w-full h-[250px] lg:w-[550px] lg:h-[244px] flex self-center mx-auto justify-center relative">
+              <Image src={mapImg} alt="map image" fill={true} />
+            </div>
             <div>
               <h2 className="text-[36px] font-[600] leading-[43.57px] mb-6">
                 Locate our centre in VI, Lagos

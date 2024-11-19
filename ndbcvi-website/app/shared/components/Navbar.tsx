@@ -37,7 +37,7 @@ const Navbar = ({
       case "/pages/media":
         return "Media";
       default:
-        return "";
+        return "New Dawn Baptist Church V.I.";
     }
   }
 
