@@ -1,6 +1,6 @@
 'use client';
 import { SanityDocument } from 'next-sanity';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Event } from '../modals/EventsModal/components/Event';
 import Image from 'next/image';
 import greyNavArrow from "../../assets/svgs/nav-arrow-grey.svg";
