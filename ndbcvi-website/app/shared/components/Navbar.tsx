@@ -6,7 +6,7 @@ import menuIcon from "./../../assets/svgs/menu.svg";
 import Image from "next/image";
 import CustomBtn from "./CustomBtn";
 import MenuModal from "../modals/MenuModal";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ModalTemplate } from "@/app/shared/modals/ModalTemplate";
 import { EventsModalContent } from "../modals/EventsModal/EventsModalContent";
 import { FaqModalContent } from "../modals/FaqModal/FaqModalContent";
@@ -27,25 +27,19 @@ const Navbar = ({
   
   const [bannerVisible, setBannerVisible] = useState(true);
 
-  const [currentPage, setCurrentPage] = useState("");
   const pathname = usePathname();
   const updateCurrentPage = () => {
     switch(pathname){
       case "/pages/about_ndbc":
-        setCurrentPage("About NDBC");
+        return "About NDBC";
         case "/pages/information_center":
-          setCurrentPage("Information Center");
+          return "Information Center";
       case "/pages/media":
-        setCurrentPage("Media");
+        return "Media";
       default:
-        setCurrentPage("");
+        return "";
     }
   }
-
-  useEffect(() => {
-    updateCurrentPage();
-  }, [])
-
 
   return (
     <NavBarContext.Provider value={{ eventsPopup, faqPopup, banner }}>
@@ -120,9 +114,7 @@ const Navbar = ({
           </div>
           <div id="pageName" className="md:hidden  text-[20px] font-[500]">
             {
-              pathname === "/pages/about_ndbc" ? "About NDBC" : 
-              pathname === "/pages/information_center" ? "Information Center" :
-              pathname === "/pages/media" ? "Media" : ""
+              updateCurrentPage()
             }
           </div>
           <div className="hidden md:block">
