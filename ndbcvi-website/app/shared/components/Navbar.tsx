@@ -1,16 +1,18 @@
 "use client";
+
 import Link from "next/link";
 import churchLogo from "../../assets/pngs/church-logo.png";
 import menuIcon from "./../../assets/svgs/menu.svg";
 import Image from "next/image";
 import CustomBtn from "./CustomBtn";
 import MenuModal from "../modals/MenuModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ModalTemplate } from "@/app/shared/modals/ModalTemplate";
 import { EventsModalContent } from "../modals/EventsModal/EventsModalContent";
 import { FaqModalContent } from "../modals/FaqModal/FaqModalContent";
 import { SanityDocument } from "next-sanity";
 import { NavBarContext } from "@/app/context/navBarContext";
+import { usePathname } from "next/navigation";
 
 const Navbar = ({
   banner,
@@ -24,6 +26,26 @@ const Navbar = ({
   const [isOpen, setIsOpen] = useState(false);
   
   const [bannerVisible, setBannerVisible] = useState(true);
+
+  const [currentPage, setCurrentPage] = useState("");
+  const pathname = usePathname();
+  const updateCurrentPage = () => {
+    switch(pathname){
+      case "/pages/about_ndbc":
+        setCurrentPage("About NDBC");
+        case "/pages/information_center":
+          setCurrentPage("Information Center");
+      case "/pages/media":
+        setCurrentPage("Media");
+      default:
+        setCurrentPage("");
+    }
+  }
+
+  useEffect(() => {
+    updateCurrentPage();
+  }, [])
+
 
   return (
     <NavBarContext.Provider value={{ eventsPopup, faqPopup, banner }}>
@@ -64,7 +86,7 @@ const Navbar = ({
           </svg>
         </div>
 
-        <nav className=" px-[60px] py-[20px] flex items-center justify-between text-white z-10 bg-black bg-opacity-40 backdrop-blur-lg">
+        <nav className="px-[60px] py-[20px] flex items-center justify-between text-white z-10 bg-black bg-opacity-40 backdrop-blur-lg">
           <div className="flex gap-[48px] items-center text-[20px] font-[500]">
             <Link href="/">
               <Image
@@ -74,25 +96,34 @@ const Navbar = ({
                 height={48}
               />
             </Link>
-            <Link href="/pages/about_ndbc">
-              <p>About NDBC</p>
-            </Link>
-            <ModalTemplate
-              modalActivator={
-                <Link href="">
-                  <p className="hidden md:block">Events</p>
-                </Link>
-              }
-              modalContent={<EventsModalContent />}
-            />
-            <ModalTemplate
-              modalActivator={
-                <Link href="">
-                  <p className="hidden md:block">Information Center</p>
-                </Link>
-              }
-              modalContent={<FaqModalContent faqs={faqPopup} />}
-            />
+            <div className="hidden md:flex flex-row items-center gap-[48px]">
+              <Link href="/pages/about_ndbc">
+                <p>About NDBC</p>
+              </Link>
+              <ModalTemplate
+                modalActivator={
+                  <Link href="">
+                    <p className="hidden md:block">Events</p>
+                  </Link>
+                }
+                modalContent={<EventsModalContent />}
+              />
+              <ModalTemplate
+                modalActivator={
+                  <Link href="">
+                    <p className="hidden md:block">Information Center</p>
+                  </Link>
+                }
+                modalContent={<FaqModalContent faqs={faqPopup} />}
+              />
+            </div>
+          </div>
+          <div id="pageName" className="md:hidden  text-[20px] font-[500]">
+            {
+              pathname === "/pages/about_ndbc" ? "About NDBC" : 
+              pathname === "/pages/information_center" ? "Information Center" :
+              pathname === "/pages/media" ? "Media" : ""
+            }
           </div>
           <div className="hidden md:block">
             <CustomBtn
