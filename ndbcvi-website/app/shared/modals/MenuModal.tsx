@@ -1,5 +1,7 @@
+'use client';
+
 import churchLogo from "../../assets/pngs/church-logo.png";
-import mapPin from "../../assets/svgs/map-pin.svg";
+import whiteMapPin from "../../assets/svgs/map-pin-white.svg";
 import Image from "next/image";
 import CustomBtn from "../components/CustomBtn";
 import youtube from "../../assets/svgs/youtube-menu.svg";
@@ -24,25 +26,25 @@ interface MenuModalProps {
 }
 
 const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
-  const {events} = useNavBarContext();
+  const {eventsPopup} = useNavBarContext();
+  const upcomingEvent = eventsPopup.upcomingEvents[0];
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } 
-    else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
     }
 
     // Cleanup on component unmount
     return () => {
-    document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
-}, [isOpen]);
+  }, [isOpen]);
 
   const [isActive, setIsActive] = useState(modalTabs[0]);
 
-  const {days, hours, minutes} = calcTimeDelta(events[0].startDate);
+  const {days, hours, minutes} = calcTimeDelta(upcomingEvent.startDate);
 
   const view = useMemo(() => {
     switch (isActive) {
@@ -52,13 +54,14 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
         return <TakeActionView />;
     }
   }, [isActive]);
+
   return (
     <section
       className={`absolute z-20 top-0 ${
         isOpen ? "right-0" : "right-[-100%]"
-      } bg-white w-full h-screen  flex transition-all duration-500`}
+      } bg-white w-full md:h-screen flex flex-col-reverse md:flex-row transition-all duration-500  max-h-screen overflow-y-auto`}
     >
-      <div className="w-1/2 bg-[#1D1841] p-10">
+      <div className="md:w-1/2 bg-[#1D1841] p-10">
         <Image src={churchLogo} alt="church logo" width={43} />
         <div className="flex flex-col gap-[36px] mt-[45px]">
           <div>
@@ -75,15 +78,15 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
               </p>
             </div>
           </div>
-          <a className="flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline" href={events[0].googleMapsLink} target="_blank">
-            <Image src={mapPin} alt="map pin" width={24} />
+          <a className="flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline" href={upcomingEvent.googleMapsLink} target="_blank">
+            <Image src={whiteMapPin} alt="map pin" width={24} />
             <p className="text-[18px] font-[500] cursor-pointer underline">
               Open location in Maps
             </p>
           </a>
           <div
             style={{
-              backgroundImage: `url(${urlFor(events[0].image.asset._ref)})`,
+              backgroundImage: `url(${urlFor(upcomingEvent.image.asset._ref)})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
@@ -93,17 +96,17 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
             <div className="bg-[rgba(0,0,0,0.35)] absolute top-0 left-0 w-full h-full rounded-[24px]"></div>
             <div className="absolute bottom-0 p-[16px]">
               <h3 className="text-[28px] font-[600] leading-[35px] mb-[13px]">
-                {events[0].title}
+                {upcomingEvent.title}
               </h3>
               <div className="mb-[13px]">
-                <PortableText value={events[0].content}/>
+                <PortableText value={upcomingEvent.content}/>
               </div>
               <CustomBtn title="Add to calendar" />
             </div>
           </div>
         </div>
       </div>
-      <div className="w-1/2 p-10 text-black flex flex-col ">
+      <div className="md:w-1/2 p-10 text-black flex flex-col ">
         <div className="flex justify-between">
           <div className="flex gap-4">
             {modalTabs.map((tab, i) => (
@@ -121,15 +124,15 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
         </div>
 
         <div className="mt-[45px]">{view}</div>
-        <div className="flex items-end h-full justify-between">
+        <div className="flex md:flex-row flex-col-reverse gap-[24px] md:gap-0 md:items-end h-full justify-between mt-[48px] md:mt-0">
           <p className="text-[#757575] text-[18px] font-[500] align-bottom">
             © 2024 New Dawn Baptist Church
           </p>
           <div className="flex gap-[18px]">
-            <Image src={youtube} alt="youtube" />
-            <Image src={spotify} alt="spotify" />
-            <Image src={facebook} alt="facebook" />
-            <Image src={x} alt="x" />
+            <Image src={youtube} alt="youtube" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={spotify} alt="spotify" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={facebook} alt="facebook" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={x} alt="x" className="opacity-40 cursor-pointer hover:opacity-100"/>
           </div>
         </div>
       </div>

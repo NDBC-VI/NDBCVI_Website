@@ -6,9 +6,9 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { InfoSection } from '../components/InfoSection';
 import { ScrollLinks } from '../components/ScrollLinks';
-import mapPin from "@/app/assets/svgs/map-pin.svg";
-
-
+import { ActionPromptBtn } from './components/ActionPromptBtn';
+import { GalleryModalContent } from '../GalleryModal/GalleryModalContent';
+import { ImageSlider } from '../../components/ImageSlider';
 
 
 export const BasicModalContent = (props: BasicModalPropsType) => {
@@ -24,38 +24,50 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
     return (
         <>
             { !galleryMode && 
-            <div>
-                <div className="h-fit my-5 py-5 px-9 py-10">
-                    <div className="h-[15%] w-1/2 flex flex-row justify-between items-center">
-                        <h1 className="text-4xl font-bold">{title}</h1>
+            <div className='w-11/12'>
+                <div className='absolute right-[5%] top-[24px] md:hidden'>
+                    <ActionPromptBtn title="Join a ministry" url=""/>
+                </div>
+                <div className="h-fit px-[20px] mb-[24px] overflow-hidden">
+                    <h1 className="text-[24px] font-[600] md:text-[36px]">{title}</h1>
+                    <div id='basicHeaderImagesLgScreen' className={`${headerImages.length === 0 ? "hidden" : "" } relative mt-[24px] w-full h-[370px] flex flex-row justify-between items-end hidden lg:flex`}>
+                        {
+                            headerImages.map((image, i) => {
+                                return(
+                                    <div key={i} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px] cursor-pointer
+                                                    lg:w-1/4 lg:mr-0 lg:mx-[4px]'>
+                                        <Image 
+                                            src={urlFor(image.asset._ref).url()}
+                                            alt="placeholder image"
+                                            fill={true}
+                                            onClick={toggleGalleryMode}
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
-                    <div className="min-h-[60vh] my-5 py-5 w-full flex flex-row justify-around items-end">
-                        <Image 
-                            src={urlFor(headerImages[0].asset._ref).url()}
-                            alt="placeholder image"
-                            width={500}
-                            height={200}
+                    <div id='basicHeaderImagesSmallScreen' className="lg:hidden">
+                        <ImageSlider
+                            images={headerImages}
+                            buttonsPosition='start'
+                            toolbarBottom={true}
+                            clickFn={toggleGalleryMode}
                         />
-
-                        <div className='relative w-fit h-fit cursor-pointer' onClick={toggleGalleryMode}>
-                            <div className='absolute z-10 w-full h-full bg-gradient-to-b from-30% from-transparent to-black'></div>
-                            <Image
-                                src={urlFor(headerImages[1].asset._ref).url()}
-                                alt="placeholder image"
-                                width={300}
-                                height={400}
-                                style={{objectFit: 'contain'}}
-                            />
-                            <div className='absolute bottom-5 z-20 w-full text-white flex flex-col items-center'>
-                                <Image src={mapPin} alt="map pin" width={24} />
-                                <p>See more images</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div className="flex flex-row justify-between my-5 space-x-10">
-                    <ScrollLinks sections={sections}/>
-                    <div className="w-2/3 px-6 relative self-end">
+                <div className="ml-[20px] md:flex md:flex-row md:justify-between md:space-x-10">
+                    <div className='h-fit hidden md:block md:sticky md:top-0 '>
+                        <ScrollLinks sections={sections}/>
+                        <div className="flex flex-col items-start mt-[60px] ">
+                            <h1 className='text-[24px] font-[600] text-[#1D1841] leading-[29.05px] mb-[10px]
+                                md:text-[36px] md:leading-[43.57px] md:mb-[36px]'>
+                                    We&apos;re excited to <br /> have you join us
+                            </h1>
+                            <ActionPromptBtn title='Join a ministry' url=''/>
+                        </div>
+                    </div>
+                    <div className="md:w-2/3 md:px-6 md:relative md:self-end">
                         {
                             introduction?.slug?.current !== undefined &&
                             <div id={introduction.slug.current} key={introduction.slug.current} >
@@ -68,37 +80,21 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                                     </div>
                                 ))
                         }
+                        <div className='bg-[#F6F6F6] w-full mx-[20px] px-[52px] py-[60px] mb-10 rounded-[24px]'>
+                            <div className="flex flex-col items-center gap-[10px]">
+                                <h1 className='text-[24px] font-[600] text-[#1D1841] text-center leading-[29.05px] mb-[10px]
+                                    md:text-[36px] md:leading-[43.57px] md:mb-[36px]'>
+                                        We&apos;re excited to <br className='md:hidden' /> have <br className='hidden md:block' /> you join us
+                                </h1>
+                                <ActionPromptBtn title='Join a ministry' url=''/>
+                            </div>
+                        </div>
                     </div> 
                 </div> 
             </div>
             }
             { galleryMode &&
-            <div className='flex flex-col items-center'>
-                <div className="h-[15%] w-full px-9 grid grid-cols-3">
-                    <h1 className="text-4xl font-bold self-center">{title}</h1>
-                    { galleryMode &&
-                        <button
-                            type="button"
-                            className="justify-self-center py-2 px-5 my-10 border border-black rounded-[100px] flex items-center gap-[6px] font-[500] cursor-pointer"
-                            onClick={toggleGalleryMode}
-                            >
-                            <p>Go back to reading</p>
-                        </button>
-                    }
-                </div>
-                <div className='py-14 flex flex-row items-center justify-center flex-wrap'>
-                    { headerImages.map((image, i) => (
-                        <Image 
-                            key={i}
-                            src={urlFor(image.asset._ref).url()}
-                            alt="placeholder image"
-                            width={425}
-                            height={200}
-                            className='m-2'
-                        />
-                    ))}
-                </div>
-            </div>
+                <GalleryModalContent images={headerImages} parentModal={title} returnToModal={toggleGalleryMode} />
             }
         </>
     )

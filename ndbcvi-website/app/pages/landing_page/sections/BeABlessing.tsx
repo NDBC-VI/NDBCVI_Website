@@ -7,7 +7,7 @@ import { SanityDocument } from "next-sanity";
 import CustomBtn from "@/app/shared/components/CustomBtn";
 import rightArrow from "@/app/assets/svgs/reusable-right-arrow.svg";
 
-const BeABlessing = ({infoPopups}: {infoPopups: SanityDocument[]}) => {
+const BeABlessing = ({ infoPopups }: { infoPopups: SanityDocument[] }) => {
   return (
     <section className="py-[120px]">
       <div className="text-center">
@@ -16,7 +16,7 @@ const BeABlessing = ({infoPopups}: {infoPopups: SanityDocument[]}) => {
           Join us and experience the love of God at NDBC
         </p>
       </div>
-      <div className="max-w-[1512px] mx-auto pt-[60px] flex">
+      <div className="max-w-[1512px] mx-auto pt-[60px] flex flex-col md:flex-row">
         {
           infoPopups.map((infoPopup: SanityDocument) => {
             const basicModalProps: BasicModalPropsType = {
@@ -48,14 +48,6 @@ const BeABlessing = ({infoPopups}: {infoPopups: SanityDocument[]}) => {
             );
         })
         }
-        {/* {prompts.map((prompt, i) => (
-          <ReusableCardComponent
-            key={i}
-            imgUrl={prompt.imgUrl}
-            title={prompt.title}
-            body={prompt.body}
-          />
-        ))} */}
       </div>
     </section>
   );

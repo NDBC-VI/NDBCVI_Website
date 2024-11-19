@@ -1,13 +1,13 @@
 import Image from "next/image";
 import whiteRightArrow from "../../../assets/svgs/white-right-arrow.svg";
-import navRightArrow from "../../../assets/svgs/nav-arrow-right.svg";
-import navLeftArrow from "../../../assets/svgs/nav-arrow-left.svg";
+import whiteNavArrow from "../../../assets/svgs/nav-arrow-white.svg";
+import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
 
 const Testimonies = () => {
   return (
     <section>
-      <div className="max-w-[1512px] mx-auto flex text-white">
-        <div className="w-1/2 bg-black flex items-center pl-[45px]">
+      <div className="max-w-[1512px] mx-auto flex flex-col md:flex-row text-white">
+        <div className="md:w-1/2 bg-black flex items-center md:pl-[45px] px-[30px] md:px-0 py-[200px] md:py-0">
           <div>
             <h2 className="text-[45px] font-[600]">Testimonies</h2>
             <div className="max-w-[423px] mt-[12px] mb-[36px]">
@@ -25,7 +25,7 @@ const Testimonies = () => {
             </button>
           </div>
         </div>
-        <div className="w-1/2">
+        <div className="md:w-1/2">
           <div className="w-full px-[35px] py-[65px] bg-[#2C2563]">
             <p className="text-[26px]">
               “In publishing and graphic design, Lorem ipsum is a placeholder
@@ -39,8 +39,8 @@ const Testimonies = () => {
           <div className="w-full bg-[#1D1841] p-[35px] flex justify-between items center">
             <h3 className="text-[40px] font-[600]">Insert tag here</h3>
             <div className="flex gap-[6px] items center">
-              <Image src={navLeftArrow} alt="nav left" />
-              <Image src={navRightArrow} alt="nav right" />
+              <Image src={greyNavArrow} alt="nav left" className="rotate-180"/>
+              <Image src={whiteNavArrow} alt="nav right" />
             </div>
           </div>
         </div>

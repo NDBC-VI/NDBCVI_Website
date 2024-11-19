@@ -1,5 +1,6 @@
 import { SanityImageObject } from "@sanity/image-url/lib/types/types"
-import { PortableTextBlock } from "sanity"
+import { RefObject } from "react"
+import { PortableTextBlock, SanityDocument } from "sanity"
 
 type InfoSectionType = {
     slug: {
@@ -47,14 +48,22 @@ type BasicModalPropsType = {
     infoSections: InfoSectionType[],
 }
 
+type ScrollLinkType = {
+    title: string,
+    slug: string
+}
+
 type ModalContextType = {
     isOpen: boolean,
+    domReady: boolean,
     handleOpen: () => void,
     handleClose: () => void,
     modalContent: JSX.Element,
     scrollIntoTheView: (e: React.MouseEvent, id: string) => void,
     handleScroll: () => void,
-    modalScrollPosition: number
+    modalScrollPosition: number,
+    scrollSmallScreen: RefObject<HTMLDivElement>
+    scrollLargeScreen: RefObject<HTMLDivElement>
 }
 
 type PersonType = {
@@ -68,4 +77,22 @@ type PersonType = {
     linkText: string
 }
 
-export type { InfoSectionType, FaqSectionType, BasicModalPropsType, FaqModalPropsType, FaqType, ModalContextType, PersonType }
+interface ReverendList {
+    title: string,
+    description: PortableTextBlock,
+    reverendList: PersonType[]
+}
+
+interface DeaconList {
+    title: string,
+    description: PortableTextBlock,
+    deaconList: SanityDocument[]
+}
+
+interface MinistryLeadList {
+    title: string,
+    description: PortableTextBlock,
+    ministryLeadList: SanityDocument[]
+}
+
+export type { InfoSectionType, FaqSectionType, BasicModalPropsType, FaqModalPropsType, FaqType, ScrollLinkType, ModalContextType, PersonType, ReverendList, DeaconList, MinistryLeadList }

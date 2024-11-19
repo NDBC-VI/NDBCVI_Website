@@ -23,17 +23,17 @@ const prompts = [
 
 const MoreAboutNewDawn = () => {
   return (
-    <section className="py-[120px]">
+    <section className="pt-[60px] lg:mb-[60px] lg:pt-[120px]">
       <div className="max-w-[1512px] mx-auto">
         <div className="text-center">
-          <h2 className="text-[48px] font-[600] mb-[18px]">
+          <h2 className="mb-[9px] text-[24px] font-[600] lg:text-[48px] lg:mb-[18px]">
             More about New Dawn
           </h2>
-          <p className="text-[24px] leading-[33.6px]">
-            Join us and experience the love of God at NDBC
+          <p className="text-[18px] lg:text-[24px] lg:leading-[33.6px]">
+            Join us and experience the <br className="lg:hidden"/> love of God at NDBC
           </p>
         </div>
-        <div className="pt-[60px] flex">
+        <div className="pt-[40px] lg:pt-[60px] flex flex-col lg:flex-row">
           {prompts.map((prompt, i) => (
             <ReusableCardComponent
               key={i}

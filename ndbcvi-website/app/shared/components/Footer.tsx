@@ -9,8 +9,8 @@ import FooterServiceCard from "./FooterServiceCard";
 
 const Footer = () => {
   return (
-    <footer className="flex items-center text-white">
-      <div className="w-1/2 px-[60px] pt-[109.5px] pb-[64px] bg-[#1D1841]">
+    <footer className="mt-0 flex flex-col lg:flex-row lg:h-[90vh] items-center text-white">
+      <div className="w-full px-[20px] pt-[60px] pb-[62px] lg:w-1/2 lg:px-[60px] lg:pt-[109.5px] lg:pb-[64px] bg-[#1D1841]">
         <div className="flex justify-between">
           <Image src={churchLogo} alt="Church logo" width={43} />
           <div className="flex gap-[24px]">
@@ -20,7 +20,7 @@ const Footer = () => {
             <Image src={x} alt="X icon" />
           </div>
         </div>
-        <h3 className="mt-[36px] text-[36px] font-[600]">
+        <h3 className="mt-[36px] text-[24px] lg:text-[36px] font-[600]">
           New Dawn <br /> Baptist Church
         </h3>
         <div className="flex flex-col gap-[36px] mt-[36px]">
@@ -28,7 +28,7 @@ const Footer = () => {
             <p className="text-[18px] font-[500] text-[#C4C4C4] mb-[12px]">
               Explore more
             </p>
-            <div className="flex gap-[16px]">
+            <div className="flex flex-wrap gap-[16px] w-[90%] lg:w-full">
               <FooterServiceCard title="Service name" />
               <FooterServiceCard title="Service name" />
               <FooterServiceCard title="Service name" />
@@ -54,12 +54,10 @@ const Footer = () => {
           © 2024 New Dawn Baptist Church
         </p>
       </div>
-      <div className="w-1/2">
+      <div className="md:w-1/2 w-full">
         <div
-          className="flex justify-center items-center"
+          className="flex justify-center items-center h-full"
           style={{
-            // height: "98.4vh",
-            height: "100%",
             backgroundImage: `url(${heroImg.src})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -67,7 +65,7 @@ const Footer = () => {
           }}
         >
           <div className="text-center py-[47.3%] 2xl:py-[35.5%]">
-            <div className="flex text-[18px] font-[500] gap-[26px] pl-[30px]">
+            <div className="text-[18px] font-[500] flex flex-col gap-[10px] lg:flex-row lg:gap-[26px] pl-[30px]">
               <p>Sundays 8am - 11am</p>
               <p>Wednesdays 6pm - 8pm</p>
             </div>
