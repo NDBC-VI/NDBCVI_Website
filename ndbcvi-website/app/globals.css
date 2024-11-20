@@ -63,3 +63,11 @@ body {
     @apply font-[600] ml-[20px] my-[24px] text-[24px] md:text-[48px]
   }
 
+  @keyframes scrollText {
+    20% {
+      transform: translate(0%);
+    }
+    100% {
+      transform: translate(-100%)
+    }
+  }
