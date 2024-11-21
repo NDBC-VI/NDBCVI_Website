@@ -40,7 +40,7 @@ export const ImageCarousel = ({images}: {images: SanityImageObject[]}) => {
                     ))
                 }
             </div>
-            <div id="carousel-dot-buttons" className='absolute bottom-[1.5rem] left-[50%] translate-x-[-50%] flex'>
+            <div id='carousel-dot-buttons' className='absolute bottom-[1.5rem] left-[50%] translate-x-[-50%] flex'>
                 {
                     images.map((_, i) => (
                         <button key={i} onClick={() => setDisplayed(i)} className={`w-[16px] h-[16px] flex justify-center items-center hover:scale-150 focus:scale-150 outline-none aria-label ${i === displayed ? 'scale-150' : ''}`}>
