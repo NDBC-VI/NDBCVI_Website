@@ -45,19 +45,27 @@ const Navbar = ({
   
   const bannerTextRef = useRef<HTMLDivElement>(null);
   const bannerTextContainerRef = useRef<HTMLDivElement>(null);
-  const [scrollSpeed, setScrollSpeed] = useState(0);
-  const test = useRef("");
+  const [scrollSpeed, setScrollSpeed] = useState(10);
 
   const scrollAnimationStyle = {
     animation: `scrollText ${scrollSpeed}s linear infinite`,
-    color: test.current
   }
   
   useEffect(() => {
-    const textWidth = bannerTextRef.current?.offsetWidth || 0;
-    const containerWidth = bannerTextContainerRef.current?.offsetWidth || 0;
-    if(textWidth > containerWidth) {
-      setScrollSpeed(textWidth/50);
+    let textLength = 0;
+    let containerLength = 0;
+    // If the screen is less than large, check if the text is taller than its container. Else, check if the text is longer than its container
+    if(window.innerWidth <= 600) {
+      textLength = bannerTextRef.current?.offsetHeight || 0;
+      containerLength = bannerTextContainerRef.current?.offsetHeight || 0;
+    }
+    else {
+      textLength = bannerTextRef.current?.offsetWidth || 0;
+      containerLength = bannerTextContainerRef.current?.offsetWidth || 0;
+    }
+    
+    if(textLength > containerLength) {
+      setScrollSpeed(textLength/50);
     }
   }, []);
 
@@ -72,8 +80,8 @@ const Navbar = ({
           className={`w-full flex py-[18px] px-[20px] bg-[#1D1841] lg:justify-center lg:items-center`}
         >
           <div className="w-[90%] flex flex-col gap-[18px] text-[16px] font-[500] text-left lg:flex-row justify-center">
-            <div ref={bannerTextContainerRef} id="bannerText" className="flex max-h-[46px] lg:max-h-[26px] lg:max-w-[40%] lg:justify-start overflow-hidden">
-              <p ref={bannerTextRef} className={`text-white shrink-0`} style={scrollAnimationStyle}>
+            <div ref={bannerTextContainerRef} id="bannerText" className="flex max-w-[90%] max-h-[46px] lg:max-h-[26px] lg:max-w-[40%] lg:justify-start overflow-hidden">
+              <p ref={bannerTextRef} className={`text-white lg:shrink-0`} style={scrollAnimationStyle}>
                 {banner.content}
               </p>
             </div>
