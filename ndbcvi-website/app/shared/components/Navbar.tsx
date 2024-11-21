@@ -45,7 +45,7 @@ const Navbar = ({
   
   const bannerTextRef = useRef<HTMLDivElement>(null);
   const bannerTextContainerRef = useRef<HTMLDivElement>(null);
-  const [scrollSpeed, setScrollSpeed] = useState(10);
+  const [scrollSpeed, setScrollSpeed] = useState(0);
 
   const scrollAnimationStyle = {
     animation: `scrollText ${scrollSpeed}s linear infinite`,

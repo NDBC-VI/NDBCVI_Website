@@ -53,7 +53,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
       case "Take action":
         return <TakeActionView />;
     }
-  }, [isActive]);
+  }, [isActive, onClose]);
 
   return (
     <section
@@ -91,7 +91,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
-            className="w-1/2 relative rounded-[24px] h-[370px]"
+            className="lg:w-1/2 relative rounded-[24px] h-[370px]"
           >
             <div className="bg-[rgba(0,0,0,0.35)] absolute top-0 left-0 w-full h-full rounded-[24px]"></div>
             <div className="absolute bottom-0 p-[16px]">
