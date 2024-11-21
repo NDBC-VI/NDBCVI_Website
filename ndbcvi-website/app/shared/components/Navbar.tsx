@@ -45,10 +45,10 @@ const Navbar = ({
   
   const bannerTextRef = useRef<HTMLDivElement>(null);
   const bannerTextContainerRef = useRef<HTMLDivElement>(null);
-  const [scrollSpeed, setScrollSpeed] = useState(0);
+  const [scrollDuration, setScrollDuration] = useState(0);
 
   const scrollAnimationStyle = {
-    animation: `scrollText ${scrollSpeed}s linear infinite`,
+    animation: `scrollText ${scrollDuration}s linear infinite`,
   }
   
   useEffect(() => {
@@ -65,7 +65,7 @@ const Navbar = ({
     }
     
     if(textLength > containerLength) {
-      setScrollSpeed(textLength/50);
+      setScrollDuration(textLength/50); // Calculate duration of one iteration of the scroll animation using a 50 characters/s rate
     }
   }, []);
 
