@@ -63,3 +63,24 @@ body {
     @apply font-[600] ml-[20px] my-[24px] text-[24px] md:text-[48px]
   }
 
+  @media (width <= 600px) {   
+    @keyframes scrollText {
+      20% {
+        transform: translateY(0%);
+      }
+      100% {
+        transform: translateY(-100%)
+      }
+    }
+  }
+
+  @media (width > 600px) {   
+    @keyframes scrollText {
+      20% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%)
+      }
+    }
+  }

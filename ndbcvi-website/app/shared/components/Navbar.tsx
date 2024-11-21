@@ -1,12 +1,13 @@
 "use client";
 
+import "../../globals.css"
 import Link from "next/link";
 import churchLogo from "../../assets/pngs/church-logo.png";
 import menuIcon from "./../../assets/svgs/menu.svg";
 import Image from "next/image";
 import CustomBtn from "./CustomBtn";
 import MenuModal from "../modals/MenuModal";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ModalTemplate } from "@/app/shared/modals/ModalTemplate";
 import { EventsModalContent } from "../modals/EventsModal/EventsModalContent";
 import { FaqModalContent } from "../modals/FaqModal/FaqModalContent";
@@ -37,23 +38,52 @@ const Navbar = ({
       case "/pages/media":
         return "Media";
       default:
-        return "New Dawn Baptist Church V.I.";
+        return "New Dawn Baptist Church";
     }
   }
+
+  
+  const bannerTextRef = useRef<HTMLDivElement>(null);
+  const bannerTextContainerRef = useRef<HTMLDivElement>(null);
+  const [scrollDuration, setScrollDuration] = useState(0);
+
+  const scrollAnimationStyle = {
+    animation: `scrollText ${scrollDuration}s linear infinite`,
+  }
+  
+  useEffect(() => {
+    let textLength = 0;
+    let containerLength = 0;
+    // If the screen is less than large, check if the text is taller than its container. Else, check if the text is longer than its container
+    if(window.innerWidth <= 600) {
+      textLength = bannerTextRef.current?.offsetHeight || 0;
+      containerLength = bannerTextContainerRef.current?.offsetHeight || 0;
+    }
+    else {
+      textLength = bannerTextRef.current?.offsetWidth || 0;
+      containerLength = bannerTextContainerRef.current?.offsetWidth || 0;
+    }
+    
+    if(textLength > containerLength) {
+      setScrollDuration(textLength/50); // Calculate duration of one iteration of the scroll animation using a 50 characters/s rate
+    }
+  }, []);
 
   return (
     <NavBarContext.Provider value={{ eventsPopup, faqPopup, banner }}>
       <div
-        className={`fixed top-0 w-full flex flex-col transition ease-in duration-1500 ${bannerVisible && !isOpen ? "" : `-translate-y-[126px] lg:-translate-y-[62px]`}`}
+        className={`fixed top-0 w-full flex flex-col transition ease-in duration-[1500] ${bannerVisible && !isOpen ? "" : `-translate-y-[126px] lg:-translate-y-[62px]`}`}
         style={{ zIndex: 11 }}
       >
         <div
           id="banner"
           className={`w-full flex py-[18px] px-[20px] bg-[#1D1841] lg:justify-center lg:items-center`}
         >
-          <div className="w-[80%] flex flex-col gap-[18px] text-[16px] font-[500] text-left lg:flex-row justify-center">
-            <div id="bannerText" className="max-h-[46px] lg:max-h-[26px] lg:max-w-[400px] overflow-hidden">
-              <p className="text-white">{banner.content}</p>
+          <div className="w-[90%] flex flex-col gap-[18px] text-[16px] font-[500] text-left lg:flex-row justify-center">
+            <div ref={bannerTextContainerRef} id="bannerText" className="flex max-w-[90%] max-h-[46px] lg:max-h-[26px] lg:max-w-[40%] lg:justify-start overflow-hidden">
+              <p ref={bannerTextRef} className={`text-white lg:shrink-0`} style={scrollAnimationStyle}>
+                {banner.content}
+              </p>
             </div>
             <Link
               target="_blank"
