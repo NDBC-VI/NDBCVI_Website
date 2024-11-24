@@ -7,10 +7,10 @@ const actionLiks = [
 
 const TakeActionView = () => {
   return (
-    <div className="flex flex-col gap-[16px] justify-start">
+    <div className="h-full flex flex-col gap-[16px] items-start justify-start">
       {actionLiks.map((link, i) => (
         <div key={i}>
-          <button type="button" className="text-[30px] font-[600]">
+          <button type="button" className="text-[24px] lg:text-[30px] font-[600] whitespace-nowrap">
             {link}
           </button>
         </div>

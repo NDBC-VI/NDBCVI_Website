@@ -30,7 +30,7 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
               key={link.id}
               modalActivator={
                 <div>
-                  <button type="button" className="text-[30px] font-[600]">
+                  <button type="button" className="text-[24px] lg:text-[30px] font-[600]">
                     {link.title}
                   </button>
                 </div>} 
@@ -45,7 +45,7 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
               key={link.id}
               modalActivator={
                 <div>
-                  <button type="button" className="text-[30px] font-[600]">
+                  <button type="button" className="text-[24px] lg:text-[30px] font-[600]">
                     {link.title}
                   </button>
                 </div>} 
@@ -60,7 +60,7 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
           >
             <button
               type="button"
-              className="text-[30px] font-[600]"
+              className="text-[24px] lg:text-[30px] font-[600]"
               onClick={clickFn}
             >
               {link.title}

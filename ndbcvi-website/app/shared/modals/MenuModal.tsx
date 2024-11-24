@@ -123,7 +123,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
           </button>
         </div>
 
-        <div className="mt-[45px]">{view}</div>
+        <div className="mt-[45px] h-[40vh] lg:h-auto">{view}</div>
         <div className="flex md:flex-row flex-col-reverse gap-[24px] md:gap-0 md:items-end h-full justify-between mt-[48px] md:mt-0">
           <p className="text-[#757575] text-[18px] font-[500] align-bottom">
             © 2024 New Dawn Baptist Church
