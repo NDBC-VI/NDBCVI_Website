@@ -7,6 +7,7 @@ import { PortableText } from 'next-sanity'
 import { ScrollLinks } from '../components/ScrollLinks'
 import Link from 'next/link';
 import { PersonType } from '@/app/types';
+import { SanityImage } from '../../components/SanityImage';
 
 export const BioModalContent = ({person}: {person: PersonType}) => {
     return (
@@ -18,12 +19,7 @@ export const BioModalContent = ({person}: {person: PersonType}) => {
                 <div id={person.slug.current} className="w-full md:w-2/3 pt-[24px] px-[20px] flex flex-col relative self-end">
                     <h1 className='text-[24px] md:text-[36px] font-[600]'>{person.name}</h1>
                     <div className='relative w-[311px] h-[500px] self-center md:self-start md:w-[330px] md:h-[534px] mt-[24px]'>
-                        <Image
-                            src={urlFor(person.photo.asset._ref).url()}
-                            alt={`Photo of ${person.name}`}
-                            style={{objectFit: 'cover', width: '100%', borderRadius: '24px'}}
-                            fill
-                        />
+                        <SanityImage image={person.photo} />
                     </div>
                     <div className="relative top-[25px]">
                         <PortableText value={person.bio} />
