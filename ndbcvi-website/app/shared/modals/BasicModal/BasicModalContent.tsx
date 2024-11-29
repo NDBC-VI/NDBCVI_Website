@@ -9,6 +9,7 @@ import { ScrollLinks } from '../components/ScrollLinks';
 import { ActionPromptBtn } from './components/ActionPromptBtn';
 import { GalleryModalContent } from '../GalleryModal/GalleryModalContent';
 import { ImageSlider } from '../../components/ImageSlider';
+import { SanityImage } from '../../components/SanityImage';
 
 
 export const BasicModalContent = (props: BasicModalPropsType) => {
@@ -34,14 +35,9 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                         {
                             headerImages.map((image, i) => {
                                 return(
-                                    <div key={i} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px] cursor-pointer
+                                    <div key={i} onClick={toggleGalleryMode} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px] cursor-pointer
                                                     lg:w-1/4 lg:mr-0 lg:mx-[4px]'>
-                                        <Image 
-                                            src={urlFor(image.asset._ref).url()}
-                                            alt="placeholder image"
-                                            fill={true}
-                                            onClick={toggleGalleryMode}
-                                        />
+                                        <SanityImage image={image} />
                                     </div>
                                 )
                             })
