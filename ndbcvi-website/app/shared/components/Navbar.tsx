@@ -77,7 +77,7 @@ const Navbar = ({
       >
         <div
           id="banner"
-          className={`w-full flex py-[18px] px-[20px] bg-[#1D1841] lg:justify-center lg:items-center`}
+          className={`w-full flex py-[18px] px-[20px] bg-[#1D1841] lg:justify-center lg:items-center ${bannerVisible && !isOpen ? '' : 'animate-[hideElement_2s_ease-in_1_forwards]'}`}
         >
           <div className="w-[90%] flex flex-col gap-[18px] text-[16px] font-[500] text-left lg:flex-row justify-center">
             <div ref={bannerTextContainerRef} id="bannerText" className="flex max-w-[90%] max-h-[46px] lg:max-h-[26px] lg:max-w-[40%] lg:justify-start overflow-hidden">

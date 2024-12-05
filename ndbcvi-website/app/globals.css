@@ -63,6 +63,7 @@ body {
     @apply font-[600] ml-[20px] my-[24px] text-[24px] md:text-[48px]
   }
 
+  /* Scroll text animation */
   @media (width <= 600px) {   
     @keyframes scrollText {
       20% {
@@ -73,7 +74,6 @@ body {
       }
     }
   }
-
   @media (width > 600px) {   
     @keyframes scrollText {
       20% {
@@ -82,5 +82,16 @@ body {
       100% {
         transform: translateX(-100%)
       }
+    }
+  }
+  
+
+  /* Hide element animation */
+  @keyframes hideElement {
+    80% {
+      opacity: 50%;
+    }
+    100% {
+      opacity: 0%;
     }
   }

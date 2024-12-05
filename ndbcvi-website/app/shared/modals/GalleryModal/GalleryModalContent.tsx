@@ -9,14 +9,14 @@ export const GalleryModalContent = ({images, parentModal, returnToModal}: {image
 
     return (
         <>
-            {images.map((image, i) => (
+            {/* {images.map((image, i) => (
                 <link 
                 key={`preload-${i}`} 
                 rel="preload" 
                 as="image" 
                 href={urlFor(image.asset._ref).url()} 
                 />
-            ))}
+            ))} */}
             <div className='flex flex-col overflow-hidden'>
                 <h1 className="title_font">Gallery</h1>
                 <button
