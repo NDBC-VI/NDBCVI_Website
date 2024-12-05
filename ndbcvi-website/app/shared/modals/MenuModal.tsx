@@ -59,7 +59,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
     <section
       className={`absolute z-20 top-0 ${
         isOpen ? "right-0" : "right-[-100%]"
-      } bg-white w-full md:h-screen flex flex-col-reverse md:flex-row transition-all duration-500  max-h-screen overflow-y-auto`}
+      } bg-white w-full md:h-screen flex flex-col-reverse md:flex-row transition-all duration-500 h-[101dvh] overflow-y-auto`}
     >
       <div className="md:w-1/2 bg-[#1D1841] p-10">
         <Image src={churchLogo} alt="church logo" width={43} />
