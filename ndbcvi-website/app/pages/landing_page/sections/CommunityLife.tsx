@@ -16,6 +16,7 @@ const CommunityLife = () => {
         </div>
         {/* <div className="grid grid-cols-4 gap-4 max-w-[1392px] mx-auto absolute left-0 2xl:left-[10%] bottom-[-25%] group-hover:top-0 px-[60px] transition duration-500 group"> */}
         <div className="w-full h-fit pb-[100px] px-[20px] gap-[1%] flex items-start overflow-x-scroll z-[0] hover:z-10 group lg:relative lg:bottom-[350px] lg:px-0 lg:py-0 lg:pl-[20px] lg:h-[650px] lg:items-end lg:overflow-y-hidden">
+          <div className="w-full h-[39%] absolute top-0 peer"></div>
           <CommunityLifeCard
             name="Activity name"
             img={heroImg.src}

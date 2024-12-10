@@ -1,8 +1,6 @@
 'use client';
 
 import React from 'react'
-import Image from 'next/image'
-import { urlFor } from '@/sanity/lib/image'
 import { PortableText } from 'next-sanity'
 import { ScrollLinks } from '../components/ScrollLinks'
 import Link from 'next/link';
