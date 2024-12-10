@@ -1,8 +1,6 @@
 'use client';
 
 import { BasicModalPropsType, InfoSectionType } from '@/app/types';
-import { urlFor } from '@/sanity/lib/image';
-import Image from 'next/image';
 import { useState } from 'react';
 import { InfoSection } from '../components/InfoSection';
 import { ScrollLinks } from '../components/ScrollLinks';
@@ -53,7 +51,7 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                     </div>
                 </div>
                 <div className="ml-[20px] md:flex md:flex-row md:justify-between md:space-x-10">
-                    <div className='h-fit hidden md:block md:sticky md:top-0 '>
+                    <div className='h-fit hidden md:block md:sticky md:top-0'>
                         <ScrollLinks sections={sections}/>
                         <div className="flex flex-col items-start mt-[60px] ">
                             <h1 className='text-[24px] font-[600] text-[#1D1841] leading-[29.05px] mb-[10px]

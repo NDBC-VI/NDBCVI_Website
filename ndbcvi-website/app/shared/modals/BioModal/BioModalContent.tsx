@@ -13,7 +13,7 @@ export const BioModalContent = ({person}: {person: PersonType}) => {
     return (
         <>
             <div className='flex flex-row justify-between pb-[56px]'>
-                <div className='hidden md:block'>
+                <div className='ml-[20px] md:flex md:flex-row md:justify-between md:space-x-10 h-fit hidden md:block md:sticky md:top-0 '>
                     <ScrollLinks sections={[{title: person.name, slug: person.slug.current}]}/>
                 </div>
                 <div id={person.slug.current} className="w-full md:w-2/3 pt-[24px] px-[20px] flex flex-col relative self-end">
