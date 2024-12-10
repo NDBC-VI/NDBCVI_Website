@@ -30,15 +30,20 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
   const upcomingEvent = eventsPopup.upcomingEvents[0];
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+    const html = document.querySelector('html');
+    if(html) {
+      if (isOpen) {
+        html.style.overflow = "hidden";
+      } else {
+        html.style.overflow = "";
+      }
     }
 
     // Cleanup on component unmount
     return () => {
-      document.body.style.overflow = "";
+      if(html) {
+        html.style.overflow = "";
+      }
     };
   }, [isOpen]);
 
