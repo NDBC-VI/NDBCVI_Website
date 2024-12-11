@@ -7,8 +7,8 @@ interface CommunityLifeCardProps {
 
 const CommunityLifeCard = ({ name, img }: CommunityLifeCardProps) => {
   return (
-    <div className="w-[80%] h-[400px] lg:[590px] shrink-0 md:w-[24.25%] md:group-hover:opacity-40 md:hover:!opacity-100 peer-hover:!opacity-100 group/item">
-      <div className="w-full h-full transition-all duration-500 ease-out md:group-hover/item:translate-y-[-60%]">
+    <div className="w-[85vw] md:w-[40vw] h-[70vh] shrink-0 lg:w-[24.25%] lg:group-hover:opacity-40 lg:hover:!opacity-100 peer-hover:!opacity-100 group/item">
+      <div className="w-full h-full transition-all duration-500 ease-out lg:group-hover/item:translate-y-[-40vh]">
         <div className="bg-[#E3E3E3] py-2 px-6 rounded-[100px] inline-block">
           <p className="text-[18px] font-[500]">{name}</p>
         </div>
