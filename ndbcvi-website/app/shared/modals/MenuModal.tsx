@@ -64,9 +64,9 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
     <section
       className={`absolute z-20 top-0 ${
         isOpen ? "right-0" : "right-[-100%]"
-      } bg-white w-full md:h-screen flex flex-col-reverse md:flex-row transition-all duration-500 h-[101dvh] overflow-y-auto`}
+      } bg-white w-full flex flex-col-reverse md:overflow-hidden md:flex-row transition-all duration-500 h-[104dvh] overflow-y-auto`}
     >
-      <div className="md:w-1/2 bg-[#1D1841] p-10">
+      <div className="md:w-1/2 bg-[#1D1841] p-10 h-fit md:h-auto">
         <Image src={churchLogo} alt="church logo" width={43} />
         <div className="flex flex-col gap-[36px] mt-[45px]">
           <div>
@@ -129,7 +129,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
         </div>
 
         <div className="mt-[45px]">{view}</div>
-        <div className="flex md:flex-row flex-col-reverse gap-[24px] md:gap-0 md:items-end h-full justify-between mt-[48px] md:mt-0">
+        <div className="flex flex-col-reverse gap-[24px] lg:gap-0 lg:items-end h-full lg:flex-row lg:justify-between mt-[48px] md:mt-0">
           <p className="text-[#757575] text-[18px] font-[500] align-bottom">
             © 2024 New Dawn Baptist Church
           </p>

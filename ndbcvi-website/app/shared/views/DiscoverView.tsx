@@ -2,8 +2,8 @@ import { ModalTemplate } from "../modals/ModalTemplate";
 import { FaqModalContent } from "../modals/FaqModal/FaqModalContent";
 import { EventsModalContent } from "../modals/EventsModal/EventsModalContent";
 import { useNavBarContext } from "@/app/context/navBarContext";
-import Link from "next/link";
 import { MouseEventHandler } from "react";
+import { MenuLink } from "./MenuLink";
 
 interface ViewProps {
   clickFn: MouseEventHandler<HTMLButtonElement>;
@@ -29,11 +29,10 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
             <ModalTemplate 
               key={link.id}
               modalActivator={
-                <div>
-                  <button type="button" className="text-[30px] font-[600]">
-                    {link.title}
-                  </button>
-                </div>} 
+                <MenuLink 
+                  link={link}
+                />
+              }
               modalContent={<FaqModalContent faqs={faqPopup} />} 
             />
           )
@@ -44,28 +43,16 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
             <ModalTemplate 
               key={link.id}
               modalActivator={
-                <div>
-                  <button type="button" className="text-[30px] font-[600]">
-                    {link.title}
-                  </button>
-                </div>} 
-              modalContent={<EventsModalContent />}
+                <MenuLink 
+                  link={link}
+                />
+              }
+              modalContent={<EventsModalContent />} 
             />
           )
         }
         return (
-          <Link
-            key={link.id}
-            href={link.path}
-          >
-            <button
-              type="button"
-              className="text-[30px] font-[600]"
-              onClick={clickFn}
-            >
-              {link.title}
-            </button>
-          </Link>
+          <MenuLink key={link.id} link={link} clickFn={clickFn}/>
         );  
       })}    
     </div>
