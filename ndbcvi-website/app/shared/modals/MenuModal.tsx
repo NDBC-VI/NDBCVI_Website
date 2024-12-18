@@ -8,7 +8,8 @@ import youtube from "../../assets/svgs/youtube-menu.svg";
 import spotify from "../../assets/svgs/spotify-menu.svg";
 import facebook from "../../assets/svgs/facebook-menu.svg";
 import x from "../../assets/svgs/x-menu.svg";
-import close from "../../assets/svgs/close-menu.svg";
+import close_black from "../../assets/svgs/close-menu-black.svg";
+import close_white from "../../assets/svgs/close-menu-white.svg";
 import TabBtn from "../components/TabBtn";
 import { useState, useMemo, MouseEventHandler, useEffect } from "react";
 import DiscoverView from "../views/DiscoverView";
@@ -64,8 +65,44 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
     <section
       className={`absolute z-20 top-0 ${
         isOpen ? "right-0" : "right-[-100%]"
-      } bg-white w-full flex flex-col-reverse md:overflow-hidden md:flex-row transition-all duration-500 h-[104dvh] overflow-y-auto`}
+      } bg-white w-full flex flex-col md:overflow-hidden md:flex-row-reverse transition-all duration-500 h-[104dvh] overflow-y-auto`}
     >
+      
+      <div className="md:w-1/2 p-10 text-black flex flex-col ">
+        <div className="flex justify-between">
+          <div className="flex gap-4">
+            {modalTabs.map((tab, i) => (
+              <TabBtn
+                title={tab}
+                key={i}
+                active={isActive === tab}
+                clickFn={() => setIsActive(tab)}
+              />
+            ))}
+          </div>
+          <button type="button" className="hidden md:block" onClick={onClose}>
+            <Image src={close_black} alt="close icon" width={20} />
+          </button>
+        </div>
+
+        <div className="mt-[45px]">{view}</div>
+        <div className="flex flex-col-reverse gap-[24px] lg:gap-0 lg:items-end h-full lg:flex-row lg:justify-between mt-[48px] md:mt-0">
+          <p className="text-[#757575] text-[18px] font-[500] align-bottom">
+            © 2024 New Dawn Baptist Church
+          </p>
+          <div className="flex gap-[18px]">
+            <Image src={youtube} alt="youtube" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={spotify} alt="spotify" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={facebook} alt="facebook" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image src={x} alt="x" className="opacity-40 cursor-pointer hover:opacity-100"/>
+          </div>
+        </div>
+        <div className="w-fit h-full absolute bottom-0 right-0 mr-10 mix-blend-difference">
+          <button type="button" className="w-fit md:hidden sticky top-[3rem] left-[100%]" onClick={onClose}>
+            <Image src={close_white} alt="close icon" width={20} />
+          </button>
+        </div>
+      </div>
       <div className="md:w-1/2 bg-[#1D1841] p-10 h-fit md:h-auto">
         <Image src={churchLogo} alt="church logo" width={43} />
         <div className="flex flex-col gap-[36px] mt-[45px]">
@@ -108,36 +145,6 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
               </div>
               <CustomBtn title="Add to calendar" />
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="md:w-1/2 p-10 text-black flex flex-col ">
-        <div className="flex justify-between">
-          <div className="flex gap-4">
-            {modalTabs.map((tab, i) => (
-              <TabBtn
-                title={tab}
-                key={i}
-                active={isActive === tab}
-                clickFn={() => setIsActive(tab)}
-              />
-            ))}
-          </div>
-          <button type="button" onClick={onClose}>
-            <Image src={close} alt="close icon" width={20} />
-          </button>
-        </div>
-
-        <div className="mt-[45px]">{view}</div>
-        <div className="flex flex-col-reverse gap-[24px] lg:gap-0 lg:items-end h-full lg:flex-row lg:justify-between mt-[48px] md:mt-0">
-          <p className="text-[#757575] text-[18px] font-[500] align-bottom">
-            © 2024 New Dawn Baptist Church
-          </p>
-          <div className="flex gap-[18px]">
-            <Image src={youtube} alt="youtube" className="opacity-40 cursor-pointer hover:opacity-100"/>
-            <Image src={spotify} alt="spotify" className="opacity-40 cursor-pointer hover:opacity-100"/>
-            <Image src={facebook} alt="facebook" className="opacity-40 cursor-pointer hover:opacity-100"/>
-            <Image src={x} alt="x" className="opacity-40 cursor-pointer hover:opacity-100"/>
           </div>
         </div>
       </div>
