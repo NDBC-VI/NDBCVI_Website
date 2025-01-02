@@ -9,8 +9,8 @@ const Testimonies = () => {
       <div className="max-w-[1512px] mx-auto flex flex-col md:flex-row text-white">
         <div className="md:w-1/2 bg-black flex items-center md:pl-[45px] px-[30px] md:px-0 py-[200px] md:py-0">
           <div>
-            <h2 className="text-[45px] font-[600]">Testimonies</h2>
-            <div className="max-w-[423px] mt-[12px] mb-[36px]">
+            <h2 className="text-[45px]">Testimonies</h2>
+            <div className="max-w-[423px] mt-[12px] mb-20">
               <p className="text-[20px]">
                 We believe in dynamic Christian worship as the foundation for
                 daily life, and we strive to teach sound Biblical principles.
@@ -27,7 +27,7 @@ const Testimonies = () => {
         </div>
         <div className="md:w-1/2">
           <div className="w-full px-[35px] py-[65px] bg-[#2C2563]">
-            <p className="text-[26px]">
+            <p className="text-[23px] font-[300]">
               “In publishing and graphic design, Lorem ipsum is a placeholder
               text commonly used to demonstrate the visual form of a document or
               a typeface without relying on meaningful content. Lorem ipsum may
@@ -37,9 +37,9 @@ const Testimonies = () => {
             </p>
           </div>
           <div className="w-full bg-[#1D1841] p-[35px] flex justify-between items center">
-            <h3 className="text-[40px] font-[600]">Insert tag here</h3>
+            <h3 className="text-[40px]">Insert tag here</h3>
             <div className="flex gap-[6px] items center">
-              <Image src={greyNavArrow} alt="nav left" className="rotate-180"/>
+              <Image src={greyNavArrow} alt="nav left" className="rotate-180" />
               <Image src={whiteNavArrow} alt="nav right" />
             </div>
           </div>

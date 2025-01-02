@@ -28,10 +28,8 @@ const MoreAboutNewDawn = () => {
     <section className="py-[120px]">
       <div className="max-w-[1512px] mx-auto">
         <div className="text-center">
-          <h2 className="text-[48px] font-[600] mb-[18px]">
-            More about New Dawn
-          </h2>
-          <p className="text-[24px] leading-[33.6px]">
+          <h2 className="text-[40px] mb-[18px]">More about New Dawn</h2>
+          <p className="text-[20px] leading-[33.6px]">
             Join us and experience the love of God at NDBC
           </p>
         </div>

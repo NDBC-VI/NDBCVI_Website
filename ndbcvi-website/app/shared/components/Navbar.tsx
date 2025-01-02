@@ -1,6 +1,6 @@
 "use client";
 
-import "../../globals.css"
+import "../../globals.css";
 import Link from "next/link";
 import churchLogo from "../../assets/pngs/church-logo.png";
 import menuIcon from "./../../assets/svgs/menu.svg";
@@ -25,47 +25,45 @@ const Navbar = ({
   faqPopup: SanityDocument;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const [bannerVisible, setBannerVisible] = useState(true);
 
   const pathname = usePathname();
   const updateCurrentPage = () => {
-    switch(pathname){
+    switch (pathname) {
       case "/pages/about_ndbc":
         return "About NDBC";
-        case "/pages/information_center":
-          return "Information Center";
+      case "/pages/information_center":
+        return "Information Center";
       case "/pages/media":
         return "Media";
       default:
         return "New Dawn Baptist Church";
     }
-  }
+  };
 
-  
   const bannerTextRef = useRef<HTMLDivElement>(null);
   const bannerTextContainerRef = useRef<HTMLDivElement>(null);
   const [scrollDuration, setScrollDuration] = useState(0);
 
   const scrollAnimationStyle = {
     animation: `scrollText ${scrollDuration}s linear infinite`,
-  }
-  
+  };
+
   useEffect(() => {
     let textLength = 0;
     let containerLength = 0;
     // If the screen is less than large, check if the text is taller than its container. Else, check if the text is longer than its container
-    if(window.innerWidth <= 600) {
+    if (window.innerWidth <= 600) {
       textLength = bannerTextRef.current?.offsetHeight || 0;
       containerLength = bannerTextContainerRef.current?.offsetHeight || 0;
-    }
-    else {
+    } else {
       textLength = bannerTextRef.current?.offsetWidth || 0;
       containerLength = bannerTextContainerRef.current?.offsetWidth || 0;
     }
-    
-    if(textLength > containerLength) {
-      setScrollDuration(textLength/50); // Calculate duration of one iteration of the scroll animation using a 50 characters/s rate
+
+    if (textLength > containerLength) {
+      setScrollDuration(textLength / 50); // Calculate duration of one iteration of the scroll animation using a 50 characters/s rate
     }
   }, []);
 
@@ -77,11 +75,19 @@ const Navbar = ({
       >
         <div
           id="banner"
-          className={`w-full flex py-[18px] px-[20px] bg-[#1D1841] lg:justify-center lg:items-center ${bannerVisible && !isOpen ? '' : 'animate-[hideElement_2s_ease-in_1_forwards]'}`}
+          className={`w-full flex py-[18px] px-[20px] bg-[#1D1841] lg:justify-center lg:items-center ${bannerVisible && !isOpen ? "" : "animate-[hideElement_2s_ease-in_1_forwards]"}`}
         >
           <div className="w-[90%] flex flex-col gap-[18px] text-[16px] font-[500] text-left lg:flex-row justify-center">
-            <div ref={bannerTextContainerRef} id="bannerText" className="flex max-w-[90%] max-h-[46px] lg:max-h-[26px] lg:max-w-[40%] lg:justify-start overflow-hidden">
-              <p ref={bannerTextRef} className={`text-white lg:shrink-0`} style={scrollAnimationStyle}>
+            <div
+              ref={bannerTextContainerRef}
+              id="bannerText"
+              className="flex max-w-[90%] max-h-[46px] lg:max-h-[26px] lg:max-w-[40%] lg:justify-start overflow-hidden"
+            >
+              <p
+                ref={bannerTextRef}
+                className={`text-white lg:shrink-0`}
+                style={scrollAnimationStyle}
+              >
                 {banner.content}
               </p>
             </div>
@@ -111,7 +117,7 @@ const Navbar = ({
         </div>
 
         <nav className="px-[20px] md:px-[60px] py-[20px] flex items-center justify-between text-white bg-black bg-opacity-40 backdrop-blur-lg">
-          <div className="flex gap-[48px] items-center text-[20px] font-[500]">
+          <div className="flex gap-[48px] items-center text-[18px]">
             <Link href="/">
               <Image
                 src={churchLogo}
@@ -143,9 +149,7 @@ const Navbar = ({
             </div>
           </div>
           <div id="pageName" className="md:hidden  text-[20px] font-[500]">
-            {
-              updateCurrentPage()
-            }
+            {updateCurrentPage()}
           </div>
           <div className="hidden md:block">
             <CustomBtn

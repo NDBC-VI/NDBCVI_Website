@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import churchLogo from "../../assets/pngs/church-logo.png";
 import whiteMapPin from "../../assets/svgs/map-pin-white.svg";
@@ -26,13 +26,13 @@ interface MenuModalProps {
   isOpen: boolean;
 }
 
-const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
-  const {eventsPopup} = useNavBarContext();
-  const upcomingEvent = eventsPopup.upcomingEvents[0];
+const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
+  const { eventsPopup } = useNavBarContext();
+  const upcomingEvent = eventsPopup?.upcomingEvents[0];
 
   useEffect(() => {
-    const html = document.querySelector('html');
-    if(html) {
+    const html = document.querySelector("html");
+    if (html) {
       if (isOpen) {
         html.style.overflow = "hidden";
       } else {
@@ -42,7 +42,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
 
     // Cleanup on component unmount
     return () => {
-      if(html) {
+      if (html) {
         html.style.overflow = "";
       }
     };
@@ -50,7 +50,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
 
   const [isActive, setIsActive] = useState(modalTabs[0]);
 
-  const {days, hours, minutes} = calcTimeDelta(upcomingEvent.startDate);
+  const { days, hours, minutes } = calcTimeDelta(upcomingEvent?.startDate);
 
   const view = useMemo(() => {
     switch (isActive) {
@@ -67,7 +67,6 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
         isOpen ? "right-0" : "right-[-100%]"
       } bg-white w-full flex flex-col md:overflow-hidden md:flex-row-reverse transition-all duration-500 h-[104dvh] overflow-y-auto`}
     >
-      
       <div className="md:w-1/2 p-10 text-black flex flex-col ">
         <div className="flex justify-between">
           <div className="flex gap-4">
@@ -91,14 +90,34 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
             © 2024 New Dawn Baptist Church
           </p>
           <div className="flex gap-[18px]">
-            <Image src={youtube} alt="youtube" className="opacity-40 cursor-pointer hover:opacity-100"/>
-            <Image src={spotify} alt="spotify" className="opacity-40 cursor-pointer hover:opacity-100"/>
-            <Image src={facebook} alt="facebook" className="opacity-40 cursor-pointer hover:opacity-100"/>
-            <Image src={x} alt="x" className="opacity-40 cursor-pointer hover:opacity-100"/>
+            <Image
+              src={youtube}
+              alt="youtube"
+              className="opacity-40 cursor-pointer hover:opacity-100"
+            />
+            <Image
+              src={spotify}
+              alt="spotify"
+              className="opacity-40 cursor-pointer hover:opacity-100"
+            />
+            <Image
+              src={facebook}
+              alt="facebook"
+              className="opacity-40 cursor-pointer hover:opacity-100"
+            />
+            <Image
+              src={x}
+              alt="x"
+              className="opacity-40 cursor-pointer hover:opacity-100"
+            />
           </div>
         </div>
         <div className="w-fit h-full absolute bottom-0 right-0 mr-10 mix-blend-difference">
-          <button type="button" className="w-fit md:hidden sticky top-[3rem] left-[100%]" onClick={onClose}>
+          <button
+            type="button"
+            className="w-fit md:hidden sticky top-[3rem] left-[100%]"
+            onClick={onClose}
+          >
             <Image src={close_white} alt="close icon" width={20} />
           </button>
         </div>
@@ -120,7 +139,11 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
               </p>
             </div>
           </div>
-          <a className="flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline" href={upcomingEvent.googleMapsLink} target="_blank">
+          <a
+            className="flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline"
+            href={upcomingEvent?.googleMapsLink}
+            target="_blank"
+          >
             <Image src={whiteMapPin} alt="map pin" width={24} />
             <p className="text-[18px] font-[500] cursor-pointer underline">
               Open location in Maps
@@ -128,7 +151,7 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
           </a>
           <div
             style={{
-              backgroundImage: `url(${urlFor(upcomingEvent.image.asset._ref)})`,
+              backgroundImage: `url(${urlFor(upcomingEvent?.image?.asset?._ref)})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
@@ -138,10 +161,10 @@ const MenuModal = ({onClose, isOpen }: MenuModalProps) => {
             <div className="bg-[rgba(0,0,0,0.35)] absolute top-0 left-0 w-full h-full rounded-[24px]"></div>
             <div className="absolute bottom-0 p-[16px]">
               <h3 className="text-[28px] font-[600] leading-[35px] mb-[13px]">
-                {upcomingEvent.title}
+                {upcomingEvent?.title}
               </h3>
               <div className="mb-[13px]">
-                <PortableText value={upcomingEvent.content}/>
+                <PortableText value={upcomingEvent?.content} />
               </div>
               <CustomBtn title="Add to calendar" />
             </div>
