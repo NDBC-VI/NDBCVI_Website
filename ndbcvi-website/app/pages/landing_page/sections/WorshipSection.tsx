@@ -16,7 +16,7 @@ const WorshipSection = () => {
             <p className="text-[18px] mb-2">
               We believe in Christian worship as the foundation for daily life
             </p>
-            <h2 className="text-[24px] lg:text-[40px] lg:leading-[45px] font-[600]">
+            <h2 className="text-[24px] lg:text-[40px] lg:leading-[45px]">
               Worship with us by <br /> 8am - 11am on Sundays
             </h2>
           </div>
@@ -33,7 +33,7 @@ const WorshipSection = () => {
               <p className="text-[18px] mb-2">
                 We believe in Christian worship as the foundation for daily life
               </p>
-              <h2 className="text-[24px] lg:text-[40px] lg:leading-[45px] font-[600]">
+              <h2 className="text-[24px] lg:text-[40px] lg:leading-[45px]">
                 Worship with us by <br /> 6pm - 8pm on Wednesdays
               </h2>
             </div>
@@ -43,7 +43,7 @@ const WorshipSection = () => {
               <Image src={mapImg} alt="map image" fill={true} />
             </div>
             <div className="w-[80%] lg:w-full mx-auto">
-              <h2 className="text-[24px] lg:text-[36px] font-[600] lg:leading-[40px] mb-6">
+              <h2 className="text-[24px] lg:text-[36px] lg:leading-[40px] mb-6">
                 Locate our centre in VI,
                 <br className="lg:hidden" /> Lagos
               </h2>

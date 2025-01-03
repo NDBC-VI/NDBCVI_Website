@@ -151,7 +151,7 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
           </a>
           <div
             style={{
-              backgroundImage: `url(${urlFor(upcomingEvent?.image?.asset?._ref)})`,
+              // backgroundImage: `url(${urlFor(upcomingEvent?.image?.asset?._ref)})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",

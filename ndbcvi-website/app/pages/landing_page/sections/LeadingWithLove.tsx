@@ -7,7 +7,7 @@ const LeadingWithLove = () => {
     <section className="">
       <div className="max-w-[1512px] mx-auto flex flex-col md:flex-row ">
         <div className="md:w-1/2 md:px-[60px] px-[20px] py-[80px]">
-          <h1 className="md:text-[55px] text-[36px] font-[600] leading-[72.61px] mb-[40px]">
+          <h1 className="md:text-[55px] text-[36px]  leading-[72.61px] mb-[40px]">
             Leading with love
           </h1>
           <div className="flex flex-col  leading-[30px] gap-[24px]">

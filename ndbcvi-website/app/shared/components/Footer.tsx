@@ -55,11 +55,11 @@ const Footer = () => {
         </p>
       </div>
       <div className="md:w-1/2">
-        <div className="md:h-[105.32vh] xl:h-[101.6vh] 2xl:h-[74.1vh] relative">
+        <div className="relative">
           <img
             src={heroImg.src}
             alt="footer image"
-            className="h-full object-cover"
+            className="h-full object-cover transform scale-y-[124.7%] xl:scale-y-[142.4%]"
           />
           <div className="w-full h-full absolute top-0 flex justify-center items-center">
             <div>
@@ -79,3 +79,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// md:h-[105.32vh] xl:h-[101.6vh] 2xl:h-[74.1vh]
