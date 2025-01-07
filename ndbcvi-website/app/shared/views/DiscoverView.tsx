@@ -22,7 +22,7 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
   const {faqPopup} = useNavBarContext();
   
   return (
-    <div className='flex flex-col gap-[16px] justify-start'>
+    <div className='flex flex-col gap-[16px] justify-start whitespace-nowrap'>
       {discoverLinks.map((link) => {
         if(link.title === "Information Centre") {
           return (

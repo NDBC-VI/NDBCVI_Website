@@ -1,7 +1,7 @@
 import { MenuLink } from "./MenuLink";
 
 const actionLinks = [
-  "Celebrate Anniversary",
+  'Celebrate Anniversary',
   "Child Dedication",
   "Share a Testiomony",
   "Share a Celebrate Birthday",
@@ -9,7 +9,7 @@ const actionLinks = [
 
 const TakeActionView = () => {
   return (
-    <div className="flex flex-col gap-[16px] justify-start">
+    <div className="flex flex-col gap-[30px] md:gap-[16px] justify-start items-start">
       {actionLinks.map((link, i) => (
         <MenuLink key={i} link={{ title: actionLinks[i], path:"/", id: i}}/>
       ))}

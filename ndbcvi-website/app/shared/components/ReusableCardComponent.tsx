@@ -1,4 +1,4 @@
-import '@/app/globals.css';
+import "@/app/globals.css";
 
 interface ReusableCardComponentProps {
   imgUrl: string;
@@ -13,11 +13,10 @@ const ReusableCardComponent = ({
   imgUrl,
   title,
   body,
-  rounded = 'none',
+  rounded = "none",
   button,
-  imgFit = "cover"
+  imgFit = "cover",
 }: ReusableCardComponentProps) => {
-
   const containerQuery = `
     @container card (max-width: 200px) {
       *:not(#dim-bg) {
@@ -31,7 +30,7 @@ const ReusableCardComponent = ({
         overflow: scroll;
       }
     }
-  `
+  `;
 
   return (
     <div
@@ -41,22 +40,21 @@ const ReusableCardComponent = ({
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         containerType: "inline-size",
-        containerName: "card"
+        containerName: "card",
       }}
       className={`h-[500px] relative w-full px-[16px] lg:pl-[32px] group overflow-hidden rounded-${rounded}`}
     >
-      <div id="dim-bg" className="bg-[rgba(0,0,0,0.35)] absolute top-0 left-0 w-full h-full "></div>
-      <div className="text-white absolute bottom-[-8.5%] group-hover:bottom-[8%] transition-all duration-500 flex flex-col gap-5">
+      <div
+        id="dim-bg"
+        className="bg-[rgba(0,0,0,0.35)] absolute top-0 left-0 w-full h-full "
+      ></div>
+      <div className="text-white absolute bottom-[-8.5%] group-hover:bottom-[8%] transition-all duration-500 flex flex-col gap-2">
         <h3 className="text-[30px] font-[600]">{title}</h3>
-        <div id="card-text" className="">
-          <p className="text">{body}</p>
-          <style>
-            {containerQuery}
-          </style>
+        <div id="card-text">
+          <p className="text leading-[24px]">{body}</p>
+          <style>{containerQuery}</style>
         </div>
-        <div>
-          {button}
-        </div>
+        <div>{button}</div>
       </div>
     </div>
   );

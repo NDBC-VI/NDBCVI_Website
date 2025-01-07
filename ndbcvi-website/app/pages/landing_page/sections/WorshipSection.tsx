@@ -13,10 +13,10 @@ const WorshipSection = () => {
             className="object-cover rounded-[10px] w-full h-full"
           />
           <div className="absolute text-white bottom-0 px-[20px] pb-[30px] lg:mx-0 lg:pl-[36px] lg:pb-[48px]">
-            <p className="text-[18px] mb-[16px]">
+            <p className="text-[18px] mb-2">
               We believe in Christian worship as the foundation for daily life
             </p>
-            <h2 className="text-[24px] lg:text-[40px] font-[600]">
+            <h2 className="text-[24px] lg:text-[40px] lg:leading-[45px]">
               Worship with us by <br /> 8am - 11am on Sundays
             </h2>
           </div>
@@ -30,10 +30,10 @@ const WorshipSection = () => {
               className="object-cover rounded-[10px] w-full h-full"
             />
             <div className="absolute text-white bottom-0 px-[20px] pb-[30px] lg:mx-0 lg:pl-[36px] lg:pb-[48px]">
-              <p className="text-[18px] mb-[16px]">
+              <p className="text-[18px] mb-2">
                 We believe in Christian worship as the foundation for daily life
               </p>
-              <h2 className="text-[24px] lg:text-[40px] font-[600]">
+              <h2 className="text-[24px] lg:text-[40px] lg:leading-[45px]">
                 Worship with us by <br /> 6pm - 8pm on Wednesdays
               </h2>
             </div>
@@ -43,10 +43,10 @@ const WorshipSection = () => {
               <Image src={mapImg} alt="map image" fill={true} />
             </div>
             <div className="w-[80%] lg:w-full mx-auto">
-              <h2 className="text-[24px] lg:text-[36px] font-[600] lg:leading-[43.57px] mb-6">
-                Locate our centre in VI,<br className="lg:hidden"/> Lagos
+              <h2 className="text-[24px] lg:text-[36px] lg:leading-[40px] mb-6">
+                Locate our centre in VI,
+                <br className="lg:hidden" /> Lagos
               </h2>
-
               <Link
                 href="https://www.google.com/maps/place/New+Dawn+Baptist+Church/@6.4281179,3.4498356,14z/data=!4m6!3m5!1s0x103bf513ff9bd641:0x596799a9108ac311!8m2!3d6.4245334!4d3.4463048!16s%2Fg%2F11cm10mf2g?entry=ttu&g_ep=EgoyMDI0MTAyMC4xIKXMDSoASAFQAw%3D%3D"
                 target="_blank"

@@ -7,10 +7,10 @@ const LeadingWithLove = () => {
     <section className="">
       <div className="max-w-[1512px] mx-auto flex flex-col md:flex-row ">
         <div className="md:w-1/2 md:px-[60px] px-[20px] py-[80px]">
-          <h1 className="md:text-[55px] text-[36px] font-[600] leading-[72.61px] mb-[40px]">
+          <h1 className="md:text-[55px] text-[36px]  leading-[72.61px] mb-[40px]">
             Leading with love
           </h1>
-          <div className="flex flex-col  leading-[33px] gap-[30px]">
+          <div className="flex flex-col  leading-[30px] gap-[24px]">
             <p>
               At New Dawn Baptist Church (NDBC or New Dawn), we are a dynamic
               and Christ-centered community that believes in leading with love.
@@ -33,15 +33,15 @@ const LeadingWithLove = () => {
         </div>
         <div className="md:w-1/2 relative">
           <Image src={heroImg} alt="hero img" className="object-fill h-full" />
-          <div className="absolute bottom-0 px-[30px] md:px-0 md:pl-[48px] text-white flex md:items-end w-full h-full">
+          <div className="absolute bottom-[-3%] px-[30px] md:px-0 md:pl-[48px] text-white flex md:items-end w-full h-full">
             <div className="flex flex-col items-start justify-center lg:mb-[120px] w-full">
-              <h3 className="md:text-[36px] text-[18px] font-[600]">
+              <h3 className="md:text-[36px] text-[18px]  leading-[45px]">
                 Join us and experience <br /> the love of God at NDBC
               </h3>
               <div>
                 <button
                   type="button"
-                  className="flex items-center gap-2 bg-[#2C2563] py-[13.5px] px-[18px] font-[500] rounded-[100px] text-white mt-[24px] md:mt-[36px]"
+                  className="flex items-center gap-2 bg-[#2C2563] py-[13.5px] px-[18px] font-[500] rounded-[100px] text-white mt-[18px] md:mt-[28px]"
                 >
                   <p>Learn more about us</p>
                   <Image src={rightArrow} alt="right arrow" />

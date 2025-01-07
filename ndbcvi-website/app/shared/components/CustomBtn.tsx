@@ -13,11 +13,13 @@ const CustomBtn = ({ title, icon, hasIcon = false, btnFn }: CustomBtnProps) => {
   return (
     <button
       type="button"
-      className="py-2 px-5 border border-white rounded-[100px] flex items-center gap-[6px] font-[500] cursor-pointer"
+      className="py-[6px] px-5 border border-white rounded-[100px] flex items-center gap-[6px] font-[500] cursor-pointer"
       onClick={btnFn}
     >
-      <p>{title}</p>
-      {hasIcon && <Image src={icon ?? ""} alt="button icon" />}
+      <p className="text-[14px]">{title}</p>
+      {hasIcon && (
+        <Image src={icon ?? ""} alt="button icon" className="w-[13px]" />
+      )}
     </button>
   );
 };
