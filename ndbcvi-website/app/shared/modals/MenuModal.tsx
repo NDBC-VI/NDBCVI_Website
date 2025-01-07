@@ -63,9 +63,9 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
 
   return (
     <section
-      className={`absolute z-20 top-0 ${
+      className={`absolute z-20 top-1 ${
         isOpen ? "right-0" : "right-[-100%]"
-      } bg-white w-full flex flex-col md:overflow-hidden md:flex-row-reverse transition-all duration-500 h-[104dvh] overflow-y-auto`}
+      } bg-white w-full flex flex-col md:overflow-hidden md:flex-row-reverse transition-all duration-500 h-[100dvh] overflow-y-auto`}
     >
       <div className="md:w-1/2 p-10 text-black flex flex-col ">
         <div className="flex justify-between">
@@ -84,7 +84,7 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
           </button>
         </div>
 
-        <div className="mt-[45px]">{view}</div>
+        <div className="mt-[45px] h-[50vh]">{view}</div>
         <div className="flex flex-col-reverse gap-[24px] lg:gap-0 lg:items-end h-full lg:flex-row lg:justify-between mt-[48px] md:mt-0">
           <p className="text-[#757575] text-[18px] font-[500] align-bottom">
             © 2024 New Dawn Baptist Church
@@ -151,7 +151,7 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
           </a>
           <div
             style={{
-              // backgroundImage: `url(${urlFor(upcomingEvent?.image?.asset?._ref)})`,
+              backgroundImage: `url(${urlFor(upcomingEvent?.image?.asset?._ref)})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",

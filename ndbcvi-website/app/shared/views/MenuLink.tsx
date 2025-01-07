@@ -9,7 +9,7 @@ export const MenuLink = ({link, clickFn}: {link: {title: string, path: string, i
     >
         <button
             type="button"
-            className="text-[30px] font-[600]"
+            className="text-[24px] md:text-[30px] font-[600] text-left"
             onClick={clickFn}
         >
             {link.title}
