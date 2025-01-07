@@ -10,6 +10,7 @@ import facebook from "../../assets/svgs/facebook-menu.svg";
 import x from "../../assets/svgs/x-menu.svg";
 import close_black from "../../assets/svgs/close-menu-black.svg";
 import close_white from "../../assets/svgs/close-menu-white.svg";
+import heroImg from "@/app/assets/pngs/hero-img.png";
 import TabBtn from "../components/TabBtn";
 import { useState, useMemo, MouseEventHandler, useEffect } from "react";
 import DiscoverView from "../views/DiscoverView";
@@ -126,8 +127,9 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
         <Image src={churchLogo} alt="church logo" width={43} />
         <div className="flex flex-col gap-[36px] mt-[45px]">
           <div>
-            <h2 className="text-[42px] font-[600] mb-[18px]">Upcoming Event</h2>
-            <div className="flex gap-[16px]">
+            <h2 className="text-[42px] font-[600] mb-[18px]">{`${upcomingEvent ? "Upcoming Event" : "No Upcoming Events"}`}</h2>
+            <p className={`${!upcomingEvent ? "" : "hidden"} text-[20px] font-[600]`}>Stay tuned...</p>
+            <div className={`${upcomingEvent ? "" : "hidden"} flex gap-[16px]`}>
               <p className="text-[20px] font-[600]">
                 {days} <span className="text-[#C4C4C4]">days</span>
               </p>
@@ -140,7 +142,7 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
             </div>
           </div>
           <a
-            className="flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline"
+            className={` ${upcomingEvent ? "" : "hidden"} flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline`}
             href={upcomingEvent?.googleMapsLink}
             target="_blank"
           >
@@ -151,7 +153,7 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
           </a>
           <div
             style={{
-              backgroundImage: `url(${urlFor(upcomingEvent?.image?.asset?._ref)})`,
+              backgroundImage: `url(${upcomingEvent ? urlFor(upcomingEvent?.image?.asset?._ref) : heroImg.src})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
@@ -166,7 +168,7 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
               <div className="mb-[13px]">
                 <PortableText value={upcomingEvent?.content} />
               </div>
-              <CustomBtn title="Add to calendar" />
+              { upcomingEvent && <CustomBtn title="Add to calendar" /> }
             </div>
           </div>
         </div>
