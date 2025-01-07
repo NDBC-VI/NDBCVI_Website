@@ -9,7 +9,7 @@ const actionLinks = [
 
 const TakeActionView = () => {
   return (
-    <div className="flex flex-col gap-[16px] justify-start items-start">
+    <div className="flex flex-col gap-[30px] md:gap-[16px] justify-start items-start">
       {actionLinks.map((link, i) => (
         <MenuLink key={i} link={{ title: actionLinks[i], path:"/", id: i}}/>
       ))}
