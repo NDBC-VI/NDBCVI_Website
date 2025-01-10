@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
 
-body {
-  font-family: "DM Sans", sans-serif;
+h1, h2, h3 {
+  font-family: var(--font-inter);
 }
 
+p {
+  font-family: var(--font-dm-sans);
+}
 
 .heading-text {
   font-family: "Inter", sans-serif;
