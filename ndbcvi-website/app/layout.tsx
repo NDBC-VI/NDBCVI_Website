@@ -5,7 +5,7 @@ import Footer from "./shared/components/Footer";
 import { SanityDocument } from "sanity";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { bannerQuery, eventsPopupQuery, faqPopupQuery } from "@/sanity/lib/queries";
-import { Inter, DM_Sans } from "next/font/google";
+import { Inter, DM_Sans, Source_Code_Pro, Quicksand } from "next/font/google";
 
 export const interFont = Inter({
   subsets: ['latin'],
@@ -13,6 +13,17 @@ export const interFont = Inter({
   variable: "--font-inter"
 })
 
+export const quicksandFont = Quicksand({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: "--font-quicksand"
+})
+
+export const scpFont = Source_Code_Pro({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: "--font-source-code-pro"
+})
 
 const dmSansFont = DM_Sans({
   subsets: ['latin'],
@@ -41,7 +52,7 @@ export default async function RootLayout({
         />
         <title>NDBCVI</title>
       </head>
-      <body className={`${interFont.variable} ${dmSansFont.variable}`}>
+      <body className={`${quicksandFont.variable} ${interFont.variable} ${dmSansFont.variable}`}>
         <Navbar eventsPopup={eventsPopup} faqPopup={faqPopup} banner={banner} />
         {children}
         <div id="portal" />

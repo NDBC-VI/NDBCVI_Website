@@ -80,9 +80,17 @@ export const EventsModalContent = () => {
           <div className="w-full md:flex md:flex-row md:justify-between md:space-x-10">
             <EventScrollLinks events={eventScrollLinks} displayedEvent={displayed} scrollFn={scrollToEvent} />
             <div className="w-full md:w-2/3 md:px-6 md:relative md:self-end">
-              <div id="events" className="w-full">
-                <Carousel items={upcomingEvents} next={scrollToNextEvent} prev={scrollToPrevEvent} displayed={displayed} autoSlide={false} autoSlideInterval={3000} />
-              </div>
+              { upcomingEvents &&
+                <div id="events" className="w-full">
+                  <Carousel items={upcomingEvents} next={scrollToNextEvent} prev={scrollToPrevEvent} displayed={displayed} autoSlide={false} autoSlideInterval={3000} />
+                </div>
+              }
+              { upcomingEvents.length === 0  &&
+                <div className='mb-10'>
+                  <h2 className="text-[42px] font-[600] mb-[18px]">No Upcoming Events</h2>
+                  <p className="text-[20px] font-[600]">Stay tuned...</p>
+                </div>
+              }
               <div id="calendar" className='w-full flex flex-col'>
                 <div className='w-full self-end'>
                   <h1 className='text-2xl font-semibold p-6'>Calendar</h1>
