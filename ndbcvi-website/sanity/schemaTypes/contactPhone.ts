@@ -1,0 +1,41 @@
+import parsePhoneNumberFromString, { CountryCode, PhoneNumber } from "libphonenumber-js";
+import { Rule } from "@sanity/types";
+import PhoneInput from "@/app/sanity-components/PhoneInput";
+
+const contactPhone = {
+    name: 'contactPhone',
+    type: 'document',
+    fields: [
+        {
+            name: "Name",
+            type: "string"
+        },
+        {
+            name: "countryCode",
+            type: "string",
+            hidden: true
+        },
+        {
+            name: "phoneNumber",
+            type: "string",
+            components: {
+                input: PhoneInput,
+            },
+            validation: (rule: Rule) => 
+                rule.custom((phone: string, context) => {
+                    if(!phone) {
+                        return "Phone number is required";
+                    }
+
+                    const countryCode = context.document?.countryCode as CountryCode || "+234"; // Use Nigeria as default
+                    const phoneNumber = parsePhoneNumberFromString(countryCode + phone);
+                    if (!phoneNumber || !phoneNumber.isValid()) {
+                        return 'Invalid phone number for the selected country';
+                    }
+                    return true;
+                })
+        }
+    ]
+}
+
+export default contactPhone;

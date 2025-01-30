@@ -2,7 +2,7 @@ import type {StructureResolver} from 'sanity/structure'
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 
-const singletons = ["homePage", "aboutPage"];
+const singletons = ["homePage", "aboutPage", "banner"];
 export const structure: StructureResolver = (S) =>
   S.list()
     .title('Content')
