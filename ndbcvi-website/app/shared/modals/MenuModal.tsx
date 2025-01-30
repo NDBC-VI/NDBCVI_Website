@@ -64,9 +64,9 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
 
   return (
     <section
-      className={`absolute z-20 top-1 ${
+      className={`absolute z-20 top-0 ${
         isOpen ? "right-0" : "right-[-100%]"
-      } bg-white w-full flex flex-col md:overflow-hidden md:flex-row-reverse transition-all duration-500 h-[100dvh] overflow-y-auto`}
+      } bg-white w-full flex flex-col md:overflow-hidden md:flex-row-reverse transition-all duration-500 h-[101dvh] sm:max-lg:h-[104vh] overflow-y-auto`}
     >
       <div className="md:w-1/2 p-10 text-black flex flex-col ">
         <div className="flex justify-between">

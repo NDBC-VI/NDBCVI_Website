@@ -8,7 +8,6 @@ import MoreAboutNewDawn from "./sections/MoreAboutNewDawn";
 import { SanityDocument } from "sanity";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { allInfoPopupsQuery } from "@/sanity/lib/queries";
-import { getCountries, getCountryCallingCode } from "libphonenumber-js";
 
 const LandingPage = async () => {
   
@@ -16,12 +15,6 @@ const LandingPage = async () => {
 
   return (
     <>
-      <div className="bg-white w-full h-[50vh] mt-[50vh] overflow-scroll">
-        <ul>
-          {/* {getCountries().map(country => <li>{country}</li>)} */}
-          {getCountries().filter(country => getCountryCallingCode(country) === "44")}
-        </ul>
-      </div>
       <Hero />
       <LeadingWithLove />
       <CommunityLife />
