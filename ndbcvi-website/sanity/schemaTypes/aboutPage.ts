@@ -4,10 +4,6 @@ const aboutPage = {
     type: 'document',
     fields: [
         {
-            name: 'title',
-            type: 'string'
-        },
-        {
             name: 'aboutNdbcImages',
             title: 'About NDBC Images',
             type: 'array',
