@@ -27,7 +27,7 @@ const contactPhone = {
                         return "Phone number is required";
                     }
 
-                    const countryCode = context.document?.countryCode as CountryCode || "+234"; // Use Nigeria as default
+                    const countryCode = context.document?.countryCode as CountryCode || "+1"; // Use Nigeria as default
                     const phoneNumber = parsePhoneNumberFromString(countryCode + phone);
                     if (!phoneNumber || !phoneNumber.isValid()) {
                         return 'Invalid phone number for the selected country';

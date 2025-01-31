@@ -4,7 +4,28 @@ const joinMinistryPage = {
     type: 'document',
     fields: [
         {
-            // array of contactEmail or contactPhone
+            name: 'contactOptions',
+            type: 'array',
+            of: [
+                {
+                    name: 'emailContact',
+                    type: 'reference',
+                    weak: true,
+                    to: [{ type: 'contactEmail' }]
+                },
+                {
+                    name: 'phoneContact',
+                    type: 'reference',
+                    weak: true,
+                    to: [{ type: 'contactPhone' }]
+                }
+            ]
+        },
+        {
+            name: 'submitLink',
+            type: 'url',
         }
     ]
 }
+
+export default joinMinistryPage;

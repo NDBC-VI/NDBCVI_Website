@@ -23,14 +23,14 @@ const ministryLeadList = {
                     title: 'Church Leader',
                     type: 'reference',
                     weak: false,
-                    to: [{type: 'churchLeader'}]
+                    to: [{ type: 'churchLeader' }]
                 },
                 {
                     name: 'reverendRef',
                     title: 'Reverend',
                     type: 'reference',
                     weak: false,
-                    to: [{type: 'reverend'}]
+                    to: [{ type: 'reverend' }]
                 }
             ]
         }

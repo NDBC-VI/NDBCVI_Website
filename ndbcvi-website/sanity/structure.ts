@@ -2,7 +2,7 @@ import type {StructureResolver} from 'sanity/structure'
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 
-const singletons = ["homePage", "aboutPage", "banner"];
+const singletons = ["homePage", "aboutPage", "joinMinistryPage", "banner"];
 export const structure: StructureResolver = (S) =>
   S.list()
     .title('Content')
@@ -22,6 +22,14 @@ export const structure: StructureResolver = (S) =>
             .schemaType('aboutPage')
             .documentId('aboutPageSingleton')
             .title("About Page")
+        ),
+        S.listItem()
+        .title("\"Join A Ministry\" Page")
+        .child(
+          S.document()
+            .schemaType('joinMinistryPage')
+            .documentId('joinMinistryPageSingleton')
+            .title("\"Join A Ministry\" Page")
         ),
       ...S.documentTypeListItems().filter(
         (docType) => !singletons.includes(docType.getId() as string)
