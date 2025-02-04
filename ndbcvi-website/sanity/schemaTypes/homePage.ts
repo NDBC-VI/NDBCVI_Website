@@ -4,13 +4,11 @@ const homePage = {
     type: 'document',
     fields: [
         {
-            name: 'locationLink',
-            title: '\"Locate Our Centre\" Link',
+            name: 'locateUsLink',
             type: 'url'
         },
         {
             name: 'testimoniesLink',
-            title: '\"Share Testimony\" Link',
             type: 'url'
         },
         {

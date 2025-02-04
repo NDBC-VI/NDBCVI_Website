@@ -15,7 +15,7 @@ export const structure: StructureResolver = (S) =>
             .documentId('homePageSingleton')
             .title("Home Page")
         ),
-        S.listItem()
+      S.listItem()
         .title("About Page")
         .child(
           S.document()
@@ -23,13 +23,21 @@ export const structure: StructureResolver = (S) =>
             .documentId('aboutPageSingleton')
             .title("About Page")
         ),
-        S.listItem()
+      S.listItem()
         .title("\"Join A Ministry\" Page")
         .child(
           S.document()
             .schemaType('joinMinistryPage')
             .documentId('joinMinistryPageSingleton')
             .title("\"Join A Ministry\" Page")
+        ),
+      S.listItem()
+        .title("Banner")
+        .child(
+          S.document()
+            .schemaType('banner')
+            .documentId('BannerSingleton')
+            .title("Banner")
         ),
       ...S.documentTypeListItems().filter(
         (docType) => !singletons.includes(docType.getId() as string)

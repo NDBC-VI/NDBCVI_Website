@@ -11,8 +11,6 @@ export const allInfoPopupsQuery = groq`*[_type == "infoPopup"] | order(displayOr
     }`;
 
 
-export const bannerQuery = groq`*[_type == "banner"][0]`;
-
 export const faqPopupQuery = groq`*[_type == "faqPopup"][0] {
     title,
     slug,
@@ -52,7 +50,24 @@ export const eventsQuery = groq`*[_type == "events" && startDate > now() && date
     location,
     googleMapsLink
 }`
-
+// ----------------------------------------------------------------------------------------------------------------------------------------
+export const homePageQuery = groq`*[_type == "homePage"][0] {
+    locateUsLink,
+    testimoniesLink,
+    testimonies[] -> {
+        testimony,
+        label
+    },
+    infoPopups[] -> {
+        title,
+        slug,
+        introduction,
+        thumbnailImage,
+        thumbnailCaption,
+        headerImages,
+        infoSections[]->
+    }
+}`
 
 export const aboutPageQuery = groq`*[_type == "aboutPage"][0] {
     aboutNdbcImages[],
@@ -75,3 +90,5 @@ export const aboutPageQuery = groq`*[_type == "aboutPage"][0] {
         ministryLeadList[]->
     }
 }`
+
+export const bannerQuery = groq`*[_type == "banner"][0]`;

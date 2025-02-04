@@ -20,7 +20,7 @@ const PhoneInput = (props: StringInputProps) => {
         const parsedPhone = parsePhoneNumberFromString(rawInput, countryCode.replace('+', '') as CountryCode);
 
         // Format the phone number automatically
-        const formatted = parsedPhone?.formatInternational() || rawInput;
+        const formatted = parsedPhone?.formatNational() || rawInput;
         setPhoneNumber(formatted);
         props.onChange(set(formatted));
     };
