@@ -14,7 +14,12 @@ import faq from './faq'
 import eventsPopup from './eventsPopup'
 import communityActivity from './communityLifeActivities'
 import aboutPage from './aboutPage'
+import homePage from './homePage'
+import testimony from './testimony'
+import contactEmail from './contactEmail'
+import contactPhone from './contactPhone'
+import joinMinistryPage from './joinMinistryPage'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [infoSection, infoPopup, banner, faq, faqSection, faqPopup, event, eventsPopup, churchLeader, reverend, reverendList, deaconList, ministryLeadList, communityActivity, aboutPage],
+  types: [infoSection, infoPopup, banner, faq, faqSection, faqPopup, event, eventsPopup, churchLeader, reverend, reverendList, deaconList, ministryLeadList, communityActivity, aboutPage, homePage, joinMinistryPage, testimony, contactEmail, contactPhone],
 }
