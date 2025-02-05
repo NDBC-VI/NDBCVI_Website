@@ -91,4 +91,9 @@ export const aboutPageQuery = groq`*[_type == "aboutPage"][0] {
     }
 }`
 
+export const joinMinistryPageQuery = groq`*[_type == "joinMinistryPage"][0] {
+    contactOptions[] ->,
+    submitLink
+}`
+
 export const bannerQuery = groq`*[_type == "banner"][0]`;

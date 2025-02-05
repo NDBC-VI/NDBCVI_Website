@@ -9,7 +9,7 @@ import { SanityDocument } from "sanity";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { homePageQuery } from "@/sanity/lib/queries";
 
-interface homePageContentInterface {
+type homePageContentType = {
   locateUsLink: string,
   testimoniesLink: string,
   testimonies: SanityDocument[],
@@ -17,12 +17,7 @@ interface homePageContentInterface {
 }
 
 const LandingPage = async () => {
-  
-  // const allInfoPopups: SanityDocument[] = await sanityFetch<SanityDocument[]>({ query: allInfoPopupsQuery });
-  
-  const homePageContent = await sanityFetch<homePageContentInterface>({ query: homePageQuery });
-  const { locateUsLink, testimoniesLink, testimonies, infoPopups } = homePageContent as homePageContentInterface;
-  
+  const { locateUsLink, testimoniesLink, testimonies, infoPopups } = await sanityFetch<homePageContentType>({ query: homePageQuery });  
 
   return (
     <>

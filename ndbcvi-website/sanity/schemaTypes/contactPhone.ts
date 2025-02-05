@@ -1,4 +1,4 @@
-import parsePhoneNumberFromString, { CountryCode, PhoneNumber } from "libphonenumber-js";
+import parsePhoneNumberFromString, { CountryCode } from "libphonenumber-js";
 import { Rule } from "@sanity/types";
 import PhoneInput from "@/app/sanity-components/PhoneInput";
 

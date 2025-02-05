@@ -1,8 +1,9 @@
+import { SanityDocument } from "next-sanity";
 import CustomInput from "../components/CustomInput";
 import CustomTextArea from "../components/CustomTextArea";
 
-const HearFromYou = () => {
-  const buttonTexts = ["info@ndbcvi.org", "01 879 6304", "01 879 6304"];
+const HearFromYou = ({ contactOptions, submitLink }: { contactOptions: SanityDocument[], submitLink: string }) => {
+  // const buttonTexts = ["info@ndbcvi.org", "01 879 6304", "01 879 6304"];
   return (
     <section className="pt-[150px] pb-[120px] max-w-[1392px] mx-auto px-[60px]">
       <div className="w-full flex flex-col gap-[24px] md:flex-row md:justify-between md:items-end">
@@ -17,13 +18,13 @@ const HearFromYou = () => {
           </p>
         </div>
         <div className="flex flex-wrap gap-[18px]">
-          {buttonTexts.map((text) => (
+          {contactOptions.map((contact) => (
             <button
-              key={text}
+              key={contact._type === "contactEmail" ? contact.emailAddress : contact.phoneNumber}
               type="button"
               className="text-[14px] py-2 px-3 md:px-7 md:text-[16px] border border-[#121212] text-[#2C2563] rounded-[100px]"
             >
-              {text}
+              {contact._type === "contactEmail" ? contact.emailAddress : contact.phoneNumber}
             </button>
           ))}
         </div>
@@ -34,12 +35,14 @@ const HearFromYou = () => {
         <CustomInput type="text" placeholder="What are you interested in? *" />
         <CustomTextArea placeholder="Message *" />
         <div>
-          <button
-            type="submit"
-            className="border border-[#121212] text-[#121212] px-6 py-3 rounded-[100px]"
-          >
-            Submit
-          </button>
+          <a href={submitLink}>
+            <button
+              type="submit"
+              className="border border-[#121212] text-[#121212] px-6 py-3 rounded-[100px]"
+            >
+              Submit
+            </button>
+          </a>
         </div>
       </form>
     </section>
