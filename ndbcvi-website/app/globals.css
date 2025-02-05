@@ -2,16 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
 
-body {
-  font-family: "DM Sans", sans-serif;
+h1, h2, h3 {
+  font-family: var(--font-inter);
 }
 
-
-.heading-text {
-  font-family: "Inter", sans-serif;
+p {
+  font-family: var(--font-dm-sans);
 }
 
 .card__container {
@@ -63,6 +60,7 @@ body {
     @apply font-[600] ml-[20px] my-[24px] text-[24px] md:text-[48px]
   }
 
+  /* Scroll text animation */
   @media (width <= 600px) {   
     @keyframes scrollText {
       20% {
@@ -73,7 +71,6 @@ body {
       }
     }
   }
-
   @media (width > 600px) {   
     @keyframes scrollText {
       20% {
@@ -82,5 +79,16 @@ body {
       100% {
         transform: translateX(-100%)
       }
+    }
+  }
+  
+
+  /* Hide element animation */
+  @keyframes hideElement {
+    80% {
+      opacity: 50%;
+    }
+    100% {
+      opacity: 0%;
     }
   }

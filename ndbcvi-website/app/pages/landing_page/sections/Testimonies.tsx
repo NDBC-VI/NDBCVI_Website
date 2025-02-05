@@ -1,46 +1,62 @@
+"use client";
+
 import Image from "next/image";
 import whiteRightArrow from "../../../assets/svgs/white-right-arrow.svg";
 import whiteNavArrow from "../../../assets/svgs/nav-arrow-white.svg";
 import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
+import { PortableText, SanityDocument } from "next-sanity";
+import { useState } from "react";
 
-const Testimonies = () => {
+const Testimonies = ({ testimonies, testimoniesShareLink }: { testimonies: SanityDocument[], testimoniesShareLink: string }) => {
+  
+  const [displayed, setDisplayed] = useState(0);
+  const next = () => {
+    if (displayed < testimonies.length - 1) {
+      setDisplayed(displayed + 1);
+    } 
+  }
+  const prev = () => {
+    if (displayed > 0) {
+      setDisplayed(displayed - 1);
+    }
+  }
+
   return (
     <section>
-      <div className="max-w-[1512px] mx-auto flex flex-col md:flex-row text-white">
-        <div className="md:w-1/2 bg-black flex items-center md:pl-[45px] px-[30px] md:px-0 py-[200px] md:py-0">
+      <div className="max-w-[1512px] md:h-[75vh] mx-auto flex flex-col md:flex-row text-white">
+        <div className="md:w-1/2 md:h-full bg-black flex items-center md:pl-[45px] px-[30px] md:px-0 py-[200px] md:py-0">
           <div>
-            <h2 className="text-[45px] font-[600]">Testimonies</h2>
-            <div className="max-w-[423px] mt-[12px] mb-[36px]">
+            <h2 className="text-[45px]">Testimonies</h2>
+            <div className="max-w-[423px] mt-[12px] mb-20">
               <p className="text-[20px]">
                 We believe in dynamic Christian worship as the foundation for
                 daily life, and we strive to teach sound Biblical principles.
               </p>
             </div>
-            <button
-              type="button"
-              className="bg-transparent border border-white rounded-[100px] flex gap-2 py-3 px-[18px]"
-            >
-              <p className="text-[500]">Share with us</p>
-              <Image src={whiteRightArrow} alt="right arrow" />
-            </button>
+            <a href={testimoniesShareLink}>
+              <button
+                type="button"
+                className="bg-transparent border border-white rounded-[100px] flex gap-2 py-3 px-[18px]"
+              >
+                <p className="text-[500]">Share with us</p>
+                <Image src={whiteRightArrow} alt="right arrow" />
+              </button>
+            </a>
           </div>
         </div>
-        <div className="md:w-1/2">
-          <div className="w-full px-[35px] py-[65px] bg-[#2C2563]">
-            <p className="text-[26px]">
-              “In publishing and graphic design, Lorem ipsum is a placeholder
-              text commonly used to demonstrate the visual form of a document or
-              a typeface without relying on meaningful content. Lorem ipsum may
-              be used as a placeholder before the final copy is available. Lorem
-              ipsum may be used as a placeholder before the final copy is
-              available.”
-            </p>
+        <div className="md:w-1/2 md:h-full">
+          <div className="w-full h-[75%] px-[35px] py-[65px] bg-[#2C2563] text-[23px] font-[300] overflow-scroll">
+            <PortableText value={testimonies[displayed].testimony} />
           </div>
-          <div className="w-full bg-[#1D1841] p-[35px] flex justify-between items center">
-            <h3 className="text-[40px] font-[600]">Insert tag here</h3>
+          <div className="w-full h-[25%] bg-[#1D1841] p-[35px] flex justify-between items center">
+            <h3 className="text-[40px]">{testimonies[displayed].label}</h3>
             <div className="flex gap-[6px] items center">
-              <Image src={greyNavArrow} alt="nav left" className="rotate-180"/>
-              <Image src={whiteNavArrow} alt="nav right" />
+              <button onClick={prev} disabled={displayed === 0}>
+                <Image src={displayed === 0 ? greyNavArrow : whiteNavArrow} alt="nav left" className="rotate-180" />
+              </button>
+              <button onClick={next} disabled={displayed === testimonies.length - 1}>
+                <Image src={displayed === testimonies.length - 1 ? greyNavArrow : whiteNavArrow} alt="nav right" />
+              </button>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import greyNavArrow from "../../assets/svgs/nav-arrow-grey.svg";
 import blackNavArrow from "../../assets/svgs/nav-arrow-black.svg";
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
-import { urlFor } from '@/sanity/lib/image';
+import { SanityImage } from './SanityImage';
 
 export const ImageSlider = ({images, toolbarBottom = true, buttonsPosition = 'end', autoSlide = false, autoSlideInterval = 3000, clickFn = () => null}: {images: SanityImageObject[], toolbarBottom: boolean, buttonsPosition: string, autoSlide?: boolean, autoSlideInterval?: number, clickFn?: ()=>void }) => {
 
@@ -32,14 +32,9 @@ export const ImageSlider = ({images, toolbarBottom = true, buttonsPosition = 'en
                 {
                     images.map((image: SanityImageObject, i: number) => {
                         return(
-                            <div key={i} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px] cursor-pointer
+                            <div key={i} onClick={clickFn} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px] cursor-pointer
                                             lg:w-1/4 lg:mr-0 lg:mx-[4px]'>
-                                <Image 
-                                    src={urlFor(image.asset._ref).url()}
-                                    alt="placeholder image"
-                                    fill={true}
-                                    onClick={clickFn}
-                                />
+                                <SanityImage image={image} />
                             </div>
                         )
                     })

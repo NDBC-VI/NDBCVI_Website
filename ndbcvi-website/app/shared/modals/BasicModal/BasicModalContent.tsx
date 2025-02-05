@@ -1,14 +1,13 @@
 'use client';
 
 import { BasicModalPropsType, InfoSectionType } from '@/app/types';
-import { urlFor } from '@/sanity/lib/image';
-import Image from 'next/image';
 import { useState } from 'react';
 import { InfoSection } from '../components/InfoSection';
 import { ScrollLinks } from '../components/ScrollLinks';
 import { ActionPromptBtn } from './components/ActionPromptBtn';
 import { GalleryModalContent } from '../GalleryModal/GalleryModalContent';
 import { ImageSlider } from '../../components/ImageSlider';
+import { SanityImage } from '../../components/SanityImage';
 
 
 export const BasicModalContent = (props: BasicModalPropsType) => {
@@ -34,14 +33,9 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                         {
                             headerImages.map((image, i) => {
                                 return(
-                                    <div key={i} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px] cursor-pointer
+                                    <div key={i} onClick={toggleGalleryMode} className='w-5/6 h-full mr-[8px] relative pr-[15px] overflow-hidden shrink-0 rounded-[24px] cursor-pointer
                                                     lg:w-1/4 lg:mr-0 lg:mx-[4px]'>
-                                        <Image 
-                                            src={urlFor(image.asset._ref).url()}
-                                            alt="placeholder image"
-                                            fill={true}
-                                            onClick={toggleGalleryMode}
-                                        />
+                                        <SanityImage image={image} />
                                     </div>
                                 )
                             })
@@ -57,7 +51,7 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                     </div>
                 </div>
                 <div className="ml-[20px] md:flex md:flex-row md:justify-between md:space-x-10">
-                    <div className='h-fit hidden md:block md:sticky md:top-0 '>
+                    <div className='h-fit hidden md:block md:sticky md:top-0'>
                         <ScrollLinks sections={sections}/>
                         <div className="flex flex-col items-start mt-[60px] ">
                             <h1 className='text-[24px] font-[600] text-[#1D1841] leading-[29.05px] mb-[10px]

@@ -7,20 +7,26 @@ import Testimonies from "./sections/Testimonies";
 import MoreAboutNewDawn from "./sections/MoreAboutNewDawn";
 import { SanityDocument } from "sanity";
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { allInfoPopupsQuery } from "@/sanity/lib/queries";
+import { homePageQuery } from "@/sanity/lib/queries";
+
+type homePageContentType = {
+  locateUsLink: string,
+  testimoniesLink: string,
+  testimonies: SanityDocument[],
+  infoPopups: SanityDocument[]
+}
 
 const LandingPage = async () => {
-  
-  const allInfoPopups: SanityDocument[] = await sanityFetch<SanityDocument[]>({ query: allInfoPopupsQuery });
+  const { locateUsLink, testimoniesLink, testimonies, infoPopups } = await sanityFetch<homePageContentType>({ query: homePageQuery });  
 
   return (
     <>
       <Hero />
       <LeadingWithLove />
       <CommunityLife />
-      <WorshipSection />
-      <BeABlessing infoPopups={allInfoPopups} />
-      <Testimonies />
+      <WorshipSection locationLink={locateUsLink} />
+      <BeABlessing infoPopups={infoPopups} />
+      <Testimonies testimonies={testimonies} testimoniesShareLink={testimoniesLink} />
       <MoreAboutNewDawn />
     </>
   );
