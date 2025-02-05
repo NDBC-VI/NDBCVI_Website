@@ -24,8 +24,6 @@ export const faqPopupQuery = groq`*[_type == "faqPopup"][0] {
 
 export const eventsPopupQuery = groq`*[_type == "eventsPopup"][0] {
   "data": *[_type == "eventsPopup"][0] {
-    title,
-    slug,
     images,
     "eventIds": events[]._ref
     },

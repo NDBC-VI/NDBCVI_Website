@@ -23,7 +23,7 @@ export const Carousel = ({items, next, prev, displayed, autoSlide = false, autoS
             <div className='w-full flex flex-col-reverse gap-[24px] md:flex-col'>
                 <div className='ml-[20px] w-11/12 flex justify-between'>
                     <h3 className='text-[18px] text-[#757575] font-[500] md:hidden'>Swipe to see more events</h3>
-                    { items.length > 0 &&
+                    { items.length > 1 &&
                         <div id="modal-carouselScrollers" className="flex gap-[8px] md:mt-[18px]
                                                             md:gap-[6px]">
                             <button onClick={prev} disabled={displayed === 0}>
