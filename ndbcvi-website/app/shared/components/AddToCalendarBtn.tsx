@@ -10,7 +10,7 @@ import outlookIcon from "@/app/assets/mail-svgs/microsoftoutlook-logo.svg";
 import calendarIcon from "@/app/assets/svgs/calendar.svg";
 import Image from 'next/image';
 
-export const AddToCalendarBtn = ({event}: {event: SanityDocument}) => {
+export const AddToCalendarBtn = ({event}: {event?: SanityDocument}) => {
 
     const addToCalendarRef = useRef(null);
 
@@ -18,10 +18,10 @@ export const AddToCalendarBtn = ({event}: {event: SanityDocument}) => {
     const toggleIsOpen = () => setIsOpen(!isOpen);
 
     const addToCalendar = {
-        title: event.title,
+        title: event?.title,
         description: "PortableTextBlock to String",
-        start: event.startDate,
-        end: event.endDate || new Date(new Date(event.startDate).getTime() + (1000 * 60 * 60)),
+        start: event?.startDate,
+        end: event?.endDate || new Date(new Date(event?.startDate).getTime() + (1000 * 60 * 60)),
     }
     const appleUrl = ics(addToCalendar);
     const googleUrl = google(addToCalendar);
@@ -29,14 +29,13 @@ export const AddToCalendarBtn = ({event}: {event: SanityDocument}) => {
     const outlookUrl = outlook(addToCalendar);
     const yahooUrl = yahoo(addToCalendar);
 
-    const handleOnClick = (event: MouseEvent) => {
-        if (addToCalendarRef.current && !event.composedPath().includes(addToCalendarRef.current)) {
+    const handleOnClick = (event?: MouseEvent) => {
+        if (addToCalendarRef.current && !event?.composedPath().includes(addToCalendarRef.current)) {
             setIsOpen(false);
         }
     }
-    const handleOnEscPress = (event: KeyboardEvent) => {
-        console.log(event);
-        if(event.code === "Escape") {
+    const handleOnEscPress = (event?: KeyboardEvent) => {
+        if(event?.code === "Escape") {
             setIsOpen(false);
         }
     }
