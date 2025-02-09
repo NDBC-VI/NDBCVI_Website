@@ -8,10 +8,13 @@ export const SanityImage = ({image}: {image: SanityImageObject}) => {
         <Image 
             src={urlFor(image.asset._ref).url()}
             alt="placeholder image"
-            loader={({ width, quality=100 }) => 
-                urlFor(image.asset._ref).width(width).quality(quality).url()
+            loader={({ width, quality=75 }) => 
+                urlFor(image.asset._ref).format("webp").width(width).quality(quality).auto("format").url()
             }
             fill={true}
+            priority
+            placeholder='blur'
+            blurDataURL={urlFor(image.asset._ref).width(10).blur(50).url()}
         />
     )
 }
