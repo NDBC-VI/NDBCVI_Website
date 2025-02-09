@@ -18,7 +18,7 @@ export const ImageCarousel = ({images}: {images: SanityImageObject[]}) => {
         if(!autoSlide) {
             return;
         }
-        const slideInterval = setInterval(next, autoSlideInterval);
+        const slideInterval = setTimeout(() => setInterval(next, autoSlideInterval), 500);
         
         return() => clearInterval(slideInterval);
     },)
@@ -37,7 +37,7 @@ export const ImageCarousel = ({images}: {images: SanityImageObject[]}) => {
             <div id="carousel-dot-buttons" className='absolute bottom-[1.5rem] left-[50%] translate-x-[-50%] flex'>
                 {
                     images.map((_, i) => (
-                        <button key={i} onClick={() => setDisplayed(i)} className={`w-[16px] h-[16px] flex justify-center items-center hover:scale-150 outline-none aria-label ${i === displayed ? 'scale-150' : ''}`}>
+                        <button key={i} onClick={() => setDisplayed(i)} aria-label={`Display image ${i}`} className={`w-[16px] h-[16px] flex justify-center items-center hover:scale-150 ${i === displayed ? 'scale-150' : ''}`}>
                             <div className={`w-[0.5rem] h-[0.5rem] rounded-full border-[2px] border-white transition-all ${i === displayed ? 'bg-white' : 'bg-inherit'}`} />
                         </button>
                     ))

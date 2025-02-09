@@ -16,6 +16,7 @@ const Newsletter = () => {
       <div className="flex justify-center">
         <div className="w-full flex flex-col items-center justify-center gap-6 md:flex-row">
           <input
+            aria-label="Enter your email to subscribe to newsletter"
             type="text"
             className="border rounded-[100px] py-3 px-6 w-4/5 md:w-[396px]"
             placeholder="Enter email address"
