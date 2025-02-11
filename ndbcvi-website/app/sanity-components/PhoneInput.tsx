@@ -43,6 +43,7 @@ const PhoneInput = (props: StringInputProps) => {
             onChange={handlePhoneChange}
             placeholder="Enter phone number"
             style={{ padding: '5px', width: '200px' }}
+            aria-label='Phone Number input'
         />
         </div>
     );

@@ -26,6 +26,7 @@ const CustomInput = ({ type, placeholder }: CustomInputProps) => {
   return (
     <div className="w-full relative">
       <input
+        aria-label="Email/Phone Number Input"
         type={type === "email" || type === "text" ? "text" : "text"}
         className={`w-full pb-3 text-[24px] text-[#C4C4C4] border-b-[2px] focus:outline-none ${
           !isFocused ? "border-b-[#D9D9D9]" : "border-b-[#121212]"
