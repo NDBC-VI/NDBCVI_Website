@@ -21,7 +21,8 @@ export const ImageCarousel = ({images}: {images: SanityImageObject[]}) => {
         const slideInterval = setTimeout(() => setInterval(next, autoSlideInterval), 500);
         
         return() => clearInterval(slideInterval);
-    },)
+    },);
+
     
     return (
         <div className='w-full h-[94vh] rounded-[24px] self-stretch overflow-x-hidden relative'>
@@ -29,7 +30,7 @@ export const ImageCarousel = ({images}: {images: SanityImageObject[]}) => {
                 {
                     images.map((image, i) => (
                         <div key={i} className='w-full h-full relative shrink-0 grow-0'>
-                            <SanityImage image={image} />
+                            {i === displayed || i+1 === displayed ? <SanityImage image={image} /> : null}
                         </div>
                     ))
                 }

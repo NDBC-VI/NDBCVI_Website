@@ -3,7 +3,11 @@ import { SanityImageObject } from '@sanity/image-url/lib/types/types'
 import Image from 'next/image'
 import React from 'react'
 
-export const SanityImage = ({image}: {image: SanityImageObject}) => {
+interface ImageProps {
+    image: SanityImageObject
+}
+
+export const SanityImage: React.FC<ImageProps> = ({image}) => {
     return (
         <Image 
             src={urlFor(image.asset._ref).url()}
