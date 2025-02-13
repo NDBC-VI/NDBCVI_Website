@@ -18,7 +18,7 @@ export const ImageCarousel = ({images}: {images: SanityImageObject[]}) => {
         if(!autoSlide) {
             return;
         }
-        const slideInterval = setTimeout(() => setInterval(next, autoSlideInterval), 500);
+        const slideInterval = setInterval(next, autoSlideInterval);
         
         return() => clearInterval(slideInterval);
     },);
