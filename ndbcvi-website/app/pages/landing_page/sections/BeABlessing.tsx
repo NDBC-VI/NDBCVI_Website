@@ -35,7 +35,7 @@ const BeABlessing = ({ infoPopups }: { infoPopups: SanityDocument[] }) => {
                 modalActivator={
                   <ReusableCardComponent
                     key={infoPopup.slug.current}
-                    imgUrl={urlFor(infoPopup.thumbnailImage.asset._ref).url()}
+                    imgUrl={urlFor(infoPopup.thumbnailImage.asset._ref).format("webp").auto("format").url()}
                     title={infoPopup.title}
                     body={infoPopup.thumbnailCaption}
                     button={
