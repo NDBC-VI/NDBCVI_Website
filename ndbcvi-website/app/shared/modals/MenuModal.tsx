@@ -142,7 +142,7 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
             </div>
           </div>
           <a
-            className={` ${upcomingEvent ? "" : "hidden"} flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline`}
+            className={` ${upcomingEvent ? "" : "hidden"} w-fit flex gap-[6px] items-center text-[18px] font-[500] cursor-pointer underline`}
             href={upcomingEvent?.googleMapsLink}
             target="_blank"
           >
@@ -153,7 +153,7 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
           </a>
           <div
             style={{
-              backgroundImage: `url(${upcomingEvent ? urlFor(upcomingEvent?.image?.asset?._ref) : heroImg.src})`,
+              backgroundImage: `url(${upcomingEvent ? urlFor(upcomingEvent?.image?.asset?._ref).format("webp").auto("format").url() : heroImg.src})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
