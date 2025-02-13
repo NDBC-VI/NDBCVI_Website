@@ -1,6 +1,6 @@
 import CustomBtn from "@/app/shared/components/CustomBtn";
-import heroImg from "../../../assets/images/hero-img.webp";
-// import heroImg from "../../../assets/pngs/hero-img.png";
+// import heroImg from "../../../assets/images/hero-img.webp";
+import heroImg from "../../../assets/pngs/hero-img.png";
 
 const Hero = () => {
   return (
