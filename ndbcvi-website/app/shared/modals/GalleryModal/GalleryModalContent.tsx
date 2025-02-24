@@ -9,14 +9,6 @@ export const GalleryModalContent = ({images, parentModal, returnToModal}: {image
 
     return (
         <>
-            {/* {images.map((image, i) => (
-                <link 
-                key={`preload-${i}`} 
-                rel="preload" 
-                as="image" 
-                href={urlFor(image.asset._ref).url()} 
-                />
-            ))} */}
             <div className='flex flex-col overflow-hidden'>
                 <h1 className="title_font">Gallery</h1>
                 <button
@@ -35,17 +27,32 @@ export const GalleryModalContent = ({images, parentModal, returnToModal}: {image
                         clickFn={returnToModal}
                     />
                 </div>
-                <div id="masonryDisplay" className='hidden lg:block lg:py-14 lg:flex lg:flex-row lg:items-center lg:justify-center lg:flex-wrap'>
+                {/* className='hidden lg:block lg:py-14 lg:flex lg:flex-row lg:items-center lg:justify-center lg:flex-wrap' */}
+                <div id="masonryDisplay" className='hidden lg:block lg:text-center w-full columns-3'>
                     { images.map((image, i) => (
                         <>
-                            <Image
+                            <Image 
+                                key={i}
+                                src={urlFor(image.asset._ref).url()}
+                                alt="placeholder image"
+                                loader={({ width, quality=75 }) => 
+                                    urlFor(image.asset._ref).format("webp").width(width).quality(quality).auto("format").url()
+                                }
+                                width={425}
+                                height={200}
+                                priority
+                                placeholder='blur'
+                                blurDataURL={urlFor(image.asset._ref).width(10).blur(50).url()}
+                                className='m-2 block self-center'
+                            />
+                            {/* <Image
                                 key={i}
                                 src={urlFor(image.asset._ref).url()}
                                 alt="placeholder image"
                                 width={425}
                                 height={200}
                                 className='m-2'
-                            />
+                            /> */}
                         </>
                     ))}
                 </div>
