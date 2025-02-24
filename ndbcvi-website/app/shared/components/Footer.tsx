@@ -10,8 +10,8 @@ import FooterServiceCard from "./FooterServiceCard";
 const Footer = () => {
   return (
 
-    <footer className="mt-0 flex flex-col md:flex-row items-center md:items-start text-white bg-[#1D1841]">
-      <div className="w-full h-full px-[20px] py-[50px] md:w-1/2 md:px-[60px] md:pt-[60px]">
+    <footer className="mt-0 flex flex-col min-[820px]:flex-row items-center md:items-start text-white bg-[#1D1841]">
+      <div className="w-full h-full px-[20px] py-[50px] min-[820px]:w-1/2 md:px-[60px] md:pt-[60px]">
         <div className="flex justify-between">
           <Image src={churchLogo} alt="Church logo" width={43} />
           <div className="flex gap-[24px]">
@@ -55,8 +55,8 @@ const Footer = () => {
           © 2024 New Dawn Baptist Church
         </p>
       </div>
-      <div className="md:w-1/2 min-h-[800px] bg-red-400 relative">
-        <div className="w-full h-full">
+      <div className="w-full min-[820px]:w-1/2 min-h-[800px] relative">
+        <div className="w-full h-full bg-red-400">
           <Image
             src={heroImg.src}
             alt="Footer Image – Church praising God"
@@ -64,11 +64,11 @@ const Footer = () => {
           />
           <div className="w-full h-full absolute top-0 flex justify-center items-center">
             <div>
-              <div className="text-[18px]  font-[500] flex flex-col gap-[10px] md:flex-row md:gap-[26px] justify-center">
+              <div className="w-full text-center text-[18px] min-[820px]:text-red-400 font-[500] flex flex-col gap-[10px] min-[820px]:flex-row md:gap-[26px] justify-center">
                 <p>Sundays 8am - 11am</p>
                 <p>Wednesdays 6pm - 8pm</p>
               </div>
-              <h3 className="mt-4 text-[36px] font-[600] leading-[43.57px]">
+              <h3 className="mt-4 text-[36px] font-[600] text-center leading-[43.57px]">
                 Come and worship with us
               </h3>
             </div>
