@@ -34,8 +34,8 @@ const LeadingWithLove = () => {
         <div className="md:w-1/2 relative">
           <Image src={heroImg} alt="hero img" className="object-fill h-full" />
           <div className="absolute bottom-[-3%] px-[30px] md:px-0 md:pl-[48px] text-white flex md:items-end w-full h-full">
-            <div className="flex flex-col items-start justify-center lg:mb-[120px] w-full">
-              <h3 className="md:text-[36px] text-[18px]  leading-[45px]">
+            <div className="flex flex-col items-center justify-center md:items-start md:mb-[120px] w-full">
+              <h3 className="md:text-[36px] text-center text-[24px] font-[500] leading-[32px] md:text-start md:font-[600] md:leading-[45px]">
                 Join us and experience <br /> the love of God at NDBC
               </h3>
               <div>

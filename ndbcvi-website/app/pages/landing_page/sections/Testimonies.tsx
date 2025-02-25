@@ -33,22 +33,22 @@ const Testimonies = ({ testimonies, testimoniesShareLink }: { testimonies: Sanit
                 daily life, and we strive to teach sound Biblical principles.
               </p>
             </div>
-            <a href={testimoniesShareLink}>
-              <button
-                type="button"
-                className="bg-transparent border border-white rounded-[100px] flex gap-2 py-3 px-[18px]"
-              >
+            <button
+              type="button"
+              className="bg-transparent border border-white rounded-[100px]"
+            >
+              <a href={testimoniesShareLink} className="flex gap-2 py-3 px-[18px]">
                 <p className="text-[500]">Share with us</p>
                 <Image src={whiteRightArrow} alt="right arrow" />
-              </button>
-            </a>
+              </a>
+            </button>
           </div>
         </div>
         <div className="md:w-1/2 md:h-full">
           <div className="w-full h-[75%] px-[35px] py-[65px] bg-[#2C2563] text-[23px] font-[300] overflow-scroll">
             <PortableText value={testimonies[displayed].testimony} />
           </div>
-          <div className="w-full h-[25%] bg-[#1D1841] p-[35px] flex justify-between items center">
+          <div className="w-full h-[25%] bg-[#1D1841] p-[35px] flex justify-between items-center">
             <h3 className="text-[40px]">{testimonies[displayed].label}</h3>
             <div className="flex gap-[6px] items center">
               <button onClick={prev} disabled={displayed === 0}>
