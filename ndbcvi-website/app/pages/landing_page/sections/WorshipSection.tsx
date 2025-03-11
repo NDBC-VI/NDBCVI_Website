@@ -43,7 +43,7 @@ const WorshipSection = ({ locationLink }: { locationLink: string } ) => {
               <Image src={mapImg} alt="map image" fill={true} />
             </div>
             <div className="w-[80%] lg:w-full mx-auto">
-              <h2 className="text-[24px] lg:text-[36px] md:bg-red-300 lg:bg-green-400 font-[600] lg:leading-[40px] mb-6">
+              <h2 className="text-[24px] lg:text-[36px] font-[600] lg:leading-[40px] mb-6">
                 Locate our centre in VI,
                 <br className="lg:hidden" /> Lagos
               </h2>
