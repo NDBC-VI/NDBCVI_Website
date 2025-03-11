@@ -19,13 +19,16 @@ const HearFromYou = ({ contactOptions, submitLink }: { contactOptions: SanityDoc
         </div>
         <div className="flex flex-wrap gap-[18px]">
           {contactOptions.map((contact) => (
-            <button
-              key={contact._type === "contactEmail" ? contact.emailAddress : contact.phoneNumber}
-              type="button"
-              className="text-[14px] py-2 px-3 md:px-7 md:text-[16px] border border-[#121212] text-[#2C2563] rounded-[100px]"
-            >
-              {contact._type === "contactEmail" ? contact.emailAddress : contact.phoneNumber}
-            </button>
+            <a 
+              key={contact._type === "contactEmail" ? contact.emailAddress : contact.phoneNumber} 
+              href={contact._type === "contactEmail" ? `mailto:${contact.emailAddress}` : `tel:${contact.phoneNumber}`}>
+              <button
+                type="button"
+                className="text-[14px] py-2 px-3 md:px-7 md:text-[16px] border border-[#121212] text-[#2C2563] rounded-[100px]"
+              >
+                {contact._type === "contactEmail" ? contact.emailAddress : contact.phoneNumber}
+              </button>
+            </a>
           ))}
         </div>
       </div>
