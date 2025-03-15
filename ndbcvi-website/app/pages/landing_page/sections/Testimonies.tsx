@@ -49,7 +49,7 @@ const Testimonies = ({ testimonies, testimoniesShareLink }: { testimonies: Sanit
             <PortableText value={testimonies[displayed].testimony} />
           </div>
           <div className="w-full h-[25%] bg-[#1D1841] p-[35px] flex justify-between items-center">
-            <h3 className="text-[40px]">{testimonies[displayed].label}</h3>
+            <h3 className="text-[24px]">{testimonies[displayed].label}</h3>
             <div className="flex gap-[6px] items center">
               <button onClick={prev} disabled={displayed === 0}>
                 <Image src={displayed === 0 ? greyNavArrow : whiteNavArrow} alt="nav left" className="rotate-180" />

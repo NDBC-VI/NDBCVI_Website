@@ -23,7 +23,7 @@ const prompts = [
 
 const MoreAboutNewDawn = () => {
   return (
-    <section className="pt-[60px] lg:mb-[60px] lg:pt-[120px]">
+    <section className="pt-[60px] lg:pt-[120px]">
       <div className="max-w-[1512px] mx-auto">
         <div className="text-center">
           <h2 className="mb-[9px] text-[24px] lg:text-[40px]">

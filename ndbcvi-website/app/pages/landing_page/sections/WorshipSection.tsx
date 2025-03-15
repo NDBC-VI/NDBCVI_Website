@@ -3,7 +3,7 @@ import mapImg from "../../../assets/pngs/map-img.png";
 import Link from "next/link";
 const WorshipSection = ({ locationLink }: { locationLink: string } ) => {
   return (
-    <section className="md:px-[60px] px-[20px] pt-[120px]">
+    <section className="md:px-[60px] px-[20px] pt-[180px]">
       <div className="max-w-[1392px] md:h-[80vh] mx-auto flex md:flex-row flex-col gap-3">
         <div className="md:w-1/2 w-full h-1/3 md:h-full relative">
           <div className="bg-[rgba(0,0,0,0.4)] absolute top-0 left-0 w-full h-full rounded-[10px]"></div>

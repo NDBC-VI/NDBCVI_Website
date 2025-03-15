@@ -48,13 +48,13 @@ const ReusableCardComponent = ({
         id="dim-bg"
         className="bg-[rgba(0,0,0,0.35)] absolute top-0 left-0 w-full h-full "
       ></div>
-      <div className="text-white absolute bottom-[-8.5%] group-hover:bottom-[8%] transition-all duration-500 flex flex-col gap-2">
+      <div className={`text-white absolute ${button ? "bottom-[-5%]" : "bottom-0"} group-hover:bottom-[5%] transition-all duration-500 flex flex-col`}>
         <h3 className="text-[30px] font-[600]">{title}</h3>
-        <div id="card-text">
-          <p className="text leading-[24px]">{body}</p>
+        <div id="card-text h-fit">
+          <p className="leading-[24px]">{body}</p>
           <style>{containerQuery}</style>
         </div>
-        <div>{button}</div>
+        <div className="mt-3 opacity-0 group-hover:opacity-100 transition-all duration-500">{button}</div>
       </div>
     </div>
   );

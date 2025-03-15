@@ -4,7 +4,7 @@ import React from 'react'
 export const ExpandableComponent = ({title, content}: {title: string, content: PortableTextBlock}) => {
     return (
         <div>
-            <details className='bg-white shadow rounded group mb-4'>
+            <details className='bg-white rounded group mb-4'>
                 <summary className='list-none flex flex-wrap items-center cursor-pointer focus-visible:outline-none rounded group-open:rounded-b-none group-open:z-[1]'>
                     <h3 className='flex flex-1 p-4 font-semibold'>
                         {title}
