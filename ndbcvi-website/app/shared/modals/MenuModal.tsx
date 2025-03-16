@@ -64,8 +64,8 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
 
   return (
     <section
-      className={`absolute z-20 top-0 ${
-        isOpen ? "right-0" : "right-[-100%]"
+      className={`absolute top-0 left-0 ${
+        isOpen ? "animate-[showElement_0.25s_ease-in_1_forwards]" : "hidden"
       } bg-white w-full flex flex-col md:overflow-hidden md:flex-row-reverse transition-all duration-500 h-[101dvh] sm:max-lg:h-[104vh] overflow-y-auto`}
     >
       <div className="md:w-1/2 p-10 text-black flex flex-col ">

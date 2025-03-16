@@ -92,3 +92,16 @@ p {
       opacity: 0%;
     }
   }
+
+  /* Show element animation */
+  @keyframes showElement {
+    0% {
+      opacity: 0%;
+    }
+    20% {
+      opacity: 50%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }

@@ -31,7 +31,6 @@ const dmSansFont = DM_Sans({
   variable: "--font-dm-sans"
 })
 
-
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -45,11 +44,6 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          rel="icon"
-          type="image/svg+xml"
-          href="./assets/pngs/church-logo.png"
-        />
         <title>NDBCVI</title>
       </head>
       <body className={`${quicksandFont.variable} ${interFont.variable} ${dmSansFont.variable}`}>

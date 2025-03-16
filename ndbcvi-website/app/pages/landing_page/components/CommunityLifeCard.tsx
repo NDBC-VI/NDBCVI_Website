@@ -16,7 +16,7 @@ const CommunityLifeCard = ({ name, img }: CommunityLifeCardProps) => {
           <Image
             src={img}
             alt="Activity card img"
-            className="w-full h-full rounded-[24px]"
+            className="w-full h-full rounded-[24px] object-cover"
             fill
           />
         </div>

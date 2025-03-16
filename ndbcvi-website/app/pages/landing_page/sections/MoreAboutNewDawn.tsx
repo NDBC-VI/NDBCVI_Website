@@ -25,7 +25,7 @@ const prompts = [
 
 const MoreAboutNewDawn = () => {
   return (
-    <section className="py-[120px]">
+    <section className="pt-[120px]">
       <div className="max-w-[1512px] mx-auto">
         <div className="text-center">
           <h2 className="text-[40px]">More about New Dawn</h2>

@@ -1,4 +1,4 @@
-import parsePhoneNumberFromString, { CountryCode } from "libphonenumber-js";
+import parsePhoneNumberFromString from "libphonenumber-js";
 import { Rule } from "@sanity/types";
 import PhoneInput from "@/app/sanity-components/PhoneInput";
 
@@ -22,13 +22,12 @@ const contactPhone = {
                 input: PhoneInput,
             },
             validation: (rule: Rule) => 
-                rule.custom((phone: string, context) => {
+                rule.custom((phone: string) => {
                     if(!phone) {
                         return "Phone number is required";
                     }
-
-                    const countryCode = context.document?.countryCode as CountryCode || "+1"; // Use Nigeria as default
-                    const phoneNumber = parsePhoneNumberFromString(countryCode + phone);
+                    const phoneNumber = parsePhoneNumberFromString(phone);
+                    console.log(phone);
                     if (!phoneNumber || !phoneNumber.isValid()) {
                         return 'Invalid phone number for the selected country';
                     }
