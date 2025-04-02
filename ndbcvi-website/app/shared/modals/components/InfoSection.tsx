@@ -11,7 +11,7 @@ export const InfoSection = ({infoSection}: {infoSection: InfoSectionType}) => {
             <h1 className='text-[20px] mb-[18px] md:text-[36px] font-[600]'>{infoSection.title}</h1>
             {
                 infoSection?.content && (
-                    <div className='text-[16px] font-[400] md:text-[24px]'>
+                    <div className='text-[16px] font-[400] md:text-[18px]'>
                         <PortableText value={infoSection.content} />
                     </div>
                     )

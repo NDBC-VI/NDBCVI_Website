@@ -70,11 +70,12 @@ const Navbar = ({
   return (
     <NavBarContext.Provider value={{ eventsPopup, faqPopup, banner }}>
       <div
-        className={`${pathname.includes("admin") ? "hidden" : ""} fixed top-0 w-full flex flex-col transition ease-in duration-[1500] ${bannerVisible && !isOpen ? "" : `-translate-y-[126px] lg:-translate-y-[62px]`}`}
+        className={`${pathname.includes("admin") ? "hidden" : ""} fixed top-0 w-full flex flex-col transition ease-in duration-[1500] ${bannerVisible && !isOpen ? "" : `-translate-y-[126px] min-[527px]:-translate-y-[106px] min-[1024px]:-translate-y-[62px]`}`}
         style={{ zIndex: 11 }}
       >
         <div
           id="banner"
+          aria-live="polite"
           className={`w-full flex py-[18px] px-[20px] bg-[#1D1841] lg:justify-center lg:items-center ${bannerVisible && !isOpen ? "" : "animate-[hideElement_2s_ease-in_1_forwards]"}`}
         >
           <div className="w-[90%] flex flex-col gap-[18px] text-[16px] font-[500] text-left lg:flex-row justify-center">

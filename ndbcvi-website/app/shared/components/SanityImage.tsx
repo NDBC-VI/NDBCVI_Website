@@ -19,6 +19,7 @@ export const SanityImage: React.FC<ImageProps> = ({image}) => {
             priority
             placeholder='blur'
             blurDataURL={urlFor(image.asset._ref).width(10).blur(50).url()}
+            className='object-cover'
         />
     )
 }

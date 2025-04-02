@@ -7,8 +7,8 @@ import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 const AboutNDBC = ({images}: {images: SanityImageObject[]}) => {
   return (
     <section className="py-[150px] px-[18px] w-full">
-      <div className="max-w-[1512px] mx-auto flex flex-col lg:h-[94vh] lg:flex-row gap-[18px]">
-        <div className="lg:w-1/2 md:bg-[#F6F6F6] rounded-[24px] px-[24px] py-[45px] text-[20px]">
+      <div className="max-w-[1512px] mx-auto flex flex-col items-center lg:flex-row gap-[18px]">
+        <div className="lg:w-1/2 h-full md:bg-[#F6F6F6] rounded-[24px] px-[24px] py-[60px] text-[20px]">
           <h2 className="text-[38px] font-[600] mb-[16px]">About NDBC</h2>
           <p>
             New Dawn Baptist Church (NDBC) was established on November 21st,

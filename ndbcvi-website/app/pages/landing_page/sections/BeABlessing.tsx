@@ -9,7 +9,7 @@ import rightArrow from "@/app/assets/svgs/reusable-right-arrow.svg";
 
 const BeABlessing = ({ infoPopups }: { infoPopups: SanityDocument[] }) => {
   return (
-    <section className="py-[120px]">
+    <section className="py-[180px]">
       <div className="text-center">
         <h2 className="text-[40px]">Be a Blessing</h2>
         <p className="text-[20px] leading-[33.6px]">

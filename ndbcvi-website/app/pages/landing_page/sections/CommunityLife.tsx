@@ -3,9 +3,9 @@ import heroImg from "../../../assets/pngs/hero-img.png";
 
 const CommunityLife = () => {
   return (
-    <section className="bg-[#F6F6F6] h-full lg:max-h-[100vh] flex justify-center lg:px-[40px] pt-[96px] relative overflow-hidden">
+    <section className="bg-[#F6F6F6] h-full lg:max-h-[100vh] flex justify-center lg:px-[40px] pt-[120px] relative overflow-hidden">
       <div className="w-full h-full flex flex-col text-center lg:gap-[96px]">
-        <div className="z-[1] py-[50px]">
+        <div className="z-[1]">
           <h2 className="text-[40px]">Community life</h2>
           <p className="text-[20px]  leading-[33.6px]">
             We believe in dynamic Christian worship as the foundation for daily
