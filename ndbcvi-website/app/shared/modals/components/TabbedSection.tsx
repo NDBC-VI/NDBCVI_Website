@@ -21,7 +21,7 @@ export const TabbedSection = ({subSections}: {subSections: InfoSectionType[]}) =
                 </div>
                 <div>
                 {subSections.map((section: InfoSectionType, index: number) => (
-                        <div key={section.slug.current} className={`text-[16px] font-[400] md:text-[24px] ${selectedTab === index ? "" : 'hidden'}`}>
+                        <div key={section.slug.current} className={`text-[16px] font-[400] md:text-[18px] ${selectedTab === index ? "" : 'hidden'}`}>
                             <PortableText value={section.content} />
                         </div>
                     ))}
