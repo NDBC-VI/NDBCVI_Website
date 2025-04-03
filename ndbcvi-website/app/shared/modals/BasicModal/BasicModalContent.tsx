@@ -58,7 +58,7 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                                 md:text-[36px] md:leading-[43.57px] md:mb-[36px]'>
                                     We&apos;re excited to <br /> have you join us
                             </h1>
-                            <ActionPromptBtn title='Join a ministry' url='/pages/information_center'/>
+                            <ActionPromptBtn title='Join a ministry' url=''/>
                         </div>
                     </div>
                     <div className="md:w-2/3 md:px-6 md:relative md:self-end">
@@ -80,7 +80,7 @@ export const BasicModalContent = (props: BasicModalPropsType) => {
                                     md:text-[36px] md:leading-[43.57px] md:mb-[36px]'>
                                         We&apos;re excited to <br className='md:hidden' /> have <br className='hidden md:block' /> you join us
                                 </h1>
-                                <ActionPromptBtn title='Join a ministry' url='/pages/information_center'/>
+                                <ActionPromptBtn title='Join a ministry' url=''/>
                             </div>
                         </div>
                     </div> 

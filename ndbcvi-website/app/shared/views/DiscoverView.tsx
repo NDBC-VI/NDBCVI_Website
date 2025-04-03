@@ -12,7 +12,7 @@ interface ViewProps {
 const discoverLinks = [
   { title: "About New Dawn", path: "/pages/about_ndbc", id: 1 },
   { title: "Media", path: "/pages/media", id: 2 },
-  { title: "Information Center", path: "", id: 3 },
+  { title: "Information Center", path: "/pages/information_center", id: 3 },
   { title: "Events", path: "", id: 4 },
   { title: "Donations", path: "", id: 5 },
   { title: "Partners", path: "", id: 6 },
@@ -24,16 +24,16 @@ const DiscoverView = ({ clickFn }: ViewProps) => {
   return (
     <div className='flex flex-col gap-[16px] justify-start whitespace-nowrap'>
       {discoverLinks.map((link) => {
-        if(link.title === "Information Center") {
+        if(link.title === "Information Centre") {
           return (
-            <ModalTemplate
+            <ModalTemplate 
               key={link.id}
               modalActivator={
                 <MenuLink 
                   link={link}
                 />
               }
-              modalContent={<FaqModalContent faqs={faqPopup} />}
+              modalContent={<FaqModalContent faqs={faqPopup} />} 
             />
           )
         }
