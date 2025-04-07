@@ -1,6 +1,5 @@
 "use client";
 
-import Link from 'next/link';
 import React from 'react'
 
 interface ActionPromptBtnProps {
@@ -9,12 +8,12 @@ interface ActionPromptBtnProps {
   }
 export const ActionPromptBtn = ({ title, url }: ActionPromptBtnProps) => {
   return (
-    <Link href={url} target='_blank'>
+    <a href={url} target='_blank'>
         <button
             type="button"
             className="bg-[#1D1841] text-white text-[14px] px-[24px] py-[8x] font-[500] py-2 px-6 rounded-[100px] text-nowrap">
             {title}
         </button>
-    </Link>
+    </a>
   )
 }

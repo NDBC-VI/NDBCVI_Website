@@ -11,27 +11,11 @@ const AboutNDBC = ({images}: {images: SanityImageObject[]}) => {
         <div className="lg:w-1/2 h-full md:bg-[#F6F6F6] rounded-[24px] px-[24px] py-[60px] text-[20px]">
           <h2 className="text-[38px] font-[600] mb-[16px]">About NDBC</h2>
           <p>
-            New Dawn Baptist Church (NDBC) was established on November 21st,
-            2004, in Victoria Island, Lagos, with Dn Femi Frank Afolabi as the
-            Church Leader. In 2007, the Church appointed its first full-time
-            pastor, Samson Aderinto Adedokun. By March 29th, 2009, New Dawn had
-            been restructured as an independent, self-governing Baptist Church,
-            signifying a significant milestone in its growth and development.
-          </p>
-          <p className="text-[20px] my-[16px]">
-            Since then, New Dawn Baptist Church has achieved many
-            accomplishments in its mission to serve its community and spread the
-            message of the gospel. Today, we are proud to be affiliated with the
-            Nigerian Baptist Convention, as well as the Shalom Baptist
-            Association and the Lagos Central Baptist Conference.
-          </p>
-          <p>
-            New Dawn Baptist Church (NDBC) was established on November 21st,
-            2004, in Victoria Island, Lagos, with Dn Femi Frank Afolabi as the
-            Church Leader. In 2007, the Church appointed its first full-time
-            pastor, Samson Aderinto Adedokun. By March 29th, 2009, New Dawn had
-            been restructured as an independent, self-governing Baptist Church,
-            signifying a significant milestone in its growth and development.
+            Founded in 2004 in Victoria Island, Lagos, New Dawn Baptist Church is a Christ-centered congregation committed to nurturing faith 
+            and building meaningful relationships within the body of Christ. As a self-governing church under the Nigerian Baptist Convention, 
+            we are dedicated to transforming lives through sound teaching, Spirit-filled worship, and impactful outreach. Guided by our mission 
+            to lead others in embracing, exalting, and expressing Jesus, we stand as a light of hope and love in our community, enabling 
+            spiritual growth and discipleship.
           </p>
         </div>
         <div className="hidden lg:block lg:w-1/2 lg:h-full flex">
