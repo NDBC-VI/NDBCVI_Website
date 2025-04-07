@@ -12,22 +12,10 @@ const LeadingWithLove = () => {
           </h1>
           <div className="flex flex-col leading-[30px] gap-[24px]">
             <p>
-              At New Dawn Baptist Church (NDBC or New Dawn), we are a dynamic
-              and Christ-centered community that believes in leading with love.
-              Our ministry is centered around compassion, grace, and
-              understanding, following the example of Jesus.
-            </p>
-            <p>
-              We believe in dynamic Christian worship as the foundation for
-              daily life, and we strive to teach sound Biblical principles with
-              love as our guiding principle.
-            </p>
-            <p>
-              Our goal is to create a community of acceptance and belonging
-              where every person, regardless of background, is welcome to
-              worship and grow in faith. With boldness and passion, we declare
-              the truth and reveal and apply Biblical truth to every area of
-              life. Join us and experience the love of God at NDBC
+              Welcome to New Dawn Baptist Church (NDBC), a thriving community of believers dedicated to faith, love, and service. 
+              Whether you&rsquo;re a first-time visitor or a returning member, we&rsquo;re delighted to share this journey of faith with you. 
+              At NDBC, we are committed to revealing Jesus, restoring people, and raising communities. We warmly invite you to 
+              experience the worship, fellowship, and connection that make our church a true home
             </p>
           </div>
         </div>
