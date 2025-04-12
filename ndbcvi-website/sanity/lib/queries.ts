@@ -36,7 +36,8 @@ export const eventsPopupQuery = groq`*[_type == "eventsPopup"][0] {
         startDate,
         endDate,
         location,
-        googleMapsLink
+        mapsLink,
+        onlineMeetingLink
     }
 }`
 
@@ -47,7 +48,8 @@ export const eventsQuery = groq`*[_type == "events" && startDate > now() && date
     content,
     startDate,
     location,
-    googleMapsLink
+    mapsLink,
+    onlineMeetingLink
 }`
 // ----------------------------------------------------------------------------------------------------------------------------------------
 export const homePageQuery = groq`*[_type == "homePage"][0] {

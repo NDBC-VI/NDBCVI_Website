@@ -7,6 +7,8 @@ import React from 'react'
 import { EventsModalCountdownComponent } from './EventsModalCountdownComponent'
 import blackMapPin from "@/app/assets/svgs/map-pin-black.svg";
 import calendar from "@/app/assets/svgs/calendar.svg";
+import computer from "@/app/assets/svgs/computer-screen.svg";
+import magnifyingGlass from "@/app/assets/svgs/magnifying-glass.svg";
 import ReusableCardComponent from '@/app/shared/components/ReusableCardComponent'
 
 type EventPropsType = {
@@ -24,6 +26,7 @@ export const Event = (props: EventPropsType) => {
     }).format(startDate);
   }
 
+  console.table(event);
   return (
       <div className='w-full px-[20px] flex flex-col justify-center'>
         <div className="flex w-full flex-col-reverse md:flex-row">
@@ -36,13 +39,28 @@ export const Event = (props: EventPropsType) => {
                 <Image src={calendar} alt="calendar icon" width={24} />
                 <p className='text-[16px] font-[400]'>{formatDate(new Date(event.startDate))}</p>
               </div>
-              <div className="flex gap-[6px] items-center">
-                <Image src={blackMapPin} alt="map pin" width={24} />
-                <p className='text-[16px] font-[400]'>{event.location}</p>
-              </div>
-              <a className="text-[16px] font-[400] underline" href={event.googleMapsLink} target="_blank">
-                Open location in Maps
-              </a>
+              { event.location !== null &&
+                <div className="flex gap-[6px] items-center">
+                  <Image src={magnifyingGlass} alt="map pin" width={24} />
+                    <p className='text-[16px] font-[400]'>{event.location}</p>
+                </div>
+              }
+              { event.mapsLink && 
+                <div className="flex gap-[6px] items-center">
+                  <Image src={blackMapPin} alt="map pin" width={24} />
+                    <a className="text-[16px] font-[400] underline" href={event.mapsLink} target="_blank">
+                      Open location in Maps
+                    </a>
+                </div>
+              }
+              { event.onlineMeetinglink !== null &&
+                <div className="flex gap-[6px] items-center">
+                  <Image src={computer} alt="map pin" width={24} />
+                  <a className="text-[16px] font-[400] underline" href={event.onlineMeetingLink} target="_blank">
+                    Join Online
+                  </a>
+                </div>
+              }
             </div>
         </div>
       </div>

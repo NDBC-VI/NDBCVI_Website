@@ -12,7 +12,7 @@ export const TabbedSection = ({subSections}: {subSections: InfoSectionType[]}) =
     return (
         <div className='w-full justify-center items-center pb-5'>
             <div className="flex flex-col gap-y-2 w-full h-fit overflow-x-hidden">
-                <div className="w-full overflow-x-scroll flex items-center">
+                <div className="w-full flex flex-wrap items-center">
                     {subSections.map((section: InfoSectionType, index: number) => (
                         <div key={section.slug.current} className='my-3 mr-3 text-[14px] md:text-[18px]'>
                             <TabBtn title={section.title} active={selectedTab === index} clickFn={() => setSelectedTab(index)}/>

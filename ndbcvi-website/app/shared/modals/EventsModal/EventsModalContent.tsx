@@ -4,7 +4,7 @@ import { useModalContext } from '@/app/context/modalContext';
 import { Calendar } from '@/app/shared/modals/EventsModal/components/Calendar';
 import { SanityDocument } from 'next-sanity';
 import React, { useState } from 'react';
-import { Carousel } from '../../components/Carousel';
+import { EventsCarousel } from '../../components/EventsCarousel';
 import { EventScrollLinks } from './components/EventScrollLinks';
 import { useNavBarContext } from '@/app/context/navBarContext';
 import { ImageSlider } from '../../components/ImageSlider';
@@ -82,7 +82,7 @@ export const EventsModalContent = () => {
             <div className="w-full md:w-2/3 md:px-6 md:relative md:self-end">
               { upcomingEvents &&
                 <div id="events" className="w-full">
-                  <Carousel items={upcomingEvents} next={scrollToNextEvent} prev={scrollToPrevEvent} displayed={displayed} autoSlide={false} autoSlideInterval={3000} />
+                  <EventsCarousel items={upcomingEvents} next={scrollToNextEvent} prev={scrollToPrevEvent} displayed={displayed} autoSlide={false} autoSlideInterval={3000} />
                 </div>
               }
               { upcomingEvents.length === 0  &&

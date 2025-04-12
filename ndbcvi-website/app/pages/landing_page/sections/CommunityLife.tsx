@@ -8,10 +8,9 @@ const CommunityLife = () => {
         <div className="z-[1]">
           <h2 className="text-[40px]">Community life</h2>
           <p className="text-[20px]  leading-[33.6px]">
-            We believe in dynamic Christian worship as the foundation for daily
-            life, and <br className="hidden md:block" /> we strive to teach
-            sound Biblical principles with love as our guiding{" "}
-            <br className="hidden md:block" /> principle.
+            Life is better when we do it together! At New Dawn Baptist Church, we have <br />
+            vibrant communities where you can connect, grow, and <br /> 
+            walk this faith journey with others.
           </p>
         </div>
 
