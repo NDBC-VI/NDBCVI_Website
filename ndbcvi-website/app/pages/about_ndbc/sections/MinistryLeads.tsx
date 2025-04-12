@@ -1,12 +1,38 @@
-import { PortableText } from "next-sanity";
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import { PortableText, SanityDocument } from "next-sanity";
 import { PeopleList } from "../components/PeopleList";
 import { MinistryLeadList } from "@/app/types";
+import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
+import blackNavArrow from "../../../assets/svgs/nav-arrow-black.svg";
+
+type CardGroup = {
+  groups: Array<SanityDocument[]>
+}
 
 const MinistryLeads = ({
   ministryLeads,
 }: {
   ministryLeads: MinistryLeadList;
 }) => {
+
+  const displayGroups: CardGroup = { groups: [] };
+  for(let i=0; i<ministryLeads.ministryLeadList.length; i+=11) {
+    const ministryLeadGroup: SanityDocument[] = ministryLeads.ministryLeadList.slice(i, i+10);
+    displayGroups.groups.push(ministryLeadGroup);
+  }
+
+  const [display, setDisplay] = useState(0);
+
+  const prev = () => {
+    setDisplay(display-1);
+  }
+
+  const next = () => {
+    setDisplay(display+1);
+  }
+
   return (
     <section className="w-full pl-[40px] pt-[60px] lg:pt-[150px] flex flex-col items-center z-0 lg:px-[40px]">
       <div
@@ -18,7 +44,16 @@ const MinistryLeads = ({
           <PortableText value={ministryLeads.description} />
         </div>
       </div>
-      <PeopleList list={ministryLeads.ministryLeadList} />
+      <PeopleList list={displayGroups.groups[display]} />
+      <div className="flex gap-[6px] items-center">
+        <button onClick={prev} disabled={display == 0}>
+          <Image src={ display == 0 ? greyNavArrow : blackNavArrow } alt="nav left icon" className="rotate-180" />
+        </button>
+        <p className="text-[20px] font-[500]">{display+1} / {displayGroups.groups.length}</p>
+        <button onClick={next} disabled={display == displayGroups.groups.length-1}>
+          <Image src={ display == displayGroups.groups.length-1 ? greyNavArrow : blackNavArrow } alt="nav right icon" />
+        </button>
+      </div>
     </section>
   );
 };
