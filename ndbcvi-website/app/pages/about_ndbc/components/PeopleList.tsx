@@ -11,8 +11,9 @@ export const PeopleList = ({list}: {list: SanityDocument[]}) => {
         <div id="container" className='w-full flex flex-row lg:justify-center overflow-x-scroll'>
             {list.map(person => {
                 return (
-                <div key={person.slug ? person.slug.current : `${person._type}/${person.name}`} className='m-1 cursor-pointer w-[80%] shrink-0
-                                                    lg:flex-[0.5] lg:hover:flex-[1.5] lg:transition-all lg:ease-out lg:duration-500 rounded-lg'>
+                <div key={person.slug ? person.slug.current : `${person._type}/${person.name}`} 
+                    className='m-1 cursor-pointer w-[80%] shrink-0
+                                lg:flex-[0.5] lg:hover:flex-[1.5] lg:transition-all lg:ease-out lg:duration-500 rounded-lg'>
                     <ReusableCardComponent 
                         imgUrl={person.photo ? urlFor(person.photo.asset._ref).url() : defaultImg} 
                         title={person.name} 

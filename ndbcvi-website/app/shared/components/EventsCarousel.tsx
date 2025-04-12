@@ -6,7 +6,7 @@ import Image from 'next/image';
 import greyNavArrow from "../../assets/svgs/nav-arrow-grey.svg";
 import blackNavArrow from "../../assets/svgs/nav-arrow-black.svg";
 
-export const Carousel = ({items, next, prev, displayed, autoSlide = false, autoSlideInterval = 3000}: {items: SanityDocument[], next: ()=>void, prev: ()=>void, displayed: number, autoSlide: boolean, autoSlideInterval: number}) => {
+export const EventsCarousel = ({items, next, prev, displayed, autoSlide = false, autoSlideInterval = 3000}: {items: SanityDocument[], next: ()=>void, prev: ()=>void, displayed: number, autoSlide: boolean, autoSlideInterval: number}) => {
 
     useEffect(() => {
         if(!autoSlide) {

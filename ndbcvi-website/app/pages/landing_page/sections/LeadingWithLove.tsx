@@ -12,10 +12,9 @@ const LeadingWithLove = () => {
           </h1>
           <div className="flex flex-col leading-[30px] gap-[24px]">
             <p>
-              Welcome to New Dawn Baptist Church (NDBC), a thriving community of believers dedicated to faith, love, and service. 
-              Whether you&rsquo;re a first-time visitor or a returning member, we&rsquo;re delighted to share this journey of faith with you. 
-              At NDBC, we are committed to revealing Jesus, restoring people, and raising communities. We warmly invite you to 
-              experience the worship, fellowship, and connection that make our church a true home
+              Welcome home!<br/><br/>
+              At New Dawn Baptist Church, we’re more than just a church—we’re family. Whether it’s your first time here or you’ve been with us for years, we’re so glad you’re here. Our heart is to reveal Jesus, restore lives, and build a community where everyone belongs. <br/><br/>
+              Come as you are, and let’s grow in faith, love, and purpose together. We can’t wait to welcome you in person!
             </p>
           </div>
         </div>
