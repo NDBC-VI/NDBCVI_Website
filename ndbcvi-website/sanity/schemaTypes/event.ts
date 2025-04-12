@@ -1,3 +1,5 @@
+import { Rule, ValidationContext } from "sanity";
+
 const event = {
     name: 'events',
     title: 'Events',
@@ -49,8 +51,24 @@ const event = {
             type: 'string'
         },
         {
-            name: 'googleMapsLink',
-            type: 'url'
+            name: 'mapsLink',
+            type: 'url',
+            validation: (rule: Rule) => rule.custom((link: string, context: ValidationContext) => {
+                if(link == undefined && context.document?.onlineMeetingLink == undefined) {
+                    return "Include a location link if this event is not being held online";
+                }
+                return true;
+            })
+        },
+        {
+            name: 'onlineMeetingLink',
+            type: 'url',
+            validation: (rule: Rule) => rule.custom((link: string, context: ValidationContext) => {
+                if(link == undefined && context.document?.mapsLink == undefined) {
+                    return "Include a meeting link if this event is not being held in person";
+                }
+                return true;
+            })
         }
     ]
 }

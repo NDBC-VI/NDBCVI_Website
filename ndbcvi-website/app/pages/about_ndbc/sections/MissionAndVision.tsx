@@ -3,6 +3,64 @@ import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
 import whiteNavArrow from "../../../assets/svgs/nav-arrow-white.svg";
 import blackNavArrow from "../../../assets/svgs/nav-arrow-black.svg";
 const MissionAndVision = () => {
+
+  const sections = [
+    {
+      title: "Vision",
+      values: [
+        {
+          title: "Reveal",
+          message: "We believe in dynamic Christian worship as the foundation for daily life, and we strive to teach sound Biblical principles with love as our guiding principle."
+        },
+        {
+          title: "Raise",
+          message: "We believe in dynamic Christian worship as the foundation for daily life, and we strive to teach sound Biblical principles with love as our guiding principle."
+        },
+        {
+          title: "Restore",
+          message: "We believe in dynamic Christian worship as the foundation for daily life, and we strive to teach sound Biblical principles with love as our guiding principle."
+        }
+      ]
+    },
+    {
+      title: "Mission",
+      values: [
+        {
+          title: "Embrace",
+          message: "We believe in dynamic Christian worship as the foundation for daily life, and we strive to teach sound Biblical principles with love as our guiding principle."
+        },
+        {
+          title: "Exalt",
+          message: "We believe in dynamic Christian worship as the foundation for daily life, and we strive to teach sound Biblical principles with love as our guiding principle."
+        },
+        {
+          title: "Equip",
+          message: "We believe in dynamic Christian worship as the foundation for daily life, and we strive to teach sound Biblical principles with love as our guiding principle."
+        },
+        {
+          title: "Express",
+          message: "We believe in dynamic Christian worship as the foundation for daily life, and we strive to teach sound Biblical principles with love as our guiding principle."
+        }
+      ]
+    },
+    {
+      title: "Vision",
+      values: [
+        {
+          title: "Reveal",
+          message: "We believe in dynamic Christian worship as the foundation for daily life, and we strive to teach sound Biblical principles with love as our guiding principle."
+        },
+        {
+          title: "Raise",
+          message: "We believe in dynamic Christian worship as the foundation for daily life, and we strive to teach sound Biblical principles with love as our guiding principle."
+        },
+        {
+          title: "Restore",
+          message: "We believe in dynamic Christian worship as the foundation for daily life, and we strive to teach sound Biblical principles with love as our guiding principle."
+        }
+      ]
+    },
+  ]
   return (
     <section className="py-[120px] pl-[40px] lg:px-[40px]">
       <div className="w-full max-w-[1392px] mx-auto flex flex-col lg:flex-row gap-[24px]">
@@ -13,7 +71,7 @@ const MissionAndVision = () => {
               <span className="text-white">1</span>/3
             </p>
             <h2 className="text-[24px] lg:text-[38px] font-[600]">
-              Our <br className="hidden lg:block" /> Mission
+              Our <br className="hidden lg:block" /> {sections[1].title}
             </h2>
           </div>
           <div className="flex gap-[6px]">
