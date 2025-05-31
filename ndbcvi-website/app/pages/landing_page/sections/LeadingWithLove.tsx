@@ -13,7 +13,7 @@ const LeadingWithLove = () => {
               Leading with love
             </h1>
           </FadeInOnViewWrapper>
-          <FadeInOnViewWrapper animation_duration={1000} translationX="-100px" xDir="right" delay="700">
+          <FadeInOnViewWrapper animation_duration={1000} translationX="-100px" xDir="right" delay="500">
             <div className="flex flex-col leading-[30px] gap-[24px]">
               <p>
                 Welcome home!<br/><br/>
@@ -31,22 +31,22 @@ const LeadingWithLove = () => {
               backgroundPosition: "center",
             }}
             className="md:w-1/2 relative text-white flex py-[80px] px-[30px] md:px-[48px] md:items-end">
-          {/* <Image src={heroImg} alt="hero img" className="object-fill h-full" /> */}
-          {/* <div className="absolute bottom-[-3%] px-[30px] md:px-0 md:pl-[48px] text-white flex md:items-end w-full h-full bg-red-500"> */}
-            <div className="flex flex-col items-center justify-center md:items-start w-full py-1">
-              <h3 className="md:text-[36px] text-center text-[24px] font-[500] leading-[32px] md:text-start md:font-[600] md:leading-[45px]">
-                Join us and experience <br /> the love of God at NDBC
-              </h3>
-              <div>
-                <button
-                  type="button"
-                  className="flex items-center gap-2 bg-[#2C2563] py-[13.5px] px-[18px] font-[500] rounded-[100px] text-white mt-[18px] md:mt-[28px]"
-                >
-                  <p>Learn more about us</p>
-                  <Image src={rightArrow} alt="right arrow" />
-                </button>
+            <FadeInOnViewWrapper translationX="100px" delay="700">
+              <div className="flex flex-col items-center justify-center md:items-start w-full py-1">
+                <h3 className="md:text-[36px] text-center text-[24px] font-[500] leading-[32px] md:text-start md:font-[600] md:leading-[45px]">
+                  Join us and experience <br /> the love of God at NDBC
+                </h3>
+                <div>
+                  <button
+                    type="button"
+                    className="flex items-center gap-2 bg-[#2C2563] py-[13.5px] px-[18px] font-[500] rounded-[100px] text-white mt-[18px] md:mt-[28px]"
+                  >
+                    <p>Learn more about us</p>
+                    <Image src={rightArrow} alt="right arrow" />
+                  </button>
+                </div>
               </div>
-            </div>
+            </FadeInOnViewWrapper>
           {/* </div> */}
         </div>
       </div>

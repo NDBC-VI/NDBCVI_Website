@@ -1,7 +1,5 @@
 import CommunityLifeCard from "../components/CommunityLifeCard";
 import heroImg from "../../../assets/pngs/hero-img.png";
-import { FadeInOnViewWrapper } from "@/app/shared/animation/FadeInOnViewWrapper";
-import { CommunityLifeCardsDisplay } from "../components/CommunityLifeCardsDisplay";
 
 const CommunityLife = () => {
   return (
@@ -22,10 +20,10 @@ const CommunityLife = () => {
             className="w-full h-[55%] absolute top-0 left-0 peer"
             ></div>
             {/* <CommunityLifeCardsDisplay /> */}
-              <CommunityLifeCard name="Activity name 1" img={heroImg.src} />
-              <CommunityLifeCard name="Activity name 2" img={heroImg.src} />
-              <CommunityLifeCard name="Activity name 3" img={heroImg.src} />
-              <CommunityLifeCard name="Activity name 4" img={heroImg.src} />
+              <CommunityLifeCard name="Activity name 1" img={heroImg.src} order={0} />
+              <CommunityLifeCard name="Activity name 2" img={heroImg.src} order={1} />
+              <CommunityLifeCard name="Activity name 3" img={heroImg.src} order={2} />
+              <CommunityLifeCard name="Activity name 4" img={heroImg.src} order={3} />
         </div>
         {/* </div> */}
       </div>
