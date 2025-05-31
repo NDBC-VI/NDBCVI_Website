@@ -16,7 +16,7 @@ const Hero = () => {
       }}
       className="flex justify-center items-center pt-[170px]"
     >
-      <FadeInOnViewWrapper animation_duration={1000} translationY={"25px"} translationX="0" yDir="down">
+      <FadeInOnViewWrapper animation_duration={1000} translationY="30px" yDir="down">
         <div className="w-full text-center">
           <h1 className="md:text-[60px] text-[36px] font-[600] md:leading-[72.61px]">
             A Place To Call Home. <br /> A Place To Find Purpose.
