@@ -60,6 +60,17 @@ p {
     @apply font-[600] ml-[20px] my-[24px] text-[24px] md:text-[48px]
   }
 
+  /* Animation on scroll */
+  .initiallyHidden {
+    opacity: 0;
+  }
+  .showOnView {
+    opacity: 1;
+    transform: translate(0, 25px);
+    transition: all ease-in-out 1.5s;
+  }
+
+
   /* Scroll text animation */
   @media (width <= 600px) {   
     @keyframes scrollText {
@@ -105,3 +116,5 @@ p {
       opacity: 100%;
     }
   }
+
+  

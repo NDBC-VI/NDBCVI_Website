@@ -3,8 +3,8 @@ import { MenuLink } from "./MenuLink";
 const actionLinks = [
   'Celebrate Anniversary',
   "Child Dedication",
-  "Share a Testiomony",
-  "Share a Celebrate Birthday",
+  "Share a Testimony",
+  "Celebrate Birthday",
 ];
 
 const TakeActionView = () => {

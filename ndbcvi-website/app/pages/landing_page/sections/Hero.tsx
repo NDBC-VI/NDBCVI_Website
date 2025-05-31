@@ -1,6 +1,7 @@
 import CustomBtn from "@/app/shared/components/CustomBtn";
 // import heroImg from "../../../assets/images/hero-img.webp";
 import heroImg from "../../../assets/pngs/hero-img.png";
+import { FadeInOnViewWrapper } from "@/app/shared/animation/FadeInOnViewWrapper";
 
 const Hero = () => {
   return (
@@ -15,18 +16,20 @@ const Hero = () => {
       }}
       className="flex justify-center items-center pt-[170px]"
     >
-      <div className="text-center">
-        <h1 className="md:text-[60px] text-[36px] font-[600] md:leading-[72.61px]">
-          A Place To Call Home. <br /> A Place To Find Purpose.
-        </h1>
-        <h3 className="mt-[36px] text-[24px] font-[500] mb-[48px] leading-[28.8px]">
-          Know God. Find Freedom. Discover <br /> Purpose. Make a Difference
-        </h3>
-        <div className="flex gap-6 justify-center">
-          <CustomBtn title="Service times" />
-          <CustomBtn title="Plan a visit" />
+      <FadeInOnViewWrapper animation_duration={1000} translationY={"25px"} translationX="0" yDir="down">
+        <div className="w-full text-center">
+          <h1 className="md:text-[60px] text-[36px] font-[600] md:leading-[72.61px]">
+            A Place To Call Home. <br /> A Place To Find Purpose.
+          </h1>
+          <h3 className="mt-[36px] text-[24px] font-[500] mb-[48px] leading-[28.8px]">
+            Know God. Find Freedom. Discover <br /> Purpose. Make a Difference
+          </h3>
+          <div className="flex gap-6 justify-center">
+            <CustomBtn title="Service times" />
+            <CustomBtn title="Plan a visit" />
+          </div>
         </div>
-      </div>
+      </FadeInOnViewWrapper>
     </section>
   );
 };

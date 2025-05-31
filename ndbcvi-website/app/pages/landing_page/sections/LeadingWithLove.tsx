@@ -1,22 +1,27 @@
 import Image from "next/image";
 import rightArrow from "../../../assets/svgs/right-arrow.svg";
 import heroImg from "../../../assets/pngs/hero-img.png";
+import { FadeInOnViewWrapper } from "@/app/shared/animation/FadeInOnViewWrapper";
 
 const LeadingWithLove = () => {
   return (
     <section>
       <div className="max-w-[1512px] mx-auto flex flex-col md:flex-row ">
         <div className="md:w-1/2 md:px-[60px] px-[20px] py-[80px]">
-          <h1 className="md:text-[55px] text-[36px]  leading-[72.61px] mb-[40px]">
-            Leading with love
-          </h1>
-          <div className="flex flex-col leading-[30px] gap-[24px]">
-            <p>
-              Welcome home!<br/><br/>
-              At New Dawn Baptist Church, we’re more than just a church—we’re family. Whether it’s your first time here or you’ve been with us for years, we’re so glad you’re here. Our heart is to reveal Jesus, restore lives, and build a community where everyone belongs. <br/><br/>
-              Come as you are, and let’s grow in faith, love, and purpose together. We can’t wait to welcome you in person!
-            </p>
-          </div>
+          <FadeInOnViewWrapper animation_duration={1000} translationX="100px" translationY="0">
+            <h1 className="md:text-[55px] text-[36px] leading-[72.61px] mb-[40px]">
+              Leading with love
+            </h1>
+          </FadeInOnViewWrapper>
+          <FadeInOnViewWrapper animation_duration={1000} translationX="100px" delay="700">
+            <div className="flex flex-col leading-[30px] gap-[24px]">
+              <p>
+                Welcome home!<br/><br/>
+                At New Dawn Baptist Church, we’re more than just a church—we’re family. Whether it’s your first time here or you’ve been with us for years, we’re so glad you’re here. Our heart is to reveal Jesus, restore lives, and build a community where everyone belongs. <br/><br/>
+                Come as you are, and let’s grow in faith, love, and purpose together. We can’t wait to welcome you in person!
+              </p>
+            </div>
+          </FadeInOnViewWrapper>
         </div>
         <div 
           style={{

@@ -25,8 +25,7 @@ const Navbar = ({
   faqPopup: SanityDocument;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const [bannerVisible, setBannerVisible] = useState(true);
+  const [bannerVisible, setBannerVisible] = useState(false);
 
   const pathname = usePathname();
   const updateCurrentPage = () => {
@@ -50,6 +49,10 @@ const Navbar = ({
     animation: `scrollText ${scrollDuration}s linear infinite`,
   };
 
+  useEffect(() => {
+    setBannerVisible(true);
+  }, []);
+  
   useEffect(() => {
     let textLength = 0;
     let containerLength = 0;

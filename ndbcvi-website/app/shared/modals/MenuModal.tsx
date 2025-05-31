@@ -1,24 +1,24 @@
 "use client";
 
-import churchLogo from "../../assets/pngs/church-logo.png";
-import whiteMapPin from "../../assets/svgs/map-pin-white.svg";
+import heroImg from "@/app/assets/pngs/hero-img.png";
+import { useNavBarContext } from "@/app/context/navBarContext";
+import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from "next-sanity";
 import Image from "next/image";
-import CustomBtn from "../components/CustomBtn";
-import youtube from "../../assets/svgs/youtube-menu.svg";
-import spotify from "../../assets/svgs/spotify-menu.svg";
-import facebook from "../../assets/svgs/facebook-menu.svg";
-import x from "../../assets/svgs/x-menu.svg";
+import { MouseEventHandler, useEffect, useMemo, useState } from "react";
+import { calcTimeDelta } from "react-countdown";
+import churchLogo from "../../assets/pngs/church-logo.png";
 import close_black from "../../assets/svgs/close-menu-black.svg";
 import close_white from "../../assets/svgs/close-menu-white.svg";
-import heroImg from "@/app/assets/pngs/hero-img.png";
+import facebook from "../../assets/svgs/facebook-menu.svg";
+import whiteMapPin from "../../assets/svgs/map-pin-white.svg";
+import spotify from "../../assets/svgs/spotify-menu.svg";
+import x from "../../assets/svgs/x-menu.svg";
+import youtube from "../../assets/svgs/youtube-menu.svg";
+import CustomBtn from "../components/CustomBtn";
 import TabBtn from "../components/TabBtn";
-import { useState, useMemo, MouseEventHandler, useEffect } from "react";
 import DiscoverView from "../views/DiscoverView";
 import TakeActionView from "../views/TakeActionView";
-import { PortableText } from "next-sanity";
-import { calcTimeDelta } from "react-countdown";
-import { urlFor } from "@/sanity/lib/image";
-import { useNavBarContext } from "@/app/context/navBarContext";
 
 const modalTabs: string[] = ["Discover", "Take action"];
 
@@ -68,6 +68,15 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
         isOpen ? "animate-[showElement_0.25s_ease-in_1_forwards]" : "hidden"
       } bg-white w-full flex flex-col md:overflow-hidden md:flex-row-reverse transition-all duration-500 h-[101dvh] sm:max-lg:h-[104vh] overflow-y-auto`}
     >
+      <div className="bg-none sticky top-0 right-0 mr-10 w-fit">
+        <button
+          type="button"
+          className="w-fit md:hidden sticky top-[3rem] left-[100%] "
+          onClick={onClose}
+        >
+          <Image src={close_white} alt="close icon" width={20} />
+        </button>
+      </div>
       <div className="md:w-1/2 p-10 text-black flex flex-col ">
         <div className="flex justify-between">
           <div className="flex gap-4">
@@ -113,15 +122,15 @@ const MenuModal = ({ onClose, isOpen }: MenuModalProps) => {
             />
           </div>
         </div>
-        <div className="w-fit h-full absolute bottom-0 right-0 mr-10 mix-blend-difference">
+        {/* <div className="w-fit h-full absolute top-0 right-0 mr-10 bg-mix-blend-difference">
           <button
             type="button"
-            className="w-fit md:hidden sticky top-[3rem] left-[100%]"
+            className="w-fit md:hidden sticky top-[3rem] left-[100%] mix-blend-difference"
             onClick={onClose}
           >
             <Image src={close_white} alt="close icon" width={20} />
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="md:w-1/2 bg-[#1D1841] p-10 h-fit md:h-auto">
         <Image src={churchLogo} alt="church logo" width={43} />
