@@ -127,7 +127,7 @@ p {
     }
   }
 
-  /* Hide element animation */
+  /* Display element animation */
   @keyframes translateUp {
     0% {
       transform: translateY(0);
@@ -138,4 +138,21 @@ p {
     100% {
       transform: translateY(-250px);
     }
+  }
+
+
+  /* Autoscrolling animation */
+  @keyframes autoScrollX {
+
+    to {
+      transform: translateX(-256%);
+    }
+  }
+
+  .animation-wrapper[data-animated="true"] {
+    overflow: hidden;
+  }
+
+  .animation-wrapper[data-animated="true"] .animation-wrapper {
+    flex-wrap: nowrap;
   }

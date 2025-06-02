@@ -6,6 +6,7 @@ import { PeopleList } from "../components/PeopleList";
 import { MinistryLeadList } from "@/app/types";
 import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
 import blackNavArrow from "../../../assets/svgs/nav-arrow-black.svg";
+import { InfiniteScrollingWrapper } from "@/app/shared/animation/InfiniteScrollingWrapper";
 
 type CardGroup = {
   groups: Array<SanityDocument[]>
@@ -34,7 +35,7 @@ const MinistryLeads = ({
   }
 
   return (
-    <section className="w-full pl-[40px] pt-[60px] lg:pt-[150px] flex flex-col items-center z-0 lg:px-[40px]">
+    <section className="w-full pl-[40px] pt-[60px] lg:pt-[150px] flex flex-col items-center z-0 lg:px-[40px] overflow-x-hidden">
       <div
         className="w-full flex flex-col items-start
                 lg:flex-row lg:justify-between lg:mb-[5vh] lg:text-right"
@@ -44,8 +45,13 @@ const MinistryLeads = ({
           <PortableText value={ministryLeads.description} />
         </div>
       </div>
-      <PeopleList list={displayGroups.groups[display]} />
-      <div className="flex gap-[6px] items-center">
+      {/* <PeopleList list={displayGroups.groups[display]} /> */}
+      <div className="w-full overflow-x-hidden">
+        <InfiniteScrollingWrapper duration="35s">
+          <PeopleList list={ministryLeads.ministryLeadList} />
+        </InfiniteScrollingWrapper>
+      </div>
+      {/* <div className="flex gap-[6px] items-center">
         <button onClick={prev} disabled={display == 0}>
           <Image src={ display == 0 ? greyNavArrow : blackNavArrow } alt="nav left icon" className="rotate-180" />
         </button>
@@ -53,7 +59,7 @@ const MinistryLeads = ({
         <button onClick={next} disabled={display == displayGroups.groups.length-1}>
           <Image src={ display == displayGroups.groups.length-1 ? greyNavArrow : blackNavArrow } alt="nav right icon" />
         </button>
-      </div>
+      </div> */}
     </section>
   );
 };

@@ -1,10 +1,11 @@
 import { PortableText } from "next-sanity";
 import { PeopleList } from "../components/PeopleList";
 import { DeaconList } from "@/app/types";
+import { InfiniteScrollingWrapper } from "@/app/shared/animation/InfiniteScrollingWrapper";
 
 const Deacons = ({ deacons }: { deacons: DeaconList }) => {
   return (
-    <section className="w-full pl-[40px] pt-[60px] lg:pt-[150px] flex flex-col items-center z-0 lg:px-[40px]">
+    <section className="w-full pt-[60px] lg:pt-[150px] flex flex-col items-center z-0 lg:px-[40px] overflow-x-hidden">
       <div
         className="w-full flex flex-col items-start text-left
                 lg:flex-row lg:justify-between lg:mb-[5vh] lg:text-right"
@@ -14,7 +15,11 @@ const Deacons = ({ deacons }: { deacons: DeaconList }) => {
           <PortableText value={deacons.description} />
         </div>
       </div>
-      <PeopleList list={deacons.deaconList} />
+      <div className="w-full overflow-x-hidden">
+        <InfiniteScrollingWrapper duration="30s">
+          <PeopleList list={deacons.deaconList} />
+        </InfiniteScrollingWrapper>
+      </div>
     </section>
   );
 };
