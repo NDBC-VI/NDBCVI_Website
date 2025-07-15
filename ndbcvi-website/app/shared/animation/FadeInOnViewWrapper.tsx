@@ -6,7 +6,7 @@ export const FadeInOnViewWrapper = (
     { children, animation_duration = 750, translationY = "0px", translationX = "0px", delay = "0" }: 
     { children: React.ReactNode, animation_duration?: number, translationY?: string, translationX?: string, yDir?: string, xDir?: string, delay?: string }) => {
 
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement>(null);
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
@@ -27,17 +27,39 @@ export const FadeInOnViewWrapper = (
             }
         });
     }, []);
-    
-    return (
-        <div 
-            ref={ref} 
-            style={{
+
+    useEffect(() => {
+        if(ref.current) {
+            // Enable/disable animation based on user preferences
+            if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                ref.current.setAttribute("data-animated", new Boolean(true).toString());
+            }
+        }
+    }, []);
+
+    const getStyle = () => {
+        let style = {};
+        if(ref.current?.getAttribute('data-animated') !== null) {
+            style = {
                 transform: visible 
                     ? 'translate(0px, 0px)'
                     : `translate(${translationX}, ${translationY})`,
                 transition:`all ${animation_duration}ms ease-in-out ${delay}ms`,
                 opacity: visible ? 1 : 0
-            }}
+            };
+        }
+        else {
+            style = {
+                opacity: 1
+            }
+        }
+        return style;
+    }
+
+    return (
+        <div 
+            ref={ref} 
+            style={getStyle()}
             className=''
             >
             {children}

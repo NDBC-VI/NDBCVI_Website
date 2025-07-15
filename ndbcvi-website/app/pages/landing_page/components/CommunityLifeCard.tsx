@@ -1,4 +1,3 @@
-import { FadeInOnViewWrapper } from "@/app/shared/animation/FadeInOnViewWrapper";
 import { SlideInOnView } from "@/app/shared/animation/SlideInOnView";
 import Image from "next/image";
 

@@ -1,3 +1,4 @@
+
 import { PortableText } from "next-sanity";
 import { PeopleList } from "../components/PeopleList";
 import { DeaconList } from "@/app/types";
@@ -16,7 +17,7 @@ const Deacons = ({ deacons }: { deacons: DeaconList }) => {
         </div>
       </div>
       <div className="w-full overflow-x-hidden">
-        <InfiniteScrollingWrapper duration="30s">
+        <InfiniteScrollingWrapper animationDuration="35s" >
           <PeopleList list={deacons.deaconList} />
         </InfiniteScrollingWrapper>
       </div>

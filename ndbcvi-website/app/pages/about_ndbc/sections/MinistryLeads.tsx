@@ -1,11 +1,6 @@
-"use client";
-import { useState } from "react";
-import Image from "next/image";
 import { PortableText, SanityDocument } from "next-sanity";
 import { PeopleList } from "../components/PeopleList";
 import { MinistryLeadList } from "@/app/types";
-import greyNavArrow from "../../../assets/svgs/nav-arrow-grey.svg";
-import blackNavArrow from "../../../assets/svgs/nav-arrow-black.svg";
 import { InfiniteScrollingWrapper } from "@/app/shared/animation/InfiniteScrollingWrapper";
 
 type CardGroup = {
@@ -24,16 +19,6 @@ const MinistryLeads = ({
     displayGroups.groups.push(ministryLeadGroup);
   }
 
-  const [display, setDisplay] = useState(0);
-
-  const prev = () => {
-    setDisplay(display-1);
-  }
-
-  const next = () => {
-    setDisplay(display+1);
-  }
-
   return (
     <section className="w-full pl-[40px] pt-[60px] lg:pt-[150px] flex flex-col items-center z-0 lg:px-[40px] overflow-x-hidden">
       <div
@@ -47,8 +32,8 @@ const MinistryLeads = ({
       </div>
       {/* <PeopleList list={displayGroups.groups[display]} /> */}
       <div className="w-full overflow-x-hidden">
-        <InfiniteScrollingWrapper duration="35s">
-          <PeopleList list={ministryLeads.ministryLeadList} />
+        <InfiniteScrollingWrapper animationDuration="50s">
+          <PeopleList list={displayGroups.groups[0]} />
         </InfiniteScrollingWrapper>
       </div>
       {/* <div className="flex gap-[6px] items-center">
