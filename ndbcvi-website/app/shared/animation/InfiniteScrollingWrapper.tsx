@@ -1,10 +1,25 @@
 "use client";
 
-import React, { ReactElement, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
-export const InfiniteScrollingWrapper = ({ children, duration="0s", direction="forwards" }: { children: React.ReactNode, duration: string, direction?: string }) => {
-    const ref = useRef<HTMLInputElement>(null);
+export const InfiniteScrollingWrapper = ({ children, animationDuration="0s", direction="forwards" }: { children: React.ReactNode, animationDuration: string, direction?: string }) => {
+    const ref = useRef<HTMLDivElement>(null);
     const [visible, setVisible] = useState(false);
+
+    const onMouseEnter = () => {
+        ref.current?.style.setProperty("--scroll-speed", "200s");
+    }
+    const onMouseLeave = () => {
+        ref.current?.style.setProperty("--scroll-speed", animationDuration);
+
+    }
+
+    useEffect(() => {
+        if (ref.current) {
+            ref.current.style.setProperty("--scroll-speed", animationDuration);
+            ref.current.style.setProperty("--scroll-distance", "-256%");
+        }
+    }, [animationDuration]);
 
     useEffect(() => {
         if(ref.current) {
@@ -24,7 +39,7 @@ export const InfiniteScrollingWrapper = ({ children, duration="0s", direction="f
             else {
                 setVisible(false);
             }
-        }, {threshold: 0.1});
+        }, {threshold: 0.3});
 
         if(currentRef) {
             observer.observe(currentRef);
@@ -37,13 +52,17 @@ export const InfiniteScrollingWrapper = ({ children, duration="0s", direction="f
         });
     }, []);
 
+    const animationStyle = {
+        "animation": `autoScrollX var(--scroll-speed, 40s) linear 1s infinite ${direction}`,
+        "transition": "animation-duration 0.5s ease",
+        "will-change": "transform"
+    }
+
     return (
-        <div className='animation-wrapper max-w-[100vw]' id="infinite_scroll_wrapper" ref={ref}>
-            {
-                React.Children.map(children, (child: React.ReactNode) => {
-                    return React.cloneElement(child as ReactElement, { duration: visible ? duration : "0s", direction: direction});
-                })
-            }
+        <div className='animation-wrapper' id="infinite_scroll_wrapper" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            <div id="animation-wrapper-inner-container" ref={ref}  className={`max-w-[100vw] flex flex-row`} >
+                {children}
+            </div>
         </div>
     )
 }

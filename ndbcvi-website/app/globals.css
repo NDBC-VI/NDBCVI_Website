@@ -60,6 +60,11 @@ p {
     @apply font-[600] ml-[20px] my-[24px] text-[24px] md:text-[48px]
   }
 
+  /* Webkit styling for <details> and <summary> elements */
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
   /* Animation on scroll */
   .initiallyHidden {
     opacity: 0;
@@ -143,7 +148,6 @@ p {
 
   /* Autoscrolling animation */
   @keyframes autoScrollX {
-
     to {
       transform: translateX(-256%);
     }
@@ -153,6 +157,13 @@ p {
     overflow: hidden;
   }
 
-  .animation-wrapper[data-animated="true"] .animation-wrapper {
+  #animation-wrapper-inner-container {
     flex-wrap: nowrap;
+    animation-name: autoScrollX;
+    animation-duration: var(--scroll-speed, 40s);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    will-change: transform;
+    transition: animation-duration 0.5 ease;
   }
