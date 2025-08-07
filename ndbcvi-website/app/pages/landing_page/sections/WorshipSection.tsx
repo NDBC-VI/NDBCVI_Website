@@ -58,8 +58,8 @@ const WorshipSection = ({ locationLink }: { locationLink: string } ) => {
               <p className="text-[18px] mb-2">
                 We believe in Christian worship as the foundation for daily life
               </p>
-              <h2 className="text-[24px] lg:text-[40px] lg:leading-[45px]">
-                Worship with us by <br /> 6pm - 7:30pm on Wednesdays
+              <h2 className="text-[24px] lg:text-[38px] lg:leading-[45px]">
+                Worship with us by <br /> 6:30pm - 7:30pm on Wednesdays
               </h2>
             </div>
           </div>
