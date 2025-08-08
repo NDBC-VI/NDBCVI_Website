@@ -17,7 +17,23 @@ const WorshipSection = ({ locationLink }: { locationLink: string } ) => {
             We believe in Christian worship as the foundation for daily life
           </p>
           <h2 className="text-[24px] lg:text-[40px] lg:leading-[45px]">
-            Worship with us by <br /> 8am - 11am on Sundays
+            Worship Service (English) <br /> 8am - 10am on Sundays
+          </h2>
+        </div>
+      </>,
+      <>
+        <div className="bg-[rgba(0,0,0,0.4)] absolute top-0 left-0 w-full h-full rounded-[10px]"></div>
+        <img
+          src="https://images.unsplash.com/photo-1596449316135-1f35a59e6eb3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="info card img"
+          className="object-cover rounded-[10px] w-full h-full"
+        />
+        <div className="absolute text-white bottom-0 px-[20px] pb-[30px] lg:mx-0 lg:pl-[36px] lg:pb-[48px]">
+          <p className="text-[18px] mb-2">
+            We believe in Christian worship as the foundation for daily life
+          </p>
+          <h2 className="text-[24px] lg:text-[40px] lg:leading-[45px]">
+            Sunday School <br /> 10am - 11am on Sundays
           </h2>
         </div>
       </>,

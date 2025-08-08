@@ -57,6 +57,18 @@ const aboutPage = {
             type: 'reference',
             weak: false,
             to: [{type: 'ministryLeadList'}]
+        },
+        {
+            name: 'moreAboutNewDawnPopups',
+            title: '\"More About New Dawn\" popups',
+            type: 'array',
+            of: [{
+                name: 'infoPopupRef',
+                type: 'reference',
+                weak: true,
+                to: [{ type: 'infoPopup' }]
+
+            }]
         }
     ]
 }

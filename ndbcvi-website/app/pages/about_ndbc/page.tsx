@@ -16,7 +16,7 @@ const AboutNdbc = async () => {
   const aboutPage: SanityDocument = await sanityFetch<SanityDocument>({ query: aboutPageQuery });
   const images = aboutPage.aboutNdbcImages as SanityImageObject[];
   const communityActivities = aboutPage.communityActivities as SanityDocument[];
-  const { reverendsSection, deaconsSection, ministryLeadsSection } = aboutPage;
+  const { reverendsSection, deaconsSection, ministryLeadsSection, moreAboutNewDawnPopups } = aboutPage;
   
   return (
     <>
@@ -26,7 +26,7 @@ const AboutNdbc = async () => {
       <Reverends reverends={reverendsSection as ReverendList} />
       <Deacons deacons={deaconsSection as DeaconList} />
       <MinistryLeads ministryLeads={ministryLeadsSection as MinistryLeadList} />
-      <MoreAboutNewDawn />
+      <MoreAboutNewDawn infoPopups={moreAboutNewDawnPopups as SanityDocument[]} />
     </>
   );
 };
