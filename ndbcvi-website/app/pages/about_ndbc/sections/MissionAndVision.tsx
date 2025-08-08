@@ -111,12 +111,14 @@ const MissionAndVision = () => {
               <div key={value.title} 
                 className={`h-[270px] w-[80%] shrink-0 mr-5 px-4 py-2 rounded-[18px] bg-[#F6F6F6] flex items-end transition-all translate-x-[]
                 lg:h-full lg:w-[33%] lg:mr-0 ${i == 0 ? "lg:rounded-l-[24px] lg:rounded-r-none lg:border-r-[2px]" : i == sections[sectionNum].values.length - 1 ? "lg:rounded-r-[24px] lg:rounded-l-none" : "lg:rounded-none lg:border-r-[2px]"} lg:border-[#D9D9D9] lg:flex lg:px-[20px] lg:pb-[36px]`}>
-                <div className="h-[285px] grid py-2">
+                <div className="h-[285px] grid py-2 relative">
                     <h2 className="text-[24px] lg:text-[36px] font-[600] mb-[30px]">{value.title}</h2>
                     <div className="overflow-scroll">
-                      <p className="text-[18px] lg:text-[20px]">
+                      <p className="text-[18px] lg:text-[20px] mb-[30px]">
                         {value.message}
                       </p>
+                      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 w-full
+                        bg-gradient-to-t from-[#F6F6F6] to-transparent" />
                     </div>
                 </div>
               </div>
