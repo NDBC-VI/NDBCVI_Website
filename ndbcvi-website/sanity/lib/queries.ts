@@ -89,6 +89,15 @@ export const aboutPageQuery = groq`*[_type == "aboutPage"][0] {
     ministryLeadsSection -> {
         description,
         ministryLeadList[]->
+    },
+    moreAboutNewDawnPopups -> {
+        title,
+        slug,
+        introduction,
+        thumbnailImage,
+        thumbnailCaption,
+        headerImages,
+        infoSections[]->
     }
 }`
 

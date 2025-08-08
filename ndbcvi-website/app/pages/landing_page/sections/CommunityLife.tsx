@@ -19,10 +19,10 @@ const CommunityLife = () => {
             id="no-hover-zone"
             className="w-full h-[55%] absolute top-0 left-0 peer"
           ></div>
-          <CommunityLifeCard name="Activity name" img={heroImg.src} />
-          <CommunityLifeCard name="Activity name" img={heroImg.src} />
-          <CommunityLifeCard name="Activity name" img={heroImg.src} />
-          <CommunityLifeCard name="Activity name" img={heroImg.src} />
+          <CommunityLifeCard name="Children Ministry" img={heroImg.src} />
+          <CommunityLifeCard name="Couples Fellowship" img={heroImg.src} />
+          <CommunityLifeCard name="Drama" img={heroImg.src} />
+          <CommunityLifeCard name="Care" img={heroImg.src} />
         </div>
         {/* </div> */}
       </div>

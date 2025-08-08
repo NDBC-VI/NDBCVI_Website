@@ -8,7 +8,8 @@ type InfoSectionType = {
     },
     title: string,
     content: PortableTextBlock[],
-    subInfoSections: InfoSectionType[]
+    subInfoSections: InfoSectionType[],
+    summary: PortableTextBlock[]
 }
 
 type FaqSectionType = {
