@@ -38,6 +38,12 @@ const infoSection = {
             title: 'Sub Info Sections',
             type: 'array',
             of: [{ type: 'infoSection' }]
+        },
+        {
+            name: 'summary',
+            title: 'Summary',
+            type: 'array',
+            of: [{ type: 'block' }]
         }
     ]
 };
