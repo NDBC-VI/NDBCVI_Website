@@ -27,6 +27,9 @@ import { Key } from "react";
 //   },
 // ];
 
+
+const defaultImg = "https://s3-alpha-sig.figma.com/img/c399/a4aa/cbd312b546258322b4fb6eadc0c8c032?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mt8A9Nqq0f-4V2j6Tz9krgCo3aTWKRBrlu8NGdcwF4HXKYaSfzkITpDQKeGwu-JAn7~pGxmVNUEOWH8BqMZl5BbQE245uspjtN2cMqrj10Q3K2o9Zl-ZTgy5zUzwM0kTVBpueJHmhZPCr2ZiFkX5vNNeIfxdnlIbPvlfVlxWSOd45JiOjcN3dFYbVq-HfL5~nuOB~UnsWLhY1JE1bXk34-wLqXTkT9amR4kCS3hWMOJ44T84YKNnEOOEhjQ~WQbDv~hxUB6LzC4EOIipepj4mNbvu62-spfZDPOENNaTAly7hZ0TZTNSaR6Gy3Tk44UMhtyvJ5wRj5EPLNfw25Jwdg__";
+
 const MoreAboutNewDawn = ({ infoPopups } : { infoPopups: SanityDocument[] }) => {
   return (
     <section className="pt-[60px] lg:pt-[120px]">
@@ -40,18 +43,19 @@ const MoreAboutNewDawn = ({ infoPopups } : { infoPopups: SanityDocument[] }) => 
             at NDBC
           </p>
         </div>
-        <div className="pt-[40px] lg:pt-[60px] flex flex-col lg:flex-row">
+        <div className="pt-[20px] lg:pt-[15px] flex flex-col lg:flex-row">
           {infoPopups?.map((infoPopup: SanityDocument, i: Key) => {
-            const basicModalProps: BasicModalPropsType = {
-              introduction: infoPopup?.introduction,
-              title: infoPopup?.title,
-              slug: {
-                current: infoPopup?.slug.current,
-              },
+            const BasicInfoModalProps: BasicModalPropsType = {
               thumbnailImage: infoPopup?.thumbnailImage,
               thumbnailCaption: infoPopup?.thumbnailCaption,
               headerImages: infoPopup?.headerImages,
-              infoSections: infoPopup?.infoSections,
+              slug: {
+                current: infoPopup?.slug.current,
+              },
+              title: infoPopup?.title,
+              content: infoPopup?.introduction,
+              subInfoSections: infoPopup?.subInfoSections,
+              summary: infoPopup?.summary
             };
             return (
               <div className="w-full" key={infoPopup.slug.current}>
@@ -60,12 +64,12 @@ const MoreAboutNewDawn = ({ infoPopups } : { infoPopups: SanityDocument[] }) => 
                   modalActivator={
                     <ReusableCardComponent
                       key={infoPopup.slug.current}
-                      imgUrl={urlFor(infoPopup.thumbnailImage.asset._ref).format("webp").auto("format").url()}
+                      imgUrl={infoPopup.thumbnailImage !== null ? urlFor(infoPopup.thumbnailImage.asset._ref).format("webp").auto("format").url() : defaultImg}
                       title={infoPopup.title}
                       body={infoPopup.thumbnailCaption}
                     />
                   }
-                  modalContent={<BasicModalContent {...basicModalProps} />}
+                  modalContent={<BasicModalContent {...BasicInfoModalProps} />}
                 />
               </div>
             )

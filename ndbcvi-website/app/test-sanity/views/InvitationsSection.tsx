@@ -2,7 +2,7 @@
 
 import { SanityDocument } from 'next-sanity';
 import React from 'react'
-import { BasicModalPropsType } from '../../types';
+import { BasicInfoModalPropsType } from '../../types';
 
 
 interface InvitationsSectionProps{
@@ -20,7 +20,7 @@ export const InvitationsSection: React.FC<InvitationsSectionProps> = (props: Inv
             <div className='h-[68vh] flex flex-row items-center'>
                 {
                     popups.map((infoPopup: SanityDocument) => {
-                        const basicModalProps: BasicModalPropsType = {
+                        const BasicInfoModalProps: BasicInfoModalPropsType = {
                             introduction: infoPopup?.introduction,
                             title: infoPopup?.title,
                             slug: { 

@@ -1,7 +1,7 @@
 import ReusableCardComponent from "@/app/shared/components/ReusableCardComponent";
 import { ModalTemplate } from "@/app/shared/modals/ModalTemplate";
-import { BasicModalPropsType } from "@/app/types";
-import { BasicModalContent } from "@/app/shared/modals/BasicModal/BasicModalContent";
+import { BasicInfoModalPropsType } from "@/app/types";
+import { BasicInfoModalContent } from "@/app/shared/modals/BasicInfoModal/BasicInfoModalContent";
 import { urlFor } from "@/sanity/lib/image";
 import { SanityDocument } from "next-sanity";
 import CustomBtn from "@/app/shared/components/CustomBtn";
@@ -18,7 +18,7 @@ const BeABlessing = ({ infoPopups }: { infoPopups: SanityDocument[] }) => {
       </div>
       <div className="max-w-[1512px] mx-auto pt-[60px] flex flex-col md:flex-row">
         {infoPopups.map((infoPopup: SanityDocument) => {
-          const basicModalProps: BasicModalPropsType = {
+          const BasicInfoModalProps: BasicInfoModalPropsType = {
             introduction: infoPopup?.introduction,
             title: infoPopup?.title,
             slug: {
@@ -47,7 +47,7 @@ const BeABlessing = ({ infoPopups }: { infoPopups: SanityDocument[] }) => {
                     }
                   />
                 }
-                modalContent={<BasicModalContent {...basicModalProps} />}
+                modalContent={<BasicInfoModalContent {...BasicInfoModalProps} />}
               />
             </div>
           );

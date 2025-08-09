@@ -38,6 +38,19 @@ type FaqType = {
 }
 
 type BasicModalPropsType = {
+    thumbnailImage: SanityImageObject,
+    thumbnailCaption: string,
+    headerImages: SanityImageObject[],
+    slug: {
+        current: string,
+    },
+    title: string,
+    content: InfoSectionType,
+    subInfoSections: InfoSectionType[],
+    summary: PortableTextBlock[]
+}
+
+type BasicInfoModalPropsType = {
     introduction: InfoSectionType,
     title: string,
     slug: { 
@@ -96,4 +109,4 @@ interface MinistryLeadList {
     ministryLeadList: SanityDocument[]
 }
 
-export type { InfoSectionType, FaqSectionType, BasicModalPropsType, FaqModalPropsType, FaqType, ScrollLinkType, ModalContextType, PersonType, ReverendList, DeaconList, MinistryLeadList }
+export type { InfoSectionType, FaqSectionType, BasicModalPropsType, BasicInfoModalPropsType, FaqModalPropsType, FaqType, ScrollLinkType, ModalContextType, PersonType, ReverendList, DeaconList, MinistryLeadList }

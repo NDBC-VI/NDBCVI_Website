@@ -90,7 +90,7 @@ export const aboutPageQuery = groq`*[_type == "aboutPage"][0] {
         description,
         ministryLeadList[]->
     },
-    moreAboutNewDawnPopups -> {
+    moreAboutNewDawnPopups[] -> {
         title,
         slug,
         introduction,
